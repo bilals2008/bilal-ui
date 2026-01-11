@@ -3,6 +3,7 @@
 import { Flame, ArrowUpRight, PartyPopper } from "lucide-react";
 import Link from "next/link";
 import { ModeToggle } from "../mode-toggle";
+import { Badge } from "../ui/badge";
 
 export function Header() {
   return (
@@ -72,9 +73,9 @@ export function Header() {
                       className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
                     >
                       Templates
-                      <span className="text-green-500 dark:text-green-400 border border-green-500 dark:border-green-400 rounded-lg px-1 py-0.5 text-xs">
-                        New
-                      </span>
+                      <Badge variant="soon" size="sm" appearance={"light"}>
+                        Soon
+                      </Badge>
                     </Link>
                   </div>
                 </div>
