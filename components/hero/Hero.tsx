@@ -14,14 +14,14 @@ import { BrowseBlocksButton } from "../ui/Browse-blocks";
 
 
 
-interface Action {
-  id: string;
-  label: string;
-  icon: React.ReactNode;
-  description?: string;
-  short?: string;
-  end?: string;
-}
+// interface Action {
+//   id: string;
+//   label: string;
+//   icon: React.ReactNode;
+//   description?: string;
+//   short?: string;
+//   end?: string;
+// }
 
 export function HeroSection() {
   return (
