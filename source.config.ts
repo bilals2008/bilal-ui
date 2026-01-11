@@ -1,0 +1,8 @@
+// File: source.config.ts
+import { defineDocs, defineConfig } from "fumadocs-mdx/config";
+
+export const docs = defineDocs({
+  dir: "content/docs", // yahan MDX files rakho
+});
+
+export default defineConfig();
