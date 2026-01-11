@@ -1,126 +1,209 @@
 // File: components/header/header.tsx
-// File: components/header/header.tsx
-import { Flame} from "lucide-react";
+"use client";
+import { Flame, Bell, Github, Menu, X } from "lucide-react";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-import { PartyPopper } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { ModeToggle } from "../mode-toggle";
+import { Badge } from "../ui/badge";
+import { useState } from "react";
+
+const NavLinks = [
+  { href: "/docs/components/background-paths", label: "Components" },
+  { href: "/templates", label: "Templates", badge: true },
+  { href: "/changelog", label: "Changelog" },
+];
+
+const getLinkClass = (isActive: boolean) => {
+  const baseClass =
+    "text-sm font-semibold relative pb-2 transition-all duration-300";
+
+  if (isActive) {
+    return `${baseClass} text-green-600 dark:text-green-400 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gradient-to-r after:from-green-500 after:to-green-400 dark:after:from-green-400 dark:after:to-green-300`;
+  }
+
+  return `${baseClass} text-zinc-600 hover:text-green-600 dark:text-zinc-400 dark:hover:text-green-400 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gradient-to-r after:from-green-500 after:to-green-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-500 after:origin-left dark:after:from-green-400 dark:after:to-green-300`;
+};
 
 export function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const closeMobileMenu = () => setMobileMenuOpen(false);
+
+  const isLinkActive = (href: string) => pathname.startsWith(href);
+
   return (
     <>
-      {/* Mobile Pro Banner completely separate from sticky header */}
-      <div className="sm:hidden w-full p-2.5 bg-white dark:bg-black/5">
-        <Link
-          href="#"
-          target="_blank"
-          className="flex items-center justify-center gap-2"
-        >
-          <span className="flex items-center gap-2">
-            <PartyPopper className="w-3.5 h-3.5" />
-            <span className="text-transparent bg-linear-to-r from-orange-500 via-amber-500 to-orange-600 bg-clip-text font-semibold">
-              Explore new components
-            </span>
-          </span>
-
-          <div className="group relative inline-flex items-center gap-2 px-3 py-1 text-sm rounded-lg bg-zinc-900 dark:bg-zinc-100 transition-colors">
-            <div className="absolute inset-0 rounded-lg bg-linear-to-r from-orange-500 via-amber-500 to-orange-600 opacity-40 group-hover:opacity-80 blur-sm transition-opacity duration-500" />
-            <div className="relative z-10 flex items-center gap-2">
-              <span className="text-white dark:text-zinc-900">
-                BilalUi Pro
-              </span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-white/90 dark:text-zinc-900/90" />
-            </div>
-          </div>
-        </Link>
-      </div>
-
       <div className="sticky top-0 left-0 right-0 z-50">
-        <div className="bg-white dark:bg-black/5 w-full">
-          {/* Rest of the header content */}
+        <div className="w-full">
           <div className="flex items-center justify-center w-full flex-col">
             <div
               className={`
-                            flex items-center justify-between
-                            bg-linear-to-b from-white/90 via-gray-50/90 to-white/90
-                            dark:from-zinc-900/90 dark:via-zinc-800/90 dark:to-zinc-900/90
-                            shadow-[0_2px_20px_-2px_rgba(0,0,0,0.1)]
-                            backdrop-blur-md
-                            border-x border-b 
-                            border-[rgba(230,230,230,0.7)] dark:border-[rgba(70,70,70,0.7)]
-                            w-full sm:min-w-200 sm:max-w-300
-                            rounded-b-[28px]
-                            px-4 py-2.5
-                            relative
-                            transition-all duration-300 ease-in-out
-                        `}
+                flex items-center justify-between
+                bg-white/80 dark:bg-zinc-900/80
+                shadow-lg shadow-zinc-800/5
+                backdrop-blur-md
+                border-x border-b 
+                border-zinc-200 dark:border-zinc-800
+                w-full sm:min-w-200 sm:max-w-300
+                rounded-b-[28px]
+                px-4
+                relative
+                transition-all duration-300 ease-in-out
+              `}
             >
               <div className="relative z-10 flex items-center justify-between w-full gap-2">
                 {/* Logo Section with Navigation Links */}
                 <div className="flex items-center gap-6">
-                  <Link href="/" className="flex items-center gap-2">
-                    <Flame className="w-6 h-6 text-green-500 dark:text-green-400" />
-
-                    <span className="hidden sm:block font-semibold">
+                  <Link
+                    href="/"
+                    className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+                  >
+                    <div className="p-2 rounded-lg bg-linear-to-r from-green-500/10 to-emerald-500/10 dark:from-green-400/10 dark:to-emerald-400/10 hover:from-green-500/20 hover:to-emerald-500/20 dark:hover:from-green-400/20 dark:hover:to-emerald-400/20">
+                      <Flame className="w-5 h-5 text-green-500 dark:text-green-400" />
+                    </div>
+                    <span className="font-semibold text-zinc-900 dark:text-white">
                       BilalUi
                     </span>
                   </Link>
-                  <span className="text-zinc-300 dark:text-zinc-700">|</span>
+                  <span className="text-zinc-300 dark:text-zinc-700 hidden sm:block">
+                    |
+                  </span>
+
                   {/* Desktop Navigation Links */}
                   <div className="hidden sm:flex items-center gap-4">
-                    <Link
-                      href="/docs/components/background-paths"
-                      className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
-                    >
-                      Components
-                    </Link>
-                    {/* <ViewTransitionsLink
-                                            href="/pricing"
-                                            className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
-                                        >
-                                            Pricing
-                                        </ViewTransitionsLink> */}
-                    <Link
-                      href="/templates"
-                      target="_blank"
-                      className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
-                    >
-                      Templates
-                      <span className="text-green-500 dark:text-green-400 border border-green-500 dark:border-green-400 rounded-lg px-1 py-0.5 text-xs">
-                        New
-                      </span>
-                    </Link>
+                    {NavLinks.map((link) => {
+                      const isActive = isLinkActive(link.href);
+                      return (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          target={
+                            link.label === "Templates" ? "_blank" : undefined
+                          }
+                          className={getLinkClass(isActive)}
+                        >
+                          <span className="flex items-center gap-2">
+                            {link.label}
+                            {link.badge && (
+                              <Badge
+                                variant="soon"
+                                size="xs"
+                                appearance={"light"}
+                              >
+                                Soon
+                              </Badge>
+                            )}
+                          </span>
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
 
-                {/* Right side items */}
+                {/* Right side items - Desktop */}
                 <div className="hidden sm:flex items-center gap-3">
                   <span className="text-zinc-300 dark:text-zinc-700">|</span>
-                  {/* <HeaderPro /> */}
+
+                  <div className="relative">
+                    <IconButton href="#" icon={Bell} title="Notifications" />
+                  </div>
+                  <IconButton
+                    href="https://github.com"
+                    icon={Github}
+                    title="GitHub"
+                    external
+                  />
                   <ModeToggle />
                 </div>
 
-                {/* Mobile Navigation remains unchanged */}
-                <div className="flex sm:hidden items-center gap-4">
-                  <Link
-                    href="/docs/components/action-search-bar"
-                    className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
-                  >
-                    Components
-                  </Link>
-                  <Link
-                    href="/pricing"
-                    className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
-                  >
-                    Pricing
-                  </Link>
+                {/* Mobile Navigation */}
+                <div className="flex sm:hidden items-center gap-2 ml-auto">
+                  <div className="relative">
+                    <IconButton href="#" icon={Bell} title="Notifications" />
+                  </div>
+                  <IconButton
+                    href="https://github.com"
+                    icon={Github}
+                    title="GitHub"
+                    external
+                  />
                   <ModeToggle />
+                  <button
+                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    className="p-2 rounded hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:focus:ring-zinc-600"
+                    aria-label="Toggle menu"
+                  >
+                    {mobileMenuOpen ? (
+                      <X className="w-5 h-5 text-zinc-600 dark:text-zinc-400" />
+                    ) : (
+                      <Menu className="w-5 h-5 text-zinc-600 dark:text-zinc-400" />
+                    )}
+                  </button>
                 </div>
               </div>
+
+              {/* Mobile Menu Dropdown */}
+              {mobileMenuOpen && (
+                <div className="absolute top-full left-4 right-4 mt-2 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md border border-zinc-200 dark:border-zinc-800 rounded-lg sm:hidden animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="flex flex-col gap-2 p-3">
+                    {NavLinks.map((link) => {
+                      const isActive = isLinkActive(link.href);
+                      return (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          target={
+                            link.label === "Templates" ? "_blank" : undefined
+                          }
+                          className={`${getLinkClass(isActive)} px-2 py-1.5`}
+                          onClick={closeMobileMenu}
+                        >
+                          <span className="flex items-center gap-2">
+                            {link.label}
+                            {link.badge && (
+                              <Badge
+                                variant="soon"
+                                size="xs"
+                                appearance={"light"}
+                              >
+                                Soon
+                              </Badge>
+                            )}
+                          </span>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
       </div>
     </>
+  );
+}
+
+// Icon Button Component
+interface IconButtonProps {
+  href: string;
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  external?: boolean;
+}
+
+function IconButton({ href, icon: Icon, title, external }: IconButtonProps) {
+  return (
+    <Link
+      href={href}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
+      className="p-2 rounded hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:focus:ring-zinc-600"
+      title={title}
+      aria-label={title}
+    >
+      <Icon className="w-5 h-5 text-zinc-600 dark:text-zinc-400 transition-colors" />
+    </Link>
   );
 }

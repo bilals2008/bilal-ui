@@ -6,8 +6,8 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | CodeSnippet UI - Open Source Components",
-    default: "CodeSnippet UI - Open Source Components",
+    template: "%s | Bilal UI - Open Source Components",
+    default: "Bilal UI - Open Source Components",
   },
 };
 
@@ -19,7 +19,7 @@ export default function HomeLayout({
   return (
     <>
       <Header />
-      <main className="relative w-full pt-0 md:pt-0 bg-white dark:bg-black">
+      <main className="relative w-full pt-0 md:pt-0 bg-white dark:bg-black font-inter">
         {children}
       </main>
       <Footer />
