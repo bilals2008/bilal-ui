@@ -2,12 +2,10 @@
 "use client";
 import { Flame, Bell, Github, Menu, X } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ModeToggle } from "../mode-toggle";
 import { Badge } from "../ui/badge";
-import { useState, useEffect } from "react";
-
-const linkClass =
-  "text-sm font-semibold text-zinc-600 hover:text-green-600 dark:text-zinc-400 dark:hover:text-green-400 relative pb-2 transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gradient-to-r after:from-green-500 after:to-green-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-500 after:origin-left dark:after:from-green-400 dark:after:to-green-300";
+import { useState } from "react";
 
 const NavLinks = [
   { href: "/docs/components/background-paths", label: "Components" },
@@ -15,15 +13,24 @@ const NavLinks = [
   { href: "/changelog", label: "Changelog" },
 ];
 
+const getLinkClass = (isActive: boolean) => {
+  const baseClass =
+    "text-sm font-semibold relative pb-2 transition-all duration-300";
+
+  if (isActive) {
+    return `${baseClass} text-green-600 dark:text-green-400 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gradient-to-r after:from-green-500 after:to-green-400 dark:after:from-green-400 dark:after:to-green-300`;
+  }
+
+  return `${baseClass} text-zinc-600 hover:text-green-600 dark:text-zinc-400 dark:hover:text-green-400 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gradient-to-r after:from-green-500 after:to-green-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-500 after:origin-left dark:after:from-green-400 dark:after:to-green-300`;
+};
+
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const pathname = usePathname();
 
   const closeMobileMenu = () => setMobileMenuOpen(false);
+
+  const isLinkActive = (href: string) => pathname.startsWith(href);
 
   return (
     <>
@@ -40,19 +47,21 @@ export function Header() {
                 border-zinc-200 dark:border-zinc-800
                 w-full sm:min-w-200 sm:max-w-300
                 rounded-b-[28px]
-                px-4 py-2.5
+                px-4
                 relative
                 transition-all duration-300 ease-in-out
               `}
             >
               <div className="relative z-10 flex items-center justify-between w-full gap-2">
-                {/* Logo Section */}
+                {/* Logo Section with Navigation Links */}
                 <div className="flex items-center gap-6">
                   <Link
                     href="/"
                     className="flex items-center gap-2 hover:opacity-80 transition-opacity"
                   >
-                    <Flame className="w-6 h-6 text-green-500 dark:text-green-400" />
+                    <div className="p-2 rounded-lg bg-linear-to-r from-green-500/10 to-emerald-500/10 dark:from-green-400/10 dark:to-emerald-400/10 hover:from-green-500/20 hover:to-emerald-500/20 dark:hover:from-green-400/20 dark:hover:to-emerald-400/20">
+                      <Flame className="w-5 h-5 text-green-500 dark:text-green-400" />
+                    </div>
                     <span className="font-semibold text-zinc-900 dark:text-white">
                       BilalUi
                     </span>
@@ -63,37 +72,42 @@ export function Header() {
 
                   {/* Desktop Navigation Links */}
                   <div className="hidden sm:flex items-center gap-4">
-                    {NavLinks.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        target={
-                          link.label === "Templates" ? "_blank" : undefined
-                        }
-                        className={linkClass}
-                      >
-                        <span className="flex items-center gap-2">
-                          {link.label}
-                          {link.badge && (
-                            <Badge
-                              variant="soon"
-                              size="xs"
-                              appearance={"light"}
-                            >
-                              Soon
-                            </Badge>
-                          )}
-                        </span>
-                      </Link>
-                    ))}
+                    {NavLinks.map((link) => {
+                      const isActive = isLinkActive(link.href);
+                      return (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          target={
+                            link.label === "Templates" ? "_blank" : undefined
+                          }
+                          className={getLinkClass(isActive)}
+                        >
+                          <span className="flex items-center gap-2">
+                            {link.label}
+                            {link.badge && (
+                              <Badge
+                                variant="soon"
+                                size="xs"
+                                appearance={"light"}
+                              >
+                                Soon
+                              </Badge>
+                            )}
+                          </span>
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
 
-                {/* Right side items */}
+                {/* Right side items - Desktop */}
                 <div className="hidden sm:flex items-center gap-3">
                   <span className="text-zinc-300 dark:text-zinc-700">|</span>
 
-                  <IconButton href="#" icon={Bell} title="Notifications" />
+                  <div className="relative">
+                    <IconButton href="#" icon={Bell} title="Notifications" />
+                  </div>
                   <IconButton
                     href="https://github.com"
                     icon={Github}
@@ -104,8 +118,10 @@ export function Header() {
                 </div>
 
                 {/* Mobile Navigation */}
-                <div className="flex sm:hidden items-center gap-2">
-                  <IconButton href="#" icon={Bell} title="Notifications" />
+                <div className="flex sm:hidden items-center gap-2 ml-auto">
+                  <div className="relative">
+                    <IconButton href="#" icon={Bell} title="Notifications" />
+                  </div>
                   <IconButton
                     href="https://github.com"
                     icon={Github}
@@ -128,33 +144,36 @@ export function Header() {
               </div>
 
               {/* Mobile Menu Dropdown */}
-              {mounted && mobileMenuOpen && (
+              {mobileMenuOpen && (
                 <div className="absolute top-full left-4 right-4 mt-2 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md border border-zinc-200 dark:border-zinc-800 rounded-lg sm:hidden animate-in fade-in slide-in-from-top-2 duration-200">
                   <div className="flex flex-col gap-2 p-3">
-                    {NavLinks.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        target={
-                          link.label === "Templates" ? "_blank" : undefined
-                        }
-                        className={`${linkClass} px-2 py-1.5`}
-                        onClick={closeMobileMenu}
-                      >
-                        <span className="flex items-center gap-2">
-                          {link.label}
-                          {link.badge && (
-                            <Badge
-                              variant="soon"
-                              size="xs"
-                              appearance={"light"}
-                            >
-                              Soon
-                            </Badge>
-                          )}
-                        </span>
-                      </Link>
-                    ))}
+                    {NavLinks.map((link) => {
+                      const isActive = isLinkActive(link.href);
+                      return (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          target={
+                            link.label === "Templates" ? "_blank" : undefined
+                          }
+                          className={`${getLinkClass(isActive)} px-2 py-1.5`}
+                          onClick={closeMobileMenu}
+                        >
+                          <span className="flex items-center gap-2">
+                            {link.label}
+                            {link.badge && (
+                              <Badge
+                                variant="soon"
+                                size="xs"
+                                appearance={"light"}
+                              >
+                                Soon
+                              </Badge>
+                            )}
+                          </span>
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               )}
