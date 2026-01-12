@@ -1,8 +1,14 @@
 // source.config.ts
-import { defineDocs, defineConfig } from "fumadocs-mdx/config";
+import { defineDocs, defineConfig, frontmatterSchema } from "fumadocs-mdx/config";
+import { z } from "zod";
 var docs = defineDocs({
-  dir: "content/docs"
-  // yahan MDX files rakho
+  dir: "content/docs",
+  docs: {
+    schema: frontmatterSchema.extend({
+      icon: z.string().optional(),
+      badge: z.string().optional()
+    })
+  }
 });
 var source_config_default = defineConfig();
 export {

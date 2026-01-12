@@ -1,7 +1,63 @@
 ---
-title: Hello World
+title: Introduction
+description: Welcome to Bilal UI - A collection of premium, modern UI components.
 ---
 
-## Introduction
+# Introduction
 
-I love Anime.
+Welcome to **Bilal UI**, a carefully crafted collection of premium UI components designed for modern web applications. Our mission is to provide developers with highly aesthetic, accessible, and high-performance components that make your projects stand out.
+
+## Why Bilal UI?
+
+- **Modern Aesthetics**: Designed with 2025 standards in mind—vibrant colors, glassmorphism, and smooth animations.
+- **Copy & Paste**: No complex installation. Find a component you like, copy the code, and drop it into your project.
+- **Fully Customizable**: Built on top of Tailwind CSS and Radix UI for maximum flexibility.
+- **TypeScript First**: First-class support for TypeScript with comprehensive type definitions.
+
+---
+
+## Getting Started
+
+Follow these steps to integrate Bilal UI into your project.
+
+### 1. Prerequisites
+
+Ensure you have the following dependencies installed in your project:
+
+```bash
+npm install lucide-react clsx tailwind-merge
+```
+
+### 2. Configure Utilities
+
+Add the following `cn` helper to your `lib/utils.ts` file to handle Tailwind class merging:
+
+```typescript
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+```
+
+### 3. Usage
+
+Browse the components in the sidebar, choose one, and follow the specific instructions on its page. Most components are designed to be "grab and go."
+
+## Framework Support
+
+Bilal UI works seamlessly with all modern React frameworks:
+
+- [x] Next.js (App Router & Pages Router)
+- [x] Vite
+- [x] Remix
+
+---
+
+## Community
+
+If you have any questions or want to share what you've built, feel free to reach out. We are constantly updating the library with new components!
+
+> [!TIP]
+> Keep an eye on the **Latest** section in the sidebar for newly added components and blocks.
