@@ -3,6 +3,7 @@
 
 import { DocsLayout, type DocsLayoutProps } from "fumadocs-ui/layouts/docs";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import * as Icons from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import React from "react";
@@ -17,6 +18,8 @@ export function DocsLayoutClient({
   children,
   ...props
 }: DocsLayoutClientProps) {
+  const pathname = usePathname();
+
   return (
     <DocsLayout
       {...props}
@@ -42,13 +45,13 @@ export function DocsLayoutClient({
               : configItem?.badge ||
                 (item as any).badge ||
                 (isComingSoon ? "Soon" : null);
-            const badgeVariant =
-              badgeText?.toLowerCase() === "new" || isNew
-                ? "new"
-                : badgeText?.toLowerCase() === "updated" ||
-                  badgeText?.toLowerCase() === "soon"
-                ? "soon"
-                : "secondary";
+
+            const isActive = pathname === item.url;
+            
+            // Premium active state logic
+            const activeStyles = isActive 
+              ? "bg-primary/5 text-primary font-medium shadow-[0_1px_2px_rgba(0,0,0,0.02)]" 
+              : "text-muted-foreground hover:bg-muted/50 hover:text-foreground";
 
             return (
               <Link
@@ -59,24 +62,56 @@ export function DocsLayoutClient({
                   }
                 }}
                 className={cn(
-                  "flex items-center gap-2.5 w-full py-2 px-3 rounded-xl transition-all duration-200 no-underline group",
-                  "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100/80 dark:hover:bg-zinc-800/50",
+                  "flex items-center gap-2.5 w-full py-2 px-3 rounded-lg text-[14px] transition-all duration-200 no-underline group relative overflow-hidden",
+                  activeStyles,
                   isComingSoon &&
-                    "opacity-50 cursor-not-allowed hover:bg-transparent dark:hover:bg-transparent"
+                    "opacity-60 cursor-not-allowed hover:bg-transparent dark:hover:bg-transparent"
                 )}
               >
-                {Icon && (
-                  <Icon className="w-4 h-4 text-zinc-500 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors" />
+                {/* Active Indicator Strip */}
+                {isActive && (
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-6 bg-primary rounded-r-full opacity-100" />
                 )}
-                <span className="flex-1 text-[13px] font-medium tracking-tight whitespace-nowrap overflow-hidden text-overflow-ellipsis">
+                
+                {Icon && (
+                  <Icon 
+                    className={cn(
+                      "w-4.5 h-4.5 transition-colors duration-200",
+                      isActive 
+                        ? "text-primary/80" 
+                        : "text-muted-foreground/70 group-hover:text-foreground/80"
+                    )} 
+                  />
+                )}
+                
+                <span className={cn(
+                  "flex-1 tracking-tight whitespace-nowrap overflow-hidden text-overflow-ellipsis",
+                  isActive ? "font-medium" : "font-normal"
+                )}>
                   {item.name}
                 </span>
+
                 {badgeText && (
                   <Badge
-                    variant={badgeVariant as any}
-                    appearance="light"
-                    size="xs"
-                    className="font-bold uppercase tracking-wider"
+                    variant="outline"
+                    className={cn(
+                      "text-[10px] px-1.5 h-5 rounded-md font-bold uppercase tracking-wide border",
+                      // New Badge - Vibrant Green/Emerald
+                      (isNew || badgeText === "New") && 
+                        "bg-emerald-500/10 text-emerald-600 border-emerald-500/20 dark:bg-emerald-500/20 dark:text-emerald-400",
+                      
+                      // Soon Badge - Warm Amber/Yellow
+                      badgeText === "Soon" && 
+                        "bg-amber-500/10 text-amber-600 border-amber-500/20 dark:bg-amber-500/20 dark:text-amber-400",
+                      
+                      // Updated Badge - Professional Blue
+                      (badgeText === "Updated" || badgeText === "Update") && 
+                        "bg-blue-500/10 text-blue-600 border-blue-500/20 dark:bg-blue-500/20 dark:text-blue-400",
+                        
+                      // Default/Other Badges
+                      !isNew && badgeText !== "New" && badgeText !== "Soon" && badgeText !== "Updated" && badgeText !== "Update" &&
+                        "bg-muted text-muted-foreground border-transparent"
+                    )}
                   >
                     {badgeText === "Updated" ? "Update" : badgeText}
                   </Badge>
