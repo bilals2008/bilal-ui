@@ -64,7 +64,7 @@ export const navigationSections: NavSection[] = [
         id: "ai-card-generation",
         title: "AI Card Generation",
         href: "/docs/blocks/ai-card-generation",
-        isComingSoon: true,
+        isNew: true,
         icon: "Cpu",
       },
       {
@@ -79,6 +79,14 @@ export const navigationSections: NavSection[] = [
   {
     title: "Components",
     items: [
+       {
+        id: "button",
+        title: "Button",
+        href: "/docs/components/button",
+        description: "Interactive button components with animations",
+        isNew: true,
+        icon: "SquareArrowOutUpRight",
+      },
       {
         id: "alert",
         title: "Alerts",
@@ -87,14 +95,7 @@ export const navigationSections: NavSection[] = [
         isComingSoon: true,
         icon: "AlertCircle",
       },
-      {
-        id: "button",
-        title: "Button",
-        href: "/docs/components/button",
-        description: "Interactive button components with animations",
-        isComingSoon: true,
-        icon: "SquareArrowOutUpRight",
-      },
+     
       {
         id: "card",
         title: "Card",

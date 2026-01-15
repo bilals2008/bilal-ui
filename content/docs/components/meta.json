@@ -1,10 +1,10 @@
 {
   "pages": [
+    "button",
     "action-search-bar",
     "avatar-picker",
     "beams-background",
     "alert",
-    "button",
     "card",
     "input"
   ]

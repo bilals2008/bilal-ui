@@ -1,12 +1,11 @@
 // @ts-nocheck
-import * as __fd_glob_9 from "../content/docs/components/card.mdx?collection=docs"
-import * as __fd_glob_8 from "../content/docs/components/button.mdx?collection=docs"
-import * as __fd_glob_7 from "../content/docs/components/beams-background.mdx?collection=docs"
-import * as __fd_glob_6 from "../content/docs/components/avatar-picker.mdx?collection=docs"
-import * as __fd_glob_5 from "../content/docs/components/alert.mdx?collection=docs"
-import * as __fd_glob_4 from "../content/docs/components/action-search-bar.mdx?collection=docs"
-import * as __fd_glob_3 from "../content/docs/blocks/ai-chat.mdx?collection=docs"
-import * as __fd_glob_2 from "../content/docs/blocks/ai-card-generation.mdx?collection=docs"
+import * as __fd_glob_8 from "../content/docs/components/card.mdx?collection=docs"
+import * as __fd_glob_7 from "../content/docs/components/button.mdx?collection=docs"
+import * as __fd_glob_6 from "../content/docs/components/beams-background.mdx?collection=docs"
+import * as __fd_glob_5 from "../content/docs/components/avatar-picker.mdx?collection=docs"
+import * as __fd_glob_4 from "../content/docs/components/alert.mdx?collection=docs"
+import * as __fd_glob_3 from "../content/docs/components/action-search-bar.mdx?collection=docs"
+import * as __fd_glob_2 from "../content/docs/blocks/ai-chat.mdx?collection=docs"
 import * as __fd_glob_1 from "../content/docs/index.mdx?collection=docs"
 import { default as __fd_glob_0 } from "../content/docs/components/meta.json?collection=docs"
 import { server } from 'fumadocs-mdx/runtime/server';
@@ -17,4 +16,4 @@ const create = server<typeof Config, import("fumadocs-mdx/runtime/types").Intern
   }
 }>({"doc":{"passthroughs":["extractedReferences"]}});
 
-export const docs = await create.docs("docs", "content/docs", {"components/meta.json": __fd_glob_0, }, {"index.mdx": __fd_glob_1, "blocks/ai-card-generation.mdx": __fd_glob_2, "blocks/ai-chat.mdx": __fd_glob_3, "components/action-search-bar.mdx": __fd_glob_4, "components/alert.mdx": __fd_glob_5, "components/avatar-picker.mdx": __fd_glob_6, "components/beams-background.mdx": __fd_glob_7, "components/button.mdx": __fd_glob_8, "components/card.mdx": __fd_glob_9, });
+export const docs = await create.docs("docs", "content/docs", {"components/meta.json": __fd_glob_0, }, {"index.mdx": __fd_glob_1, "blocks/ai-chat.mdx": __fd_glob_2, "components/action-search-bar.mdx": __fd_glob_3, "components/alert.mdx": __fd_glob_4, "components/avatar-picker.mdx": __fd_glob_5, "components/beams-background.mdx": __fd_glob_6, "components/button.mdx": __fd_glob_7, "components/card.mdx": __fd_glob_8, });

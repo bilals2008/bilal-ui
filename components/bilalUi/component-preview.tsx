@@ -167,27 +167,11 @@ export function ComponentPreview({
         </TabsContent>
 
         <TabsContent value="code" className="mt-0">
-          <div 
-            className="relative rounded-2xl border bg-[#0d1117] border-zinc-200/5 dark:border-white/5 overflow-hidden"
-            style={{
-              // Custom Salmon/Red Shiki Theme Overrides
-              // @ts-ignore
-              "--shiki-token-keyword": "#ff7b72",
-              "--shiki-token-string": "#a5d6ff",
-              "--shiki-token-constant": "#79c0ff",
-              "--shiki-token-function": "#d2a8ff",
-              "--shiki-token-string-expression": "#a5d6ff",
-              "--shiki-token-comment": "#8b949e",
-              "--shiki-token-variable": "#ffa657",
-              "--shiki-token-parameter": "#ffa657",
-              "--shiki-font-style": "normal",
-            } as any}
-          >
-             <div className="p-0 overflow-x-auto max-h-150 scrollbar-thin scrollbar-thumb-zinc-800 scrollbar-track-transparent">
+          <div className="relative rounded-xl border bg-zinc-950 border-border overflow-hidden shadow-sm">
+             <div className="p-4 overflow-x-auto max-h-[600px] text-[13px] font-mono leading-relaxed scrollbar-thin scrollbar-thumb-zinc-800 scrollbar-track-transparent">
                <DynamicCodeBlock 
                 lang="tsx" 
                 code={code || "// Code not provided"}
-                keepBackground={false}
                />
              </div>
           </div>
