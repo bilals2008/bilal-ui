@@ -50,8 +50,8 @@ export function DocsLayoutClient({
             
             // Premium active state logic
             const activeStyles = isActive 
-              ? "bg-primary/5 text-primary font-medium shadow-[0_1px_2px_rgba(0,0,0,0.02)]" 
-              : "text-muted-foreground hover:bg-muted/50 hover:text-foreground";
+              ? "bg-primary/8 text-primary font-medium shadow-[0_1px_4px_rgba(0,0,0,0.05)]" 
+              : "text-muted-foreground hover:bg-muted/60 hover:text-foreground";
 
             return (
               <Link
@@ -62,7 +62,7 @@ export function DocsLayoutClient({
                   }
                 }}
                 className={cn(
-                  "flex items-center gap-2.5 w-full py-2 px-3 rounded-lg text-[14px] transition-all duration-200 no-underline group relative overflow-hidden",
+                  "flex items-center gap-3 w-full py-2.5 px-3 rounded-sm text-[13.5px] transition-all duration-300 no-underline group relative overflow-hidden",
                   activeStyles,
                   isComingSoon &&
                     "opacity-60 cursor-not-allowed hover:bg-transparent dark:hover:bg-transparent"
@@ -93,25 +93,18 @@ export function DocsLayoutClient({
 
                 {badgeText && (
                   <Badge
-                    variant="outline"
-                    className={cn(
-                      "text-[10px] px-1.5 h-5 rounded-md font-bold uppercase tracking-wide border",
-                      // New Badge - Vibrant Green/Emerald
-                      (isNew || badgeText === "New") && 
-                        "bg-emerald-500/10 text-emerald-600 border-emerald-500/20 dark:bg-emerald-500/20 dark:text-emerald-400",
-                      
-                      // Soon Badge - Warm Amber/Yellow
-                      badgeText === "Soon" && 
-                        "bg-amber-500/10 text-amber-600 border-amber-500/20 dark:bg-amber-500/20 dark:text-amber-400",
-                      
-                      // Updated Badge - Professional Blue
-                      (badgeText === "Updated" || badgeText === "Update") && 
-                        "bg-blue-500/10 text-blue-600 border-blue-500/20 dark:bg-blue-500/20 dark:text-blue-400",
-                        
-                      // Default/Other Badges
-                      !isNew && badgeText !== "New" && badgeText !== "Soon" && badgeText !== "Updated" && badgeText !== "Update" &&
-                        "bg-muted text-muted-foreground border-transparent"
-                    )}
+                    variant={
+                      isNew || badgeText === "New"
+                        ? "new"
+                        : isComingSoon || badgeText === "Soon"
+                        ? "soon"
+                        : badgeText === "Updated" || badgeText === "Update"
+                        ? "updated"
+                        : "secondary"
+                    }
+                    appearance="outline"
+                    size="sm"
+                    className=""
                   >
                     {badgeText === "Updated" ? "Update" : badgeText}
                   </Badge>

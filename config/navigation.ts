@@ -31,51 +31,8 @@ export const navigationSections: NavSection[] = [
       },
     ],
   },
-  {
-    title: "Latest",
-    items: [
-      {
-        id: "action-search-bar",
-        title: "Action Search Bar",
-        href: "/docs/components/action-search-bar",
-        isComingSoon: true,
-        icon: "Search",
-      },
-      {
-        id: "avatar-picker",
-        title: "Avatar Picker",
-        href: "/docs/components/avatar-picker",
-        isComingSoon: true,
-        icon: "User",
-      },
-      {
-        id: "beams-background",
-        title: "Beams Background",
-        href: "/docs/components/beams-background",
-        isComingSoon: true,
-        icon: "Sparkles",
-      },
-    ],
-  },
-  {
-    title: "Blocks",
-    items: [
-      {
-        id: "ai-card-generation",
-        title: "AI Card Generation",
-        href: "/docs/blocks/ai-card-generation",
-        isNew: true,
-        icon: "Cpu",
-      },
-      {
-        id: "ai-chat",
-        title: "AI Chat",
-        href: "/docs/blocks/ai-chat",
-        isComingSoon: true,
-        icon: "MessageSquare",
-      },
-    ],
-  },
+ 
+ 
   {
     title: "Components",
     items: [
@@ -96,14 +53,7 @@ export const navigationSections: NavSection[] = [
         icon: "AlertCircle",
       },
      
-      {
-        id: "card",
-        title: "Card",
-        href: "/docs/components/card",
-        description: "Versatile card components and layouts",
-        isComingSoon: true,
-        icon: "CreditCard",
-      },
+     
     ],
   },
 ];

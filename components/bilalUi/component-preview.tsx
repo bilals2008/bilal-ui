@@ -72,7 +72,7 @@ function SuccessParticles({
   );
 }
 
-import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
+import { CodeBlock } from "@/components/ui/code-block";
 
 export function ComponentPreview({
   children,
@@ -99,78 +99,81 @@ export function ComponentPreview({
 
   return (
     <div
-      className={cn("group relative my-6 flex flex-col space-y-4", className)}
+      className={cn(
+        "group relative my-6 rounded-xl border bg-background shadow-sm",
+        className
+      )}
     >
       {isCopied && <SuccessParticles buttonRef={copyButtonRef} />}
 
-      <Tabs defaultValue="preview" className="relative mr-auto w-full">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between pb-4">
-          <div className="flex items-center gap-6">
-            <TabsList className="h-9 rounded-lg bg-muted/50 p-1 border border-muted-foreground/10">
-              <TabsTrigger
-                value="preview"
-                className="rounded-md px-4 py-1.5 text-sm font-medium transition-all data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm"
-              >
-                Preview
-              </TabsTrigger>
-              <TabsTrigger
-                value="code"
-                className="rounded-md px-4 py-1.5 text-sm font-medium transition-all data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm"
-              >
-                Code
-              </TabsTrigger>
-            </TabsList>
-          </div>
+      <Tabs defaultValue="preview" className="relative w-full">
+        {/* Toolbar Section */}
+        <div className="flex items-center justify-between border-b px-4 py-3 bg-black/5 dark:bg-black/40">
+          <TabsList className="h-9 gap-1 rounded-lg bg-zinc-100 dark:bg-zinc-800/60 p-1 text-zinc-500 dark:text-zinc-400">
+            <TabsTrigger
+              value="preview"
+              className="rounded-md px-3 py-1 text-xs font-medium data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-700 data-[state=active]:text-zinc-900 dark:data-[state=active]:text-zinc-100 data-[state=active]:shadow-sm transition-all"
+            >
+              Preview
+            </TabsTrigger>
+            <TabsTrigger
+              value="code"
+              className="rounded-md px-3 py-1 text-xs font-medium data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-700 data-[state=active]:text-zinc-900 dark:data-[state=active]:text-zinc-100 data-[state=active]:shadow-sm transition-all"
+            >
+              Code
+            </TabsTrigger>
+          </TabsList>
 
           <div className="flex items-center gap-2">
-            <OpenInV0Button name={name.toLowerCase().replace(/\s+/g, "-")} />
 
-            <div className="flex items-center gap-1 rounded-lg border border-muted-foreground/20 bg-muted/20 p-1">
-              <Button
-                variant="ghost"
+            <div className="flex items-center gap-1">
+               <Button
+                variant="outline"
                 size="icon"
-                className="h-7 w-7 rounded-md hover:bg-background/80"
+                className="h-9 w-9 rounded-lg border-black/5 dark:border-white/5 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 text-zinc-500 dark:text-zinc-400"
                 onClick={handleRefresh}
                 title="Refresh Preview"
               >
-                <RotateCcw className="h-3.5 w-3.5 text-muted-foreground" />
+                <div className={cn("transition-transform duration-500", key > 0 && "rotate-180")}>
+                  <RotateCcw className="h-4 w-4" />
+                </div>
               </Button>
               <Button
                 ref={copyButtonRef}
-                variant="ghost"
+                variant="outline"
                 size="icon"
-                className="h-7 w-7 rounded-md hover:bg-background/80"
+                className="h-9 w-9 rounded-lg border-black/5 dark:border-white/5 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 text-zinc-500 dark:text-zinc-400"
                 onClick={handleCopyClick}
                 title="Copy Code"
               >
                 {isCopied ? (
-                  <CheckCheck className="h-3.5 w-3.5 text-emerald-500" />
+                  <CheckCheck className="h-4 w-4 text-emerald-500" />
                 ) : (
-                  <Copy className="h-3.5 w-3.5 text-muted-foreground" />
+                  <Copy className="h-4 w-4" />
                 )}
               </Button>
+               <OpenInV0Button name={name.toLowerCase().replace(/\s+/g, "-")} className="h-9 rounded-lg px-3" />
             </div>
           </div>
         </div>
 
+        {/* Content Section */}
         <TabsContent
           value="preview"
           key={key}
-          className={cn(
-            "relative mt-0 rounded-2xl border bg-black/5 dark:bg-zinc-950/30 min-h-[400px] flex items-center justify-center overflow-hidden",
-            "before:absolute before:inset-0 before:bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:before:bg-[radial-gradient(#1f2937_1px,transparent_1px)] before:bg-size-[16px_16px] before:mask-[radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"
-          )}
+          className="relative min-h-100 w-full overflow-hidden rounded-b-xl bg-background mt-0"
         >
-          <div className="relative z-10 w-full flex items-center justify-center p-10 py-20 transition-all duration-300">
+           <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#1f2937_1px,transparent_1px)] bg-size-[16px_16px] mask-[radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-50" />
+           <div className="relative z-10 flex h-full min-h-100 w-full items-center justify-center p-10">
             {children}
           </div>
         </TabsContent>
 
         <TabsContent value="code" className="mt-0">
-          <div className="relative rounded-xl border bg-zinc-950 border-border overflow-hidden shadow-sm">
-             <div className="p-4 overflow-x-auto max-h-[600px] text-[13px] font-mono leading-relaxed scrollbar-thin scrollbar-thumb-zinc-800 scrollbar-track-transparent">
-               <DynamicCodeBlock 
-                lang="tsx" 
+          <div className="relative overflow-hidden rounded-b-xl bg-[#1e1e2e]">
+             <div className="p-4 overflow-x-auto max-h-150 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+               <CodeBlock 
+                language="tsx" 
                 code={code || "// Code not provided"}
                />
              </div>

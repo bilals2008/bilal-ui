@@ -1,11 +1,5 @@
 {
   "pages": [
-    "button",
-    "action-search-bar",
-    "avatar-picker",
-    "beams-background",
-    "alert",
-    "card",
-    "input"
+    "button"
   ]
 }
