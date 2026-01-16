@@ -6,7 +6,7 @@ export function baseOptions(): BaseLayoutProps {
   return {
     nav: {
       title: (
-        <div className="flex items-center gap-2 font-bold text-lg">
+        <div className="flex w-full justify-center items-center gap-2 font-bold text-lg">
            <div className="flex items-center justify-center">
               <Image src="/logo.png" alt="Bilal UI" width={24} height={24} className="h-6 w-6" />
            </div>
