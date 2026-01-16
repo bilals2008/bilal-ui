@@ -19,10 +19,45 @@ export function DocsLayoutClient({
   ...props
 }: DocsLayoutClientProps) {
   const pathname = usePathname();
+  
+  // Clone tree to inject virtual items
+  const tree = JSON.parse(JSON.stringify(props.tree));
+
+  const injectVirtualItems = (node: any) => {
+    if (node.children) {
+      // Check if this folder corresponds to any navigation section
+      navigationSections.forEach(section => {
+        // We identify the folder if it contains at least one item from the section
+        const matchesSection = node.children.some((child: any) => 
+          section.items.some(item => item.href === child.url)
+        );
+
+        if (matchesSection || node.name === section.title || (node.name === "components" && section.title === "Components")) {
+          section.items.forEach(navItem => {
+            const exists = node.children.find((child: any) => child.url === navItem.href);
+            if (!exists && navItem.isComingSoon) {
+              node.children.push({
+                type: "page",
+                name: navItem.title,
+                url: navItem.href,
+                isVirtual: true
+              });
+            }
+          });
+        }
+      });
+
+      // Recurse
+      node.children.forEach(injectVirtualItems);
+    }
+  };
+
+  injectVirtualItems(tree);
 
   return (
     <DocsLayout
       {...props}
+      tree={tree}
       sidebar={{
         components: {
           Item: ({ item }) => {

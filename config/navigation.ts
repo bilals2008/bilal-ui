@@ -46,14 +46,20 @@ export const navigationSections: NavSection[] = [
       },
       {
         id: "alert",
-        title: "Alerts",
+        title: "Alert",
         href: "/docs/components/alert",
         description: "Alert components and layouts",
         isComingSoon: true,
         icon: "AlertCircle",
       },
-     
-     
+      {
+        id: "card",
+        title: "Card",
+        href: "/docs/components/card",
+        description: "Card components and layouts",
+        isComingSoon: true,
+        icon: "IdCard",
+      },
     ],
   },
 ];

@@ -11,6 +11,7 @@ export function baseOptions(): BaseLayoutProps {
               <Image src="/logo.png" alt="Bilal UI" width={24} height={24} className="h-6 w-6" />
            </div>
           <span>Bilal UI</span>
+          <span className="text-xs font-normal text-muted-foreground bg-muted/50 px-1.5 py-0.5 rounded-md ml-1">v0.1.0</span>
         </div>
       ),
     },
