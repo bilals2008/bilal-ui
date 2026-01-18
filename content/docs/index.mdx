@@ -1,65 +1,55 @@
 ---
 title: Introduction
-description: Welcome to Bilal UI - A collection of premium, modern UI components.
+description: Supercharge your app development with Bilal UI's copy-and-paste components and layouts, powered by React, Radix UI, Base UI, Motion and styled with Tailwind CSS.
 ---
 
-# Introduction
+## What is Bilal UI?
 
-Welcome to **Bilal UI**, a carefully crafted collection of premium UI components designed for modern web applications. Our mission is to provide developers with highly aesthetic, accessible, and high-performance components that make your projects stand out.
+Bilal UI is a collection of open-source, copy-and-paste components built with React, Motion, Tailwind CSS.
 
-## Why Bilal UI?
+## Why Copy-and-Paste?
 
-- **Modern Aesthetics**: Designed with 2025 standards in mind—vibrant colors, glassmorphism, and smooth animations.
-- **Copy & Paste**: No complex installation. Find a component you like, copy the code, and drop it into your project.
-- **Fully Customizable**: Built on top of Tailwind CSS and Radix UI for maximum flexibility.
-- **TypeScript First**: First-class support for TypeScript with comprehensive type definitions.
+- A growing trend adopted by modern developers.
+- Zero dependencies to use it as-is or tweak freely.
+- Customize and extend to fit your needs.
+- Direct access to styles, behavior, and logic.
 
----
+## Prop-based Components
 
-## Getting Started
+- **AI-Optimized Design** – Structured props system ensures easy AI interpretation and usability.
+- **Elegant Code API** – No excessive Tailwind classes, resulting in cleaner JSX.
+- **Flexible Customization** – Well-structured props allow dynamic UI adjustments.
+- **Modular & Reusable** – Components are designed for scalability and reusability.
+- **Separation of Concerns** – Clear distinction between logic and UI for maintainability.
+- **Built with Radix UI** – Consistent styling and theme customization via CSS variables.
 
-Follow these steps to integrate Bilal UI into your project.
+## Built for Production
 
-### 1. Prerequisites
+Bilal UI's components and apps are built on proven foundations:
 
-Ensure you have the following dependencies installed in your project:
+- **React:** The leading framework for building reactive component-driven user interfaces.
+- **Tailwind CSS:** Modern and utility-first styling with fully customizable design system.
+- **TypeScript:** Strong type safety, code autocompletion, and a better developer experience.
+- **Radix UI:** Core components with enhanced flexibility using custom props.
+- **Base UI:** Unstyled UI components for building accessible web apps and design systems.
+- **Shadcn UI:** A library of components for building accessible web apps and design systems.
+- **Motion:** Smooth and performant animations for a great user experience.
 
-```bash
-npm install lucide-react clsx tailwind-merge
-```
 
-### 2. Configure Utilities
-
-Add the following `cn` helper to your `lib/utils.ts` file to handle Tailwind class merging:
-
-```typescript
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-```
-
-### 3. Usage
-
-Browse the components in the sidebar, choose one, and follow the specific instructions on its page. Most components are designed to be "grab and go."
-
-## Framework Support
-
-Bilal UI works seamlessly with all modern React frameworks:
-
-- [x] Next.js (App Router & Pages Router)
-- [x] Vite
-- [x] Remix
-
----
-
-## Community
-
-If you have any questions or want to share what you've built, feel free to reach out. We are constantly updating the library with new components!
-
-<Callout title="upcoming" type="info">
-  Keep an eye on the **Latest** section in the sidebar for newly added
-  components and blocks.
+<Callout type="info" title="Getting Started" collapsible>
+  Check out the installation guide to set up Bilal UI in your project. You can
+  expand/collapse this callout!
 </Callout>
+<br />
+
+<Callout type="warning" title="Work in Progress">
+  Some components are still being developed. Check back regularly for updates.
+</Callout>
+
+- **Tanstack Table:** Feature-rich managed table functionalities for advanced data handling.
+- **Zod & React Hook Form:** Robust frontend and backend validation for secure data handling.
+- **React Hook Form:** Performant, flexible and extensible forms with easy-to-use validation.
+
+## Next Steps
+
+Ready to get started? Head over to our [Installation Guide](/docs/installation) to begin using Bilal UI in your project and accelerate your development.
