@@ -2,6 +2,8 @@
 "use client";
 
 import { DocsLayout, type DocsLayoutProps } from "fumadocs-ui/layouts/docs";
+import { ThemeSwitcher } from "@/components/kibo-ui/theme-switcher";
+import { useTheme } from "next-themes";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import * as Icons from "lucide-react";
@@ -18,6 +20,7 @@ export function DocsLayoutClient({
   children,
   ...props
 }: DocsLayoutClientProps) {
+  const { theme, setTheme } = useTheme();
   const pathname = usePathname();
   
   // Clone tree to inject virtual items
@@ -58,6 +61,7 @@ export function DocsLayoutClient({
     <DocsLayout
       {...props}
       tree={tree}
+      themeSwitch={{enabled:false}}
       sidebar={{
         components: {
           Item: ({ item }) => {
@@ -148,6 +152,40 @@ export function DocsLayoutClient({
             );
           },
         },
+        
+        footer: (
+          <div className="flex flex-col items-center gap-2 w-full">
+            <div className="flex items-center justify-between w-full">
+              <ThemeSwitcher
+                value={theme as "light" | "dark" | "system"}
+                onChange={(v) => setTheme(v)}
+                className="h-8"
+              />
+              <div className="flex items-center gap-1">
+                <Link 
+                  href="https://github.com/bilals2008/bilal-ui" 
+                  target="_blank"
+                  className="p-2 text-muted-foreground hover:text-foreground hover:bg-muted/60 rounded-md transition-all"
+                  aria-label="GitHub"
+                >
+                  <Icons.Github className="w-4 h-4" />
+                </Link>
+                <Link 
+                  href="https://x.com/bilals2008" 
+                  target="_blank"
+                  className="p-2 text-muted-foreground hover:text-foreground hover:bg-muted/60 rounded-md transition-all"
+                  aria-label="Twitter"
+                >
+                  <Icons.Twitter className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+            
+             <div className="text-[11px] font-medium text-muted-foreground/40 text-center tracking-wide">
+              © {new Date().getFullYear()} Bilal UI. All rights reserved.
+            </div>
+          </div>
+        )
       }}
     >
       {children}
