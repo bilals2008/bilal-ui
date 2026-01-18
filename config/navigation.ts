@@ -29,6 +29,14 @@ export const navigationSections: NavSection[] = [
       icon: "Rocket",
       isNew: true,
     },
+    {
+      id: "installation",
+      title: "Installation",
+      href: "/docs/getting-started/installation",
+      description: "How to install and configure Bilal UI",
+      icon: "Download",
+      isNew:  true,
+    },
   ],
 },
  
