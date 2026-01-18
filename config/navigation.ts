@@ -10,6 +10,15 @@ export interface NavItem {
   isComingSoon?: boolean;
   isNew?: boolean;
   isLab?: boolean;
+  isUpdated?: boolean;
+  isFeatured?: boolean;
+  isRequest?: boolean;
+  isWIP?: boolean;
+  isStable?: boolean;
+  isLegacy?: boolean;
+  isHeadless?: boolean;
+  isAlpha?: boolean;
+  isDeprecated?: boolean;
 }
 
 export interface NavSection {
@@ -35,7 +44,7 @@ export const navigationSections: NavSection[] = [
       href: "/docs/getting-started/installation",
       description: "How to install and configure Bilal UI",
       icon: "Download",
-      isNew:  true,
+      isUpdated: true,
     },
   ],
 },
@@ -56,7 +65,7 @@ export const navigationSections: NavSection[] = [
         title: "Alert",
         href: "/docs/components/alert",
         description: "Alert components and layouts",
-        isComingSoon: true,
+        isLab: true,
         icon: "AlertCircle",
       },
       {

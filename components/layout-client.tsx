@@ -78,12 +78,44 @@ export function DocsLayoutClient({
             const isComingSoon =
               configItem?.isComingSoon || (item as any).isComingSoon;
             const isNew = configItem?.isNew || (item as any).isNew;
+            const isUpdated = configItem?.isUpdated || (item as any).isUpdated;
+            const isLab = configItem?.isLab || (item as any).isLab;
+            const isFeatured = configItem?.isFeatured || (item as any).isFeatured;
+            const isRequest = configItem?.isRequest || (item as any).isRequest;
+            const isWIP = configItem?.isWIP || (item as any).isWIP;
+            const isStable = configItem?.isStable || (item as any).isStable;
+            const isLegacy = configItem?.isLegacy || (item as any).isLegacy;
+            const isHeadless = configItem?.isHeadless || (item as any).isHeadless;
+            const isAlpha = configItem?.isAlpha || (item as any).isAlpha;
+            const isDeprecated = configItem?.isDeprecated || (item as any).isDeprecated;
 
-            const badgeText = isNew
+            const badgeContent = isNew
               ? "New"
-              : configItem?.badge ||
-                (item as any).badge ||
-                (isComingSoon ? "Soon" : null);
+              : isUpdated
+              ? "Updated"
+              : isLab ? (
+              <Icons.FlaskConical className="size-3" />
+            ) : isFeatured
+              ? "Featured"
+              : isRequest
+              ? "Request"
+              : isWIP
+              ? "WIP"
+              : isStable
+              ? "Stable"
+              : isLegacy
+              ? "Legacy"
+              : isHeadless
+              ? "Headless"
+              : isAlpha
+              ? "Alpha"
+              : isDeprecated
+              ? "Deprecated"
+              : (
+              configItem?.badge ||
+              (item as any).badge ||
+              (isComingSoon ? "Soon" : null)
+            );
 
             const isActive = pathname === item.url;
             
@@ -130,22 +162,40 @@ export function DocsLayoutClient({
                   {item.name}
                 </span>
 
-                {badgeText && (
+                {badgeContent && (
                   <Badge
                     variant={
-                      isNew || badgeText === "New"
+                      isNew
                         ? "new"
-                        : isComingSoon || badgeText === "Soon"
+                        : isComingSoon || badgeContent === "Soon"
                         ? "soon"
-                        : badgeText === "Updated" || badgeText === "Update"
+                        : isUpdated
                         ? "updated"
+                        : isLab
+                        ? "lab"
+                        : isFeatured
+                        ? "featured"
+                        : isRequest
+                        ? "request"
+                        : isWIP
+                        ? "wip"
+                        : isStable
+                        ? "stable"
+                        : isLegacy
+                        ? "legacy"
+                        : isHeadless
+                        ? "headless"
+                        : isAlpha
+                        ? "alpha"
+                        : isDeprecated
+                        ? "deprecated"
                         : "secondary"
                     }
                     appearance="outline"
                     size="sm"
                     className=""
                   >
-                    {badgeText === "Updated" ? "Update" : badgeText}
+                    {badgeContent}
                   </Badge>
                 )}
               </Link>
