@@ -18,20 +18,19 @@ export interface NavSection {
 }
 
 export const navigationSections: NavSection[] = [
-  {
-    title: "Getting Started",
-    items: [
-      {
-        id: "intro",
-        title: "Introduction",
-        href: "/docs",
-        description: "Introduction and usage guidelines",
-        icon: "Rocket",
-        isNew: true,
-      },
-    ],
-  },
- 
+ {
+  title: "Getting Started",
+  items: [
+    {
+      id: "intro",
+      title: "Introduction",
+     href: "/docs/getting-started/introduction",
+      description: "Introduction and usage guidelines",
+      icon: "Rocket",
+      isNew: true,
+    },
+  ],
+},
  
   {
     title: "Components",
@@ -42,7 +41,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/button",
         description: "Interactive button components with animations",
         isNew: true,
-        icon: "SquareArrowOutUpRight",
+        icon: "MousePointerClick",
       },
       {
         id: "alert",

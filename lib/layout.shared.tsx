@@ -12,7 +12,7 @@ export function baseOptions(): BaseLayoutProps {
               <Image src="/logo.png" alt="Bilal UI" width={24} height={24} className="h-6 w-6 rounded-sm " />
            </div>
           <span>Bilal UI</span>
-          <Badge variant={"info"} appearance={"ghost"} className="text-xs font-normal ml-1">v0.1.0</Badge>
+          <Badge variant={"info"} appearance={"ghost"} className="text-xs font-normal ml-1">v0.0.1</Badge>
         </div>
       ),
     },
