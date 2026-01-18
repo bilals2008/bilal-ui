@@ -2,6 +2,7 @@
 import { Badge } from "@/components/ui/badge";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 import Image from "next/image";
+import pkg from "@/package.json";
 
 export function baseOptions(): BaseLayoutProps {
   return {
@@ -12,7 +13,7 @@ export function baseOptions(): BaseLayoutProps {
               <Image src="/logo.png" alt="Bilal UI" width={24} height={24} className="h-6 w-6 rounded-sm " />
            </div>
           <span>Bilal UI</span>
-          <Badge variant={"info"} appearance={"outline"} size={"sm"} className="text-xs font-normal ml-1">v0.0.1</Badge>
+          <Badge variant={"info"} appearance={"outline"} size={"sm"} className="text-xs font-normal ml-1">v{pkg.version}</Badge>
         </div>
       ),
     },

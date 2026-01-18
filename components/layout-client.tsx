@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import React from "react";
 import { navigationSections } from "@/config/navigation";
 import { cn } from "@/lib/utils";
+import pkg from "@/package.json";
 
 export interface DocsLayoutClientProps extends DocsLayoutProps {
   sidebarIconBadge?: boolean;
@@ -232,7 +233,7 @@ export function DocsLayoutClient({
             </div>
             
              <div className="text-[11px] font-medium text-muted-foreground/40 text-center tracking-wide">
-              © {new Date().getFullYear()} Bilal UI. All rights reserved.
+              © {new Date().getFullYear()} Bilal UI v{pkg.version}. All rights reserved.
             </div>
           </div>
         )
