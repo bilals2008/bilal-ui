@@ -8,12 +8,7 @@ import type { ReactNode } from "react";
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <RootProvider>
-      <div 
-        className="flex min-h-screen flex-col"
-        style={{
-          "--sidebar": "#0a0a0a",
-        } as React.CSSProperties}
-      >
+      <div className="flex min-h-screen flex-col">
         <DocsLayoutClient
           tree={source.getPageTree()}
           {...baseOptions()}
