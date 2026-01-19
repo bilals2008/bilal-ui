@@ -1,0 +1,71 @@
+---
+title: Installation
+description: How to install and configure Bilal UI in your project.
+---
+
+## System Requirements
+
+Before you start, ensure you have the following installed:
+
+- [Node.js](https://nodejs.org/) 18.17 or later.
+- [React](https://react.dev/) 18 or later.
+- [Tailwind CSS](https://tailwindcss.com/) 3.3 or later.
+
+## Manual Installation
+
+<Callout type="info">
+  If you are starting a new project, we recommend using a framework starter that
+  supports Tailwind CSS.
+</Callout>
+
+### 1. Install Dependencies
+
+Install the required dependencies for Bilal UI:
+
+```bash
+npm install framer-motion clsx tailwind-merge lucide-react
+```
+
+### 2. Configure Tailwind CSS
+
+Ensure your `tailwind.config.js` or `tailwind.config.ts` handles the content paths correctly.
+
+```ts title="tailwind.config.ts"
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}", // [!code highlight]
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+
+export default config;
+```
+
+### 3. Add Utilities
+
+Create a utility file `lib/utils.ts` to handle class merging:
+
+```ts title="lib/utils.ts"
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+```
+
+### 4. You're Ready!
+
+You can now start copying components into your project.
+
+<Callout type="tip">
+  Visit the [Components](/docs/components) section to browse available
+  components.
+</Callout>

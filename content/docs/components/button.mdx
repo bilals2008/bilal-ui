@@ -1,0 +1,102 @@
+---
+title: Button
+description: Interactive button components with premium animations.
+---
+
+import { Button } from "@/components/ui/button";
+import { ChevronRight, Mail, Loader2 } from "lucide-react";
+
+# Button
+
+Displays a button or a component that looks like a button.
+
+## Usage
+
+<ComponentPreview name="button-demo" code={`import { Button } from "@/components/ui/button"
+
+export function ButtonDemo() {
+  return <Button>Button</Button>
+}`}>
+  <Button>Button</Button>
+</ComponentPreview>
+
+## Variants
+
+<ComponentPreview name="button-variants" code={`import { Button } from "@/components/ui/button"
+
+export function ButtonVariants() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      <Button variant="default">Default</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="outline">Outline</Button>
+      <Button variant="ghost">Ghost</Button>
+      <Button variant="destructive">Destructive</Button>
+      <Button variant="link">Link</Button>
+    </div>
+  )
+}`}>
+  <div className="flex flex-wrap gap-4 items-center justify-center">
+    <Button variant="default">Default</Button>
+    <Button variant="secondary">Secondary</Button>
+    <Button variant="outline">Outline</Button>
+    <Button variant="ghost">Ghost</Button>
+    <Button variant="destructive">Destructive</Button>
+    <Button variant="link">Link</Button>
+  </div>
+</ComponentPreview>
+
+## Sizes
+
+<ComponentPreview name="button-sizes" code={`import { Button } from "@/components/ui/button"
+
+export function ButtonSizes() {
+  return (
+    <div className="flex flex-wrap gap-4 items-center">
+      <Button size="lg">Large</Button>
+      <Button size="default">Default</Button>
+      <Button size="sm">Small</Button>
+    </div>
+  )
+}`}>
+    <div className="flex flex-wrap gap-4 items-center justify-center">
+      <Button size="lg">Large</Button>
+      <Button size="default">Default</Button>
+      <Button size="sm">Small</Button>
+    </div>
+</ComponentPreview>
+
+## with Icon
+
+<ComponentPreview name="button-icons" code={`import { Button } from "@/components/ui/button"
+import { Mail, ChevronRight, Loader2 } from "lucide-react"
+
+export function ButtonIcons() {
+  return (
+    <div className="flex flex-wrap gap-4 items-center">
+      <Button>
+        <Mail className="mr-2 size-4" /> Login with Email
+      </Button>
+      <Button variant="outline" size="icon">
+        <ChevronRight className="size-4" />
+      </Button>
+      <Button disabled>
+        <Loader2 className="mr-2 size-4 animate-spin" />
+        Please wait
+      </Button>
+    </div>
+  )
+}`}>
+    <div className="flex flex-wrap gap-4 items-center justify-center">
+      <Button>
+        <Mail className="mr-2 size-4" /> Login with Email
+      </Button>
+      <Button variant="outline" size="icon">
+        <ChevronRight className="size-4" />
+      </Button>
+      <Button disabled>
+        <Loader2 className="mr-2 size-4 animate-spin" />
+        Please wait
+      </Button>
+    </div>
+</ComponentPreview>
