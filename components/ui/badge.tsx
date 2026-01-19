@@ -42,6 +42,7 @@ const badgeVariants = cva(
         headless: "bg-[var(--color-secondary-accent,var(--color-slate-500))] text-[var(--color-secondary-foreground,var(--color-white))]",
         alpha: "bg-[var(--color-warning-accent,var(--color-rose-500))] text-[var(--color-warning-foreground,var(--color-white))]",
         deprecated: "bg-[var(--color-destructive-accent,var(--color-red-600))] text-[var(--color-destructive-foreground,var(--color-white))]",
+        version: "bg-[var(--color-info-accent,var(--color-indigo-500))] text-[var(--color-info-foreground,var(--color-white))]",
       },
       appearance: {
         default: "",
@@ -178,6 +179,11 @@ const badgeVariants = cva(
         appearance: "outline",
         className: "text-red-700 border-red-200 bg-red-50 dark:bg-red-950 dark:border-red-900 dark:text-red-600",
       },
+      {
+        variant: "version",
+        appearance: "outline",
+        className: "text-indigo-700 border-indigo-200 bg-indigo-50 dark:bg-indigo-950 dark:border-indigo-900 dark:text-indigo-600",
+      },
       /* Ghost */
       {
         variant: "primary",
@@ -222,6 +228,7 @@ const badgeVariants = cva(
       { variant: "headless", appearance: "ghost", className: "text-slate-600" },
       { variant: "alpha", appearance: "ghost", className: "text-rose-600" },
       { variant: "deprecated", appearance: "ghost", className: "text-red-600" },
+      { variant: "version", appearance: "ghost", className: "text-indigo-600" },
 
       { size: "lg", appearance: "ghost", className: "px-0" },
       { size: "md", appearance: "ghost", className: "px-0" },

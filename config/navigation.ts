@@ -19,6 +19,7 @@ export interface NavItem {
   isHeadless?: boolean;
   isAlpha?: boolean;
   isDeprecated?: boolean;
+  isVersion?: boolean;
 }
 
 export interface NavSection {
@@ -45,6 +46,14 @@ export const navigationSections: NavSection[] = [
       description: "How to install and configure Bilal UI",
       icon: "Download",
       isUpdated: true,
+    },
+    {
+      id: "changelog",
+      title: "Changelog",
+      href: "/docs/getting-started/changelog",
+      description: "Latest updates and announcements",
+      icon: "History",
+      isVersion: true,
     },
   ],
 },

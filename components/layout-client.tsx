@@ -89,6 +89,7 @@ export function DocsLayoutClient({
             const isHeadless = configItem?.isHeadless || (item as any).isHeadless;
             const isAlpha = configItem?.isAlpha || (item as any).isAlpha;
             const isDeprecated = configItem?.isDeprecated || (item as any).isDeprecated;
+            const isVersion = configItem?.isVersion || (item as any).isVersion;
 
             const badgeContent = isNew
               ? "New"
@@ -112,6 +113,8 @@ export function DocsLayoutClient({
               ? "Alpha"
               : isDeprecated
               ? "Deprecated"
+              : isVersion
+              ? "v0.0.1"
               : (
               configItem?.badge ||
               (item as any).badge ||
@@ -190,6 +193,8 @@ export function DocsLayoutClient({
                         ? "alpha"
                         : isDeprecated
                         ? "deprecated"
+                        : isVersion
+                        ? "version"
                         : "secondary"
                     }
                     appearance="outline"
