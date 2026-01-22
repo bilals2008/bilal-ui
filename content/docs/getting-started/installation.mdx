@@ -1,71 +1,180 @@
 ---
 title: Installation
-description: How to install and configure Bilal UI in your project.
+description: Follow these steps to install and configure Bilal UI in your project.
 ---
 
-## System Requirements
+import {
+  Snippet,
+  SnippetHeader,
+  SnippetTabsList,
+  SnippetTabsTrigger,
+  SnippetTabsContent,
+  SnippetCopyButton,
+} from "@/components/kibo-ui/snippet";
 
-Before you start, ensure you have the following installed:
+## Prerequisites
 
-- [Node.js](https://nodejs.org/) 18.17 or later.
-- [React](https://react.dev/) 18 or later.
-- [Tailwind CSS](https://tailwindcss.com/) 3.3 or later.
+Before you can install and use Bilal UI, make sure your project meets the following requirements:
 
-## Manual Installation
+- **React**: Version 19 or higher.
+- **Typescript**: Version 5 or higher.
+- **Tailwind CSS**: Version 3.4 or higher.
+- **Radix UI**: Version 1 or higher.
+- **Base UI**: Version 1 or higher.
+- **Motion**: Version 12.0 or higher.
 
-<Callout type="info">
-  If you are starting a new project, we recommend using a framework starter that
-  supports Tailwind CSS.
+## Install Components
+
+<Steps>
+
+<Step>
+### Initialize a React Project
+
+Bilal UI is fully compatible with Shadcn and extends it with advanced component options. To get started, set up your React project following the [Shadcn Installation Guide](https://ui.shadcn.com/docs/installation).
+
+<Callout type="success">
+  If you already have a project compatible with Shadcn, you can skip this guide.
 </Callout>
 
-### 1. Install Dependencies
+</Step>
 
-Install the required dependencies for Bilal UI:
+<Step>
+### Install Radix UI
 
-```bash
-npm install framer-motion clsx tailwind-merge lucide-react
-```
+Follow [Radix UI Installation Guide](https://www.radix-ui.com/primitives/docs/overview/getting-started) to install Radix UI package.
 
-### 2. Configure Tailwind CSS
+<Snippet defaultValue="npm">
+  <SnippetHeader>
+    <SnippetTabsList>
+       <SnippetTabsTrigger value="npm">npm</SnippetTabsTrigger>
+       <SnippetTabsTrigger value="pnpm">pnpm</SnippetTabsTrigger>
+       <SnippetTabsTrigger value="bun">bun</SnippetTabsTrigger>
+       <SnippetTabsTrigger value="yarn">yarn</SnippetTabsTrigger>
+    </SnippetTabsList>
+    <SnippetCopyButton value="npm i @radix-ui/react-icons" />
+  </SnippetHeader>
+  <SnippetTabsContent value="npm">npm i @radix-ui/react-icons</SnippetTabsContent>
+  <SnippetTabsContent value="pnpm">pnpm add @radix-ui/react-icons</SnippetTabsContent>
+  <SnippetTabsContent value="bun">bun add @radix-ui/react-icons</SnippetTabsContent>
+  <SnippetTabsContent value="yarn">yarn add @radix-ui/react-icons</SnippetTabsContent>
+</Snippet>
 
-Ensure your `tailwind.config.js` or `tailwind.config.ts` handles the content paths correctly.
+</Step>
 
-```ts title="tailwind.config.ts"
-import type { Config } from "tailwindcss";
+<Step>
+### Install Base UI
 
-const config: Config = {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}", // [!code highlight]
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-};
+Follow [Base UI Installation Guide](https://base-ui.com/react/overview/quick-start) to install Base UI package.
 
-export default config;
-```
+<Snippet defaultValue="npm">
+  <SnippetHeader>
+    <SnippetTabsList>
+       <SnippetTabsTrigger value="npm">npm</SnippetTabsTrigger>
+       <SnippetTabsTrigger value="pnpm">pnpm</SnippetTabsTrigger>
+       <SnippetTabsTrigger value="bun">bun</SnippetTabsTrigger>
+       <SnippetTabsTrigger value="yarn">yarn</SnippetTabsTrigger>
+    </SnippetTabsList>
+    <SnippetCopyButton value="npm i @base-ui-components/react" />
+  </SnippetHeader>
+  <SnippetTabsContent value="npm">npm i @base-ui-components/react</SnippetTabsContent>
+  <SnippetTabsContent value="pnpm">pnpm add @base-ui-components/react</SnippetTabsContent>
+  <SnippetTabsContent value="bun">bun add @base-ui-components/react</SnippetTabsContent>
+  <SnippetTabsContent value="yarn">yarn add @base-ui-components/react</SnippetTabsContent>
+</Snippet>
 
-### 3. Add Utilities
+</Step>
 
-Create a utility file `lib/utils.ts` to handle class merging:
+<Step>
+### Install Motion
 
-```ts title="lib/utils.ts"
-import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
+To use animated effects, follow [Motion Installation Guide](https://motion.dev/docs/install) to install Motion.
 
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+<Snippet defaultValue="npm">
+  <SnippetHeader>
+    <SnippetTabsList>
+       <SnippetTabsTrigger value="npm">npm</SnippetTabsTrigger>
+       <SnippetTabsTrigger value="pnpm">pnpm</SnippetTabsTrigger>
+       <SnippetTabsTrigger value="bun">bun</SnippetTabsTrigger>
+       <SnippetTabsTrigger value="yarn">yarn</SnippetTabsTrigger>
+    </SnippetTabsList>
+    <SnippetCopyButton value="npm i motion" />
+  </SnippetHeader>
+  <SnippetTabsContent value="npm">npm i motion</SnippetTabsContent>
+  <SnippetTabsContent value="pnpm">pnpm add motion</SnippetTabsContent>
+  <SnippetTabsContent value="bun">bun add motion</SnippetTabsContent>
+  <SnippetTabsContent value="yarn">yarn add motion</SnippetTabsContent>
+</Snippet>
+
+</Step>
+
+<Step>
+### Setup Inter Font (Next.js)
+
+Add the following code to your root layout file (`app/layout.tsx` or `app/layout.js`):
+
+```tsx
+import { Inter } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const inter = Inter({ subsets: ["latin"] });
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body className={cn("antialiased", inter.className)}>{children}</body>
+    </html>
+  );
 }
 ```
 
-### 4. You're Ready!
+</Step>
 
-You can now start copying components into your project.
+<Step>
+### Setup System Fonts
+
+Add the following code to your style entry file `globals.css`:
+
+```css
+@theme {
+  --font-sans:
+    "Inter", "Inter Fallback", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New";
+}
+```
 
 <Callout type="tip">
-  Visit the [Components](/docs/components) section to browse available
-  components.
+For a modern and visually appealing design, we recommend using Inter as the default font in your project.
 </Callout>
+
+</Step>
+
+<Step>
+### Add Lucide Icon Library
+
+<Snippet defaultValue="npm">
+  <SnippetHeader>
+    <SnippetTabsList>
+       <SnippetTabsTrigger value="npm">npm</SnippetTabsTrigger>
+       <SnippetTabsTrigger value="pnpm">pnpm</SnippetTabsTrigger>
+       <SnippetTabsTrigger value="bun">bun</SnippetTabsTrigger>
+       <SnippetTabsTrigger value="yarn">yarn</SnippetTabsTrigger>
+    </SnippetTabsList>
+    <SnippetCopyButton value="npm i lucide-react" />
+  </SnippetHeader>
+  <SnippetTabsContent value="npm">npm i lucide-react</SnippetTabsContent>
+  <SnippetTabsContent value="pnpm">pnpm add lucide-react</SnippetTabsContent>
+  <SnippetTabsContent value="bun">bun add lucide-react</SnippetTabsContent>
+  <SnippetTabsContent value="yarn">yarn add lucide-react</SnippetTabsContent>
+</Snippet>
+
+</Step>
+
+<Step>
+### Add Components
+
+Explore the [Bilal UI Components](/docs/components/button) and add the ones you need into your project.
+
+</Step>
+
+</Steps>
