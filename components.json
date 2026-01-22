@@ -18,8 +18,5 @@
     "lib": "@/lib",
     "hooks": "@/hooks"
   },
-  "registries": {
-    "@reui": "https://reui.io/r/{name}.json",
-    "@kibo-ui": "https://www.kibo-ui.com/r/{name}.json"
-  }
+  "registries": {}
 }

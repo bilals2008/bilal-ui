@@ -2,7 +2,7 @@
 "use client";
 
 import * as React from "react";
-import { RotateCcw, Copy, CheckCheck } from "lucide-react";
+import { RotateCcw, Copy, CheckCheck, Terminal } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
@@ -14,6 +14,7 @@ interface ComponentPreviewProps {
   code?: string;
   name?: string;
   className?: string;
+  installCommand?: string;
 }
 
 function SuccessParticles({
@@ -79,17 +80,28 @@ export function ComponentPreview({
   code,
   name = "component",
   className,
+  installCommand,
 }: ComponentPreviewProps) {
   const [isCopied, setIsCopied] = React.useState(false);
+  const [isInstallCopied, setIsInstallCopied] = React.useState(false);
   const [key, setKey] = React.useState(0); // For refresh functionality
 
   const copyButtonRef = React.useRef<HTMLButtonElement>(null);
+  const installButtonRef = React.useRef<HTMLButtonElement>(null);
 
   const handleCopyClick = () => {
     if (code) {
       navigator.clipboard.writeText(code);
       setIsCopied(true);
       setTimeout(() => setIsCopied(false), 2000);
+    }
+  };
+
+  const handleInstallCopy = () => {
+    if (installCommand) {
+      navigator.clipboard.writeText(installCommand);
+      setIsInstallCopied(true);
+      setTimeout(() => setIsInstallCopied(false), 2000);
     }
   };
 
@@ -105,6 +117,7 @@ export function ComponentPreview({
       )}
     >
       {isCopied && <SuccessParticles buttonRef={copyButtonRef} />}
+      {isInstallCopied && <SuccessParticles buttonRef={installButtonRef} />}
 
       <Tabs defaultValue="preview" className="relative w-full">
         {/* Toolbar Section */}
@@ -125,6 +138,20 @@ export function ComponentPreview({
           </TabsList>
 
           <div className="flex items-center gap-2">
+            {installCommand && (
+               <div className="hidden md:flex items-center">
+                 <Button
+                   ref={installButtonRef}
+                   variant="outline"
+                   size="sm"
+                   className="h-8 gap-2 rounded-lg border-dashed border-zinc-300 dark:border-zinc-700 bg-transparent px-3 text-xs font-mono text-zinc-500 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-800"
+                   onClick={handleInstallCopy}
+                 >
+                   {isInstallCopied ? <CheckCheck className="size-3.5" /> : <Terminal className="size-3.5" />}
+                   <span className="truncate max-w-50">{installCommand}</span>
+                 </Button>
+               </div>
+            )}
 
             <div className="flex items-center gap-1">
                <Button
