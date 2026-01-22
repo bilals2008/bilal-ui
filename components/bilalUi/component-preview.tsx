@@ -75,12 +75,29 @@ function SuccessParticles({
 
 import { CodeBlock } from "@/components/ui/code-block";
 
+interface ComponentPreviewProps {
+  children: React.ReactNode;
+  code?: string;
+  name?: string;
+  className?: string;
+  /**
+   * If provided, overrides the fully constructed install command.
+   */
+  installCommand?: string;
+  /**
+   * If provided, constructs the install command using:
+   * npx shadcn@latest add {NEXT_PUBLIC_APP_URL}/registry/{registry}
+   */
+  registry?: string;
+}
+
 export function ComponentPreview({
   children,
   code,
   name = "component",
   className,
   installCommand,
+  registry,
 }: ComponentPreviewProps) {
   const [isCopied, setIsCopied] = React.useState(false);
   const [isInstallCopied, setIsInstallCopied] = React.useState(false);
@@ -88,6 +105,10 @@ export function ComponentPreview({
 
   const copyButtonRef = React.useRef<HTMLButtonElement>(null);
   const installButtonRef = React.useRef<HTMLButtonElement>(null);
+
+  // Construct the command dynamically
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+  const finalInstallCommand = installCommand ?? (registry ? `npx shadcn@latest add ${appUrl}/registry/${registry}` : undefined);
 
   const handleCopyClick = () => {
     if (code) {
@@ -98,8 +119,8 @@ export function ComponentPreview({
   };
 
   const handleInstallCopy = () => {
-    if (installCommand) {
-      navigator.clipboard.writeText(installCommand);
+    if (finalInstallCommand) {
+      navigator.clipboard.writeText(finalInstallCommand);
       setIsInstallCopied(true);
       setTimeout(() => setIsInstallCopied(false), 2000);
     }
@@ -138,7 +159,7 @@ export function ComponentPreview({
           </TabsList>
 
           <div className="flex items-center gap-2">
-            {installCommand && (
+            {finalInstallCommand && (
                <div className="hidden md:flex items-center">
                  <Button
                    ref={installButtonRef}
@@ -148,7 +169,7 @@ export function ComponentPreview({
                    onClick={handleInstallCopy}
                  >
                    {isInstallCopied ? <CheckCheck className="size-3.5" /> : <Terminal className="size-3.5" />}
-                   <span className="truncate max-w-50">{installCommand}</span>
+                   <span className="truncate max-w-50">{finalInstallCommand}</span>
                  </Button>
                </div>
             )}
