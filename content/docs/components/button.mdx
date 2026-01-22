@@ -11,40 +11,7 @@ import { ChevronRight, Mail, Loader2 } from "lucide-react";
 Displays a button or a component that looks like a button.
 
 
-import {
-  Snippet,
-  SnippetHeader,
-  SnippetTabsList,
-  SnippetTabsTrigger,
-  SnippetTabsContent,
-  SnippetCopyButton,
-} from "@/components/kibo-ui/snippet";
 
-## Installation
-
-<Snippet defaultValue="npm">
-  <SnippetHeader>
-    <SnippetTabsList>
-      <SnippetTabsTrigger value="npm">npm</SnippetTabsTrigger>
-      <SnippetTabsTrigger value="pnpm">pnpm</SnippetTabsTrigger>
-      <SnippetTabsTrigger value="bun">bun</SnippetTabsTrigger>
-      <SnippetTabsTrigger value="yarn">yarn</SnippetTabsTrigger>
-    </SnippetTabsList>
-    <SnippetCopyButton value="npx shadcn@latest add http://localhost:3000/registry/button.json" />
-  </SnippetHeader>
-  <SnippetTabsContent value="npm">
-    npx shadcn@latest add http://localhost:3000/registry/button.json
-  </SnippetTabsContent>
-  <SnippetTabsContent value="pnpm">
-    pnpm dlx shadcn@latest add http://localhost:3000/registry/button.json
-  </SnippetTabsContent>
-  <SnippetTabsContent value="bun">
-    bunx --bun shadcn@latest add http://localhost:3000/registry/button.json
-  </SnippetTabsContent>
-  <SnippetTabsContent value="yarn">
-    npx shadcn@latest add http://localhost:3000/registry/button.json
-  </SnippetTabsContent>
-</Snippet>
 
 import { Button01 } from "@/components/bilalUi/button/Button01";
 import { Button02 } from "@/components/bilalUi/button/Button02";

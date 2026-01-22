@@ -67,7 +67,7 @@ export async function GET(
     }
   }
 
-  const relativePath = `components/bilalUi/${path.relative(componentsDir, filePath).replace(/\\/g, "/")}`
+  const relativePath = `components/bilal-ui/${path.relative(componentsDir, filePath).replace(/\\/g, "/")}`
 
   const data = {
     name: componentName,
