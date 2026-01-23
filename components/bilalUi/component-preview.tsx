@@ -124,8 +124,7 @@ export function ComponentPreview({
 
   // Construct the command dynamically
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
-  const registryUrl = registry || `${name}.json`;
-  const finalInstallCommand = installCommand ?? `npx shadcn@latest add ${appUrl}/registry/${registryUrl}`;
+  const finalInstallCommand = installCommand ?? `npx shadcn@latest add ${appUrl}/api/source/${name}.json`;
 
   const handleCopyClick = () => {
     if (sourceCode) {

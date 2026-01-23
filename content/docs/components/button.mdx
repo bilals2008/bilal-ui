@@ -3,82 +3,67 @@ title: Button
 description: Interactive button components with premium animations.
 ---
 
-import { Button } from "@/components/ui/button";
-import { ChevronRight, Mail, Loader2 } from "lucide-react";
+import { MagneticButton } from "@/components/bilalUi/button/Button01";
+import { ShinyButton } from "@/components/bilalUi/button/Button02";
+import { NeoBrutalismButton } from "@/components/bilalUi/button/Button03";
+import { CopyButton } from "@/components/bilalUi/button/Button04";
+import { GradientGlowButton } from "@/components/bilalUi/button/Button05";
 
 # Button
 
-Displays a button or a component that looks like a button.
+A collection of premium buttons with different animation styles, from magnetic cursor effects to neo-brutalism.
 
+## Gallery
 
+### Magnetic Button
+A sophisticated button that magnetically follows your cursor position on hover, creating a satisfying physical feel. Perfect for primary calls to action.
 
-
-import { Button01 } from "@/components/bilalUi/button/Button01";
-import { Button02 } from "@/components/bilalUi/button/Button02";
-import { Button03 } from "@/components/bilalUi/button/Button03";
-import { Button04 } from "@/components/bilalUi/button/Button04";
-import { Button05 } from "@/components/bilalUi/button/Button05";
-
-import { TestDemo } from "@/components/bilalUi/TestDemo";
-
-## Dynamic Discovery Demo
-
-<ComponentPreview name="test-demo">
-  <div className="p-4">
-    <TestDemo />
+<ComponentPreview name="button01">
+  <div className="p-10 flex justify-center w-full">
+    <MagneticButton />
   </div>
 </ComponentPreview>
 
-## Bilal UI Collection
+### Shiny Gradient
+A sleek, modern button with a continuously moving gradient sheen and a subtle border mask. Ideal for SaaS dashboards and high-tech aesthetics.
 
-### Button 01
-<ComponentPreview 
-  name="button-01" 
-  registry="Button01.json"
->
-  <div className="p-4">
-    <Button01 />
+<ComponentPreview name="button02">
+  <div className="p-10 flex justify-center w-full">
+    <ShinyButton />
   </div>
 </ComponentPreview>
 
-### Button 02
-<ComponentPreview 
-  name="button-02" 
-  registry="Button02.json"
->
-  <div className="p-4">
-    <Button02 />
+### Neo Brutalism
+Bold, high-contrast design with hard shadows and sharp edges. Great for making a statement or retro-styled interfaces.
+
+<ComponentPreview name="button03">
+  <div className="p-10 flex justify-center w-full">
+    <NeoBrutalismButton />
   </div>
 </ComponentPreview>
 
-### Button 03
-<ComponentPreview 
-  name="button-03" 
-  registry="Button03.json"
->
-  <div className="p-4">
-    <Button03 />
+### Copy Button (State Animation)
+An interactive utility button that transitions between states. Smoothly animates between "Copy" and "Copied" status with exit/enter transitions.
+
+<ComponentPreview name="button04">
+  <div className="p-10 flex justify-center w-full">
+    <CopyButton />
   </div>
 </ComponentPreview>
 
-### Button 04
-<ComponentPreview 
-  name="button-04" 
-  registry="Button04.json"
->
-  <div className="p-4">
-    <Button04 />
+### Gradient Glow
+A button with a diffuse, colorful glow that intensifies on hover. Uses multiple layers to create a "glassy" neon effect.
+
+<ComponentPreview name="button05">
+  <div className="p-10 flex justify-center w-full">
+    <GradientGlowButton />
   </div>
 </ComponentPreview>
 
-### Button 05
-<ComponentPreview 
-  name="button-05" 
-  registry="Button05.json"
->
-  <div className="p-4">
-    <Button05 />
-  </div>
-</ComponentPreview>
+## Installation
 
+You can install any of these buttons by copying the code above or using the CLI command shown in the "Code" tab.
 
+```bash
+npx shadcn@latest add http://localhost:3000/api/source/button01.json
+```
