@@ -1,6 +1,6 @@
 ---
 title: Installation
-description: Follow these steps to install and configure Bilal UI in your project.
+description: Getting started with Bilal UI
 ---
 
 import {
@@ -11,170 +11,70 @@ import {
   SnippetTabsContent,
   SnippetCopyButton,
 } from "@/components/kibo-ui/snippet";
+import { Callout } from "@/components/ui/callout";
 
 ## Prerequisites
 
-Before you can install and use Bilal UI, make sure your project meets the following requirements:
+Before installing Bilal UI, ensure your project meets the following requirements:
 
-- **React**: Version 19 or higher.
-- **Typescript**: Version 5 or higher.
-- **Tailwind CSS**: Version 3.4 or higher.
-- **Radix UI**: Version 1 or higher.
-- **Base UI**: Version 1 or higher.
-- **Motion**: Version 12.0 or higher.
+- **React** 18 or higher
+- **Tailwind CSS** v4
+- **TypeScript** 5+ (recommended)
 
-## Install Components
-
-<Steps>
-
-<Step>
-### Initialize a React Project
-
-Bilal UI is fully compatible with Shadcn and extends it with advanced component options. To get started, set up your React project following the [Shadcn Installation Guide](https://ui.shadcn.com/docs/installation).
-
-<Callout type="success">
-  If you already have a project compatible with Shadcn, you can skip this guide.
+<Callout type="info">
+  All components are written in **TypeScript**. While you can use them in JavaScript projects, TypeScript is recommended for the best developer experience.
 </Callout>
 
-</Step>
+## 1. Install utilities
 
-<Step>
-### Install Radix UI
+All components use [Tailwind CSS v4](https://tailwindcss.com), so ensure it's installed in your project. Many components also use the `cn` utility function—you can set this up by following the framework guides below:
 
-Follow [Radix UI Installation Guide](https://www.radix-ui.com/primitives/docs/overview/getting-started) to install Radix UI package.
+<br />
+<Callout type="success">
+  If you already have a project compatible with Shadcn, you can skip this step.
+</Callout>
 
-<Snippet defaultValue="npm">
+## 2. That's it 🎉
+
+We use [lucide-icons](https://lucide.dev) for most components that include icons, along with some [shadcn/ui](https://ui.shadcn.com) components. These dependencies will be automatically installed when using the CLI.
+
+For example to add `button01` to your project, it will be easy as:
+
+<Snippet defaultValue="bun">
   <SnippetHeader>
     <SnippetTabsList>
-       <SnippetTabsTrigger value="npm">npm</SnippetTabsTrigger>
-       <SnippetTabsTrigger value="pnpm">pnpm</SnippetTabsTrigger>
        <SnippetTabsTrigger value="bun">bun</SnippetTabsTrigger>
-       <SnippetTabsTrigger value="yarn">yarn</SnippetTabsTrigger>
-    </SnippetTabsList>
-    <SnippetCopyButton value="npm i @radix-ui/react-icons" />
-  </SnippetHeader>
-  <SnippetTabsContent value="npm">npm i @radix-ui/react-icons</SnippetTabsContent>
-  <SnippetTabsContent value="pnpm">pnpm add @radix-ui/react-icons</SnippetTabsContent>
-  <SnippetTabsContent value="bun">bun add @radix-ui/react-icons</SnippetTabsContent>
-  <SnippetTabsContent value="yarn">yarn add @radix-ui/react-icons</SnippetTabsContent>
-</Snippet>
-
-</Step>
-
-<Step>
-### Install Base UI
-
-Follow [Base UI Installation Guide](https://base-ui.com/react/overview/quick-start) to install Base UI package.
-
-<Snippet defaultValue="npm">
-  <SnippetHeader>
-    <SnippetTabsList>
-       <SnippetTabsTrigger value="npm">npm</SnippetTabsTrigger>
+       <SnippetTabsTrigger value="npx">npx</SnippetTabsTrigger>
        <SnippetTabsTrigger value="pnpm">pnpm</SnippetTabsTrigger>
-       <SnippetTabsTrigger value="bun">bun</SnippetTabsTrigger>
-       <SnippetTabsTrigger value="yarn">yarn</SnippetTabsTrigger>
     </SnippetTabsList>
-    <SnippetCopyButton value="npm i @base-ui-components/react" />
+    <SnippetCopyButton value="bunx shadcn@latest add https://ui.bilal.dev/api/source/button01.json" />
   </SnippetHeader>
-  <SnippetTabsContent value="npm">npm i @base-ui-components/react</SnippetTabsContent>
-  <SnippetTabsContent value="pnpm">pnpm add @base-ui-components/react</SnippetTabsContent>
-  <SnippetTabsContent value="bun">bun add @base-ui-components/react</SnippetTabsContent>
-  <SnippetTabsContent value="yarn">yarn add @base-ui-components/react</SnippetTabsContent>
+  <SnippetTabsContent value="bun">bunx shadcn@latest add https://ui.bilal.dev/api/source/button01.json</SnippetTabsContent>
+  <SnippetTabsContent value="npx">npx shadcn@latest add https://ui.bilal.dev/api/source/button01.json</SnippetTabsContent>
+  <SnippetTabsContent value="pnpm">pnpm dlx shadcn@latest add https://ui.bilal.dev/api/source/button01.json</SnippetTabsContent>
 </Snippet>
-
-</Step>
-
-<Step>
-### Install Motion
-
-To use animated effects, follow [Motion Installation Guide](https://motion.dev/docs/install) to install Motion.
-
-<Snippet defaultValue="npm">
-  <SnippetHeader>
-    <SnippetTabsList>
-       <SnippetTabsTrigger value="npm">npm</SnippetTabsTrigger>
-       <SnippetTabsTrigger value="pnpm">pnpm</SnippetTabsTrigger>
-       <SnippetTabsTrigger value="bun">bun</SnippetTabsTrigger>
-       <SnippetTabsTrigger value="yarn">yarn</SnippetTabsTrigger>
-    </SnippetTabsList>
-    <SnippetCopyButton value="npm i motion" />
-  </SnippetHeader>
-  <SnippetTabsContent value="npm">npm i motion</SnippetTabsContent>
-  <SnippetTabsContent value="pnpm">pnpm add motion</SnippetTabsContent>
-  <SnippetTabsContent value="bun">bun add motion</SnippetTabsContent>
-  <SnippetTabsContent value="yarn">yarn add motion</SnippetTabsContent>
-</Snippet>
-
-</Step>
-
-<Step>
-### Setup Inter Font (Next.js)
-
-Add the following code to your root layout file (`app/layout.tsx` or `app/layout.js`):
-
-```tsx
-import { Inter } from "next/font/google";
-import { cn } from "@/lib/utils";
-
-const inter = Inter({ subsets: ["latin"] });
-
-export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <body className={cn("antialiased", inter.className)}>{children}</body>
-    </html>
-  );
-}
-```
-
-</Step>
-
-<Step>
-### Setup System Fonts
-
-Add the following code to your style entry file `globals.css`:
-
-```css
-@theme {
-  --font-sans:
-    "Inter", "Inter Fallback", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New";
-}
-```
 
 <Callout type="tip">
-For a modern and visually appealing design, we recommend using Inter as the default font in your project.
+  While we provide a convenient 'copy' button for the code, we strongly recommend using the CLI for installing components, as it ensures all necessary files are included.
 </Callout>
 
-</Step>
+Add to your page and it works!
 
-<Step>
-### Add Lucide Icon Library
+```tsx
+import { MagneticButton } from "@/components/bilalUi/button/Button01";
 
-<Snippet defaultValue="npm">
-  <SnippetHeader>
-    <SnippetTabsList>
-       <SnippetTabsTrigger value="npm">npm</SnippetTabsTrigger>
-       <SnippetTabsTrigger value="pnpm">pnpm</SnippetTabsTrigger>
-       <SnippetTabsTrigger value="bun">bun</SnippetTabsTrigger>
-       <SnippetTabsTrigger value="yarn">yarn</SnippetTabsTrigger>
-    </SnippetTabsList>
-    <SnippetCopyButton value="npm i lucide-react" />
-  </SnippetHeader>
-  <SnippetTabsContent value="npm">npm i lucide-react</SnippetTabsContent>
-  <SnippetTabsContent value="pnpm">pnpm add lucide-react</SnippetTabsContent>
-  <SnippetTabsContent value="bun">bun add lucide-react</SnippetTabsContent>
-  <SnippetTabsContent value="yarn">yarn add lucide-react</SnippetTabsContent>
-</Snippet>
+export default function Page() {
+  return <MagneticButton />;
+}
+```
 
-</Step>
+## 3. Blocks
 
-<Step>
-### Add Components
+<Callout type="info">
+  **Coming Soon** — Blocks are multi-file component sets that work together to create complete UI sections. Stay tuned!
+</Callout>
 
-Explore the [Bilal UI Components](/docs/components/button) and add the ones you need into your project.
+## 4. Optional dependencies
 
-</Step>
+Some components require additional libraries, listed at the bottom of each component. Make sure to install them to ensure the component works properly.
 
-</Steps>
