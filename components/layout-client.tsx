@@ -122,11 +122,6 @@ export function DocsLayoutClient({
             );
 
             const isActive = pathname === item.url;
-            
-            // Premium active state logic
-            const activeStyles = isActive 
-              ? "bg-primary/8 text-primary font-medium shadow-[0_1px_4px_rgba(0,0,0,0.05)]" 
-              : "text-muted-foreground hover:bg-muted/60 hover:text-foreground";
 
             return (
               <Link
@@ -137,35 +132,62 @@ export function DocsLayoutClient({
                   }
                 }}
                 className={cn(
-                  "flex items-center gap-3 w-full py-2.5 px-3 rounded-sm text-[13.5px] transition-all duration-300 no-underline group relative overflow-hidden",
-                  activeStyles,
-                  isComingSoon &&
-                    "opacity-60 cursor-not-allowed hover:bg-transparent dark:hover:bg-transparent"
+                  // Base styles
+                  "flex items-center gap-3 w-full py-2 px-3 rounded-lg text-[13px] no-underline group relative",
+                  // Transition & animation
+                  "transition-all duration-200 ease-out",
+                  // Active state - premium enterprise look
+                  isActive && [
+                    "bg-gradient-to-r from-primary/10 via-primary/8 to-transparent",
+                    "text-foreground font-semibold",
+                    "shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]",
+                    "dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.03),0_1px_2px_rgba(0,0,0,0.1)]",
+                  ],
+                  // Inactive state with subtle hover
+                  !isActive && [
+                    "text-muted-foreground/80",
+                    "hover:bg-muted/50 hover:text-foreground",
+                    "dark:hover:bg-white/[0.04]",
+                  ],
+                  // Coming soon disabled state
+                  isComingSoon && [
+                    "opacity-50 cursor-not-allowed",
+                    "hover:bg-transparent dark:hover:bg-transparent",
+                    "hover:text-muted-foreground/80",
+                  ]
                 )}
               >
-                {/* Active Indicator Strip */}
-                {isActive && (
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-6 bg-primary rounded-r-full opacity-100" />
-                )}
+                {/* Active Indicator - Left accent bar */}
+                <div 
+                  className={cn(
+                    "absolute left-0 top-1/2 -translate-y-1/2 w-[3px] rounded-r-full transition-all duration-200",
+                    isActive 
+                      ? "h-5 bg-gradient-to-b from-primary via-primary to-primary/70 opacity-100" 
+                      : "h-0 opacity-0"
+                  )} 
+                />
                 
+                {/* Icon */}
                 {Icon && (
-                  <Icon 
-                    className={cn(
-                      "w-4.5 h-4.5 transition-colors duration-200",
-                      isActive 
-                        ? "text-primary/80" 
-                        : "text-muted-foreground/70 group-hover:text-foreground/80"
-                    )} 
-                  />
+                  <div className={cn(
+                    "flex items-center justify-center w-5 h-5 rounded-md transition-all duration-200",
+                    isActive 
+                      ? "text-primary" 
+                      : "text-muted-foreground/60 group-hover:text-foreground/70"
+                  )}>
+                    <Icon className="w-4 h-4" strokeWidth={isActive ? 2.25 : 1.75} />
+                  </div>
                 )}
                 
+                {/* Label */}
                 <span className={cn(
-                  "flex-1 tracking-tight whitespace-nowrap overflow-hidden text-overflow-ellipsis",
-                  isActive ? "font-medium" : "font-normal"
+                  "flex-1 truncate tracking-[-0.01em]",
+                  isActive ? "font-semibold" : "font-medium"
                 )}>
                   {item.name}
                 </span>
 
+                {/* Badge */}
                 {badgeContent && (
                   <Badge
                     variant={
@@ -199,7 +221,6 @@ export function DocsLayoutClient({
                     }
                     appearance="outline"
                     size="sm"
-                    className=""
                   >
                     {badgeContent}
                   </Badge>
