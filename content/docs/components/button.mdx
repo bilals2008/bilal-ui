@@ -1,69 +1,63 @@
 ---
 title: Button
-description: Interactive button components with premium animations.
+description: Displays a button or a component that looks like a button.
 ---
 
 import { MagneticButton } from "@/components/bilalUi/button/Button01";
-import { ShinyButton } from "@/components/bilalUi/button/Button02";
-import { NeoBrutalismButton } from "@/components/bilalUi/button/Button03";
-import { CopyButton } from "@/components/bilalUi/button/Button04";
-import { GradientGlowButton } from "@/components/bilalUi/button/Button05";
+import { Callout } from "@/components/ui/callout";
+import { ComponentPreview } from "@/components/bilalUi/component-preview";
 
-# Button
+<ComponentPreview name="magnetic-button" code={`"use client";
 
-A collection of premium buttons with different animation styles, from magnetic cursor effects to neo-brutalism.
+import React, { useRef, useState } from "react";
+import { motion } from "motion/react";
+import { ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
-## Gallery
+const MotionButton = motion.create(Button);
 
-### Magnetic Button
-A sophisticated button that magnetically follows your cursor position on hover, creating a satisfying physical feel. Perfect for primary calls to action.
+export const MagneticButton = () => {
+    const ref = useRef<HTMLButtonElement>(null);
+    const [position, setPosition] = useState({ x: 0, y: 0 });
 
-<ComponentPreview name="button01">
-  <div className="p-10 flex justify-center w-full">
-    <MagneticButton />
-  </div>
+    const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+        const { clientX, clientY } = e;
+        const { left, top, width, height } = ref.current!.getBoundingClientRect();
+        const x = clientX - (left + width / 2);
+        const y = clientY - (top + height / 2);
+        setPosition({ x, y });
+    };
+
+    const handleMouseLeave = () => {
+        setPosition({ x: 0, y: 0 });
+    };
+
+    const { x, y } = position;
+
+    return (
+        <MotionButton
+            ref={ref}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            animate={{ x, y }}
+            transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
+            className={cn(
+                "rounded-full px-8 h-12", 
+                "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900",
+                "hover:bg-zinc-800 dark:hover:bg-zinc-200"
+            )}
+            variant="default" 
+        >
+            <span>Magnetic Pull</span>
+            <ArrowRight className="w-4 h-4 ml-1" />
+        </MotionButton>
+    );
+};
+`}>
+  <MagneticButton />
 </ComponentPreview>
 
-### Shiny Gradient
-A sleek, modern button with a continuously moving gradient sheen and a subtle border mask. Ideal for SaaS dashboards and high-tech aesthetics.
-
-<ComponentPreview name="button02">
-  <div className="p-10 flex justify-center w-full">
-    <ShinyButton />
-  </div>
-</ComponentPreview>
-
-### Neo Brutalism
-Bold, high-contrast design with hard shadows and sharp edges. Great for making a statement or retro-styled interfaces.
-
-<ComponentPreview name="button03">
-  <div className="p-10 flex justify-center w-full">
-    <NeoBrutalismButton />
-  </div>
-</ComponentPreview>
-
-### Copy Button (State Animation)
-An interactive utility button that transitions between states. Smoothly animates between "Copy" and "Copied" status with exit/enter transitions.
-
-<ComponentPreview name="button04">
-  <div className="p-10 flex justify-center w-full">
-    <CopyButton />
-  </div>
-</ComponentPreview>
-
-### Gradient Glow
-A button with a diffuse, colorful glow that intensifies on hover. Uses multiple layers to create a "glassy" neon effect.
-
-<ComponentPreview name="button05">
-  <div className="p-10 flex justify-center w-full">
-    <GradientGlowButton />
-  </div>
-</ComponentPreview>
-
-## Installation
-
-You can install any of these buttons by copying the code above or using the CLI command shown in the "Code" tab.
-
-```bash
-npx shadcn@latest add http://localhost:3000/api/source/button01.json
-```
+<Callout type="info" title="Under Construction" className="mt-8">
+  This component collection is currently being updated. More variations will be added soon.
+</Callout>
