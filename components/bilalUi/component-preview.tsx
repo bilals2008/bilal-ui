@@ -102,17 +102,33 @@ export function ComponentPreview({
   const [isCopied, setIsCopied] = React.useState(false);
   const [isInstallCopied, setIsInstallCopied] = React.useState(false);
   const [key, setKey] = React.useState(0); // For refresh functionality
+  const [sourceCode, setSourceCode] = React.useState<string>("");
 
   const copyButtonRef = React.useRef<HTMLButtonElement>(null);
   const installButtonRef = React.useRef<HTMLButtonElement>(null);
+
+  React.useEffect(() => {
+    if (code) {
+        setSourceCode(code);
+    } else if (name) {
+        // Fetch source code if not provided directly
+        fetch(`/api/source/${name}`)
+            .then(res => {
+                if (res.ok) return res.text();
+                return "// Source code not found";
+            })
+            .then(text => setSourceCode(text))
+            .catch(() => setSourceCode("// Error loading source code"));
+    }
+  }, [code, name]);
 
   // Construct the command dynamically
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
   const finalInstallCommand = installCommand ?? (registry ? `npx shadcn@latest add ${appUrl}/registry/${registry}` : undefined);
 
   const handleCopyClick = () => {
-    if (code) {
-      navigator.clipboard.writeText(code);
+    if (sourceCode) {
+      navigator.clipboard.writeText(sourceCode);
       setIsCopied(true);
       setTimeout(() => setIsCopied(false), 2000);
     }
@@ -222,7 +238,7 @@ export function ComponentPreview({
              <div className="p-4 overflow-x-auto max-h-150 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
                <CodeBlock 
                 language="tsx" 
-                code={code || "// Code not provided"}
+                code={sourceCode || "// Loading..."}
                />
              </div>
           </div>
