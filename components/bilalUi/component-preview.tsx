@@ -124,7 +124,8 @@ export function ComponentPreview({
 
   // Construct the command dynamically
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
-  const finalInstallCommand = installCommand ?? (registry ? `npx shadcn@latest add ${appUrl}/registry/${registry}` : undefined);
+  const registryUrl = registry || `${name}.json`;
+  const finalInstallCommand = installCommand ?? `npx shadcn@latest add ${appUrl}/registry/${registryUrl}`;
 
   const handleCopyClick = () => {
     if (sourceCode) {
@@ -238,6 +239,7 @@ export function ComponentPreview({
              <div className="p-4 overflow-x-auto max-h-150 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
                <CodeBlock 
                 language="tsx" 
+                
                 code={sourceCode || "// Loading..."}
                />
              </div>
