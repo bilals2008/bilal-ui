@@ -8,6 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { AnimatePresence, motion } from "motion/react";
 import { OpenInV0Button } from "./open-in-v0-button";
+import { Spinner } from "@/components/ui/spinner";
 
 interface ComponentPreviewProps {
   children: React.ReactNode;
@@ -103,6 +104,8 @@ export function ComponentPreview({
   const [isInstallCopied, setIsInstallCopied] = React.useState(false);
   const [key, setKey] = React.useState(0); // For refresh functionality
   const [sourceCode, setSourceCode] = React.useState<string>("");
+  const [activeTab, setActiveTab] = React.useState<string>("preview");
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const copyButtonRef = React.useRef<HTMLButtonElement>(null);
   const installButtonRef = React.useRef<HTMLButtonElement>(null);
@@ -125,6 +128,16 @@ export function ComponentPreview({
   // Construct the command dynamically
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
   const finalInstallCommand = installCommand ?? `npx shadcn@latest add ${appUrl}/api/source/${name}.json`;
+
+  const handleTabChange = (value: string) => {
+    if (value !== activeTab) {
+      setIsLoading(true);
+      setTimeout(() => {
+        setActiveTab(value);
+        setIsLoading(false);
+      }, 300);
+    }
+  };
 
   const handleCopyClick = () => {
     if (sourceCode) {
@@ -149,16 +162,16 @@ export function ComponentPreview({
   return (
     <div
       className={cn(
-        "group relative my-6 rounded-xl border bg-background shadow-sm",
+        "group relative my-6 rounded-xl border border-zinc-300/80 dark:border-zinc-800 bg-background shadow-sm",
         className
       )}
     >
       {isCopied && <SuccessParticles buttonRef={copyButtonRef} />}
       {isInstallCopied && <SuccessParticles buttonRef={installButtonRef} />}
 
-      <Tabs defaultValue="preview" className="relative w-full">
+      <Tabs value={activeTab} onValueChange={handleTabChange} className="relative w-full">
         {/* Toolbar Section */}
-        <div className="flex items-center justify-between border-b px-4 py-3 bg-black/5 dark:bg-black/40">
+        <div className="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 px-4 py-3 bg-zinc-100/60 dark:bg-zinc-900/40">
           <TabsList className="h-9 gap-1 rounded-lg bg-zinc-100 dark:bg-zinc-800/60 p-1 text-zinc-500 dark:text-zinc-400">
             <TabsTrigger
               value="preview"
@@ -221,29 +234,48 @@ export function ComponentPreview({
           </div>
         </div>
 
-        {/* Content Section */}
-        <TabsContent
-          value="preview"
-          key={key}
-          className="relative min-h-100 w-full overflow-hidden rounded-b-xl bg-background mt-0"
-        >
-           <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#1f2937_1px,transparent_1px)] bg-size-[16px_16px] mask-[radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-50" />
-           <div className="relative z-10 flex h-full min-h-100 w-full items-center justify-center p-10">
-            {children}
-          </div>
-        </TabsContent>
+        {/* Content Section with Loading State */}
+        <div className="relative">
+          {/* Loading Overlay */}
+          <AnimatePresence>
+            {isLoading && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.15 }}
+                className="absolute inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm rounded-b-xl min-h-100"
+              >
+                <div className="flex flex-col items-center gap-3">
+                  <Spinner className="w-6 h-6 text-primary" />
+                  <span className="text-xs text-muted-foreground font-medium">Loading...</span>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
-        <TabsContent value="code" className="mt-0">
-          <div className="relative overflow-hidden rounded-b-xl bg-[#1e1e2e]">
-             <div className="p-4 overflow-x-auto max-h-150 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
-               <CodeBlock 
-                language="tsx" 
-                
-                code={sourceCode || "// Loading..."}
-               />
-             </div>
-          </div>
-        </TabsContent>
+          <TabsContent
+            value="preview"
+            key={key}
+            className="relative min-h-100 w-full overflow-hidden rounded-b-xl bg-background mt-0"
+          >
+            <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#1f2937_1px,transparent_1px)] bg-size-[16px_16px] mask-[radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-50" />
+            <div className="relative z-10 flex h-full min-h-100 w-full items-center justify-center p-10">
+              {children}
+            </div>
+          </TabsContent>
+
+          <TabsContent value="code" className="mt-0">
+            <div className="relative overflow-hidden rounded-b-xl bg-[#1e1e2e]">
+              <div className="p-4 overflow-x-auto max-h-150 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+                <CodeBlock 
+                  language="tsx" 
+                  code={sourceCode || "// Loading..."}
+                />
+              </div>
+            </div>
+          </TabsContent>
+        </div>
       </Tabs>
     </div>
   );
