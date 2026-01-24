@@ -27,7 +27,6 @@ export function CodeBlock({ code, language = "tsx" }: CodeBlockProps) {
             fontFamily: "var(--font-mono)",
             fontSize: "15px",
             lineHeight: "1.6"
-            
           }}
         >
           {tokens.map((line, i) => (

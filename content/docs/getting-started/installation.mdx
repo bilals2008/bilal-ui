@@ -1,71 +1,80 @@
 ---
 title: Installation
-description: How to install and configure Bilal UI in your project.
+description: Getting started with Bilal UI
 ---
 
-## System Requirements
+import {
+  Snippet,
+  SnippetHeader,
+  SnippetTabsList,
+  SnippetTabsTrigger,
+  SnippetTabsContent,
+  SnippetCopyButton,
+} from "@/components/kibo-ui/snippet";
+import { Callout } from "@/components/ui/callout";
 
-Before you start, ensure you have the following installed:
+## Prerequisites
 
-- [Node.js](https://nodejs.org/) 18.17 or later.
-- [React](https://react.dev/) 18 or later.
-- [Tailwind CSS](https://tailwindcss.com/) 3.3 or later.
+Before installing Bilal UI, ensure your project meets the following requirements:
 
-## Manual Installation
+- **React** 18 or higher
+- **Tailwind CSS** v4
+- **TypeScript** 5+ (recommended)
 
 <Callout type="info">
-  If you are starting a new project, we recommend using a framework starter that
-  supports Tailwind CSS.
+  All components are written in **TypeScript**. While you can use them in JavaScript projects, TypeScript is recommended for the best developer experience.
 </Callout>
 
-### 1. Install Dependencies
+## 1. Install utilities
 
-Install the required dependencies for Bilal UI:
+All components use [Tailwind CSS v4](https://tailwindcss.com), so ensure it's installed in your project. Many components also use the `cn` utility function—you can set this up by following the framework guides below:
 
-```bash
-npm install framer-motion clsx tailwind-merge lucide-react
-```
+<br />
+<Callout type="success">
+  If you already have a project compatible with Shadcn, you can skip this step.
+</Callout>
 
-### 2. Configure Tailwind CSS
+## 2. That's it 🎉
 
-Ensure your `tailwind.config.js` or `tailwind.config.ts` handles the content paths correctly.
+We use [lucide-icons](https://lucide.dev) for most components that include icons, along with some [shadcn/ui](https://ui.shadcn.com) components. These dependencies will be automatically installed when using the CLI.
 
-```ts title="tailwind.config.ts"
-import type { Config } from "tailwindcss";
+For example to add `button01` to your project, it will be easy as:
 
-const config: Config = {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}", // [!code highlight]
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-};
+<Snippet defaultValue="bun">
+  <SnippetHeader>
+    <SnippetTabsList>
+       <SnippetTabsTrigger value="bun">bun</SnippetTabsTrigger>
+       <SnippetTabsTrigger value="npx">npx</SnippetTabsTrigger>
+       <SnippetTabsTrigger value="pnpm">pnpm</SnippetTabsTrigger>
+    </SnippetTabsList>
+    <SnippetCopyButton value="bunx shadcn@latest add https://ui.bilal.dev/api/source/button01.json" />
+  </SnippetHeader>
+  <SnippetTabsContent value="bun">bunx shadcn@latest add https://ui.bilal.dev/api/source/button01.json</SnippetTabsContent>
+  <SnippetTabsContent value="npx">npx shadcn@latest add https://ui.bilal.dev/api/source/button01.json</SnippetTabsContent>
+  <SnippetTabsContent value="pnpm">pnpm dlx shadcn@latest add https://ui.bilal.dev/api/source/button01.json</SnippetTabsContent>
+</Snippet>
 
-export default config;
-```
+<Callout type="tip">
+  While we provide a convenient 'copy' button for the code, we strongly recommend using the CLI for installing components, as it ensures all necessary files are included.
+</Callout>
 
-### 3. Add Utilities
+Add to your page and it works!
 
-Create a utility file `lib/utils.ts` to handle class merging:
+```tsx
+import { MagneticButton } from "@/components/bilalUi/button/Button01";
 
-```ts title="lib/utils.ts"
-import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+export default function Page() {
+  return <MagneticButton />;
 }
 ```
 
-### 4. You're Ready!
+## 3. Blocks
 
-You can now start copying components into your project.
-
-<Callout type="tip">
-  Visit the [Components](/docs/components) section to browse available
-  components.
+<Callout type="info">
+  **Coming Soon** — Blocks are multi-file component sets that work together to create complete UI sections. Stay tuned!
 </Callout>
+
+## 4. Optional dependencies
+
+Some components require additional libraries, listed at the bottom of each component. Make sure to install them to ensure the component works properly.
+

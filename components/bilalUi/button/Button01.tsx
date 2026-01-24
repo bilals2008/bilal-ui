@@ -1,13 +1,6 @@
----
-title: Button
-description: Displays a button or a component that looks like a button.
----
+// File: components/bilalUi/button/Button01.tsx
 
-import { MagneticButton } from "@/components/bilalUi/button/Button01";
-import { Callout } from "@/components/ui/callout";
-import { ComponentPreview } from "@/components/bilalUi/component-preview";
-
-<ComponentPreview name="magnetic-button" code={`"use client";
+"use client";
 
 import React, { useRef, useState } from "react";
 import { motion } from "motion/react";
@@ -54,10 +47,3 @@ export const MagneticButton = () => {
         </MotionButton>
     );
 };
-`}>
-  <MagneticButton />
-</ComponentPreview>
-
-<Callout type="info" title="Under Construction" className="mt-8">
-  This component collection is currently being updated. More variations will be added soon.
-</Callout>

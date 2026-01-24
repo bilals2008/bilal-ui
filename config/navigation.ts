@@ -48,6 +48,13 @@ export const navigationSections: NavSection[] = [
       isUpdated: true,
     },
     {
+      id: "troubleshooting",
+      title: "Troubleshooting",
+      href: "/docs/getting-started/troubleshooting",
+      description: "Common issues and how to resolve them",
+      icon: "CircleHelp",
+    },
+    {
       id: "changelog",
       title: "Changelog",
       href: "/docs/getting-started/changelog",

@@ -8,7 +8,7 @@ import { Badge } from "../ui/badge";
 import { useState } from "react";
 
 const NavLinks = [
-  { href: "/docs/components/background-paths", label: "Components" },
+  { href: "/docs/components/button", label: "Components" },
   { href: "/templates", label: "Templates", badge: true },
   { href: "/changelog", label: "Changelog" },
 ];

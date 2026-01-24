@@ -2,6 +2,7 @@
   "pages": [
     "introduction",
     "installation",
+    "troubleshooting",
     "changelog"
   ]
 }
