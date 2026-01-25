@@ -67,7 +67,7 @@ export function ComponentShowcaseCard({
         </div>
       </div>
 
-      <p className="text-sm text-center text-zinc-500 dark:text-zinc-400 mt-4">
+      <p className="text-sm font-bold text-center mt-8 bg-clip-text text-transparent bg-linear-to-r from-purple-500 via-fuchsia-500 to-rose-500 animate-pulse">
         + more available
       </p>
     </div>
