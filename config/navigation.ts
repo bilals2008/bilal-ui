@@ -48,6 +48,14 @@ export const navigationSections: NavSection[] = [
       isUpdated: true,
     },
     {
+      id: "theming",
+      title: "Theming",
+      href: "/docs/getting-started/theming",
+      description: "Configure colors and variables",
+      icon: "Palette",
+      isNew: true,
+    },
+    {
       id: "troubleshooting",
       title: "Troubleshooting",
       href: "/docs/getting-started/troubleshooting",

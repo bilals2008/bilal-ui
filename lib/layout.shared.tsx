@@ -1,4 +1,5 @@
 // File: lib/layout.shared.tsx
+// File: lib/layout.shared.tsx
 import { Badge } from "@/components/ui/badge";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 import Image from "next/image";

@@ -62,7 +62,13 @@ export function DocsLayoutClient({
     <DocsLayout
       {...props}
       tree={tree}
-      themeSwitch={{enabled:false}}
+      nav={{
+        ...props.nav,
+        // Ensure title is preserved from baseOptions, or handled by props.nav
+        // If we want search, we typically don't need to do anything special IF the provider is set up,
+        // but explicit usage is better.
+      }}
+      links={props.links}
       sidebar={{
         components: {
           Item: ({ item }) => {
