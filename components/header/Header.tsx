@@ -1,7 +1,8 @@
 // File: components/header/header.tsx
 "use client";
-import { Flame, Bell, Github, Menu, X } from "lucide-react";
+import { Bell, Github, Menu, X } from "lucide-react";
 import Link from "next/link";
+import NextImage from "next/image";
 import { usePathname } from "next/navigation";
 import { ModeToggle } from "../mode-toggle";
 import { Badge } from "../ui/badge";
@@ -59,11 +60,15 @@ export function Header() {
                     href="/"
                     className="flex items-center gap-2 hover:opacity-80 transition-opacity"
                   >
-                    <div className="p-2 rounded-lg bg-linear-to-r from-green-500/10 to-emerald-500/10 dark:from-green-400/10 dark:to-emerald-400/10 hover:from-green-500/20 hover:to-emerald-500/20 dark:hover:from-green-400/20 dark:hover:to-emerald-400/20">
-                      <Flame className="w-5 h-5 text-green-500 dark:text-green-400" />
-                    </div>
+                    <NextImage
+                      src="/logo.png"
+                      alt="Bilal UI Logo"
+                      width={24}
+                      height={24}
+                      className="w-6 h-6 object-contain mix-blend-screen rounded-md"
+                    />
                     <span className="font-semibold text-zinc-900 dark:text-white">
-                      BilalUi
+                      Bilal UI
                     </span>
                   </Link>
                   <span className="text-zinc-300 dark:text-zinc-700 hidden sm:block">
