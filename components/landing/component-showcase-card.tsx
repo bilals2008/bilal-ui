@@ -9,8 +9,11 @@ export function ComponentShowcaseCard({
 }: ComponentShowcaseCardProps) {
   return (
     <div className={className}>
-      <div className="text-2xl sm:text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-linear-to-r from-zinc-700 to-zinc-400 dark:from-zinc-100 dark:to-zinc-400">
-        Buttons, Inputs & More
+      <div className="flex flex-col items-center justify-center text-center mb-12">
+        <h2 className="text-3xl md:text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-linear-to-r from-zinc-900 via-purple-500 to-rose-500 dark:from-white dark:via-purple-400 dark:to-rose-400">
+          Buttons, Inputs & More
+        </h2>
+        <div className="h-1 w-20 bg-linear-to-r from-purple-500 to-rose-500 rounded-full mt-4" />
       </div>
 
       <div className="space-y-12">
