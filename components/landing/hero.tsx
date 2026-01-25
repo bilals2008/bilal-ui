@@ -24,9 +24,9 @@ import {
 // import AIInput_04 from "../codesnippetui/ai-input/ai-input-04";
 
 // import Card08 from "../codesnippetui/card/card-08";
-// import { BrowseBlocksButton } from "../ui/browse-blocks";
-// import { BrowseComponentsButton } from "../ui/browse-button";
-// import Features from "./feature-block";
+import { BrowseBlocksButton } from "../ui/Browse-blocks";
+import { BrowseComponentsButton } from "../ui/Browse-button";
+import Features from "./feature-block";
 
 // import Card02 from "../codesnippetui/card/card-02";
 
@@ -38,8 +38,6 @@ interface Action {
   short?: string;
   end?: string;
 }
-
-
 
 export function HeroSection() {
   return (
@@ -117,7 +115,10 @@ export function HeroSection() {
             <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
               {"<Card/>"}
             </span>
-            <Card08 href="/docs/components/card" />
+            {/* <Card08 href="/docs/components/card" /> */}
+            <div className="w-full h-48 rounded-xl border border-dashed border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-400">
+              Card Preview
+            </div>
           </div>
 
           {/* Action Search Bar */}
@@ -129,7 +130,10 @@ export function HeroSection() {
                             actions={allActions}
                             defaultOpen={true}
                         /> */}
-            <Card02 />
+            {/* <Card02 /> */}
+            <div className="w-full h-48 rounded-xl border border-dashed border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-400">
+              Search Preview
+            </div>
           </div>
         </motion.div>
 
@@ -145,7 +149,8 @@ export function HeroSection() {
           </span>
           {/* <AIInput_04 /> */}
           <div className="w-full h-48 rounded-xl border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
-            <AIInput_04 />
+            {/* <AIInput_04 /> */}
+            <span className="text-zinc-400">AI Input Preview</span>
           </div>
         </motion.div>
 
@@ -163,10 +168,12 @@ export function HeroSection() {
             </span>
             <div className="w-full h-48 rounded-xl  border border-zinc-200 dark:border-zinc-800 flex flex-col items-center justify-center gap-3">
               <Link href="/docs/components/button">
-                <Btn14 label="Bring me" className=" w-42 py-5" />
+                {/* <Btn14 label="Bring me" className=" w-42 py-5" /> */}
+                <span className="text-zinc-400">Button 1</span>
               </Link>
               <Link href="/docs/components/button">
-                <Btn03 className=" w-42 py-5" />
+                {/* <Btn03 className=" w-42 py-5" /> */}
+                <span className="text-zinc-400">Button 2</span>
               </Link>
             </div>
           </div>
@@ -177,7 +184,10 @@ export function HeroSection() {
               Input
             </span>
             <Link href="/docs/components/input">
-              <Input09 />
+              {/* <Input09 /> */}
+              <div className="w-full h-48 rounded-xl border border-dashed border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-400">
+                Input Preview
+              </div>
             </Link>
           </div>
         </motion.div>

@@ -7,4 +7,4 @@ export const source = loader({
   source: docs.toFumadocsSource(),
 });
 
-export const { getPage, getPages, pageTree, url } = source;
+export const { getPage, getPages, pageTree } = source;

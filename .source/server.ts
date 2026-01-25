@@ -1,4 +1,3 @@
-// File: .source/server.ts
 // @ts-nocheck
 import * as __fd_glob_7 from "../content/docs/getting-started/troubleshooting.mdx?collection=docs"
 import * as __fd_glob_6 from "../content/docs/getting-started/theming.mdx?collection=docs"

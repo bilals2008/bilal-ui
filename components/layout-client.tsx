@@ -23,28 +23,34 @@ export function DocsLayoutClient({
 }: DocsLayoutClientProps) {
   const { theme, setTheme } = useTheme();
   const pathname = usePathname();
-  
+
   // Clone tree to inject virtual items
   const tree = JSON.parse(JSON.stringify(props.tree));
 
   const injectVirtualItems = (node: any) => {
     if (node.children) {
       // Check if this folder corresponds to any navigation section
-      navigationSections.forEach(section => {
+      navigationSections.forEach((section) => {
         // We identify the folder if it contains at least one item from the section
-        const matchesSection = node.children.some((child: any) => 
-          section.items.some(item => item.href === child.url)
+        const matchesSection = node.children.some((child: any) =>
+          section.items.some((item) => item.href === child.url),
         );
 
-        if (matchesSection || node.name === section.title || (node.name === "components" && section.title === "Components")) {
-          section.items.forEach(navItem => {
-            const exists = node.children.find((child: any) => child.url === navItem.href);
+        if (
+          matchesSection ||
+          node.name === section.title ||
+          (node.name === "components" && section.title === "Components")
+        ) {
+          section.items.forEach((navItem) => {
+            const exists = node.children.find(
+              (child: any) => child.url === navItem.href,
+            );
             if (!exists && navItem.isComingSoon) {
               node.children.push({
                 type: "page",
                 name: navItem.title,
                 url: navItem.href,
-                isVirtual: true
+                isVirtual: true,
               });
             }
           });
@@ -61,7 +67,9 @@ export function DocsLayoutClient({
   return (
     <DocsLayout
       {...props}
+      {...props}
       tree={tree}
+      themeSwitch={{ enabled: false }}
       nav={{
         ...props.nav,
         // Ensure title is preserved from baseOptions, or handled by props.nav
@@ -87,41 +95,44 @@ export function DocsLayoutClient({
             const isNew = configItem?.isNew || (item as any).isNew;
             const isUpdated = configItem?.isUpdated || (item as any).isUpdated;
             const isLab = configItem?.isLab || (item as any).isLab;
-            const isFeatured = configItem?.isFeatured || (item as any).isFeatured;
+            const isFeatured =
+              configItem?.isFeatured || (item as any).isFeatured;
             const isRequest = configItem?.isRequest || (item as any).isRequest;
             const isWIP = configItem?.isWIP || (item as any).isWIP;
             const isStable = configItem?.isStable || (item as any).isStable;
             const isLegacy = configItem?.isLegacy || (item as any).isLegacy;
-            const isHeadless = configItem?.isHeadless || (item as any).isHeadless;
+            const isHeadless =
+              configItem?.isHeadless || (item as any).isHeadless;
             const isAlpha = configItem?.isAlpha || (item as any).isAlpha;
-            const isDeprecated = configItem?.isDeprecated || (item as any).isDeprecated;
+            const isDeprecated =
+              configItem?.isDeprecated || (item as any).isDeprecated;
             const isVersion = configItem?.isVersion || (item as any).isVersion;
 
-            const badgeContent = isNew
-              ? "New"
-              : isUpdated
-              ? "Updated"
-              : isLab ? (
+            const badgeContent = isNew ? (
+              "New"
+            ) : isUpdated ? (
+              "Updated"
+            ) : isLab ? (
               <Icons.FlaskConical className="size-3" />
-            ) : isFeatured
-              ? "Featured"
-              : isRequest
-              ? "Request"
-              : isWIP
-              ? "WIP"
-              : isStable
-              ? "Stable"
-              : isLegacy
-              ? "Legacy"
-              : isHeadless
-              ? "Headless"
-              : isAlpha
-              ? "Alpha"
-              : isDeprecated
-              ? "Deprecated"
-              : isVersion
-              ? "v0.0.1"
-              : (
+            ) : isFeatured ? (
+              "Featured"
+            ) : isRequest ? (
+              "Request"
+            ) : isWIP ? (
+              "WIP"
+            ) : isStable ? (
+              "Stable"
+            ) : isLegacy ? (
+              "Legacy"
+            ) : isHeadless ? (
+              "Headless"
+            ) : isAlpha ? (
+              "Alpha"
+            ) : isDeprecated ? (
+              "Deprecated"
+            ) : isVersion ? (
+              "v0.0.1"
+            ) : (
               configItem?.badge ||
               (item as any).badge ||
               (isComingSoon ? "Soon" : null)
@@ -160,36 +171,43 @@ export function DocsLayoutClient({
                     "opacity-50 cursor-not-allowed",
                     "hover:bg-transparent dark:hover:bg-transparent",
                     "hover:text-muted-foreground/80",
-                  ]
+                  ],
                 )}
               >
                 {/* Active Indicator - Left accent bar */}
-                <div 
+                <div
                   className={cn(
                     "absolute left-0 top-1/2 -translate-y-1/2 w-[3px] rounded-r-full transition-all duration-200",
-                    isActive 
-                      ? "h-5 bg-gradient-to-b from-primary via-primary to-primary/70 opacity-100" 
-                      : "h-0 opacity-0"
-                  )} 
+                    isActive
+                      ? "h-5 bg-gradient-to-b from-primary via-primary to-primary/70 opacity-100"
+                      : "h-0 opacity-0",
+                  )}
                 />
-                
+
                 {/* Icon */}
                 {Icon && (
-                  <div className={cn(
-                    "flex items-center justify-center w-5 h-5 rounded-md transition-all duration-200",
-                    isActive 
-                      ? "text-primary" 
-                      : "text-muted-foreground/60 group-hover:text-foreground/70"
-                  )}>
-                    <Icon className="w-4 h-4" strokeWidth={isActive ? 2.25 : 1.75} />
+                  <div
+                    className={cn(
+                      "flex items-center justify-center w-5 h-5 rounded-md transition-all duration-200",
+                      isActive
+                        ? "text-primary"
+                        : "text-muted-foreground/60 group-hover:text-foreground/70",
+                    )}
+                  >
+                    <Icon
+                      className="w-4 h-4"
+                      strokeWidth={isActive ? 2.25 : 1.75}
+                    />
                   </div>
                 )}
-                
+
                 {/* Label */}
-                <span className={cn(
-                  "flex-1 truncate tracking-[-0.01em]",
-                  isActive ? "font-semibold" : "font-medium"
-                )}>
+                <span
+                  className={cn(
+                    "flex-1 truncate tracking-[-0.01em]",
+                    isActive ? "font-semibold" : "font-medium",
+                  )}
+                >
                   {item.name}
                 </span>
 
@@ -200,30 +218,30 @@ export function DocsLayoutClient({
                       isNew
                         ? "new"
                         : isComingSoon || badgeContent === "Soon"
-                        ? "soon"
-                        : isUpdated
-                        ? "updated"
-                        : isLab
-                        ? "lab"
-                        : isFeatured
-                        ? "featured"
-                        : isRequest
-                        ? "request"
-                        : isWIP
-                        ? "wip"
-                        : isStable
-                        ? "stable"
-                        : isLegacy
-                        ? "legacy"
-                        : isHeadless
-                        ? "headless"
-                        : isAlpha
-                        ? "alpha"
-                        : isDeprecated
-                        ? "deprecated"
-                        : isVersion
-                        ? "version"
-                        : "secondary"
+                          ? "soon"
+                          : isUpdated
+                            ? "updated"
+                            : isLab
+                              ? "lab"
+                              : isFeatured
+                                ? "featured"
+                                : isRequest
+                                  ? "request"
+                                  : isWIP
+                                    ? "wip"
+                                    : isStable
+                                      ? "stable"
+                                      : isLegacy
+                                        ? "legacy"
+                                        : isHeadless
+                                          ? "headless"
+                                          : isAlpha
+                                            ? "alpha"
+                                            : isDeprecated
+                                              ? "deprecated"
+                                              : isVersion
+                                                ? "version"
+                                                : "secondary"
                     }
                     appearance="outline"
                     size="sm"
@@ -235,7 +253,7 @@ export function DocsLayoutClient({
             );
           },
         },
-        
+
         footer: (
           <div className="flex flex-col items-center gap-2 w-full">
             <div className="flex items-center justify-between w-full">
@@ -245,16 +263,16 @@ export function DocsLayoutClient({
                 className="h-8"
               />
               <div className="flex items-center gap-1">
-                <Link 
-                  href="https://github.com/bilals2008/bilal-ui" 
+                <Link
+                  href="https://github.com/bilals2008/bilal-ui"
                   target="_blank"
                   className="p-2 text-muted-foreground hover:text-foreground hover:bg-muted/60 rounded-md transition-all"
                   aria-label="GitHub"
                 >
                   <Icons.Github className="w-4 h-4" />
                 </Link>
-                <Link 
-                  href="https://x.com/bilals2008" 
+                <Link
+                  href="https://x.com/bilals2008"
                   target="_blank"
                   className="p-2 text-muted-foreground hover:text-foreground hover:bg-muted/60 rounded-md transition-all"
                   aria-label="Twitter"
@@ -263,12 +281,13 @@ export function DocsLayoutClient({
                 </Link>
               </div>
             </div>
-            
-             <div className="text-[11px] font-medium text-muted-foreground/40 text-center tracking-wide">
-              © {new Date().getFullYear()} Bilal UI v{pkg.version}. All rights reserved.
+
+            <div className="text-[11px] font-medium text-muted-foreground/40 text-center tracking-wide">
+              © {new Date().getFullYear()} Bilal UI v{pkg.version}. All rights
+              reserved.
             </div>
           </div>
-        )
+        ),
       }}
     >
       {children}

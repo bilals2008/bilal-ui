@@ -26,7 +26,6 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
       full={page.data.full}
       tableOfContent={{
         style: 'clerk',
-      
         footer: (
           <div className="flex flex-col gap-4 text-sm text-muted-foreground mt-4 pt-4 border-t border-dashed border-border/70">
             <div className="flex flex-col gap-2">
