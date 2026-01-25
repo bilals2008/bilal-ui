@@ -23,7 +23,6 @@ export default function Home() {
       <FAQSection />
       <CTASection />
       <NewsletterSection />
-      {/* <TechnologyBadges/> */}
       {/* <EventToast /> */}
     </main>
   );

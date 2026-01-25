@@ -2,19 +2,10 @@
 import Link from "next/link";
 import { Github, Twitter } from "lucide-react";
 
-interface ProjectLink {
-  href: string | null;
-  text: string;
-  description: string;
-  icon: string;
-  iconDark?: string;
-  isNew?: boolean;
-}
-
 export function Footer() {
   return (
     <footer className="border-t-2 border-dashed border-zinc-200/50 dark:border-zinc-800/50 bg-white dark:bg-black/5">
-      <div className="mx-auto max-w-7xl px-6 py-12 md:py-16 lg:px-8">
+      <div className="mx-auto max-w-7xl px-6 py-8 md:py-10 lg:px-8">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-4">
             <Link href="/" className="text-2xl font-bold tracking-tight">
@@ -43,7 +34,7 @@ export function Footer() {
               </Link>
             </div>
           </div>
-          <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+          <div className="mt-10 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
                 <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
@@ -158,7 +149,7 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-16 border-t border-dashed border-zinc-200/50 dark:border-zinc-800/50 pt-8 sm:mt-20 lg:mt-24 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="mt-10 border-t border-dashed border-zinc-200/50 dark:border-zinc-800/50 pt-6 sm:mt-12 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-zinc-500 dark:text-zinc-400">
             &copy; {new Date().getFullYear()} Bilal UI. All rights reserved.
           </p>
