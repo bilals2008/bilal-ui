@@ -42,7 +42,7 @@ export function CTASection() {
           </Link>
 
           <Link
-            href="https://github.com"
+            href="https://github.com/bilals2008/bilal-ui"
             target="_blank"
             className="group inline-flex h-12 items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 bg-transparent px-8 font-medium text-zinc-900 dark:text-zinc-100 transition-all duration-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 active:scale-95"
           >

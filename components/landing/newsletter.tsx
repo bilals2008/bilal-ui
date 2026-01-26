@@ -66,20 +66,25 @@ export function NewsletterSection() {
                       className="flex-1 bg-transparent px-3 py-2 text-sm text-zinc-900 dark:text-zinc-100 focus:outline-hidden placeholder:text-zinc-500"
                       disabled={status === "loading"}
                     />
-                    <button
+                    <motion.button
                       type="submit"
                       disabled={status === "loading"}
-                      className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-sm font-semibold transition-all hover:bg-zinc-800 dark:hover:bg-zinc-200 active:scale-95 disabled:opacity-50"
+                      whileHover={{ scale: 1.02, y: -1 }}
+                      whileTap={{ scale: 0.98, y: 0 }}
+                      className="group relative inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-sm font-bold transition-all hover:shadow-xl hover:shadow-purple-500/20 disabled:opacity-50 overflow-hidden"
                     >
+                      {/* Shimmer Effect */}
+                      <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent w-[200%] -translate-x-full group-hover:animate-shimmer" />
+
                       {status === "loading" ? (
                         <Loader2 className="size-4 animate-spin" />
                       ) : (
                         <>
-                          Subscribe
-                          <Send className="size-3.5" />
+                          <span className="relative z-10">Subscribe</span>
+                          <Send className="relative z-10 size-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
                         </>
                       )}
-                    </button>
+                    </motion.button>
                   </div>
                   <p className="text-[10px] text-zinc-400 dark:text-zinc-500 text-center lg:text-left px-1">
                     No spam, just quality updates. Unsubscribe anytime.
