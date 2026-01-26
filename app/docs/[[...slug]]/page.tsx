@@ -12,7 +12,7 @@ import type { Metadata } from "next";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import * as Icons from "lucide-react";
 
-import { MDXActionBar } from "@/components/bilalUi/mdx-action-bar";
+import { MDXActionBar } from "../../../components/bilalUi/mdx-action-bar";
 
 export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
   const params = await props.params;

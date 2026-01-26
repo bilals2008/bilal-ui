@@ -287,8 +287,8 @@ export function ComponentPreview({
           </TabsContent>
 
           <TabsContent value="code" className="mt-0">
-            <div className="relative overflow-hidden rounded-b-xl bg-[#1e1e2e]">
-              <div className="p-4 overflow-x-auto max-h-150 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+            <div className="relative overflow-hidden rounded-b-xl bg-black">
+              <div className="overflow-x-auto max-h-150 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
                 <CodeBlock
                   language="tsx"
                   code={sourceCode || "// Loading..."}

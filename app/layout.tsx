@@ -24,11 +24,14 @@ export const metadata: Metadata = {
     template: "%s | Bilal UI",
     default: "Bilal UI",
   },
-  description: "A modern, premium UI library for building beautiful web applications.",
+  description:
+    "A modern, premium UI library for building beautiful web applications.",
   metadataBase: new URL("https://ui.bilal.dev"),
 };
 
 import { ViewTransitions } from "next-view-transitions";
+
+import { Toaster } from "@/components/ui/sonner";
 
 export default function RootLayout({
   children,
@@ -48,10 +51,10 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             {children}
+            <Toaster />
           </ThemeProvider>
         </body>
       </html>
     </ViewTransitions>
   );
 }
-
