@@ -2,21 +2,21 @@
 "use client";
 
 import * as React from "react";
-import { RotateCcw, Copy, CheckCheck, Terminal } from "lucide-react";
+import {
+  RotateCcw,
+  Copy,
+  CheckCheck,
+  Terminal,
+  Eye,
+  Code2,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { AnimatePresence, motion } from "motion/react";
 import { OpenInV0Button } from "./open-in-v0-button";
 import { Spinner } from "@/components/ui/spinner";
-
-interface ComponentPreviewProps {
-  children: React.ReactNode;
-  code?: string;
-  name?: string;
-  className?: string;
-  installCommand?: string;
-}
+import { CodeBlock } from "@/components/ui/code-block";
 
 function SuccessParticles({
   buttonRef,
@@ -74,8 +74,6 @@ function SuccessParticles({
   );
 }
 
-import { CodeBlock } from "@/components/ui/code-block";
-
 interface ComponentPreviewProps {
   children: React.ReactNode;
   code?: string;
@@ -112,22 +110,23 @@ export function ComponentPreview({
 
   React.useEffect(() => {
     if (code) {
-        setSourceCode(code);
+      setSourceCode(code);
     } else if (name) {
-        // Fetch source code if not provided directly
-        fetch(`/api/source/${name}`)
-            .then(res => {
-                if (res.ok) return res.text();
-                return "// Source code not found";
-            })
-            .then(text => setSourceCode(text))
-            .catch(() => setSourceCode("// Error loading source code"));
+      // Fetch source code if not provided directly
+      fetch(`/api/source/${name}`)
+        .then((res) => {
+          if (res.ok) return res.text();
+          return "// Source code not found";
+        })
+        .then((text) => setSourceCode(text))
+        .catch(() => setSourceCode("// Error loading source code"));
     }
   }, [code, name]);
 
   // Construct the command dynamically
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
-  const finalInstallCommand = installCommand ?? `npx shadcn@latest add ${appUrl}/api/source/${name}.json`;
+  const finalInstallCommand =
+    installCommand ?? `npx shadcn@latest add ${appUrl}/api/source/${name}.json`;
 
   const handleTabChange = (value: string) => {
     if (value !== activeTab) {
@@ -163,73 +162,93 @@ export function ComponentPreview({
     <div
       className={cn(
         "group relative my-6 rounded-xl border border-zinc-300/80 dark:border-zinc-800 bg-background shadow-sm",
-        className
+        className,
       )}
     >
       {isCopied && <SuccessParticles buttonRef={copyButtonRef} />}
       {isInstallCopied && <SuccessParticles buttonRef={installButtonRef} />}
 
-      <Tabs value={activeTab} onValueChange={handleTabChange} className="relative w-full">
+      <Tabs
+        value={activeTab}
+        onValueChange={handleTabChange}
+        className="relative w-full"
+      >
         {/* Toolbar Section */}
         <div className="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 px-4 py-3 bg-zinc-100/60 dark:bg-zinc-900/40">
-          <TabsList className="h-9 gap-1 rounded-lg bg-zinc-100 dark:bg-zinc-800/60 p-1 text-zinc-500 dark:text-zinc-400">
+          <TabsList className="h-8 gap-0.5 rounded-lg bg-black/5 dark:bg-white/5 p-0.5 text-zinc-500 dark:text-zinc-400">
             <TabsTrigger
               value="preview"
-              className="rounded-md px-3 py-1 text-xs font-medium data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-700 data-[state=active]:text-zinc-900 dark:data-[state=active]:text-zinc-100 data-[state=active]:shadow-sm transition-all"
+              className="rounded-md px-2.5 py-1 text-xs font-medium data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-800 data-[state=active]:text-zinc-900 dark:data-[state=active]:text-zinc-50 data-[state=active]:shadow-sm transition-all flex items-center gap-1.5"
             >
+              <Eye className="w-3.5 h-3.5" />
               Preview
             </TabsTrigger>
             <TabsTrigger
               value="code"
-              className="rounded-md px-3 py-1 text-xs font-medium data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-700 data-[state=active]:text-zinc-900 dark:data-[state=active]:text-zinc-100 data-[state=active]:shadow-sm transition-all"
+              className="rounded-md px-2.5 py-1 text-xs font-medium data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-800 data-[state=active]:text-zinc-900 dark:data-[state=active]:text-zinc-50 data-[state=active]:shadow-sm transition-all flex items-center gap-1.5"
             >
+              <Code2 className="w-3.5 h-3.5" />
               Code
             </TabsTrigger>
           </TabsList>
 
           <div className="flex items-center gap-2">
             {finalInstallCommand && (
-               <div className="hidden md:flex items-center">
-                 <Button
-                   ref={installButtonRef}
-                   variant="outline"
-                   size="sm"
-                   className="h-8 gap-2 rounded-lg border-dashed border-zinc-300 dark:border-zinc-700 bg-transparent px-3 text-xs font-mono text-zinc-500 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-800"
-                   onClick={handleInstallCopy}
-                 >
-                   {isInstallCopied ? <CheckCheck className="size-3.5" /> : <Terminal className="size-3.5" />}
-                   <span className="truncate max-w-50">{finalInstallCommand}</span>
-                 </Button>
-               </div>
+              <div className="hidden md:flex items-center">
+                <Button
+                  ref={installButtonRef}
+                  variant="outline"
+                  size="sm"
+                  className="h-8 gap-2 rounded-lg border-dashed border-zinc-300 dark:border-zinc-700 bg-transparent px-3 text-xs font-mono text-zinc-500 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-800"
+                  onClick={handleInstallCopy}
+                >
+                  {isInstallCopied ? (
+                    <CheckCheck className="size-3.5 text-emerald-500" />
+                  ) : (
+                    <Terminal className="size-3.5 text-violet-500" />
+                  )}
+                  <span className="truncate max-w-50">
+                    {finalInstallCommand}
+                  </span>
+                </Button>
+              </div>
             )}
 
             <div className="flex items-center gap-1">
-               <Button
+              <Button
                 variant="outline"
                 size="icon"
-                className="h-9 w-9 rounded-lg border-black/5 dark:border-white/5 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 text-zinc-500 dark:text-zinc-400"
+                className="h-9 w-9 rounded-lg border-black/5 dark:border-white/5 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 text-zinc-500 dark:text-zinc-400 group"
                 onClick={handleRefresh}
                 title="Refresh Preview"
               >
-                <div className={cn("transition-transform duration-500", key > 0 && "rotate-180")}>
-                  <RotateCcw className="h-4 w-4" />
+                <div
+                  className={cn(
+                    "transition-transform duration-500",
+                    key > 0 && "rotate-180",
+                  )}
+                >
+                  <RotateCcw className="h-4 w-4 text-orange-500 group-hover:text-orange-600 transition-colors" />
                 </div>
               </Button>
               <Button
                 ref={copyButtonRef}
                 variant="outline"
                 size="icon"
-                className="h-9 w-9 rounded-lg border-black/5 dark:border-white/5 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 text-zinc-500 dark:text-zinc-400"
+                className="h-9 w-9 rounded-lg border-black/5 dark:border-white/5 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 text-zinc-500 dark:text-zinc-400 group"
                 onClick={handleCopyClick}
                 title="Copy Code"
               >
                 {isCopied ? (
                   <CheckCheck className="h-4 w-4 text-emerald-500" />
                 ) : (
-                  <Copy className="h-4 w-4" />
+                  <Copy className="h-4 w-4 text-sky-500 group-hover:text-sky-600 transition-colors" />
                 )}
               </Button>
-               <OpenInV0Button name={name.toLowerCase().replace(/\s+/g, "-")} className="h-9 rounded-lg px-3" />
+              <OpenInV0Button
+                name={name.toLowerCase().replace(/\s+/g, "-")}
+                className="h-9 rounded-lg px-3"
+              />
             </div>
           </div>
         </div>
@@ -248,7 +267,9 @@ export function ComponentPreview({
               >
                 <div className="flex flex-col items-center gap-3">
                   <Spinner className="w-6 h-6 text-primary" />
-                  <span className="text-xs text-muted-foreground font-medium">Loading...</span>
+                  <span className="text-xs text-muted-foreground font-medium">
+                    Loading...
+                  </span>
                 </div>
               </motion.div>
             )}
@@ -268,8 +289,8 @@ export function ComponentPreview({
           <TabsContent value="code" className="mt-0">
             <div className="relative overflow-hidden rounded-b-xl bg-[#1e1e2e]">
               <div className="p-4 overflow-x-auto max-h-150 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
-                <CodeBlock 
-                  language="tsx" 
+                <CodeBlock
+                  language="tsx"
                   code={sourceCode || "// Loading..."}
                 />
               </div>
