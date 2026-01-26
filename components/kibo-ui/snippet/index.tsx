@@ -19,7 +19,7 @@ export const Snippet = ({ className, ...props }: SnippetProps) => (
   <Tabs
     className={cn(
       "group w-full overflow-hidden rounded-sm border bg-zinc-950 text-zinc-50",
-      className
+      className,
     )}
     {...props}
   />
@@ -30,8 +30,8 @@ export type SnippetHeaderProps = HTMLAttributes<HTMLDivElement>;
 export const SnippetHeader = ({ className, ...props }: SnippetHeaderProps) => (
   <div
     className={cn(
-      "flex flex-row items-center justify-between border-b border-zinc-800 bg-zinc-900 p-2",
-      className
+      "flex flex-row items-center justify-between border-b border-zinc-800 bg-zinc-900 p-1",
+      className,
     )}
     {...props}
   />
@@ -96,8 +96,11 @@ export const SnippetCopyButton = ({
 
 export type SnippetTabsListProps = ComponentProps<typeof TabsList>;
 
-export const SnippetTabsList = ({ className, ...props }: SnippetTabsListProps) => (
-    <TabsList className={cn("bg-transparent p-0 h-auto", className)} {...props} />
+export const SnippetTabsList = ({
+  className,
+  ...props
+}: SnippetTabsListProps) => (
+  <TabsList className={cn("bg-transparent p-0 h-auto", className)} {...props} />
 );
 
 export type SnippetTabsTriggerProps = ComponentProps<typeof TabsTrigger>;
@@ -106,12 +109,12 @@ export const SnippetTabsTrigger = ({
   className,
   ...props
 }: SnippetTabsTriggerProps) => (
-  <TabsTrigger 
+  <TabsTrigger
     className={cn(
-        "rounded-sm border-transparent bg-transparent font-mono text-sm text-zinc-400 data-[state=active]:bg-pink-500/10!  data-[state=active]:border-pink-500/50 data-[state=active]:text-pink-500! hover:text-zinc-300 transition-colors",
-        className
-    )} 
-    {...props} 
+      "rounded-sm border-transparent bg-transparent font-mono text-sm text-zinc-400 data-[state=active]:bg-pink-500/10!  data-[state=active]:border-pink-500/50 data-[state=active]:text-pink-500! hover:text-zinc-300 transition-colors",
+      className,
+    )}
+    {...props}
   />
 );
 
@@ -124,9 +127,14 @@ export const SnippetTabsContent = ({
 }: SnippetTabsContentProps) => (
   <TabsContent
     asChild
-    className={cn("mt-0 bg-zinc-950 p-4 text-sm font-mono text-zinc-300", className)}
+    className={cn(
+      "mt-0 bg-zinc-950 px-2 flex items-start justify-start text-sm font-mono text-zinc-300",
+      className,
+    )}
     {...props}
   >
-    <pre className="overflow-x-auto whitespace-pre-wrap break-all">{children}</pre>
+    <pre className="overflow-x-auto whitespace-pre-wrap break-all">
+      {children}
+    </pre>
   </TabsContent>
 );
