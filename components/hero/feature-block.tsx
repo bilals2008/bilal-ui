@@ -22,7 +22,7 @@ export default function Features() {
 
   return (
     <div className="w-full max-w-none flex flex-col justify-start items-center z-10 mx-auto">
-      <div className="grid grid-cols-3 md:flex md:flex-wrap items-center justify-start gap-6 md:gap-8 w-[95%] mx-auto py-4">
+      <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8 w-full py-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

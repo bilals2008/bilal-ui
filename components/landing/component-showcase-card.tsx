@@ -1,4 +1,9 @@
 // File: components/landing/component-showcase-card.tsx
+import AIInput_04 from "../placeholder/ai-input-04";
+import Card08 from "../placeholder/card-08";
+import Btn03 from "../placeholder/btn-03";
+import { Btn14 } from "../placeholder/btn-14";
+import Alert03 from "../placeholder/alert-03";
 
 interface ComponentShowcaseCardProps {
   className: string;
@@ -20,30 +25,18 @@ export function ComponentShowcaseCard({
         <div className="space-y-20 mt-8">
           {[
             {
-              component: (
-                <div className="w-full h-12 border-2 border-dashed border-zinc-300 dark:border-zinc-700 rounded-lg flex items-center justify-center text-zinc-500 text-sm font-medium">
-                  Input 10
-                </div>
-              ),
-              label: "Input 10",
+              component: <AIInput_04 />,
+              label: "Input 04",
+            },
+            {
+              component: <Card08 image="/card-08.png" />,
+              label: "Card 08",
             },
             {
               component: (
-                <div className="w-full h-16 border-2 border-dashed border-zinc-300 dark:border-zinc-700 rounded-lg flex items-center justify-center text-zinc-500 text-sm font-medium">
-                  Alert 04
-                </div>
-              ),
-              label: "Alert 04",
-            },
-            {
-              component: (
-                <div className="w-full flex justify-center gap-4">
-                  <div className="w-full h-10 border-2 border-dashed border-zinc-300 dark:border-zinc-700 rounded-lg flex items-center justify-center text-zinc-500 text-sm font-medium">
-                    Btn 13
-                  </div>
-                  <div className="w-full h-10 border-2 border-dashed border-zinc-300 dark:border-zinc-700 rounded-lg flex items-center justify-center text-zinc-500 text-sm font-medium">
-                    Btn 12
-                  </div>
+                <div className="w-full flex flex-col items-center justify-center gap-4">
+                  <Btn03 />
+                  <Btn14 label="Submit" className="w-40" />
                 </div>
               ),
               label: "Buttons",
@@ -60,10 +53,8 @@ export function ComponentShowcaseCard({
           ))}
         </div>
 
-        <div className="flex flex-col items-center pt-8 w-full max-w-sm mx-auto">
-          <div className="w-full h-12 border-2 border-dashed border-zinc-300 dark:border-zinc-700 rounded-lg flex items-center justify-center text-zinc-500 text-sm font-medium">
-            Input 08
-          </div>
+        <div className="flex flex-row flex-wrap items-center pt-8 w-full max-w-full">
+          <Alert03 />
         </div>
       </div>
 

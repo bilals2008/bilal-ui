@@ -1,7 +1,7 @@
 // File: components/landing/interfaceCards.tsx
 import Link from "next/link";
 import { ArrowRight, Github, Zap } from "lucide-react";
-// import AIInput_04 from "@/components/codesnippetui/ai-input/ai-input-04";
+import AIInput_04 from "../placeholder/ai-input-04";
 
 function Header() {
   return (
@@ -32,14 +32,8 @@ export function BuildInterfacesCard({ className }: BuildInterfacesCardProps) {
       <div className="h-full flex flex-col justify-between items-center">
         <Header />
         <div className="w-full flex flex-col items-center">
-          <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-2">
-            components / AI-Input-04
-          </p>
-          <div className="select-none cursor-default touch-none pointer-events-none border border-dashed border-zinc-300 dark:border-zinc-700 rounded-lg p-4 w-full max-w-md h-32 flex items-center justify-center bg-zinc-50/50 dark:bg-zinc-900/50">
-            <p className="text-zinc-400 dark:text-zinc-600 font-mono text-sm">
-              AIInput_04 Preview
-            </p>
-          </div>
+         
+          <AIInput_04 />
         </div>
 
         <div className="flex flex-wrap gap-4 mt-8 justify-center">
