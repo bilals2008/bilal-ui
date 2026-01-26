@@ -12,6 +12,8 @@ import type { Metadata } from "next";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import * as Icons from "lucide-react";
 
+import { MDXActionBar } from "@/components/bilalUi/mdx-action-bar";
+
 export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
   const params = await props.params;
   const page = source.getPage(params.slug);
@@ -20,11 +22,11 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
   const MDX = page.data.body;
 
   return (
-    <DocsPage 
-      toc={page.data.toc} 
+    <DocsPage
+      toc={page.data.toc}
       full={page.data.full}
       tableOfContent={{
-        style: 'clerk',
+        style: "clerk",
         footer: (
           <div className="flex flex-col gap-4 text-sm text-muted-foreground mt-4 pt-4 border-t border-dashed border-border/70">
             <div className="flex flex-col gap-2">
@@ -32,8 +34,8 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
                 <Icons.LifeBuoy className="w-4 h-4 text-primary" />
                 Common Issues
               </span>
-              <a 
-                href="https://github.com/bilals2008/bilal-ui/issues?q=is%3Aissue+Component+not+found" 
+              <a
+                href="https://github.com/bilals2008/bilal-ui/issues?q=is%3Aissue+Component+not+found"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-2 hover:text-foreground transition-colors group"
@@ -43,8 +45,8 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
                 </div>
                 <span>Component not found?</span>
               </a>
-              <a 
-                href="https://github.com/bilals2008/bilal-ui/issues?q=is%3Aissue+Styles+not+applying" 
+              <a
+                href="https://github.com/bilals2008/bilal-ui/issues?q=is%3Aissue+Styles+not+applying"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-2 hover:text-foreground transition-colors group"
@@ -54,8 +56,8 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
                 </div>
                 <span>Styles not applying?</span>
               </a>
-               <a 
-                href="https://github.com/bilals2008/bilal-ui/issues?q=is%3Aissue+TypeScript+errors" 
+              <a
+                href="https://github.com/bilals2008/bilal-ui/issues?q=is%3Aissue+TypeScript+errors"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-2 hover:text-foreground transition-colors group"
@@ -66,40 +68,44 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
                 <span>TypeScript errors?</span>
               </a>
             </div>
-            
+
             <div className="flex flex-col gap-2">
               <span className="font-medium text-foreground flex items-center gap-2">
                 <Icons.MessageCircleQuestion className="w-4 h-4 text-primary" />
                 Need Help?
               </span>
-              <a 
+              <a
                 href={`https://github.com/bilals2008/bilal-ui/blob/main/content/docs/${(params.slug || []).join("/")}.mdx`}
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-2 hover:text-foreground transition-colors group mb-2"
               >
-                 <div className="flex items-center justify-center w-5 h-5 rounded-md bg-stone-500/10 text-stone-500 group-hover:bg-stone-500 group-hover:text-white transition-all">
+                <div className="flex items-center justify-center w-5 h-5 rounded-md bg-stone-500/10 text-stone-500 group-hover:bg-stone-500 group-hover:text-white transition-all">
                   <Icons.Github className="w-3 h-3" />
                 </div>
                 <span className="group-hover:underline">Edit on GitHub</span>
               </a>
 
-              <a 
-                href="https://github.com/bilals2008/bilal-ui/issues/new" 
-                target="_blank" 
+              <a
+                href="https://github.com/bilals2008/bilal-ui/issues/new"
+                target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-2 hover:text-foreground transition-colors group"
               >
-                 <div className="flex items-center justify-center w-5 h-5 rounded-md bg-green-500/10 text-green-500 group-hover:bg-green-500 group-hover:text-white transition-all">
+                <div className="flex items-center justify-center w-5 h-5 rounded-md bg-green-500/10 text-green-500 group-hover:bg-green-500 group-hover:text-white transition-all">
                   <Icons.Bug className="w-3 h-3" />
                 </div>
                 <span className="group-hover:underline">Open an Issue</span>
               </a>
             </div>
           </div>
-        )
+        ),
       }}
     >
+      <MDXActionBar
+        slug={(params.slug || []).join("/")}
+        title={page.data.title}
+      />
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
@@ -118,7 +124,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata(
-  props: PageProps<"/docs/[[...slug]]">
+  props: PageProps<"/docs/[[...slug]]">,
 ): Promise<Metadata> {
   const params = await props.params;
   const page = source.getPage(params.slug);
