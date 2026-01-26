@@ -9,7 +9,7 @@ import { Badge } from "../ui/badge";
 import { useState } from "react";
 
 const NavLinks = [
-  { href: "/docs/components/button", label: "Components" },
+  { href: "/docs/components/button", label: "Components", badge: true },
   { href: "/templates", label: "Templates", badge: true },
   { href: "/changelog", label: "Changelog" },
 ];
@@ -114,7 +114,7 @@ export function Header() {
                     <IconButton href="#" icon={Bell} title="Notifications" />
                   </div>
                   <IconButton
-                    href="https://github.com"
+                    href="https://github.com/bilals2008/bilal-ui"
                     icon={Github}
                     title="GitHub"
                     external
@@ -128,7 +128,7 @@ export function Header() {
                     <IconButton href="#" icon={Bell} title="Notifications" />
                   </div>
                   <IconButton
-                    href="https://github.com"
+                    href="https://github.com/bilals2008/bilal-ui"
                     icon={Github}
                     title="GitHub"
                     external

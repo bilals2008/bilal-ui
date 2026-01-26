@@ -73,9 +73,56 @@ export function HeroSection() {
             className="flex flex-col items-center"
           >
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-zinc-900 dark:text-zinc-100">
-              Ship faster{" "}
-              <span className="bg-clip-text text-transparent bg-linear-to-r from-rose-500 via-fuchsia-500 to-purple-500 dark:from-rose-400 dark:via-fuchsia-400 dark:to-purple-400">
-                with BilalUi
+              Ship faster with{" "}
+              <span className="relative inline-block">
+                <span className="bg-clip-text text-transparent bg-linear-to-r from-rose-500 via-fuchsia-500 to-purple-500 dark:from-rose-400 dark:via-fuchsia-400 dark:to-purple-400">
+                  BilalUi
+                </span>
+                <svg
+                  className="absolute -bottom-2 left-0 w-full h-2 sm:h-3 pointer-events-none"
+                  viewBox="0 0 100 10"
+                  preserveAspectRatio="none"
+                >
+                  <motion.path
+                    d="M0,5 Q25,0 50,5 T100,5"
+                    fill="none"
+                    stroke="url(#underline-gradient)"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    animate={{
+                      pathLength: 1,
+                      opacity: 1,
+                      d: [
+                        "M0,5 Q25,0 50,5 T100,5",
+                        "M0,5 Q25,8 50,5 T100,5",
+                        "M0,5 Q25,0 50,5 T100,5",
+                      ],
+                    }}
+                    transition={{
+                      pathLength: {
+                        duration: 1.5,
+                        delay: 0.8,
+                        ease: "easeOut",
+                      },
+                      opacity: { duration: 1, delay: 0.8 },
+                      d: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                    }}
+                  />
+                  <defs>
+                    <linearGradient
+                      id="underline-gradient"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="0%"
+                    >
+                      <stop offset="0%" stopColor="#f43f5e" />
+                      <stop offset="50%" stopColor="#d946ef" />
+                      <stop offset="100%" stopColor="#8b5cf6" />
+                    </linearGradient>
+                  </defs>
+                </svg>
               </span>
               <br />
               build for{" "}
