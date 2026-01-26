@@ -61,13 +61,13 @@ export function Header() {
                     className="flex items-center gap-2 hover:opacity-80 transition-opacity"
                   >
                     <NextImage
-                      src="/logo.png"
+                      src="/logo-2.png"
                       alt="Bilal UI Logo"
                       width={24}
                       height={24}
-                      className="w-6 h-6 object-contain mix-blend-screen rounded-md"
+                      className="w-6 h-6 object-cover rounded-md scale-110"
                     />
-                    <span className="font-semibold text-zinc-900 dark:text-white">
+                    <span className="font-bold bg-clip-text text-transparent bg-linear-to-r from-rose-500 via-fuchsia-500 to-purple-500">
                       Bilal UI
                     </span>
                   </Link>
