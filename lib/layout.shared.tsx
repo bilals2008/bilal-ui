@@ -10,11 +10,26 @@ export function baseOptions(): BaseLayoutProps {
     nav: {
       title: (
         <div className="flex w-full justify-center items-center gap-2 font-bold text-lg">
-           <div className="flex items-center justify-center">
-              <Image src="/logo.png" alt="Bilal UI" width={24} height={24} className="h-6 w-6 rounded-sm " />
-           </div>
-          <span>Bilal UI</span>
-          <Badge variant={"info"} appearance={"outline"} size={"sm"} className="text-xs font-normal ml-1">v{pkg.version}</Badge>
+          <div className="flex items-center justify-center">
+            <Image
+              src="/logo-2.png"
+              alt="Bilal UI"
+              width={24}
+              height={24}
+              className="h-6 w-6 rounded-sm "
+            />
+          </div>
+          <span className="font-bold bg-clip-text text-transparent bg-linear-to-r from-rose-500 via-fuchsia-500 to-purple-500">
+            Bilal UI
+          </span>
+          <Badge
+            variant={"info"}
+            appearance={"outline"}
+            size={"sm"}
+            className="text-xs font-normal ml-1"
+          >
+            v{pkg.version}
+          </Badge>
         </div>
       ),
     },
