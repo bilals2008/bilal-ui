@@ -7,10 +7,24 @@ import Features from "./feature-block";
 import TailwindCSS from "../icons/tailwindcss";
 import { BrowseComponentsButton } from "../ui/Browse-button";
 import { BrowseBlocksButton } from "../ui/Browse-blocks";
+import { GridPattern } from "../ui/grid-pattern";
+import { cn } from "@/lib/utils";
 
 export function HeroSection() {
   return (
-    <div className="mx-auto w-full max-w-7xl min-h-screen flex flex-col items-center justify-center gap-8 px-4 sm:px-6 py-12 md:py-16 lg:py-20">
+    <div className="relative mx-auto w-full max-w-7xl flex flex-col items-center gap-8 px-4 sm:px-6 pt-24 pb-32 overflow-hidden">
+      {/* Background Grid Pattern */}
+      <GridPattern
+        width={20}
+        height={20}
+        x={-1}
+        y={-1}
+        className={cn(
+          "mask-[radial-gradient(1000px_circle_at_center,white,transparent)]",
+          "stroke-zinc-300 dark:stroke-zinc-600/30 opacity-70 -z-10",
+        )}
+      />
+
       {/* Announcement Badge */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
