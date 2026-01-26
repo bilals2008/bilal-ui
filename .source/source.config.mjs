@@ -1,3 +1,4 @@
+// File: .source/source.config.mjs
 // source.config.ts
 import { defineDocs, defineConfig, frontmatterSchema } from "fumadocs-mdx/config";
 import { z } from "zod";
@@ -25,8 +26,8 @@ var source_config_default = defineConfig({
     rehypeCodeOptions: {
       inline: "tailing-curly-colon",
       themes: {
-        light: "catppuccin-latte",
-        dark: "andromeeda"
+        light: "github-light",
+        dark: "tokyo-night"
       }
     },
     rehypePlugins: [forceLineNumbers]
