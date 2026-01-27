@@ -8,10 +8,27 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import * as Icons from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import React from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { navigationSections } from "@/config/navigation";
 import { cn } from "@/lib/utils";
 import pkg from "@/package.json";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import { ChevronDown } from "lucide-react";
+
+interface NavigationNode {
+  name: string;
+  url?: string;
+  index?: { url: string };
+  children?: NavigationNode[];
+  type?: string;
+  icon?: string;
+  badge?: string;
+  isVirtual?: boolean;
+}
 
 export interface DocsLayoutClientProps extends DocsLayoutProps {
   sidebarIconBadge?: boolean;
@@ -25,48 +42,52 @@ export function DocsLayoutClient({
   const pathname = usePathname();
 
   // Clone tree to inject virtual items
-  const tree = JSON.parse(JSON.stringify(props.tree));
+  const tree = useMemo(() => {
+    const clonedTree = JSON.parse(JSON.stringify(props.tree));
 
-  const injectVirtualItems = (node: any) => {
-    if (node.children) {
-      // Check if this folder corresponds to any navigation section
-      navigationSections.forEach((section) => {
-        // We identify the folder if it contains at least one item from the section
-        const matchesSection = node.children.some((child: any) =>
-          section.items.some((item) => item.href === child.url),
+    const injectVirtualItems = (node: NavigationNode) => {
+      if (node.children) {
+        // Check if this folder corresponds to any navigation section
+        navigationSections.forEach((section) => {
+          // We identify the folder if it contains at least one item from the section
+          const matchesSection = node.children!.some((child) =>
+            section.items.some((item) => item.href === child.url),
+          );
+
+          if (
+            matchesSection ||
+            node.name === section.title ||
+            (node.name === "components" && section.title === "Components")
+          ) {
+            section.items.forEach((navItem) => {
+              const exists = node.children!.find(
+                (child) => child.url === navItem.href,
+              );
+              if (!exists && navItem.isComingSoon) {
+                node.children!.push({
+                  type: "page",
+                  name: navItem.title,
+                  url: navItem.href,
+                  isVirtual: true,
+                });
+              }
+            });
+          }
+        });
+
+        // Recurse
+        node.children?.forEach((child) =>
+          injectVirtualItems(child as NavigationNode),
         );
+      }
+    };
 
-        if (
-          matchesSection ||
-          node.name === section.title ||
-          (node.name === "components" && section.title === "Components")
-        ) {
-          section.items.forEach((navItem) => {
-            const exists = node.children.find(
-              (child: any) => child.url === navItem.href,
-            );
-            if (!exists && navItem.isComingSoon) {
-              node.children.push({
-                type: "page",
-                name: navItem.title,
-                url: navItem.href,
-                isVirtual: true,
-              });
-            }
-          });
-        }
-      });
-
-      // Recurse
-      node.children.forEach(injectVirtualItems);
-    }
-  };
-
-  injectVirtualItems(tree);
+    injectVirtualItems(clonedTree);
+    return clonedTree;
+  }, [props.tree]);
 
   return (
     <DocsLayout
-      {...props}
       {...props}
       tree={tree}
       themeSwitch={{ enabled: false }}
@@ -80,33 +101,38 @@ export function DocsLayoutClient({
       sidebar={{
         components: {
           Item: ({ item }) => {
+            const node = item as unknown as NavigationNode;
             // Find manual config for this item to get premium metadata
             const allNavItems = navigationSections.flatMap((s) => s.items);
-            const configItem = allNavItems.find((i) => i.href === item.url);
+            const configItem = allNavItems.find((i) => i.href === node.url);
 
-            const iconName = configItem?.icon || (item as any).icon;
+            const iconName = configItem?.icon || node.icon;
             const Icon =
-              iconName && (Icons as any)[iconName]
-                ? (Icons as any)[iconName]
+              iconName && iconName in Icons
+                ? (
+                    Icons as unknown as Record<
+                      string,
+                      React.ComponentType<{
+                        className?: string;
+                        strokeWidth?: number;
+                      }>
+                    >
+                  )[iconName]
                 : null;
 
-            const isComingSoon =
-              configItem?.isComingSoon || (item as any).isComingSoon;
-            const isNew = configItem?.isNew || (item as any).isNew;
-            const isUpdated = configItem?.isUpdated || (item as any).isUpdated;
-            const isLab = configItem?.isLab || (item as any).isLab;
-            const isFeatured =
-              configItem?.isFeatured || (item as any).isFeatured;
-            const isRequest = configItem?.isRequest || (item as any).isRequest;
-            const isWIP = configItem?.isWIP || (item as any).isWIP;
-            const isStable = configItem?.isStable || (item as any).isStable;
-            const isLegacy = configItem?.isLegacy || (item as any).isLegacy;
-            const isHeadless =
-              configItem?.isHeadless || (item as any).isHeadless;
-            const isAlpha = configItem?.isAlpha || (item as any).isAlpha;
-            const isDeprecated =
-              configItem?.isDeprecated || (item as any).isDeprecated;
-            const isVersion = configItem?.isVersion || (item as any).isVersion;
+            const isComingSoon = configItem?.isComingSoon;
+            const isNew = configItem?.isNew;
+            const isUpdated = configItem?.isUpdated;
+            const isLab = configItem?.isLab;
+            const isFeatured = configItem?.isFeatured;
+            const isRequest = configItem?.isRequest;
+            const isWIP = configItem?.isWIP;
+            const isStable = configItem?.isStable;
+            const isLegacy = configItem?.isLegacy;
+            const isHeadless = configItem?.isHeadless;
+            const isAlpha = configItem?.isAlpha;
+            const isDeprecated = configItem?.isDeprecated;
+            const isVersion = configItem?.isVersion;
 
             const badgeContent = isNew ? (
               "New"
@@ -133,9 +159,7 @@ export function DocsLayoutClient({
             ) : isVersion ? (
               "v0.0.1"
             ) : (
-              configItem?.badge ||
-              (item as any).badge ||
-              (isComingSoon ? "Soon" : null)
+              configItem?.badge || node.badge || (isComingSoon ? "Soon" : null)
             );
 
             const isActive = pathname === item.url;
@@ -149,22 +173,20 @@ export function DocsLayoutClient({
                   }
                 }}
                 className={cn(
-                  // Base styles
+                  // bg-linear-to-r
                   "flex items-center gap-3 w-full py-2 px-3 rounded-lg text-[13px] no-underline group relative",
                   // Transition & animation
                   "transition-all duration-200 ease-out",
-                  // Active state - premium enterprise look
+                  // Active state - subtle and readable
                   isActive && [
-                    "bg-gradient-to-r from-primary/10 via-primary/8 to-transparent",
+                    "bg-muted/60",
                     "text-foreground font-semibold",
-                    "shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]",
-                    "dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.03),0_1px_2px_rgba(0,0,0,0.1)]",
                   ],
-                  // Inactive state with subtle hover
+                  // Inactive state with subtler hover
                   !isActive && [
-                    "text-muted-foreground/80",
-                    "hover:bg-muted/50 hover:text-foreground",
-                    "dark:hover:bg-white/[0.04]",
+                    "text-muted-foreground/90",
+                    "hover:bg-rose-500/3 hover:text-foreground",
+                    "dark:hover:bg-rose-500/5",
                   ],
                   // Coming soon disabled state
                   isComingSoon && [
@@ -177,9 +199,9 @@ export function DocsLayoutClient({
                 {/* Active Indicator - Left accent bar */}
                 <div
                   className={cn(
-                    "absolute left-0 top-1/2 -translate-y-1/2 w-[3px] rounded-r-full transition-all duration-200",
+                    "absolute left-0 top-1/2 -translate-y-1/2 w-1 rounded-r-full transition-all duration-300",
                     isActive
-                      ? "h-5 bg-gradient-to-b from-primary via-primary to-primary/70 opacity-100"
+                      ? "h-6 bg-linear-to-b from-rose-500/50 via-fuchsia-500/50 to-purple-500/50 opacity-100 shadow-[0_0_12px_rgba(244,63,94,0.4)] "
                       : "h-0 opacity-0",
                   )}
                 />
@@ -188,10 +210,10 @@ export function DocsLayoutClient({
                 {Icon && (
                   <div
                     className={cn(
-                      "flex items-center justify-center w-5 h-5 rounded-md transition-all duration-200",
+                      "flex items-center justify-center w-5 h-5 rounded-md transition-all duration-300",
                       isActive
-                        ? "text-primary"
-                        : "text-muted-foreground/60 group-hover:text-foreground/70",
+                        ? "text-rose-500 drop-shadow-[0_0_3px_rgba(244,63,94,0.3)]"
+                        : "text-muted-foreground/50 group-hover:text-fuchsia-500",
                     )}
                   >
                     <Icon
@@ -204,8 +226,8 @@ export function DocsLayoutClient({
                 {/* Label */}
                 <span
                   className={cn(
-                    "flex-1 truncate tracking-[-0.01em]",
-                    isActive ? "font-semibold" : "font-medium",
+                    "flex-1 truncate tracking-[-0.01em] text-pretty",
+                    isActive ? "font-bold" : "font-semibold",
                   )}
                 >
                   {item.name}
@@ -250,6 +272,56 @@ export function DocsLayoutClient({
                   </Badge>
                 )}
               </Link>
+            );
+          },
+          Folder: ({ item, children }) => {
+            const node = item as unknown as NavigationNode;
+
+            const checkActive = (curr: NavigationNode): boolean => {
+              const url = curr.index?.url || curr.url;
+              if (url === pathname) return true;
+              return curr.children?.some(checkActive) ?? false;
+            };
+
+            const isActive = checkActive(node);
+            const [isOpen, setIsOpen] = useState(isActive);
+
+            useEffect(() => {
+              if (isActive) setIsOpen(true);
+            }, [isActive]);
+
+            return (
+              <Collapsible
+                open={isOpen}
+                onOpenChange={setIsOpen}
+                className="group/folder flex flex-col w-full"
+              >
+                <CollapsibleTrigger
+                  className={cn(
+                    "flex items-center justify-between w-full py-2.5 px-3 rounded-lg text-[14px] no-underline group relative",
+                    "transition-all duration-300 ease-out",
+                    "text-foreground/90 hover:bg-rose-500/3 hover:text-foreground",
+                    "dark:hover:bg-rose-500/5",
+                    isActive &&
+                      "text-foreground font-bold bg-muted/40 backdrop-blur-[1px]",
+                  )}
+                >
+                  <span
+                    className={cn(
+                      "tracking-tight transition-colors duration-200",
+                      isActive
+                        ? "text-foreground font-bold"
+                        : "text-foreground/80 font-semibold",
+                    )}
+                  >
+                    {item.name}
+                  </span>
+                  <ChevronDown className="size-3.5 text-muted-foreground/50 transition-transform duration-200 group-data-[state=open]/folder:rotate-180" />
+                </CollapsibleTrigger>
+                <CollapsibleContent className="flex flex-col gap-1 mt-1 pl-2 border-l border-muted/30 ml-3">
+                  {children}
+                </CollapsibleContent>
+              </Collapsible>
             );
           },
         },

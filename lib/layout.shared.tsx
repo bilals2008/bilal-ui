@@ -23,12 +23,12 @@ export function baseOptions(): BaseLayoutProps {
             Bilal UI
           </span>
           <Badge
-            variant={"info"}
+            variant={"wip"}
             appearance={"outline"}
-            size={"sm"}
-            className="text-xs font-normal ml-1"
+            size={"xs"}
+            className="text-shadow-xs font-normal -ml-1 -mt-2"
           >
-            v{pkg.version}
+            Alpha
           </Badge>
         </div>
       ),
