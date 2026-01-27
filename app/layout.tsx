@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   description:
     "A modern, premium UI library for building beautiful web applications.",
-  metadataBase: new URL("https://ui.bilal.dev"),
+  metadataBase: new URL("https://bilal-ui.vercel.app"),
 };
 
 import { ViewTransitions } from "next-view-transitions";
