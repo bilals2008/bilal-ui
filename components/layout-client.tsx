@@ -178,10 +178,7 @@ export function DocsLayoutClient({
                   // Transition & animation
                   "transition-all duration-200 ease-out",
                   // Active state - subtle and readable
-                  isActive && [
-                    "bg-muted/60",
-                    "text-foreground font-semibold",
-                  ],
+                  isActive && ["bg-muted/60", "text-foreground font-semibold"],
                   // Inactive state with subtler hover
                   !isActive && [
                     "text-muted-foreground/90",
@@ -328,7 +325,7 @@ export function DocsLayoutClient({
 
         footer: (
           <div className="flex flex-col items-center gap-2 w-full">
-            <div className="flex items-center justify-between w-full">
+            <div className="flex items-center justify-between w-full pt-2 border-t border-muted/30">
               <ThemeSwitcher
                 value={theme as "light" | "dark" | "system"}
                 onChange={(v) => setTheme(v)}
@@ -338,25 +335,27 @@ export function DocsLayoutClient({
                 <Link
                   href="https://github.com/bilals2008/bilal-ui"
                   target="_blank"
-                  className="p-2 text-muted-foreground hover:text-foreground hover:bg-muted/60 rounded-md transition-all"
+                  className="p-2 text-muted-foreground hover:text-rose-500 hover:bg-rose-500/5 rounded-md transition-all group/social"
                   aria-label="GitHub"
                 >
-                  <Icons.Github className="w-4 h-4" />
+                  <Icons.Github className="w-4 h-4 transition-transform group-hover/social:scale-110" />
                 </Link>
                 <Link
                   href="https://x.com/bilals2008"
                   target="_blank"
-                  className="p-2 text-muted-foreground hover:text-foreground hover:bg-muted/60 rounded-md transition-all"
+                  className="p-2 text-muted-foreground hover:text-fuchsia-500 hover:bg-fuchsia-500/5 rounded-md transition-all group/social"
                   aria-label="Twitter"
                 >
-                  <Icons.Twitter className="w-4 h-4" />
+                  <Icons.Twitter className="w-4 h-4 transition-transform group-hover/social:scale-110" />
                 </Link>
               </div>
             </div>
 
             <div className="text-[11px] font-medium text-muted-foreground/40 text-center tracking-wide">
-              © {new Date().getFullYear()} Bilal UI v{pkg.version}. All rights
-              reserved.
+              © {new Date().getFullYear()}{" "}
+              <span className="text-rose-500/60">Bilal UI</span>{" "}
+              <span className="text-fuchsia-500/50">v{pkg.version}</span>. All
+              rights reserved.
             </div>
           </div>
         ),
