@@ -26,9 +26,9 @@ export function baseOptions(): BaseLayoutProps {
             variant={"wip"}
             appearance={"outline"}
             size={"xs"}
-            className="text-shadow-xs font-normal -ml-1 -mt-2"
+            className="text-shadow-xs font-normal -ml-1 -mt-2 uppercase"
           >
-            Alpha
+            {pkg.version.includes("-") ? pkg.version.split("-")[1] : "Beta"}
           </Badge>
         </div>
       ),

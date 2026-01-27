@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     default: "Bilal UI",
   },
   description:
-    "A modern, premium UI library for building beautiful web applications.",
+    "Open-source collection of UI components and animated effects built with React, Typescript, Tailwind CSS, and Motion. Pairs beautifully with shadcn/ui.",
   metadataBase: new URL("https://bilal-ui.vercel.app"),
 };
 

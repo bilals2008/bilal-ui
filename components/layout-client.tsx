@@ -157,7 +157,7 @@ export function DocsLayoutClient({
             ) : isDeprecated ? (
               "Deprecated"
             ) : isVersion ? (
-              "v0.0.1"
+              `v${pkg.version}`
             ) : (
               configItem?.badge || node.badge || (isComingSoon ? "Soon" : null)
             );
