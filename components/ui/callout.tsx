@@ -17,38 +17,44 @@ import {
 import { cn } from "@/lib/utils";
 
 const calloutVariants = cva(
-  "relative w-full rounded-lg border px-4 py-3 text-sm transition-colors",
+  "relative w-full rounded-xl border px-4 py-4 text-sm transition-all duration-300 overflow-hidden",
   {
     variants: {
       type: {
-        info: "border-[var(--callout-info-border)] bg-[var(--callout-info-bg)] text-[var(--callout-info-text)] [&>svg]:text-[var(--callout-info-icon)]",
+        info: "border-blue-500/20 bg-blue-500/[0.03] text-blue-100/90 dark:bg-blue-500/[0.05] [&>svg]:text-blue-400 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-blue-500/50",
         warning:
-          "border-[var(--callout-warning-border)] bg-[var(--callout-warning-bg)] text-[var(--callout-warning-text)] [&>svg]:text-[var(--callout-warning-icon)]",
+          "border-amber-500/20 bg-amber-500/[0.03] text-amber-100/90 dark:bg-amber-500/[0.05] [&>svg]:text-amber-400 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-amber-500/50",
+        warn: "border-amber-500/20 bg-amber-500/[0.03] text-amber-100/90 dark:bg-amber-500/[0.05] [&>svg]:text-amber-400 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-amber-500/50",
         error:
-          "border-[var(--callout-error-border)] bg-[var(--callout-error-bg)] text-[var(--callout-error-text)] [&>svg]:text-[var(--callout-error-icon)]",
+          "border-red-500/20 bg-red-500/[0.03] text-red-100/90 dark:bg-red-500/[0.05] [&>svg]:text-red-400 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-red-500/50",
+        danger:
+          "border-red-500/20 bg-red-500/[0.03] text-red-100/90 dark:bg-red-500/[0.05] [&>svg]:text-red-400 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-red-500/50",
         success:
-          "border-[var(--callout-success-border)] bg-[var(--callout-success-bg)] text-[var(--callout-success-text)] [&>svg]:text-[var(--callout-success-icon)]",
-        tip: "border-[var(--callout-tip-border)] bg-[var(--callout-tip-bg)] text-[var(--callout-tip-text)] [&>svg]:text-[var(--callout-tip-icon)]",
-        note: "border-[var(--callout-note-border)] bg-[var(--callout-note-bg)] text-[var(--callout-note-text)] [&>svg]:text-[var(--callout-note-icon)]",
+          "border-emerald-500/20 bg-emerald-500/[0.03] text-emerald-100/90 dark:bg-emerald-500/[0.05] [&>svg]:text-emerald-400 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-emerald-500/50",
+        tip: "border-purple-500/20 bg-purple-500/[0.03] text-purple-100/90 dark:bg-purple-500/[0.05] [&>svg]:text-purple-400 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-purple-500/50",
+        note: "border-zinc-500/20 bg-zinc-500/[0.03] text-zinc-100/90 dark:bg-zinc-500/[0.05] [&>svg]:text-zinc-400 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-zinc-500/50",
       },
     },
     defaultVariants: {
       type: "info",
     },
-  }
+  },
 );
 
 const iconMap = {
   info: Info,
   warning: AlertTriangle,
+  warn: AlertTriangle,
   error: XCircle,
+  danger: XCircle,
   success: CheckCircle2,
   tip: Lightbulb,
   note: FileText,
 };
 
 export interface CalloutProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof calloutVariants> {
   title?: string;
   icon?: React.ReactNode;
@@ -80,7 +86,7 @@ function Callout({
             <div
               className={cn(
                 "font-semibold mb-1",
-                collapsible && "cursor-pointer select-none"
+                collapsible && "cursor-pointer select-none",
               )}
             >
               {collapsible ? (
@@ -89,7 +95,7 @@ function Callout({
                   <ChevronDown
                     className={cn(
                       "size-4 shrink-0 transition-transform duration-200",
-                      isOpen && "rotate-180"
+                      isOpen && "rotate-180",
                     )}
                   />
                 </CollapsiblePrimitive.Trigger>

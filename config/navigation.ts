@@ -70,6 +70,13 @@ export const navigationSections: NavSection[] = [
       icon: "History",
       isVersion: true,
     },
+    {
+      id: "roadmap",
+      title: "Roadmap",
+      href: "/docs/getting-started/roadmap",
+      description: "Future plans and upcoming features",
+      icon: "Map",
+    },
   ],
 },
  
