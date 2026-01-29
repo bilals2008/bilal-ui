@@ -57,7 +57,7 @@ export function MDXActionBar({ className, slug, title }: MDXActionBarProps) {
   return (
     <div
       className={cn(
-        "flex names-center justify-between gap-4 py-3 px-1 sticky top-0 z-40 bg-background/80 backdrop-blur-sm border-b border-border/40 transition-all duration-300",
+        "flex names-center justify-between gap-4 py-3 px-1 bg-background/80 border-b border-border/40 transition-all duration-300",
         className,
       )}
     >
