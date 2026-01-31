@@ -125,8 +125,12 @@ export function ComponentPreview({
 
   // Construct the command dynamically
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
-  const finalInstallCommand =
-    installCommand ?? `npx shadcn@latest add ${appUrl}/api/source/${name}.json`;
+  const finalInstallCommand = React.useMemo(() => {
+    if (installCommand) return installCommand;
+    if (registry)
+      return `npx shadcn@latest add ${appUrl}/api/source/${registry}.json`;
+    return `npx shadcn@latest add ${appUrl}/api/source/${name}.json`;
+  }, [installCommand, registry, appUrl, name]);
 
   const handleTabChange = (value: string) => {
     if (value !== activeTab) {
