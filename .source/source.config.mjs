@@ -1,4 +1,3 @@
-// File: .source/source.config.mjs
 // source.config.ts
 import { defineDocs, defineConfig, frontmatterSchema } from "fumadocs-mdx/config";
 import { z } from "zod";
