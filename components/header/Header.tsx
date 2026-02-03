@@ -1,12 +1,13 @@
 // File: components/header/header.tsx
 "use client";
-import { Bell, Github, Menu, X } from "lucide-react";
+import { Github, Menu, X } from "lucide-react";
 import Link from "next/link";
 import NextImage from "next/image";
 import { usePathname } from "next/navigation";
 import { ModeToggle } from "../mode-toggle";
 import { Badge } from "../ui/badge";
 import { useState } from "react";
+import { CommandMenu } from "../command-menu";
 
 const NavLinks = [
   { href: "/docs/components/button", label: "Components", badge: true },
@@ -76,7 +77,7 @@ export function Header() {
                   </span>
 
                   {/* Desktop Navigation Links */}
-                  <div className="hidden sm:flex items-center gap-4">
+                  <div className="hidden sm:flex items-center gap-4 py-3">
                     {NavLinks.map((link) => {
                       const isActive = isLinkActive(link.href);
                       return (
@@ -106,13 +107,9 @@ export function Header() {
                   </div>
                 </div>
 
-                {/* Right side items - Desktop */}
                 <div className="hidden sm:flex items-center gap-3">
                   <span className="text-zinc-300 dark:text-zinc-700">|</span>
-
-                  <div className="relative">
-                    <IconButton href="#" icon={Bell} title="Notifications" />
-                  </div>
+   <CommandMenu />
                   <IconButton
                     href="https://github.com/bilals2008/bilal-ui"
                     icon={Github}
@@ -125,7 +122,6 @@ export function Header() {
                 {/* Mobile Navigation */}
                 <div className="flex sm:hidden items-center gap-2 ml-auto">
                   <div className="relative">
-                    <IconButton href="#" icon={Bell} title="Notifications" />
                   </div>
                   <IconButton
                     href="https://github.com/bilals2008/bilal-ui"
