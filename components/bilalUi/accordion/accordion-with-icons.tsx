@@ -16,7 +16,7 @@ export default function AccordionWithIcons() {
       className="w-full border rounded-lg px-0 overflow-hidden"
     >
       <AccordionItem value="free" className="border-b px-4">
-        <AccordionTrigger className="group hover:no-underline hover:bg-emerald-50/50 dark:hover:bg-emerald-900/10 px-2 rounded-md transition-colors">
+        <AccordionTrigger className="group hover:no-underline hover:bg-emerald-50/50 data-[state=open]:bg-emerald-50/50 dark:hover:bg-emerald-900/10 dark:data-[state=open]:bg-emerald-900/10 px-2 py-2 rounded-md transition-colors">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-emerald-100 dark:bg-emerald-900/20 rounded-lg group-hover:scale-110 transition-transform duration-200">
               <Sparkles className="w-5 h-5 text-emerald-500" />
@@ -33,7 +33,7 @@ export default function AccordionWithIcons() {
       </AccordionItem>
 
       <AccordionItem value="dependencies" className="border-b px-4">
-        <AccordionTrigger className="group hover:no-underline hover:bg-blue-50/50 dark:hover:bg-blue-900/10 px-2 rounded-md transition-colors">
+        <AccordionTrigger className="group hover:no-underline hover:bg-blue-50/50 data-[state=open]:bg-blue-50/50 dark:hover:bg-blue-900/10 dark:data-[state=open]:bg-blue-900/10 px-2 py-2 rounded-md transition-colors">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-blue-100 dark:bg-blue-900/20 rounded-lg group-hover:scale-110 transition-transform duration-200">
               <Layers className="w-5 h-5 text-blue-500" />
@@ -51,7 +51,7 @@ export default function AccordionWithIcons() {
       </AccordionItem>
 
       <AccordionItem value="nextjs" className="border-b px-4">
-        <AccordionTrigger className="group hover:no-underline hover:bg-yellow-50/50 dark:hover:bg-yellow-900/10 px-2 rounded-md transition-colors">
+        <AccordionTrigger className="group hover:no-underline hover:bg-yellow-50/50 data-[state=open]:bg-yellow-50/50 dark:hover:bg-yellow-900/10 dark:data-[state=open]:bg-yellow-900/10 px-2 py-2 rounded-md transition-colors">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-yellow-100 dark:bg-yellow-900/20 rounded-lg group-hover:scale-110 transition-transform duration-200">
               <Zap className="w-5 h-5 text-yellow-500" />
@@ -68,7 +68,7 @@ export default function AccordionWithIcons() {
       </AccordionItem>
 
       <AccordionItem value="customization" className="px-4 border-b-0">
-        <AccordionTrigger className="group hover:no-underline hover:bg-purple-50/50 dark:hover:bg-purple-900/10 px-2 rounded-md transition-colors">
+        <AccordionTrigger className="group hover:no-underline hover:bg-purple-50/50 data-[state=open]:bg-purple-50/50 dark:hover:bg-purple-900/10 dark:data-[state=open]:bg-purple-900/10 px-2 py-2 rounded-md transition-colors">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-purple-100 dark:bg-purple-900/20 rounded-lg group-hover:scale-110 transition-transform duration-200">
               <Palette className="w-5 h-5 text-purple-500" />
