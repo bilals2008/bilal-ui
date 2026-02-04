@@ -1,4 +1,4 @@
-// File: components/bilalUi/demo/accordion/basic-accordion.tsx
+// File: components/bilalUi/accordion/basic-accordion.tsx
 import {
   Accordion,
   AccordionContent,
