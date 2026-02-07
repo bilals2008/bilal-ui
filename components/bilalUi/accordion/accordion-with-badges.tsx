@@ -14,7 +14,7 @@ export default function AccordionWithBadges() {
       type="single"
       collapsible
       defaultValue="tokens"
-      className="w-full rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-gradient-to-b from-white to-zinc-50 dark:from-zinc-950 dark:to-zinc-900/60 shadow-sm"
+      className="w-full rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-linear-to-b from-white to-zinc-50 dark:from-zinc-950 dark:to-zinc-900/60 shadow-sm"
     >
       <AccordionItem value="tokens" className="px-4">
         <AccordionTrigger className="group hover:no-underline rounded-xl data-[state=open]:bg-emerald-50/60 dark:data-[state=open]:bg-emerald-900/10 px-3 py-3 transition-colors">
