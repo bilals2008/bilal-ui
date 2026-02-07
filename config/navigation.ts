@@ -84,6 +84,14 @@ export const navigationSections: NavSection[] = [
     title: "Components",
     items: [
        {
+        id: "accordion",
+        title: "Accordion",
+        href: "/docs/components/accordion",
+        description: "A vertically stacked set of interactive headings",
+        isNew: true,
+        icon: "ListCollapse",
+      },
+      {
         id: "button",
         title: "Button",
         href: "/docs/components/button",
