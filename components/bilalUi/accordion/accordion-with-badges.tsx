@@ -66,8 +66,8 @@ export default function AccordionWithBadges() {
                 <span className="text-zinc-900 dark:text-zinc-100 font-medium">
                   Motion and micro-interactions
                 </span>
-                <Badge variant="soon" appearance="outline" size="xs">
-                  Soon
+                <Badge variant="new" appearance="outline" size="xs">
+                  New
                 </Badge>
               </div>
               <p className="text-xs text-zinc-500 dark:text-zinc-400">
