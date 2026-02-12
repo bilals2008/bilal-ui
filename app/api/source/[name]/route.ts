@@ -1,76 +1,57 @@
 // File: app/api/source/[name]/route.ts
-
-import { readFile, readdir } from 'fs/promises';
-import { NextResponse } from 'next/server';
-import path from 'path';
+import { NextResponse } from "next/server"
+import fs from "fs/promises"
+import path from "path"
 
 export async function GET(
   request: Request,
   { params }: { params: Promise<{ name: string }> }
 ) {
-  const { name } = await params;
-  
-  const isRegistryRequest = name.endsWith('.json');
-  const componentName = isRegistryRequest ? name.replace(/\.json$/, '') : name;
-  
+  const { name } = await params
+
+  // Strict Validation & Sanitization
+  if (!name) {
+    return new NextResponse("Component name required", { status: 400 })
+  }
+
+  // Sanitize input to prevent path traversal
+  const safeName = path.basename(name)
+  if (safeName !== name) {
+      return new NextResponse("Invalid request path", { status: 400 })
+  }
+
+  // Validate component name format (alphanumeric + hyphens only)
+  // Allow .json extension if that's part of the route pattern (though usually stripped)
+  const componentName = safeName.replace(".json", "")
+  if (!/^[a-zA-Z0-9-]+$/.test(componentName)) {
+       return new NextResponse("Invalid component name", { status: 400 })
+  }
+
+  const filePath = path.join(
+    process.cwd(),
+    "components",
+    "bilalUi",
+    `${componentName}.tsx`
+  )
+
   try {
-    const componentsDir = path.join(process.cwd(), 'components/bilalUi');
+    // Verify file exists and is within the expected directory
+    await fs.access(filePath)
     
-    // Custom recursive finder
-    const findComponent = async (dir: string): Promise<string | null> => {
-        const entries = await readdir(dir, { withFileTypes: true });
-        for (const entry of entries) {
-            const fullPath = path.join(dir, entry.name);
-            if (entry.isDirectory()) {
-                const found = await findComponent(fullPath);
-                if (found) return found;
-            } else if (entry.isFile()) {
-                const entryNameNormalized = entry.name.replace(/\.tsx$/, '').replace(/[-_]/g, '').toLowerCase();
-                const targetNameNormalized = componentName.replace(/[-_]/g, '').toLowerCase();
-                
-                if (entryNameNormalized === targetNameNormalized) {
-                    return fullPath;
-                }
-            }
-        }
-        return null;
-    };
-
-    const filePath = await findComponent(componentsDir);
-
-    if (!filePath) {
-      return new NextResponse('Component not found', { status: 404 });
+    // Double check that the resolved path is still within the intended directory
+    const resolvedPath = await fs.realpath(filePath)
+    const intendedDir = path.join(process.cwd(), "components", "bilalUi")
+    
+    if (!resolvedPath.startsWith(intendedDir)) {
+        return new NextResponse("Access denied", { status: 403 })
     }
 
-    const content = await readFile(filePath, 'utf-8');
-
-    // If .json requested, return Registry JSON format
-    if (isRegistryRequest) {
-      const registryItem = {
-        name: componentName.toLowerCase(),
-        type: "registry:ui",
-        dependencies: ["lucide-react"],
-        files: [
-          {
-            path: `components/bilalUi/${path.relative(componentsDir, filePath).replace(/\\/g, "/")}`,
-            content: content,
-            type: "registry:ui",
-            target: `components/bilalUi/${path.relative(componentsDir, filePath).replace(/\\/g, "/")}`
-          }
-        ]
-      };
-      return NextResponse.json(registryItem);
-    }
-
-    // Default: Return Raw Text for Preview
-    return new NextResponse(content, {
-        headers: {
-            'Content-Type': 'text/plain',
-        },
-    });
-
+    const fileContent = await fs.readFile(filePath, "utf-8")
+    return new NextResponse(fileContent, {
+      headers: { "Content-Type": "text/plain" },
+    })
   } catch (error) {
-    console.error('Error processing request:', error);
-    return new NextResponse('Internal Server Error', { status: 500 });
+    console.error(`Error reading file ${filePath}:`, error)
+    return new NextResponse("Component not found", { status: 404 })
   }
 }

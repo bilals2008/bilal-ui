@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ui.bilal.dev/sitemap.xml
+Sitemap: https://bilal-ui.vercel.app/sitemap.xml

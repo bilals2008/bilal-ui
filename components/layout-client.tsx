@@ -6,7 +6,22 @@ import { ThemeSwitcher } from "@/components/kibo-ui/theme-switcher";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import * as Icons from "lucide-react";
+import {
+  FlaskConical,
+  Github,
+  Twitter,
+  ChevronDown,
+  Rocket,
+  Download,
+  Palette,
+  CircleHelp,
+  History,
+  Map,
+  ListCollapse,
+  MousePointerClick,
+  AlertCircle,
+  IdCard,
+} from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import React, { useMemo, useState, useEffect } from "react";
 import { navigationSections } from "@/config/navigation";
@@ -17,7 +32,26 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import { ChevronDown } from "lucide-react";
+
+const IconMap: Record<
+  string,
+  React.ComponentType<{ className?: string; strokeWidth?: number }>
+> = {
+  Rocket,
+  Download,
+  Palette,
+  CircleHelp,
+  History,
+  Map,
+  ListCollapse,
+  MousePointerClick,
+  AlertCircle,
+  IdCard,
+  FlaskConical,
+  Github,
+  Twitter,
+  ChevronDown,
+};
 
 interface NavigationNode {
   name: string;
@@ -108,17 +142,7 @@ export function DocsLayoutClient({
 
             const iconName = configItem?.icon || node.icon;
             const Icon =
-              iconName && iconName in Icons
-                ? (
-                    Icons as unknown as Record<
-                      string,
-                      React.ComponentType<{
-                        className?: string;
-                        strokeWidth?: number;
-                      }>
-                    >
-                  )[iconName]
-                : null;
+              iconName && iconName in IconMap ? IconMap[iconName] : null;
 
             const isComingSoon = configItem?.isComingSoon;
             const isNew = configItem?.isNew;
@@ -139,7 +163,7 @@ export function DocsLayoutClient({
             ) : isUpdated ? (
               "Updated"
             ) : isLab ? (
-              <Icons.FlaskConical className="size-3" />
+              <FlaskConical className="size-3" />
             ) : isFeatured ? (
               "Featured"
             ) : isRequest ? (
@@ -338,7 +362,7 @@ export function DocsLayoutClient({
                   className="p-2 text-muted-foreground hover:text-rose-500 hover:bg-rose-500/5 rounded-md transition-all group/social"
                   aria-label="GitHub"
                 >
-                  <Icons.Github className="w-4 h-4 transition-transform group-hover/social:scale-110" />
+                  <Github className="w-4 h-4 transition-transform group-hover/social:scale-110" />
                 </Link>
                 <Link
                   href="https://x.com/bilals2008"
@@ -346,7 +370,7 @@ export function DocsLayoutClient({
                   className="p-2 text-muted-foreground hover:text-fuchsia-500 hover:bg-fuchsia-500/5 rounded-md transition-all group/social"
                   aria-label="Twitter"
                 >
-                  <Icons.Twitter className="w-4 h-4 transition-transform group-hover/social:scale-110" />
+                  <Twitter className="w-4 h-4 transition-transform group-hover/social:scale-110" />
                 </Link>
               </div>
             </div>

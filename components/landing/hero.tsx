@@ -24,8 +24,8 @@ import {
 // import AIInput_04 from "../codesnippetui/ai-input/ai-input-04";
 
 // import Card08 from "../codesnippetui/card/card-08";
-import { BrowseBlocksButton } from "../ui/Browse-blocks";
-import { BrowseComponentsButton } from "../ui/Browse-button";
+import { BrowseBlocksButton } from "../ui/browse-blocks";
+import { BrowseComponentsButton } from "../ui/browse-button";
 import Features from "./feature-block";
 
 // import Card02 from "../codesnippetui/card/card-02";

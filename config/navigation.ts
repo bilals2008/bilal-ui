@@ -112,7 +112,7 @@ export const navigationSections: NavSection[] = [
         title: "Card",
         href: "/docs/components/card",
         description: "Card components and layouts",
-        isComingSoon: true,
+        isAlpha: true,
         icon: "IdCard",
       },
     ],
