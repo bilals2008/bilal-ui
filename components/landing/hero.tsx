@@ -15,7 +15,7 @@ import { Sparkles } from "lucide-react";
 
 // import Card08 from "../codesnippetui/card/card-08";
 import { BrowseBlocksButton } from "@/components/ui/browse-blocks";
-import { BrowseComponentsButton } from "@/components/ui/browse-button";
+import { BrowseComponentsButton } from "@/components/ui/browse-components-button";
 import Features from "./feature-block";
 
 // import Card02 from "../codesnippetui/card/card-02";

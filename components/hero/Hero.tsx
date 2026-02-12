@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import { Sparkles, ArrowRight } from "lucide-react";
 import Features from "./feature-block";
 import TailwindCSS from "../icons/tailwindcss";
-import { BrowseComponentsButton } from "../ui/browse-button";
+import { BrowseComponentsButton } from "../ui/browse-components-button";
 import { BrowseBlocksButton } from "../ui/browse-blocks";
 import { GridPattern } from "../ui/grid-pattern";
 import { cn } from "@/lib/utils";
