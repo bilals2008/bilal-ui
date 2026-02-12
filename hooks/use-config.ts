@@ -12,21 +12,23 @@ const DEFAULT_CONFIG: Config = {
 }
 
 export function useConfig() {
-  const [config, setConfig] = useState<Config>(() => {
-    if (typeof window === "undefined") return DEFAULT_CONFIG
+  const [config, setConfig] = useState<Config>(DEFAULT_CONFIG)
+
+  useEffect(() => {
     const savedConfig = localStorage.getItem("docs-config")
     if (savedConfig) {
       try {
-        return JSON.parse(savedConfig)
+        setConfig(JSON.parse(savedConfig))
       } catch (e) {
         console.error("Failed to parse config", e)
       }
     }
-    return DEFAULT_CONFIG
-  })
+  }, [])
 
   useEffect(() => {
-    localStorage.setItem("docs-config", JSON.stringify(config))
+    if (config !== DEFAULT_CONFIG) {
+      localStorage.setItem("docs-config", JSON.stringify(config))
+    }
   }, [config])
 
   const updateConfig = (newConfig: Partial<Config>) => {

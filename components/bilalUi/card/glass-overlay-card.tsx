@@ -23,15 +23,15 @@ export default function GlassOverlayCard({
   href = "#",
 }: GlassOverlayCardProps) {
   return (
-    <Link href={href} className="group block w-full max-w-70">
+    <Link href={href} className="group block w-70  h-full">
       <div
         className={cn(
-          "relative overflow-hidden rounded-2xl",
-          "border border-zinc-200/50 bg-white/80 shadow-xs backdrop-blur-xl",
+          "relative overflow-hidden rounded-2xl ",
+          "border border-zinc-200/50 shadow-xs backdrop-blur-xl",
           "transition-all duration-300 hover:border-zinc-300/50 hover:shadow-md",
         )}
       >
-        <div className="relative h-80 overflow-hidden">
+        <div className="relative h-80 w-full overflow-hidden">
           <Image
             src={image}
             alt={title}
