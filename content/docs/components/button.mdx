@@ -7,12 +7,25 @@ import GlowingButtonDemo from "@/components/bilalUi/demo/button/glowing-button-d
 import SheenButtonDemo from "@/components/bilalUi/demo/button/sheen-button-demo";
 import GradientBorderButtonDemo from "@/components/bilalUi/demo/button/gradient-border-button-demo";
 import Btn03Demo from "@/components/bilalUi/demo/button/btn-03-demo";
+import BtnParticaleDemo from "@/components/bilalUi/demo/button/btn-particale-demo";
 import { Callout } from "@/components/ui/callout";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 
 <Callout title="Under Development" type="warn">
   This component is currently being updated. More variants coming soon.
 </Callout>
+
+### Magnetic Particle Button
+A button with particle attraction animation on hover.
+<ComponentPreview name="btn-03-demo" registry="btn-03">
+  <Btn03Demo />
+</ComponentPreview>
+
+### Particle Click Button
+A button that spawns success particles on click.
+<ComponentPreview name="btn-particale-demo" registry="btn-particale">
+  <BtnParticaleDemo />
+</ComponentPreview>
 
 ### Glowing Button
 A subtle edge-glow button that follows the cursor.
@@ -30,10 +43,4 @@ A glassy, gradient-framed button with a sweeping light streak on hover.
 A vibrant gradient border button with multiple color schemes and animation effects.
 <ComponentPreview name="gradient-border-button-demo" registry="gradient-border-button">
   <GradientBorderButtonDemo />
-</ComponentPreview>
-
-### Magnetic Particle Button
-A button with particle attraction animation on hover.
-<ComponentPreview name="btn-03-demo" registry="btn-03">
-  <Btn03Demo />
 </ComponentPreview>
