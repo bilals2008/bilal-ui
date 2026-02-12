@@ -6,26 +6,16 @@ import type React from "react";
 import Link from "next/link";
 import TailwindCSS from "@/components/icons/tailwindcss";
 import { motion } from "motion/react";
+import { Sparkles } from "lucide-react";
 
-import {
-  PlaneTakeoff,
-  BarChart2,
-  Video,
-  AudioLines,
-  Globe,
-  Diamond,
-  Sparkles,
-  Code,
-  Layers,
-} from "lucide-react";
 // import { Btn14 } from "../codesnippetui/button/btn-14";
 // import Btn03 from "../codesnippetui/button/btn-03";
 // import Input09 from "../codesnippetui/input/input-09";
 // import AIInput_04 from "../codesnippetui/ai-input/ai-input-04";
 
 // import Card08 from "../codesnippetui/card/card-08";
-import { BrowseBlocksButton } from "../ui/browse-blocks";
-import { BrowseComponentsButton } from "../ui/browse-button";
+import { BrowseBlocksButton } from "@/components/ui/browse-blocks";
+import { BrowseComponentsButton } from "@/components/ui/browse-button";
 import Features from "./feature-block";
 
 // import Card02 from "../codesnippetui/card/card-02";
@@ -51,12 +41,12 @@ export function HeroSection() {
         >
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-zinc-900 dark:text-zinc-100">
             Craft with{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 via-fuchsia-500 to-purple-500 dark:from-rose-400 dark:via-fuchsia-400 dark:to-purple-400">
+            <span className="bg-clip-text text-transparent bg-linear-to-r from-rose-500 via-fuchsia-500 to-purple-500 dark:from-rose-400 dark:via-fuchsia-400 dark:to-purple-400">
               precision
             </span>
             <br />
             build with{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-fuchsia-500 to-rose-500 dark:from-purple-400 dark:via-fuchsia-400 dark:to-rose-400">
+            <span className="bg-clip-text text-transparent bg-linear-to-r from-purple-500 via-fuchsia-500 to-rose-500 dark:from-purple-400 dark:via-fuchsia-400 dark:to-rose-400">
               ease
             </span>
             .
@@ -65,11 +55,11 @@ export function HeroSection() {
             A curated collection of{" "}
             <span className="font-semibold">100+ premium UI components</span>{" "}
             crafted with{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-fuchsia-500 dark:from-rose-400 dark:to-fuchsia-400">
+            <span className="bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-fuchsia-500 dark:from-rose-400 dark:to-fuchsia-400">
               Tailwind CSS
             </span>{" "}
             and{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-500 to-purple-500 dark:from-fuchsia-400 dark:to-purple-400">
+            <span className="bg-clip-text text-transparent bg-linear-to-r from-fuchsia-500 to-purple-500 dark:from-fuchsia-400 dark:to-purple-400">
               shadcn/ui
             </span>{" "}
             for modern React and Next.js applications.
@@ -122,7 +112,7 @@ export function HeroSection() {
           </div>
 
           {/* Action Search Bar */}
-          <div className="w-full max-w-[600px] bg-transparent">
+          <div className="w-full max-w-150 bg-transparent">
             <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
               Components
             </span>
