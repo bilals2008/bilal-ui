@@ -1,3 +1,4 @@
+// File: components/bilalUi/alert/channel-alert.tsx
 import { cn } from "@/lib/utils";
 import { AlertTriangle, CheckCircle2, Info, Sparkles, X } from "lucide-react";
 
@@ -74,7 +75,7 @@ const channelAlerts = [
 
 export function ChannelAlert() {
   return (
-    <div className="grid w-full max-w-2xl gap-3">
+    <div className="grid w-full max-w-lg gap-2">
       {channelAlerts.map((alert) => {
         const Icon = alert.icon;
         return (
@@ -82,7 +83,7 @@ export function ChannelAlert() {
             key={alert.key}
             role="alert"
             className={cn(
-              "relative flex items-center gap-3 rounded-lg px-3 py-2.5 sm:px-4",
+              "relative flex items-center gap-2.5 rounded-md px-2.5 py-1.5",
               alert.classes.surface,
             )}
           >

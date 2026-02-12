@@ -1,3 +1,4 @@
+// File: components/bilalUi/alert/outline-alert.tsx
 import { cn } from "@/lib/utils";
 import { Bell, CheckCircle2, Info, ShieldAlert, X } from "lucide-react";
 
@@ -66,7 +67,7 @@ const outlineAlerts = [
 
 export function OutlineAlert() {
   return (
-    <div className="grid w-full max-w-2xl gap-3">
+    <div className="grid w-full max-w-lg gap-2">
       {outlineAlerts.map((alert) => {
         const Icon = alert.icon;
         return (
@@ -74,7 +75,7 @@ export function OutlineAlert() {
             key={alert.key}
             role="alert"
             className={cn(
-              "group relative flex flex-wrap items-center gap-2.5 bg-transparent px-3 py-2.5 sm:px-4",
+              "group relative flex flex-wrap items-center gap-2 bg-transparent px-2.5 py-1.5",
               "border border-current/35",
               "before:pointer-events-none before:absolute before:inset-1 before:border before:border-current/20",
               "clip-path-[polygon(8px_0,100%_0,100%_calc(100%-8px),calc(100%-8px)_100%,0_100%,0_8px)]",
