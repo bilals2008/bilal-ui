@@ -8,12 +8,14 @@ import { Info } from "lucide-react";
 
 export default function InfoAlertDemo() {
   return (
-    <Alert variant="info">
-      <Info className="size-4" />
-      <AlertTitle>Information</AlertTitle>
-      <AlertDescription>
-        This is an informative message for the user to stay updated.
-      </AlertDescription>
-    </Alert>
+    <div className="w-full max-w-xl">
+      <Alert variant="info">
+        <Info className="size-4" />
+        <AlertTitle>Information</AlertTitle>
+        <AlertDescription>
+          This is an informative message for the user to stay updated.
+        </AlertDescription>
+      </Alert>
+    </div>
   );
 }
