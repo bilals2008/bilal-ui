@@ -8,14 +8,18 @@ import { DestructiveBadge } from "@/components/bilalUi/badge/destructive-badge";
 import { InfoBadge } from "@/components/bilalUi/badge/info-badge";
 import { NewBadge } from "@/components/bilalUi/badge/new-badge";
 import { SecondaryBadge } from "@/components/bilalUi/badge/secondary-badge";
+import { SoftBadge } from "@/components/bilalUi/badge/soft-badge";
 import { SuccessBadge } from "@/components/bilalUi/badge/success-badge";
 import { Callout } from "@/components/ui/callout";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 import { WarningBadge } from "@/components/bilalUi/badge/warning-badge";
 
-<Callout title="Under Development" type="warn">
-  This component is currently being updated. More variants coming soon.
-</Callout>
+### Soft Badge
+Soft variant badge.
+
+<ComponentPreview name="soft-badge" registry="soft-badge">
+  <SoftBadge />
+</ComponentPreview>
 
 ### Primary Badge
 Primary variant badge.
@@ -65,3 +69,7 @@ Soon variant badge.
 <ComponentPreview name="warning-badge" registry="warning-badge">
   <WarningBadge />
 </ComponentPreview>
+
+<Callout title="More Variants Coming Soon" type="info">
+  More badge styles and combinations will be added in upcoming updates.
+</Callout>

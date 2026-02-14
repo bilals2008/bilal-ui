@@ -27,6 +27,7 @@ const badgeVariants = cva(
       variant: {
         primary: "bg-primary text-primary-foreground",
         secondary: "bg-secondary text-secondary-foreground",
+        soft: "gap-x-1.5 rounded-full bg-teal-100 px-3 py-1.5 text-xs font-medium text-teal-800 dark:bg-teal-500/20 dark:text-teal-400",
         new: "bg-[var(--color-success-accent,var(--color-green-500))] text-[var(--color-success-foreground,var(--color-white))]",
         soon: "bg-[var(--color-warning-accent,var(--color-yellow-500))] text-[var(--color-warning-foreground,var(--color-white))]",
         info: "bg-[var(--color-info-accent,var(--color-violet-500))] text-[var(--color-info-foreground,var(--color-white))]",
