@@ -10,8 +10,16 @@ import { useState } from "react";
 import { CommandMenu } from "../command-menu";
 
 const NavLinks = [
-  { href: "/docs/components/button", label: "Components", badge: true },
-  { href: "/templates", label: "Templates", badge: true },
+  {
+    href: "/docs/components/button",
+    label: "Components",
+    badge: { text: "New", variant: "new" as const },
+  },
+  {
+    href: "/templates",
+    label: "Templates",
+    badge: { text: "Soon", variant: "soon" as const },
+  },
   { href: "/changelog", label: "Changelog" },
 ];
 
@@ -93,11 +101,11 @@ export function Header() {
                             {link.label}
                             {link.badge && (
                               <Badge
-                                variant="soon"
+                                variant={link.badge.variant}
                                 size="xs"
                                 appearance={"light"}
                               >
-                                Soon
+                                {link.badge.text}
                               </Badge>
                             )}
                           </span>
@@ -109,7 +117,7 @@ export function Header() {
 
                 <div className="hidden sm:flex items-center gap-3">
                   <span className="text-zinc-300 dark:text-zinc-700">|</span>
-   <CommandMenu />
+                  <CommandMenu />
                   <IconButton
                     href="https://github.com/bilals2008/bilal-ui"
                     icon={Github}
@@ -121,8 +129,7 @@ export function Header() {
 
                 {/* Mobile Navigation */}
                 <div className="flex sm:hidden items-center gap-2 ml-auto">
-                  <div className="relative">
-                  </div>
+                  <div className="relative"></div>
                   <IconButton
                     href="https://github.com/bilals2008/bilal-ui"
                     icon={Github}
@@ -164,11 +171,11 @@ export function Header() {
                             {link.label}
                             {link.badge && (
                               <Badge
-                                variant="soon"
+                                variant={link.badge.variant}
                                 size="xs"
                                 appearance={"light"}
                               >
-                                Soon
+                                {link.badge.text}
                               </Badge>
                             )}
                           </span>

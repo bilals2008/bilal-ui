@@ -10,7 +10,15 @@ import { notFound } from "next/navigation";
 import { getMDXComponents } from "@/mdx-components";
 import type { Metadata } from "next";
 import { createRelativeLink } from "fumadocs-ui/mdx";
-import * as Icons from "lucide-react";
+import {
+  LifeBuoy,
+  CircleAlert,
+  Palette,
+  FileJson,
+  MessageCircleQuestion,
+  Github,
+  Bug,
+} from "lucide-react";
 
 import { MDXActionBar } from "../../../components/bilalUi/mdx-action-bar";
 import { TOCPoster } from "@/components/bilalUi/toc-poster";
@@ -33,7 +41,7 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
             <TOCPoster />
             <div className="flex flex-col gap-2">
               <span className="font-medium text-foreground flex items-center gap-2">
-                <Icons.LifeBuoy className="w-4 h-4 text-primary" />
+                <LifeBuoy className="w-4 h-4 text-primary" />
                 Common Issues
               </span>
               <a
@@ -43,7 +51,7 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
                 className="flex items-center gap-2 hover:text-foreground transition-colors group"
               >
                 <div className="flex items-center justify-center w-5 h-5 rounded-md bg-red-500/10 text-red-500 group-hover:bg-red-500 group-hover:text-white transition-all">
-                  <Icons.CircleAlert className="w-3 h-3" />
+                  <CircleAlert className="w-3 h-3" />
                 </div>
                 <span>Component not found?</span>
               </a>
@@ -54,7 +62,7 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
                 className="flex items-center gap-2 hover:text-foreground transition-colors group"
               >
                 <div className="flex items-center justify-center w-5 h-5 rounded-md bg-blue-500/10 text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-all">
-                  <Icons.Palette className="w-3 h-3" />
+                  <Palette className="w-3 h-3" />
                 </div>
                 <span>Styles not applying?</span>
               </a>
@@ -65,7 +73,7 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
                 className="flex items-center gap-2 hover:text-foreground transition-colors group"
               >
                 <div className="flex items-center justify-center w-5 h-5 rounded-md bg-yellow-500/10 text-yellow-500 group-hover:bg-yellow-500 group-hover:text-white transition-all">
-                  <Icons.FileJson className="w-3 h-3" />
+                  <FileJson className="w-3 h-3" />
                 </div>
                 <span>TypeScript errors?</span>
               </a>
@@ -73,7 +81,7 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
 
             <div className="flex flex-col gap-2">
               <span className="font-medium text-foreground flex items-center gap-2">
-                <Icons.MessageCircleQuestion className="w-4 h-4 text-primary" />
+                <MessageCircleQuestion className="w-4 h-4 text-primary" />
                 Need Help?
               </span>
               <a
@@ -83,7 +91,7 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
                 className="flex items-center gap-2 hover:text-foreground transition-colors group mb-2"
               >
                 <div className="flex items-center justify-center w-5 h-5 rounded-md bg-stone-500/10 text-stone-500 group-hover:bg-stone-500 group-hover:text-white transition-all">
-                  <Icons.Github className="w-3 h-3" />
+                  <Github className="w-3 h-3" />
                 </div>
                 <span className="group-hover:underline">Edit on GitHub</span>
               </a>
@@ -95,7 +103,7 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
                 className="flex items-center gap-2 hover:text-foreground transition-colors group"
               >
                 <div className="flex items-center justify-center w-5 h-5 rounded-md bg-green-500/10 text-green-500 group-hover:bg-green-500 group-hover:text-white transition-all">
-                  <Icons.Bug className="w-3 h-3" />
+                  <Bug className="w-3 h-3" />
                 </div>
                 <span className="group-hover:underline">Open an Issue</span>
               </a>
