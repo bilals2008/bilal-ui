@@ -3,8 +3,10 @@ title: Accordion
 description: A vertically stacked set of interactive headings that each reveal a section of content.
 ---
 
-import BasicAccordion from "@/components/bilalUi/accordion/basic-accordion";
 import AccordionWithIcons from "@/components/bilalUi/accordion/accordion-with-icons";
+import BorderedFaqAccordion from "@/components/bilalUi/accordion/bordered-faq-accordion";
+import SplitPanelAccordion from "@/components/bilalUi/accordion/split-panel-accordion";
+import GradientRailAccordion from "@/components/bilalUi/accordion/gradient-rail-accordion";
 import { Callout } from "@/components/ui/callout";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 
@@ -12,18 +14,34 @@ import { ComponentPreview } from "@/components/bilalUi/component-preview";
   This component is currently being updated. More variants coming soon.
 </Callout>
 
-### Basic Accordion
+### Split Panel Accordion
 
-A clean and simple accordion component suitable for general FAQs.
+Two-column layout where titles and content are visually separated.
 
-<ComponentPreview name="basic-accordion" registry="basic-accordion">
-  <BasicAccordion />
+<ComponentPreview name="split-panel-accordion">
+  <SplitPanelAccordion />
 </ComponentPreview>
 
-### With Icons
+### Accordion With Icons
 
-An enhanced variation featuring colorized icons, hover effects, and themed content for a more engaging user experience.
+Accordion variant with icon highlights and color-coded content.
 
 <ComponentPreview name="accordion-with-icons">
   <AccordionWithIcons />
+</ComponentPreview>
+
+### Bordered FAQ Accordion
+
+Minimal bordered accordion for docs and FAQ layouts.
+
+<ComponentPreview name="bordered-faq-accordion">
+  <BorderedFaqAccordion />
+</ComponentPreview>
+
+### Gradient Rail Accordion
+
+Accordion with animated gradient rails for stronger scanning and visual grouping.
+
+<ComponentPreview name="gradient-rail-accordion">
+  <GradientRailAccordion />
 </ComponentPreview>

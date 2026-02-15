@@ -21,6 +21,7 @@ import {
   MousePointerClick,
   AlertCircle,
   IdCard,
+  BadgeCheck,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import React, { useMemo, useState, useEffect } from "react";
@@ -47,6 +48,7 @@ const IconMap: Record<
   MousePointerClick,
   AlertCircle,
   IdCard,
+  BadgeCheck,
   FlaskConical,
   Github,
   Twitter,

@@ -108,6 +108,14 @@ export const navigationSections: NavSection[] = [
         icon: "AlertCircle",
       },
       {
+        id: "badge",
+        title: "Badge",
+        href: "/docs/components/badge",
+        description: "Badge components and variants",
+        isNew: true,
+        icon: "BadgeCheck",
+      },
+      {
         id: "card",
         title: "Card",
         href: "/docs/components/card",
