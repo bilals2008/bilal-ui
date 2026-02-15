@@ -1,3 +1,4 @@
+// File: components/bilalUi/accordion/split-panel-accordion.tsx
 import {
   Accordion,
   AccordionContent,
