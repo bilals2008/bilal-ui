@@ -5,7 +5,8 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { Slot as SlotPrimitive } from "radix-ui";
 
 export interface BadgeProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof badgeVariants> {
   asChild?: boolean;
   dotClassName?: string;
@@ -13,7 +14,8 @@ export interface BadgeProps
 }
 
 export interface BadgeButtonProps
-  extends React.ButtonHTMLAttributes<HTMLDivElement>,
+  extends
+    React.ButtonHTMLAttributes<HTMLDivElement>,
     VariantProps<typeof badgeButtonVariants> {
   asChild?: boolean;
 }
@@ -33,17 +35,41 @@ const badgeVariants = cva(
         info: "bg-[var(--color-info-accent,var(--color-violet-500))] text-[var(--color-info-foreground,var(--color-white))]",
         outline:
           "bg-transparent border border-border text-secondary-foreground",
-        updated: "bg-[var(--color-primary-accent,var(--color-blue-500))] text-[var(--color-primary-foreground,var(--color-white))]",
+        updated:
+          "bg-[var(--color-primary-accent,var(--color-blue-500))] text-[var(--color-primary-foreground,var(--color-white))]",
         lab: "bg-[var(--color-accent-accent,var(--color-pink-500))] text-[var(--color-accent-foreground,var(--color-white))]",
-        featured: "bg-[var(--color-info-accent,var(--color-violet-500))] text-[var(--color-info-foreground,var(--color-white))]",
-        request: "bg-[var(--color-primary-accent,var(--color-cyan-500))] text-[var(--color-primary-foreground,var(--color-white))]",
+        featured:
+          "bg-[var(--color-info-accent,var(--color-violet-500))] text-[var(--color-info-foreground,var(--color-white))]",
+        request:
+          "bg-[var(--color-primary-accent,var(--color-cyan-500))] text-[var(--color-primary-foreground,var(--color-white))]",
         wip: "bg-[var(--color-accent-accent,var(--color-fuchsia-500))] text-[var(--color-accent-foreground,var(--color-white))]",
-        stable: "bg-[var(--color-success-accent,var(--color-teal-500))] text-[var(--color-success-foreground,var(--color-white))]",
-        legacy: "bg-[var(--color-secondary-accent,var(--color-stone-500))] text-[var(--color-secondary-foreground,var(--color-white))]",
-        headless: "bg-[var(--color-secondary-accent,var(--color-slate-500))] text-[var(--color-secondary-foreground,var(--color-white))]",
-        alpha: "bg-[var(--color-warning-accent,var(--color-rose-500))] text-[var(--color-warning-foreground,var(--color-white))]",
-        deprecated: "bg-[var(--color-destructive-accent,var(--color-red-600))] text-[var(--color-destructive-foreground,var(--color-white))]",
-        version: "bg-[var(--color-info-accent,var(--color-indigo-500))] text-[var(--color-info-foreground,var(--color-white))]",
+        stable:
+          "bg-[var(--color-success-accent,var(--color-teal-500))] text-[var(--color-success-foreground,var(--color-white))]",
+        legacy:
+          "bg-[var(--color-secondary-accent,var(--color-stone-500))] text-[var(--color-secondary-foreground,var(--color-white))]",
+        headless:
+          "bg-[var(--color-secondary-accent,var(--color-slate-500))] text-[var(--color-secondary-foreground,var(--color-white))]",
+        alpha:
+          "bg-[var(--color-warning-accent,var(--color-rose-500))] text-[var(--color-warning-foreground,var(--color-white))]",
+        deprecated:
+          "bg-[var(--color-destructive-accent,var(--color-red-600))] text-[var(--color-destructive-foreground,var(--color-white))]",
+        version:
+          "bg-[var(--color-info-accent,var(--color-indigo-500))] text-[var(--color-info-foreground,var(--color-white))]",
+        beta: "bg-[var(--color-warning-accent,var(--color-amber-500))] text-[var(--color-warning-foreground,var(--color-white))]",
+        experimental:
+          "bg-[var(--color-destructive-accent,var(--color-orange-600))] text-[var(--color-destructive-foreground,var(--color-white))]",
+        preview:
+          "bg-[var(--color-info-accent,var(--color-sky-500))] text-[var(--color-info-foreground,var(--color-white))]",
+        verified:
+          "bg-[var(--color-success-accent,var(--color-emerald-500))] text-[var(--color-success-foreground,var(--color-white))]",
+        pro: "bg-[var(--color-primary-accent,var(--color-purple-500))] text-[var(--color-primary-foreground,var(--color-white))]",
+        breaking:
+          "bg-[var(--color-destructive-accent,var(--color-red-500))] text-[var(--color-destructive-foreground,var(--color-white))]",
+        fix: "bg-[var(--color-success-accent,var(--color-green-500))] text-[var(--color-success-foreground,var(--color-white))]",
+        docs: "bg-[var(--color-info-accent,var(--color-blue-500))] text-[var(--color-info-foreground,var(--color-white))]",
+        perf: "bg-[var(--color-warning-accent,var(--color-orange-500))] text-[var(--color-warning-foreground,var(--color-white))]",
+        refactor:
+          "bg-[var(--color-primary-accent,var(--color-purple-500))] text-[var(--color-primary-foreground,var(--color-white))]",
       },
       appearance: {
         default: "",
@@ -103,6 +129,66 @@ const badgeVariants = cva(
         className:
           "text-[var(--color-primary-accent,var(--color-blue-700))] bg-[var(--color-primary-soft,var(--color-blue-50))] dark:bg-[var(--color-primary-soft,var(--color-blue-950))] dark:text-[var(--color-primary-soft,var(--color-blue-600))]",
       },
+      {
+        variant: "beta",
+        appearance: "light",
+        className:
+          "text-[var(--color-warning-accent,var(--color-amber-700))] bg-[var(--color-warning-soft,var(--color-amber-100))] dark:bg-[var(--color-warning-soft,var(--color-amber-950))] dark:text-[var(--color-warning-soft,var(--color-amber-600))]",
+      },
+      {
+        variant: "experimental",
+        appearance: "light",
+        className:
+          "text-[var(--color-destructive-accent,var(--color-orange-700))] bg-[var(--color-destructive-soft,var(--color-orange-100))] dark:bg-[var(--color-destructive-soft,var(--color-orange-950))] dark:text-[var(--color-destructive-soft,var(--color-orange-600))]",
+      },
+      {
+        variant: "preview",
+        appearance: "light",
+        className:
+          "text-[var(--color-info-accent,var(--color-sky-700))] bg-[var(--color-info-soft,var(--color-sky-100))] dark:bg-[var(--color-info-soft,var(--color-sky-950))] dark:text-[var(--color-info-soft,var(--color-sky-600))]",
+      },
+      {
+        variant: "verified",
+        appearance: "light",
+        className:
+          "text-[var(--color-success-accent,var(--color-emerald-700))] bg-[var(--color-success-soft,var(--color-emerald-100))] dark:bg-[var(--color-success-soft,var(--color-emerald-950))] dark:text-[var(--color-success-soft,var(--color-emerald-600))]",
+      },
+      {
+        variant: "pro",
+        appearance: "light",
+        className:
+          "text-[var(--color-primary-accent,var(--color-purple-700))] bg-[var(--color-primary-soft,var(--color-purple-100))] dark:bg-[var(--color-primary-soft,var(--color-purple-950))] dark:text-[var(--color-primary-soft,var(--color-purple-600))]",
+      },
+      {
+        variant: "breaking",
+        appearance: "light",
+        className:
+          "text-[var(--color-destructive-accent,var(--color-red-700))] bg-[var(--color-destructive-soft,var(--color-red-100))] dark:bg-[var(--color-destructive-soft,var(--color-red-950))] dark:text-[var(--color-destructive-soft,var(--color-red-600))]",
+      },
+      {
+        variant: "fix",
+        appearance: "light",
+        className:
+          "text-[var(--color-success-accent,var(--color-green-700))] bg-[var(--color-success-soft,var(--color-green-100))] dark:bg-[var(--color-success-soft,var(--color-green-950))] dark:text-[var(--color-success-soft,var(--color-green-600))]",
+      },
+      {
+        variant: "docs",
+        appearance: "light",
+        className:
+          "text-[var(--color-info-accent,var(--color-blue-700))] bg-[var(--color-info-soft,var(--color-blue-100))] dark:bg-[var(--color-info-soft,var(--color-blue-950))] dark:text-[var(--color-info-soft,var(--color-blue-600))]",
+      },
+      {
+        variant: "perf",
+        appearance: "light",
+        className:
+          "text-[var(--color-warning-accent,var(--color-orange-700))] bg-[var(--color-warning-soft,var(--color-orange-100))] dark:bg-[var(--color-warning-soft,var(--color-orange-950))] dark:text-[var(--color-warning-soft,var(--color-orange-600))]",
+      },
+      {
+        variant: "refactor",
+        appearance: "light",
+        className:
+          "text-[var(--color-primary-accent,var(--color-purple-700))] bg-[var(--color-primary-soft,var(--color-purple-100))] dark:bg-[var(--color-primary-soft,var(--color-purple-950))] dark:text-[var(--color-primary-soft,var(--color-purple-600))]",
+      },
       /* Outline */
       {
         variant: "primary",
@@ -143,47 +229,116 @@ const badgeVariants = cva(
       {
         variant: "featured",
         appearance: "outline",
-        className: "text-violet-700 border-violet-200 bg-violet-50 dark:bg-violet-950 dark:border-violet-900 dark:text-violet-600",
+        className:
+          "text-violet-700 border-violet-200 bg-violet-50 dark:bg-violet-950 dark:border-violet-900 dark:text-violet-600",
       },
       {
         variant: "request",
         appearance: "outline",
-        className: "text-cyan-700 border-cyan-200 bg-cyan-50 dark:bg-cyan-950 dark:border-cyan-900 dark:text-cyan-600",
+        className:
+          "text-cyan-700 border-cyan-200 bg-cyan-50 dark:bg-cyan-950 dark:border-cyan-900 dark:text-cyan-600",
       },
       {
         variant: "wip",
         appearance: "outline",
-        className: "text-fuchsia-700 border-fuchsia-200 bg-fuchsia-50 dark:bg-fuchsia-950 dark:border-fuchsia-900 dark:text-fuchsia-600",
+        className:
+          "text-fuchsia-700 border-fuchsia-200 bg-fuchsia-50 dark:bg-fuchsia-950 dark:border-fuchsia-900 dark:text-fuchsia-600",
       },
       {
         variant: "stable",
         appearance: "outline",
-        className: "text-teal-700 border-teal-200 bg-teal-50 dark:bg-teal-950 dark:border-teal-900 dark:text-teal-600",
+        className:
+          "text-teal-700 border-teal-200 bg-teal-50 dark:bg-teal-950 dark:border-teal-900 dark:text-teal-600",
       },
       {
         variant: "legacy",
         appearance: "outline",
-        className: "text-stone-700 border-stone-200 bg-stone-50 dark:bg-stone-950 dark:border-stone-900 dark:text-stone-600",
+        className:
+          "text-stone-700 border-stone-200 bg-stone-50 dark:bg-stone-950 dark:border-stone-900 dark:text-stone-600",
       },
       {
         variant: "headless",
         appearance: "outline",
-        className: "text-slate-700 border-slate-200 bg-slate-50 dark:bg-slate-950 dark:border-slate-900 dark:text-slate-600",
+        className:
+          "text-slate-700 border-slate-200 bg-slate-50 dark:bg-slate-950 dark:border-slate-900 dark:text-slate-600",
       },
       {
         variant: "alpha",
         appearance: "outline",
-        className: "text-rose-700 border-rose-200 bg-rose-50 dark:bg-rose-950 dark:border-rose-900 dark:text-rose-600",
+        className:
+          "text-rose-700 border-rose-200 bg-rose-50 dark:bg-rose-950 dark:border-rose-900 dark:text-rose-600",
       },
       {
         variant: "deprecated",
         appearance: "outline",
-        className: "text-red-700 border-red-200 bg-red-50 dark:bg-red-950 dark:border-red-900 dark:text-red-600",
+        className:
+          "text-red-700 border-red-200 bg-red-50 dark:bg-red-950 dark:border-red-900 dark:text-red-600",
       },
       {
         variant: "version",
         appearance: "outline",
-        className: "text-indigo-700 border-indigo-200 bg-indigo-50 dark:bg-indigo-950 dark:border-indigo-900 dark:text-indigo-600",
+        className:
+          "text-indigo-700 border-indigo-200 bg-indigo-50 dark:bg-indigo-950 dark:border-indigo-900 dark:text-indigo-600",
+      },
+      {
+        variant: "beta",
+        appearance: "outline",
+        className:
+          "text-amber-700 border-amber-200 bg-amber-50 dark:bg-amber-950 dark:border-amber-900 dark:text-amber-600",
+      },
+      {
+        variant: "experimental",
+        appearance: "outline",
+        className:
+          "text-orange-700 border-orange-200 bg-orange-50 dark:bg-orange-950 dark:border-orange-900 dark:text-orange-600",
+      },
+      {
+        variant: "preview",
+        appearance: "outline",
+        className:
+          "text-sky-700 border-sky-200 bg-sky-50 dark:bg-sky-950 dark:border-sky-900 dark:text-sky-600",
+      },
+      {
+        variant: "verified",
+        appearance: "outline",
+        className:
+          "text-emerald-700 border-emerald-200 bg-emerald-50 dark:bg-emerald-950 dark:border-emerald-900 dark:text-emerald-600",
+      },
+      {
+        variant: "pro",
+        appearance: "outline",
+        className:
+          "text-purple-700 border-purple-200 bg-purple-50 dark:bg-purple-950 dark:border-purple-900 dark:text-purple-600",
+      },
+      {
+        variant: "breaking",
+        appearance: "outline",
+        className:
+          "text-red-700 border-red-200 bg-red-50 dark:bg-red-950 dark:border-red-900 dark:text-red-600",
+      },
+      {
+        variant: "fix",
+        appearance: "outline",
+        className:
+          "text-green-700 border-green-200 bg-green-50 dark:bg-green-950 dark:border-green-900 dark:text-green-600",
+      },
+      {
+        variant: "docs",
+        appearance: "outline",
+        className:
+          "text-blue-700 border-blue-200 bg-blue-50 dark:bg-blue-950 dark:border-blue-900 dark:text-blue-600",
+      },
+      {
+        variant: "perf",
+        appearance: "outline",
+        className:
+          "text-orange-700 border-orange-200 bg-orange-50 dark:bg-orange-950 dark:border-orange-900 dark:text-orange-600",
+      },
+      {
+        variant: "refactor",
+        appearance: "outline",
+        className:
+          "text-purple-700 border-purple-200 bg-purple-50 dark:bg-purple-950 dark:border-purple-900 dark:text-purple-600",
       },
       /* Ghost */
       {
@@ -221,7 +376,11 @@ const badgeVariants = cva(
         appearance: "ghost",
         className: "text-[var(--color-accent-accent,var(--color-pink-500))]",
       },
-      { variant: "featured", appearance: "ghost", className: "text-violet-600" },
+      {
+        variant: "featured",
+        appearance: "ghost",
+        className: "text-violet-600",
+      },
       { variant: "request", appearance: "ghost", className: "text-cyan-600" },
       { variant: "wip", appearance: "ghost", className: "text-fuchsia-600" },
       { variant: "stable", appearance: "ghost", className: "text-teal-600" },
@@ -230,6 +389,28 @@ const badgeVariants = cva(
       { variant: "alpha", appearance: "ghost", className: "text-rose-600" },
       { variant: "deprecated", appearance: "ghost", className: "text-red-600" },
       { variant: "version", appearance: "ghost", className: "text-indigo-600" },
+      { variant: "beta", appearance: "ghost", className: "text-amber-600" },
+      {
+        variant: "experimental",
+        appearance: "ghost",
+        className: "text-orange-600",
+      },
+      { variant: "preview", appearance: "ghost", className: "text-sky-600" },
+      {
+        variant: "verified",
+        appearance: "ghost",
+        className: "text-emerald-600",
+      },
+      { variant: "pro", appearance: "ghost", className: "text-purple-600" },
+      { variant: "breaking", appearance: "ghost", className: "text-red-600" },
+      { variant: "fix", appearance: "ghost", className: "text-green-600" },
+      { variant: "docs", appearance: "ghost", className: "text-blue-600" },
+      { variant: "perf", appearance: "ghost", className: "text-orange-600" },
+      {
+        variant: "refactor",
+        appearance: "ghost",
+        className: "text-purple-600",
+      },
 
       { size: "lg", appearance: "ghost", className: "px-0" },
       { size: "md", appearance: "ghost", className: "px-0" },
@@ -241,7 +422,7 @@ const badgeVariants = cva(
       appearance: "default",
       size: "md",
     },
-  }
+  },
 );
 
 const badgeButtonVariants = cva(
@@ -255,7 +436,7 @@ const badgeButtonVariants = cva(
     defaultVariants: {
       variant: "default",
     },
-  }
+  },
 );
 
 function Badge({
@@ -276,7 +457,7 @@ function Badge({
       data-slot="badge"
       className={cn(
         badgeVariants({ variant, size, appearance, shape, disabled }),
-        className
+        className,
       )}
       {...props}
     />
@@ -307,7 +488,7 @@ function BadgeDot({ className, ...props }: React.ComponentProps<"span">) {
       data-slot="badge-dot"
       className={cn(
         "size-1.5 rounded-full bg-[currentColor] opacity-75",
-        className
+        className,
       )}
       {...props}
     />
