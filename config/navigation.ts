@@ -102,6 +102,14 @@ export const navigationSections: NavSection[] = [
         icon: "ListCollapse",
       },
       {
+        id: "avatar",
+        title: "Avatar",
+        href: "/docs/components/avatar",
+        description: "An image element with a fallback for representing the user",
+        icon: "User",
+        isNew: true,
+      },
+      {
         id: "button",
         title: "Button",
         href: "/docs/components/button",

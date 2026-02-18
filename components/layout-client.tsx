@@ -22,6 +22,7 @@ import {
   AlertCircle,
   IdCard,
   BadgeCheck,
+  User,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import React, { useMemo, useState, useEffect } from "react";
@@ -53,6 +54,7 @@ const IconMap: Record<
   Github,
   Twitter,
   ChevronDown,
+  User,
 };
 
 interface NavigationNode {
