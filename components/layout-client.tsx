@@ -26,7 +26,7 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import React, { useMemo, useState, useEffect } from "react";
-import { navigationSections } from "@/config/navigation";
+import { navigationSections, type NavItem } from "@/config/navigation";
 import { cn } from "@/lib/utils";
 import pkg from "@/package.json";
 import {
@@ -68,6 +68,56 @@ interface NavigationNode {
   isVirtual?: boolean;
 }
 
+type BadgeVariant = React.ComponentProps<typeof Badge>["variant"];
+
+const allNavItems = navigationSections.flatMap((s) => s.items);
+
+const BADGE_FLAGS: ReadonlyArray<{
+  key: keyof NavItem;
+  variant: BadgeVariant;
+  label: React.ReactNode;
+}> = [
+  { key: "isNew", variant: "new", label: "New" },
+  { key: "isUpdated", variant: "updated", label: "Updated" },
+  { key: "isLab", variant: "lab", label: <FlaskConical className="size-3" /> },
+  { key: "isFeatured", variant: "featured", label: "Featured" },
+  { key: "isRequest", variant: "request", label: "Request" },
+  { key: "isWIP", variant: "wip", label: "WIP" },
+  { key: "isStable", variant: "stable", label: "Stable" },
+  { key: "isLegacy", variant: "legacy", label: "Legacy" },
+  { key: "isHeadless", variant: "headless", label: "Headless" },
+  { key: "isAlpha", variant: "alpha", label: "Alpha" },
+  { key: "isDeprecated", variant: "deprecated", label: "Deprecated" },
+  { key: "isVersion", variant: "version", label: `v${pkg.version}` },
+  { key: "isBeta", variant: "beta", label: "Beta" },
+  { key: "isExperimental", variant: "experimental", label: "Experimental" },
+  { key: "isPreview", variant: "preview", label: "Preview" },
+  { key: "isVerified", variant: "verified", label: "Verified" },
+  { key: "isPro", variant: "pro", label: "Pro" },
+  { key: "isBreaking", variant: "breaking", label: "Breaking" },
+  { key: "isFix", variant: "fix", label: "Fix" },
+  { key: "isDocs", variant: "docs", label: "Docs" },
+  { key: "isPerf", variant: "perf", label: "Perf" },
+  { key: "isRefactor", variant: "refactor", label: "Refactor" },
+];
+
+function getBadgeInfo(
+  configItem: NavItem | undefined,
+  node: NavigationNode,
+): { variant: BadgeVariant; content: React.ReactNode } | null {
+  if (configItem) {
+    const match = BADGE_FLAGS.find((flag) => configItem[flag.key]);
+    if (match) return { variant: match.variant, content: match.label };
+  }
+
+  const fallback = configItem?.badge || node.badge;
+  if (fallback) return { variant: "secondary", content: fallback };
+
+  if (configItem?.isComingSoon) return { variant: "soon", content: "Soon" };
+
+  return null;
+}
+
 export interface DocsLayoutClientProps extends DocsLayoutProps {
   sidebarIconBadge?: boolean;
 }
@@ -85,9 +135,7 @@ export function DocsLayoutClient({
 
     const injectVirtualItems = (node: NavigationNode) => {
       if (node.children) {
-        // Check if this folder corresponds to any navigation section
         navigationSections.forEach((section) => {
-          // We identify the folder if it contains at least one item from the section
           const matchesSection = node.children!.some((child) =>
             section.items.some((item) => item.href === child.url),
           );
@@ -113,7 +161,6 @@ export function DocsLayoutClient({
           }
         });
 
-        // Recurse
         node.children?.forEach((child) =>
           injectVirtualItems(child as NavigationNode),
         );
@@ -131,17 +178,12 @@ export function DocsLayoutClient({
       themeSwitch={{ enabled: false }}
       nav={{
         ...props.nav,
-        // Ensure title is preserved from baseOptions, or handled by props.nav
-        // If we want search, we typically don't need to do anything special IF the provider is set up,
-        // but explicit usage is better.
       }}
       links={props.links}
       sidebar={{
         components: {
           Item: ({ item }) => {
             const node = item as unknown as NavigationNode;
-            // Find manual config for this item to get premium metadata
-            const allNavItems = navigationSections.flatMap((s) => s.items);
             const configItem = allNavItems.find((i) => i.href === node.url);
 
             const iconName = configItem?.icon || node.icon;
@@ -149,77 +191,7 @@ export function DocsLayoutClient({
               iconName && iconName in IconMap ? IconMap[iconName] : null;
 
             const isComingSoon = configItem?.isComingSoon;
-            const isNew = configItem?.isNew;
-            const isUpdated = configItem?.isUpdated;
-            const isLab = configItem?.isLab;
-            const isFeatured = configItem?.isFeatured;
-            const isRequest = configItem?.isRequest;
-            const isWIP = configItem?.isWIP;
-            const isStable = configItem?.isStable;
-            const isLegacy = configItem?.isLegacy;
-            const isHeadless = configItem?.isHeadless;
-            const isAlpha = configItem?.isAlpha;
-            const isDeprecated = configItem?.isDeprecated;
-            const isVersion = configItem?.isVersion;
-            const isBeta = configItem?.isBeta;
-            const isExperimental = configItem?.isExperimental;
-            const isPreview = configItem?.isPreview;
-            const isVerified = configItem?.isVerified;
-            const isPro = configItem?.isPro;
-            const isBreaking = configItem?.isBreaking;
-            const isFix = configItem?.isFix;
-            const isDocs = configItem?.isDocs;
-            const isPerf = configItem?.isPerf;
-            const isRefactor = configItem?.isRefactor;
-
-            const badgeContent = isNew ? (
-              "New"
-            ) : isUpdated ? (
-              "Updated"
-            ) : isLab ? (
-              <FlaskConical className="size-3" />
-            ) : isFeatured ? (
-              "Featured"
-            ) : isRequest ? (
-              "Request"
-            ) : isWIP ? (
-              "WIP"
-            ) : isStable ? (
-              "Stable"
-            ) : isLegacy ? (
-              "Legacy"
-            ) : isHeadless ? (
-              "Headless"
-            ) : isAlpha ? (
-              "Alpha"
-            ) : isDeprecated ? (
-              "Deprecated"
-            ) : isVersion ? (
-              `v${pkg.version}`
-            ) : isBeta ? (
-              "Beta"
-            ) : isExperimental ? (
-              "Experimental"
-            ) : isPreview ? (
-              "Preview"
-            ) : isVerified ? (
-              "Verified"
-            ) : isPro ? (
-              "Pro"
-            ) : isBreaking ? (
-              "Breaking"
-            ) : isFix ? (
-              "Fix"
-            ) : isDocs ? (
-              "Docs"
-            ) : isPerf ? (
-              "Perf"
-            ) : isRefactor ? (
-              "Refactor"
-            ) : (
-              configItem?.badge || node.badge || (isComingSoon ? "Soon" : null)
-            );
-
+            const badge = getBadgeInfo(configItem, node);
             const isActive = pathname === item.url;
 
             return (
@@ -231,19 +203,14 @@ export function DocsLayoutClient({
                   }
                 }}
                 className={cn(
-                  // bg-linear-to-r
                   "flex items-center gap-3 w-full py-2 rounded-lg text-[13px] group relative",
-                  // Transition & animation
                   "transition-all duration-200 ease-out",
-                  // Active state - subtle and readable
                   isActive && ["bg-muted/60", "text-foreground font-semibold"],
-                  // Inactive state with subtler hover
                   !isActive && [
                     "text-muted-foreground/90",
                     "hover:bg-rose-500/3 hover:text-foreground",
                     "dark:hover:bg-rose-500/5",
                   ],
-                  // Coming soon disabled state
                   isComingSoon && [
                     "opacity-50 cursor-not-allowed",
                     "hover:bg-transparent dark:hover:bg-transparent",
@@ -251,7 +218,6 @@ export function DocsLayoutClient({
                   ],
                 )}
               >
-                {/* Icon */}
                 {Icon && (
                   <div
                     className={cn(
@@ -268,7 +234,6 @@ export function DocsLayoutClient({
                   </div>
                 )}
 
-                {/* Label */}
                 <span
                   className={cn(
                     "flex-1 truncate tracking-[-0.01em] text-pretty",
@@ -278,62 +243,13 @@ export function DocsLayoutClient({
                   {item.name}
                 </span>
 
-                {/* Badge */}
-                {badgeContent && (
+                {badge && (
                   <Badge
-                    variant={
-                      isNew
-                        ? "new"
-                        : isComingSoon || badgeContent === "Soon"
-                          ? "soon"
-                          : isUpdated
-                            ? "updated"
-                            : isLab
-                              ? "lab"
-                              : isFeatured
-                                ? "featured"
-                                : isRequest
-                                  ? "request"
-                                  : isWIP
-                                    ? "wip"
-                                    : isStable
-                                      ? "stable"
-                                      : isLegacy
-                                        ? "legacy"
-                                        : isHeadless
-                                          ? "headless"
-                                          : isAlpha
-                                            ? "alpha"
-                                            : isDeprecated
-                                              ? "deprecated"
-                                              : isVersion
-                                                ? "version"
-                                                : isBeta
-                                                  ? "beta"
-                                                  : isExperimental
-                                                    ? "experimental"
-                                                    : isPreview
-                                                      ? "preview"
-                                                      : isVerified
-                                                        ? "verified"
-                                                        : isPro
-                                                          ? "pro"
-                                                          : isBreaking
-                                                            ? "breaking"
-                                                            : isFix
-                                                              ? "fix"
-                                                              : isDocs
-                                                                ? "docs"
-                                                                : isPerf
-                                                                  ? "perf"
-                                                                  : isRefactor
-                                                                    ? "refactor"
-                                                                    : "secondary"
-                    }
+                    variant={badge.variant}
                     appearance="outline"
                     size="sm"
                   >
-                    {badgeContent}
+                    {badge.content}
                   </Badge>
                 )}
               </Link>
