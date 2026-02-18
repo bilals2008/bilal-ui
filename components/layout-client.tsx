@@ -159,6 +159,16 @@ export function DocsLayoutClient({
             const isAlpha = configItem?.isAlpha;
             const isDeprecated = configItem?.isDeprecated;
             const isVersion = configItem?.isVersion;
+            const isBeta = configItem?.isBeta;
+            const isExperimental = configItem?.isExperimental;
+            const isPreview = configItem?.isPreview;
+            const isVerified = configItem?.isVerified;
+            const isPro = configItem?.isPro;
+            const isBreaking = configItem?.isBreaking;
+            const isFix = configItem?.isFix;
+            const isDocs = configItem?.isDocs;
+            const isPerf = configItem?.isPerf;
+            const isRefactor = configItem?.isRefactor;
 
             const badgeContent = isNew ? (
               "New"
@@ -184,6 +194,26 @@ export function DocsLayoutClient({
               "Deprecated"
             ) : isVersion ? (
               `v${pkg.version}`
+            ) : isBeta ? (
+              "Beta"
+            ) : isExperimental ? (
+              "Experimental"
+            ) : isPreview ? (
+              "Preview"
+            ) : isVerified ? (
+              "Verified"
+            ) : isPro ? (
+              "Pro"
+            ) : isBreaking ? (
+              "Breaking"
+            ) : isFix ? (
+              "Fix"
+            ) : isDocs ? (
+              "Docs"
+            ) : isPerf ? (
+              "Perf"
+            ) : isRefactor ? (
+              "Refactor"
             ) : (
               configItem?.badge || node.badge || (isComingSoon ? "Soon" : null)
             );
@@ -286,7 +316,27 @@ export function DocsLayoutClient({
                                               ? "deprecated"
                                               : isVersion
                                                 ? "version"
-                                                : "secondary"
+                                                : isBeta
+                                                  ? "beta"
+                                                  : isExperimental
+                                                    ? "experimental"
+                                                    : isPreview
+                                                      ? "preview"
+                                                      : isVerified
+                                                        ? "verified"
+                                                        : isPro
+                                                          ? "pro"
+                                                          : isBreaking
+                                                            ? "breaking"
+                                                            : isFix
+                                                              ? "fix"
+                                                              : isDocs
+                                                                ? "docs"
+                                                                : isPerf
+                                                                  ? "perf"
+                                                                  : isRefactor
+                                                                    ? "refactor"
+                                                                    : "secondary"
                     }
                     appearance="outline"
                     size="sm"

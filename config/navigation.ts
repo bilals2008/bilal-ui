@@ -20,6 +20,16 @@ export interface NavItem {
   isAlpha?: boolean;
   isDeprecated?: boolean;
   isVersion?: boolean;
+  isBeta?: boolean;
+  isExperimental?: boolean;
+  isPreview?: boolean;
+  isVerified?: boolean;
+  isPro?: boolean;
+  isBreaking?: boolean;
+  isFix?: boolean;
+  isDocs?: boolean;
+  isPerf?: boolean;
+  isRefactor?: boolean;
 }
 
 export interface NavSection {
@@ -112,7 +122,7 @@ export const navigationSections: NavSection[] = [
         title: "Badge",
         href: "/docs/components/badge",
         description: "Badge components and variants",
-        isNew: true,
+        isPerf: true,
         icon: "BadgeCheck",
       },
       {
