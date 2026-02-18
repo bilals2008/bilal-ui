@@ -232,7 +232,7 @@ export function DocsLayoutClient({
                 }}
                 className={cn(
                   // bg-linear-to-r
-                  "flex items-center gap-3 w-full py-2 px-3 rounded-lg text-[13px] no-underline group relative",
+                  "flex items-center gap-3 w-full py-2 rounded-lg text-[13px] group relative",
                   // Transition & animation
                   "transition-all duration-200 ease-out",
                   // Active state - subtle and readable
@@ -251,21 +251,11 @@ export function DocsLayoutClient({
                   ],
                 )}
               >
-                {/* Active Indicator - Left accent bar */}
-                <div
-                  className={cn(
-                    "absolute left-0 top-1/2 -translate-y-1/2 w-1 rounded-r-full transition-all duration-300",
-                    isActive
-                      ? "h-6 bg-linear-to-b from-rose-500/50 via-fuchsia-500/50 to-purple-500/50 opacity-100 shadow-[0_0_12px_rgba(244,63,94,0.4)] "
-                      : "h-0 opacity-0",
-                  )}
-                />
-
                 {/* Icon */}
                 {Icon && (
                   <div
                     className={cn(
-                      "flex items-center justify-center w-5 h-5 rounded-md transition-all duration-300",
+                      "flex items-center justify-center w-5 h-5 rounded-md transition-all duration-300 ml-1",
                       isActive
                         ? "text-rose-500 drop-shadow-[0_0_3px_rgba(244,63,94,0.3)]"
                         : "text-muted-foreground/50 group-hover:text-fuchsia-500",
