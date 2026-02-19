@@ -149,6 +149,14 @@ export const navigationSections: NavSection[] = [
         isAlpha: true,
         icon: "IdCard",
       },
+      {
+        id: "checkbox",
+        title: "Checkbox",
+        href: "/docs/components/checkbox",
+        description: "A control for toggling between checked and unchecked",
+        isNew: true,
+        icon: "SquareCheck",
+      },
     ],
   },
 ];
