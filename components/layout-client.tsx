@@ -25,6 +25,7 @@ import {
   BadgeCheck,
   User,
   SquareCheck,
+  TextCursorInput,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import React, { useMemo, useState, useEffect } from "react";
@@ -59,6 +60,7 @@ const IconMap: Record<
   ChevronDown,
   User,
   SquareCheck,
+  TextCursorInput,
 };
 
 interface NavigationNode {

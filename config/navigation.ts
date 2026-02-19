@@ -157,6 +157,14 @@ export const navigationSections: NavSection[] = [
         isNew: true,
         icon: "SquareCheck",
       },
+      {
+        id: "input",
+        title: "Input",
+        href: "/docs/components/input",
+        description: "Displays a form input field or a component that looks like an input field",
+        isNew: true,
+        icon: "TextCursorInput",
+      },
     ],
   },
 ];
