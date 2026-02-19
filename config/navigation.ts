@@ -181,6 +181,14 @@ export const navigationSections: NavSection[] = [
         isNew: true,
         icon: "ListFilter",
       },
+      {
+        id: "switch",
+        title: "Switch",
+        href: "/docs/components/switch",
+        description: "A control that allows the user to toggle between checked and unchecked",
+        isNew: true,
+        icon: "ToggleRight",
+      },
     ],
   },
 ];

@@ -28,6 +28,7 @@ import {
   TextCursorInput,
   AlignLeft,
   ListFilter,
+  ToggleRight,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import React, { useMemo, useState, useEffect } from "react";
@@ -65,6 +66,7 @@ const IconMap: Record<
   TextCursorInput,
   AlignLeft,
   ListFilter,
+  ToggleRight,
 };
 
 interface NavigationNode {
