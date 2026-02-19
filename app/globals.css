@@ -129,6 +129,24 @@
   --callout-note-border: oklch(0.88 0.005 286);
   --callout-note-text: oklch(0.35 0.01 286);
   --callout-note-icon: oklch(0.55 0.015 286);
+
+  /* Callout - Caution (Orange) */
+  --callout-caution-bg: oklch(0.97 0.025 55);
+  --callout-caution-border: oklch(0.85 0.1 55);
+  --callout-caution-text: oklch(0.4 0.14 45);
+  --callout-caution-icon: oklch(0.65 0.2 50);
+
+  /* Callout - Important (Magenta) */
+  --callout-important-bg: oklch(0.97 0.018 330);
+  --callout-important-border: oklch(0.85 0.09 330);
+  --callout-important-text: oklch(0.4 0.15 330);
+  --callout-important-icon: oklch(0.6 0.22 330);
+
+  /* Callout - Bug (Red-Orange) */
+  --callout-bug-bg: oklch(0.97 0.02 40);
+  --callout-bug-border: oklch(0.85 0.1 40);
+  --callout-bug-text: oklch(0.42 0.15 35);
+  --callout-bug-icon: oklch(0.62 0.2 35);
 }
 
 .dark {
@@ -199,6 +217,24 @@
   --callout-note-border: oklch(0.35 0.01 286);
   --callout-note-text: oklch(0.85 0.01 286);
   --callout-note-icon: oklch(0.7 0.015 286);
+
+  /* Callout - Caution (Orange) */
+  --callout-caution-bg: oklch(0.22 0.05 55);
+  --callout-caution-border: oklch(0.4 0.12 55);
+  --callout-caution-text: oklch(0.85 0.1 55);
+  --callout-caution-icon: oklch(0.75 0.16 50);
+
+  /* Callout - Important (Magenta) */
+  --callout-important-bg: oklch(0.2 0.045 330);
+  --callout-important-border: oklch(0.4 0.12 330);
+  --callout-important-text: oklch(0.85 0.09 330);
+  --callout-important-icon: oklch(0.72 0.18 330);
+
+  /* Callout - Bug (Red-Orange) */
+  --callout-bug-bg: oklch(0.2 0.04 40);
+  --callout-bug-border: oklch(0.4 0.12 40);
+  --callout-bug-text: oklch(0.85 0.1 40);
+  --callout-bug-icon: oklch(0.72 0.17 35);
 }
 @theme {
   --color-fd-background: hsl(0, 0%, 96%);

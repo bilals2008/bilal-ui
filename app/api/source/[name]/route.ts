@@ -3,6 +3,21 @@ import { NextResponse } from "next/server"
 import fs from "fs/promises"
 import path from "path"
 
+async function findFileRecursively(dir: string, filename: string): Promise<string | null> {
+  const entries = await fs.readdir(dir, { withFileTypes: true });
+
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      const found = await findFileRecursively(fullPath, filename);
+      if (found) return found;
+    } else if (entry.isFile() && entry.name === filename) {
+      return fullPath;
+    }
+  }
+  return null;
+}
+
 export async function GET(
   request: Request,
   { params }: { params: Promise<{ name: string }> }
@@ -27,23 +42,14 @@ export async function GET(
        return new NextResponse("Invalid component name", { status: 400 })
   }
 
-  const filePath = path.join(
-    process.cwd(),
-    "components",
-    "bilalUi",
-    `${componentName}.tsx`
-  )
+  const baseDir = path.join(process.cwd(), "components", "bilalUi");
+  const targetFilename = `${componentName}.tsx`;
 
   try {
-    // Verify file exists and is within the expected directory
-    await fs.access(filePath)
-    
-    // Double check that the resolved path is still within the intended directory
-    const resolvedPath = await fs.realpath(filePath)
-    const intendedDir = path.join(process.cwd(), "components", "bilalUi")
-    
-    if (!resolvedPath.startsWith(intendedDir)) {
-        return new NextResponse("Access denied", { status: 403 })
+    const filePath = await findFileRecursively(baseDir, targetFilename);
+
+    if (!filePath) {
+       return new NextResponse("Component not found", { status: 404 })
     }
 
     const fileContent = await fs.readFile(filePath, "utf-8")
@@ -51,7 +57,7 @@ export async function GET(
       headers: { "Content-Type": "text/plain" },
     })
   } catch (error) {
-    console.error(`Error reading file ${filePath}:`, error)
+    console.error(`Error reading file for ${componentName}:`, error)
     return new NextResponse("Component not found", { status: 404 })
   }
 }
