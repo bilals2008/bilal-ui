@@ -126,6 +126,14 @@ export const navigationSections: NavSection[] = [
         icon: "AlertCircle",
       },
       {
+        id: "alert-dialog",
+        title: "Alert Dialog",
+        href: "/docs/components/alert-dialog",
+        description: "A modal dialog that interrupts the user with important content",
+        isNew: true,
+        icon: "MessageSquareWarning",
+      },
+      {
         id: "badge",
         title: "Badge",
         href: "/docs/components/badge",
