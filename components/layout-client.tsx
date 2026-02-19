@@ -20,9 +20,11 @@ import {
   ListCollapse,
   MousePointerClick,
   AlertCircle,
+  MessageSquareWarning,
   IdCard,
   BadgeCheck,
   User,
+  SquareCheck,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import React, { useMemo, useState, useEffect } from "react";
@@ -48,6 +50,7 @@ const IconMap: Record<
   ListCollapse,
   MousePointerClick,
   AlertCircle,
+  MessageSquareWarning,
   IdCard,
   BadgeCheck,
   FlaskConical,
@@ -55,6 +58,7 @@ const IconMap: Record<
   Twitter,
   ChevronDown,
   User,
+  SquareCheck,
 };
 
 interface NavigationNode {
@@ -244,11 +248,7 @@ export function DocsLayoutClient({
                 </span>
 
                 {badge && (
-                  <Badge
-                    variant={badge.variant}
-                    appearance="outline"
-                    size="sm"
-                  >
+                  <Badge variant={badge.variant} appearance="outline" size="sm">
                     {badge.content}
                   </Badge>
                 )}
