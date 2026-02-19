@@ -189,6 +189,14 @@ export const navigationSections: NavSection[] = [
         isNew: true,
         icon: "ToggleRight",
       },
+      {
+        id: "tabs",
+        title: "Tabs",
+        href: "/docs/components/tabs",
+        description: "A set of layered sections displayed one at a time",
+        isNew: true,
+        icon: "PanelTop",
+      },
     ],
   },
 ];
