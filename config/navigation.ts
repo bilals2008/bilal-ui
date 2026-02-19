@@ -173,6 +173,14 @@ export const navigationSections: NavSection[] = [
         isNew: true,
         icon: "AlignLeft",
       },
+      {
+        id: "select",
+        title: "Select",
+        href: "/docs/components/select",
+        description: "Displays a list of options for the user to pick from",
+        isNew: true,
+        icon: "ListFilter",
+      },
     ],
   },
 ];

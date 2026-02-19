@@ -1,0 +1,35 @@
+---
+title: Select
+description: Displays a list of options for the user to pick from—triggered by a button.
+---
+
+import { BasicSelect } from "@/components/bilalUi/select/basic-select";
+import { WithLabelSelect } from "@/components/bilalUi/select/with-label-select";
+import { WithGroupsSelect } from "@/components/bilalUi/select/with-groups-select";
+import { Callout } from "@/components/ui/callout";
+import { ComponentPreview } from "@/components/bilalUi/component-preview";
+
+### Basic Select
+A simple dropdown to pick one option from a list.
+
+<ComponentPreview name="basic-select" registry="basic-select">
+  <BasicSelect />
+</ComponentPreview>
+
+### With Label
+A select field paired with a label.
+
+<ComponentPreview name="with-label-select" registry="with-label-select">
+  <WithLabelSelect />
+</ComponentPreview>
+
+### With Groups
+Options organized into labeled groups — great for long lists like timezones or currencies.
+
+<ComponentPreview name="with-groups-select" registry="with-groups-select">
+  <WithGroupsSelect />
+</ComponentPreview>
+
+<Callout title="More Variants Coming Soon" type="info">
+  More select styles and combinations will be added in upcoming updates.
+</Callout>
