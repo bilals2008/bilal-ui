@@ -165,6 +165,14 @@ export const navigationSections: NavSection[] = [
         isNew: true,
         icon: "TextCursorInput",
       },
+      {
+        id: "textarea",
+        title: "Textarea",
+        href: "/docs/components/textarea",
+        description: "Displays a form textarea or a component that looks like a textarea",
+        isNew: true,
+        icon: "AlignLeft",
+      },
     ],
   },
 ];

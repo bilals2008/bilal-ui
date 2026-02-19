@@ -1,0 +1,43 @@
+---
+title: Textarea
+description: Displays a form textarea or a component that looks like a textarea.
+---
+
+import { BasicTextarea } from "@/components/bilalUi/textarea/basic-textarea";
+import { WithLabelTextarea } from "@/components/bilalUi/textarea/with-label-textarea";
+import { WithDescriptionTextarea } from "@/components/bilalUi/textarea/with-description-textarea";
+import { WithCounterTextarea } from "@/components/bilalUi/textarea/with-counter-textarea";
+import { Callout } from "@/components/ui/callout";
+import { ComponentPreview } from "@/components/bilalUi/component-preview";
+
+### Basic Textarea
+Default and disabled textarea states.
+
+<ComponentPreview name="basic-textarea" registry="basic-textarea">
+  <BasicTextarea />
+</ComponentPreview>
+
+### With Label
+A textarea paired with a label.
+
+<ComponentPreview name="with-label-textarea" registry="with-label-textarea">
+  <WithLabelTextarea />
+</ComponentPreview>
+
+### With Description
+A textarea with a label and a supporting helper text below.
+
+<ComponentPreview name="with-description-textarea" registry="with-description-textarea">
+  <WithDescriptionTextarea />
+</ComponentPreview>
+
+### With Character Counter
+A textarea with a live character counter that turns red when near the limit.
+
+<ComponentPreview name="with-counter-textarea" registry="with-counter-textarea">
+  <WithCounterTextarea />
+</ComponentPreview>
+
+<Callout title="More Variants Coming Soon" type="info">
+  More textarea styles and combinations will be added in upcoming updates.
+</Callout>
