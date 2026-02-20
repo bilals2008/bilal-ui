@@ -1,0 +1,27 @@
+---
+title: Dialog
+description: A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
+---
+
+import BasicDialogDemo from "@/components/bilalUi/demo/dialog/basic-dialog-demo";
+import EditProfileDialogDemo from "@/components/bilalUi/demo/dialog/edit-profile-dialog-demo";
+import ShareDialogDemo from "@/components/bilalUi/demo/dialog/share-dialog-demo";
+import { ComponentPreview } from "@/components/bilalUi/component-preview";
+
+### Basic
+A simple dialog with a title, description and a confirm button.
+<ComponentPreview name="basic-dialog-demo">
+  <BasicDialogDemo />
+</ComponentPreview>
+
+### Edit Profile
+A form dialog for editing user profile details — the most common real-world use case.
+<ComponentPreview name="edit-profile-dialog-demo">
+  <EditProfileDialogDemo />
+</ComponentPreview>
+
+### Share Link
+A dialog with a copy-to-clipboard link input — great for sharing resources.
+<ComponentPreview name="share-dialog-demo">
+  <ShareDialogDemo />
+</ComponentPreview>
