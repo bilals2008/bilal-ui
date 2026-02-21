@@ -158,6 +158,22 @@ export const navigationSections: NavSection[] = [
         icon: "SquareCheck",
       },
       {
+        id: "dialog",
+        title: "Dialog",
+        href: "/docs/components/dialog",
+        description: "A window overlaid on the primary window, rendering content underneath inert",
+        isNew: true,
+        icon: "RectangleEllipsis",
+      },
+      {
+        id: "dropdown-menu",
+        title: "Dropdown Menu",
+        href: "/docs/components/dropdown-menu",
+        description: "Displays a menu to the user when triggered by a button",
+        isNew: true,
+        icon: "Menu",
+      },
+      {
         id: "input",
         title: "Input",
         href: "/docs/components/input",

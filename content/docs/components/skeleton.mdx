@@ -1,0 +1,38 @@
+---
+title: Skeleton
+description: Use placeholders to indicate that content is loading.
+---
+
+import { ComponentPreview } from "@/components/bilalUi/component-preview";
+import { BasicSkeleton } from "@/components/bilalUi/skeleton/basic-skeleton";
+import { CardSkeleton } from "@/components/bilalUi/skeleton/card-skeleton";
+import BasicSkeletonDemo from "@/components/bilalUi/demo/skeleton/basic-skeleton-demo";
+import CardSkeletonDemo from "@/components/bilalUi/demo/skeleton/card-skeleton-demo";
+import { Callout } from "@/components/ui/callout";
+
+<Callout title="Under Development" type="warn">
+  This component is currently being updated with more premium variants. Coming soon!
+</Callout>
+
+## Usage
+
+The Skeleton component is used to provide a visual cue that content is being loaded. This improves the perceived performance of your application.
+
+### Basic Skeleton
+A simple text-based loading placeholder.
+
+<ComponentPreview name="basic-skeleton-demo" registry="skeleton/basic-skeleton-demo">
+  <BasicSkeletonDemo />
+</ComponentPreview>
+
+### Card Skeleton
+A more complex placeholder representing a card with an image and content.
+
+<ComponentPreview name="card-skeleton-demo" registry="skeleton/card-skeleton-demo">
+  <CardSkeletonDemo />
+</ComponentPreview>
+
+<Callout title="API Reference Coming Soon" type="info">
+  Detailed API references and prop definitions will be added here once the component is finalized. 
+  Check back later for full documentation!
+</Callout>
