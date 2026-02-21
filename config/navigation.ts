@@ -166,6 +166,14 @@ export const navigationSections: NavSection[] = [
         icon: "RectangleEllipsis",
       },
       {
+        id: "dropdown-menu",
+        title: "Dropdown Menu",
+        href: "/docs/components/dropdown-menu",
+        description: "Displays a menu to the user when triggered by a button",
+        isNew: true,
+        icon: "Menu",
+      },
+      {
         id: "input",
         title: "Input",
         href: "/docs/components/input",

@@ -28,6 +28,7 @@ import {
   TextCursorInput,
   AlignLeft,
   ListFilter,
+  Menu,
   ToggleRight,
   PanelTop,
 } from "lucide-react";
@@ -67,6 +68,7 @@ const IconMap: Record<
   TextCursorInput,
   AlignLeft,
   ListFilter,
+  Menu,
   ToggleRight,
   PanelTop,
 };
