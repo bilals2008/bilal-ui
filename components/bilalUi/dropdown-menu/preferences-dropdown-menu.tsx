@@ -13,37 +13,28 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { SlidersHorizontal } from "lucide-react";
+import { SlidersHorizontal, ChevronDown } from "lucide-react";
 
 export function PreferencesDropdownMenu() {
-  const [showStatusBar, setShowStatusBar] = useState(true);
-  const [showActivity, setShowActivity] = useState(false);
+  const [showNotifications, setShowNotifications] = useState(true);
   const [theme, setTheme] = useState("system");
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button
-          variant="outline"
-          className="gap-2 border-violet-500/40 text-violet-600 dark:text-violet-300"
-        >
-          <SlidersHorizontal className="size-4" />
+        <Button variant="outline" className="gap-2">
+          <SlidersHorizontal className="size-4 text-violet-500 dark:text-violet-300" />
           Preferences
+          <ChevronDown className="size-4 text-muted-foreground" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
-        <DropdownMenuLabel>View</DropdownMenuLabel>
+        <DropdownMenuLabel>Preferences</DropdownMenuLabel>
         <DropdownMenuCheckboxItem
-          checked={showStatusBar}
-          onCheckedChange={(checked) => setShowStatusBar(checked === true)}
+          checked={showNotifications}
+          onCheckedChange={(checked) => setShowNotifications(checked === true)}
         >
-          Show Status Bar
-        </DropdownMenuCheckboxItem>
-        <DropdownMenuCheckboxItem
-          checked={showActivity}
-          onCheckedChange={(checked) => setShowActivity(checked === true)}
-        >
-          Show Activity
+          Email Notifications
         </DropdownMenuCheckboxItem>
         <DropdownMenuSeparator />
         <DropdownMenuLabel>Theme</DropdownMenuLabel>
