@@ -4,6 +4,13 @@ import fs from "fs/promises"
 import path from "path"
 
 const COMPONENTS_DIR_NAME = "bilalUi"
+const EXCLUDED_FROM_INDEX = new Set([
+  "component-preview.tsx",
+  "open-in-v0-button.tsx",
+  "mdx-action-bar.tsx",
+  "toc-poster.tsx",
+  "TestDemo.tsx",
+])
 
 // Helper to extract component data from a file
 async function getComponentData(filePath: string, componentsDir: string) {
@@ -54,13 +61,12 @@ async function getAllComponentFiles(dir: string, fileList: string[] = []) {
       for (const entry of entries) {
         const fullPath = path.join(dir, entry.name)
         if (entry.isDirectory()) {
+          if (entry.name === "demo") continue
           await getAllComponentFiles(fullPath, fileList)
         } else if (entry.isFile() && entry.name.endsWith(".tsx")) {
-          // Filter out likely helper files (start with lowercase or special names)
-          // We assume installable components are PascalCase
-          if (/^[A-Z]/.test(entry.name)) {
-             fileList.push(fullPath)
-          }
+          if (entry.name.endsWith("-demo.tsx")) continue
+          if (EXCLUDED_FROM_INDEX.has(entry.name)) continue
+          fileList.push(fullPath)
         }
       }
   } catch (err) {
@@ -69,23 +75,39 @@ async function getAllComponentFiles(dir: string, fileList: string[] = []) {
   return fileList
 }
 
-// Recursive function to find a specific file by name
-async function findComponentFile(dir: string, filename: string): Promise<string | null> {
+async function findComponentFiles(
+  dir: string,
+  filename: string,
+  matches: string[] = [],
+): Promise<string[]> {
   try {
       const entries = await fs.readdir(dir, { withFileTypes: true })
       
       for (const entry of entries) {
         if (entry.isDirectory()) {
-          const found = await findComponentFile(path.join(dir, entry.name), filename)
-          if (found) return found
+          await findComponentFiles(path.join(dir, entry.name), filename, matches)
         } else if (entry.isFile() && entry.name === filename) {
-          return path.join(dir, entry.name)
+          matches.push(path.join(dir, entry.name))
         }
       }
   } catch (err) {
       console.error("Error finding component file:", err)
   }
-  return null
+  return matches
+}
+
+function selectBestMatch(matches: string[], preferDemo: boolean): string | null {
+  if (!matches.length) return null
+
+  const sorted = [...matches].sort((a, b) =>
+    a.length === b.length ? a.localeCompare(b) : a.length - b.length,
+  )
+  const demoSegment = `${path.sep}demo${path.sep}`
+  const demoMatches = sorted.filter((filePath) => filePath.includes(demoSegment))
+  const nonDemoMatches = sorted.filter((filePath) => !filePath.includes(demoSegment))
+
+  if (preferDemo) return demoMatches[0] || nonDemoMatches[0] || sorted[0]
+  return nonDemoMatches[0] || demoMatches[0] || sorted[0]
 }
 
 export async function GET(
@@ -126,7 +148,8 @@ export async function GET(
   }
 
   // Handle Individual Component request
-  const filePath = await findComponentFile(componentsDir, `${componentName}.tsx`)
+  const matches = await findComponentFiles(componentsDir, `${componentName}.tsx`)
+  const filePath = selectBestMatch(matches, componentName.endsWith("-demo"))
 
   if (!filePath) {
     return new NextResponse("Component not found", { status: 404 })
