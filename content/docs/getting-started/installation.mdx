@@ -38,7 +38,7 @@ All components use [Tailwind CSS v4](https://tailwindcss.com), so ensure it's in
 
 We use [lucide-icons](https://lucide.dev) for most components that include icons, along with some [shadcn/ui](https://ui.shadcn.com) components. These dependencies will be automatically installed when using the CLI.
 
-For example to add `button01` to your project, it will be easy as:
+For example to add `glowing-button` to your project, it will be easy as:
 
 <Snippet defaultValue="bun">
   <SnippetHeader>
@@ -47,16 +47,16 @@ For example to add `button01` to your project, it will be easy as:
        <SnippetTabsTrigger value="npx">npx</SnippetTabsTrigger>
        <SnippetTabsTrigger value="pnpm">pnpm</SnippetTabsTrigger>
     </SnippetTabsList>
-    <SnippetCopyButton value="bunx shadcn@latest add https://bilal-ui.vercel.app/api/source/button01.json" />
+    <SnippetCopyButton value="bunx shadcn@latest add https://bilal-ui.vercel.app/registry/glowing-button.json" />
   </SnippetHeader>
   <SnippetTabsContent value="bun">
-  <span className="text-pink-500">bunx </span>shadcn@latest add https://bilal-ui.vercel.app/api/source/button01.json
+  <span className="text-pink-500">bunx </span>shadcn@latest add https://bilal-ui.vercel.app/registry/glowing-button.json
   </SnippetTabsContent>
   <SnippetTabsContent value="npx">
-  <span className="text-pink-500">npx </span>shadcn@latest add https://bilal-ui.vercel.app/api/source/button01.json
+  <span className="text-pink-500">npx </span>shadcn@latest add https://bilal-ui.vercel.app/registry/glowing-button.json
   </SnippetTabsContent>
   <SnippetTabsContent value="pnpm">
-  <span className="text-pink-500">pnpm dlx </span>shadcn@latest add https://bilal-ui.vercel.app/api/source/button01.json
+  <span className="text-pink-500">pnpm dlx </span>shadcn@latest add https://bilal-ui.vercel.app/registry/glowing-button.json
   </SnippetTabsContent>
 </Snippet>
 <br />
@@ -67,10 +67,10 @@ For example to add `button01` to your project, it will be easy as:
 Add to your page and it works!
 
 ```tsx
-import { MagneticButton } from "@/components/bilalUi/button/Button01";
+import { GlowingButton } from "@/components/bilalUi/button/glowing-button";
 
 export default function Page() {
-  return <MagneticButton />;
+  return <GlowingButton>Hover Me</GlowingButton>;
 }
 ```
 
@@ -83,4 +83,3 @@ export default function Page() {
 ## 4. Optional dependencies
 
 Some components require additional libraries, listed at the bottom of each component. Make sure to install them to ensure the component works properly.
-
