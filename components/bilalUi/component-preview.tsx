@@ -80,6 +80,11 @@ interface ComponentPreviewProps {
   name?: string;
   className?: string;
   /**
+   * Optional source file name (without extension) for the code tab.
+   * Falls back to registry, then derived from name.
+   */
+  sourceName?: string;
+  /**
    * If provided, overrides the fully constructed install command.
    */
   installCommand?: string;
@@ -95,6 +100,7 @@ export function ComponentPreview({
   code,
   name = "component",
   className,
+  sourceName,
   installCommand,
   registry,
 }: ComponentPreviewProps) {
@@ -108,29 +114,61 @@ export function ComponentPreview({
   const copyButtonRef = React.useRef<HTMLButtonElement>(null);
   const installButtonRef = React.useRef<HTMLButtonElement>(null);
 
+  const baseName = React.useMemo(() => {
+    return name.endsWith("-demo") ? name.replace(/-demo$/, "") : name;
+  }, [name]);
+
+  const resolvedSourceName = React.useMemo(
+    () => sourceName || registry || baseName || name,
+    [sourceName, registry, baseName, name],
+  );
+
   React.useEffect(() => {
     if (code) {
       setSourceCode(code);
-    } else if (name) {
-      // Fetch source code if not provided directly
-      fetch(`/api/source/${name}`)
-        .then((res) => {
-          if (res.ok) return res.text();
-          return "// Source code not found";
-        })
-        .then((text) => setSourceCode(text))
-        .catch(() => setSourceCode("// Error loading source code"));
+      return;
     }
-  }, [code, name]);
+
+    if (!name) return;
+
+    const candidates = Array.from(
+      new Set(
+        [resolvedSourceName, name].filter(
+          (candidate): candidate is string => Boolean(candidate),
+        ),
+      ),
+    );
+
+    const loadSourceCode = async () => {
+      for (const candidate of candidates) {
+        try {
+          const res = await fetch(`/api/source/${candidate}`);
+          if (res.ok) {
+            setSourceCode(await res.text());
+            return;
+          }
+        } catch {
+          // Try next candidate
+        }
+      }
+      setSourceCode("// Source code not found");
+    };
+
+    loadSourceCode().catch(() => setSourceCode("// Error loading source code"));
+  }, [code, name, resolvedSourceName]);
 
   // Construct the command dynamically
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+  const canInstallFromRegistry = React.useMemo(
+    () => Boolean(registry || (!name.endsWith("-demo") && name)),
+    [registry, name],
+  );
+  const installRegistryName = registry || name;
   const finalInstallCommand = React.useMemo(() => {
     if (installCommand) return installCommand;
-    if (registry)
-      return `npx shadcn@latest add ${appUrl}/api/source/${registry}.json`;
-    return `npx shadcn@latest add ${appUrl}/api/source/${name}.json`;
-  }, [installCommand, registry, appUrl, name]);
+    if (!canInstallFromRegistry || !installRegistryName) return undefined;
+    return `npx shadcn@latest add ${appUrl}/registry/${installRegistryName}.json`;
+  }, [installCommand, canInstallFromRegistry, installRegistryName, appUrl]);
 
   const handleTabChange = (value: string) => {
     if (value !== activeTab) {
