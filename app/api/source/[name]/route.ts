@@ -3,19 +3,37 @@ import { NextResponse } from "next/server"
 import fs from "fs/promises"
 import path from "path"
 
-async function findFileRecursively(dir: string, filename: string): Promise<string | null> {
+async function findFilesRecursively(
+  dir: string,
+  filename: string,
+  matches: string[] = [],
+): Promise<string[]> {
   const entries = await fs.readdir(dir, { withFileTypes: true });
 
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name);
     if (entry.isDirectory()) {
-      const found = await findFileRecursively(fullPath, filename);
-      if (found) return found;
+      await findFilesRecursively(fullPath, filename, matches);
     } else if (entry.isFile() && entry.name === filename) {
-      return fullPath;
+      matches.push(fullPath);
     }
   }
-  return null;
+  return matches;
+}
+
+function selectBestMatch(matches: string[], preferDemo: boolean): string | null {
+  if (!matches.length) return null;
+
+  const sorted = [...matches].sort((a, b) =>
+    a.length === b.length ? a.localeCompare(b) : a.length - b.length,
+  );
+
+  const demoSegment = `${path.sep}demo${path.sep}`;
+  const demoMatches = sorted.filter((filePath) => filePath.includes(demoSegment));
+  const nonDemoMatches = sorted.filter((filePath) => !filePath.includes(demoSegment));
+
+  if (preferDemo) return demoMatches[0] || nonDemoMatches[0] || sorted[0];
+  return nonDemoMatches[0] || demoMatches[0] || sorted[0];
 }
 
 export async function GET(
@@ -44,9 +62,11 @@ export async function GET(
 
   const baseDir = path.join(process.cwd(), "components", "bilalUi");
   const targetFilename = `${componentName}.tsx`;
+  const preferDemo = componentName.endsWith("-demo");
 
   try {
-    const filePath = await findFileRecursively(baseDir, targetFilename);
+    const matches = await findFilesRecursively(baseDir, targetFilename);
+    const filePath = selectBestMatch(matches, preferDemo);
 
     if (!filePath) {
        return new NextResponse("Component not found", { status: 404 })
