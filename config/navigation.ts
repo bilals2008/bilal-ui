@@ -198,6 +198,14 @@ export const navigationSections: NavSection[] = [
         icon: "ListFilter",
       },
       {
+        id: "combobox",
+        title: "Combobox",
+        href: "/docs/components/combobox",
+        description: "Searchable select input for quick option discovery",
+        isNew: true,
+        icon: "ChevronsUpDown",
+      },
+      {
         id: "switch",
         title: "Switch",
         href: "/docs/components/switch",
