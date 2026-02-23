@@ -1,0 +1,35 @@
+---
+title: Combobox
+description: Searchable select input that supports single and multiple selections.
+---
+
+import { BasicCombobox } from "@/components/bilalUi/combobox/basic-combobox";
+import { WithLabelCombobox } from "@/components/bilalUi/combobox/with-label-combobox";
+import { MultiSelectCombobox } from "@/components/bilalUi/combobox/multi-select-combobox";
+import { Callout } from "@/components/ui/callout";
+import { ComponentPreview } from "@/components/bilalUi/component-preview";
+
+### Basic Combobox
+A simple searchable dropdown to pick one option.
+
+<ComponentPreview name="basic-combobox" registry="basic-combobox">
+  <BasicCombobox />
+</ComponentPreview>
+
+### With Label
+Combobox paired with a label and helper text for forms.
+
+<ComponentPreview name="with-label-combobox" registry="with-label-combobox">
+  <WithLabelCombobox />
+</ComponentPreview>
+
+### Multi Select
+Choose multiple values with a searchable command-style list.
+
+<ComponentPreview name="multi-select-combobox" registry="multi-select-combobox">
+  <MultiSelectCombobox />
+</ComponentPreview>
+
+<Callout title="Tip" type="info">
+  Use a combobox when your option list is long or users need quick type-to-search behavior.
+</Callout>
