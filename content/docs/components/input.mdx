@@ -4,10 +4,6 @@ description: Displays a form input field or a component that looks like an input
 ---
 
 import { BasicInput } from "@/components/bilalUi/input/basic-input";
-import { WithLabelInput } from "@/components/bilalUi/input/with-label-input";
-import { WithIconInput } from "@/components/bilalUi/input/with-icon-input";
-import { PasswordInput } from "@/components/bilalUi/input/password-input";
-import { Callout } from "@/components/ui/callout";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 
 ### Basic Input
@@ -16,28 +12,3 @@ Default and disabled input states.
 <ComponentPreview name="basic-input" registry="basic-input">
   <BasicInput />
 </ComponentPreview>
-
-### With Label
-An input field with a label.
-
-<ComponentPreview name="with-label-input" registry="with-label-input">
-  <WithLabelInput />
-</ComponentPreview>
-
-### With Icon
-An input field with a leading icon, useful for search bars.
-
-<ComponentPreview name="with-icon-input" registry="with-icon-input">
-  <WithIconInput />
-</ComponentPreview>
-
-### Password Input
-An input field with a show/hide password toggle.
-
-<ComponentPreview name="password-input" registry="password-input">
-  <PasswordInput />
-</ComponentPreview>
-
-<Callout title="More Variants Coming Soon" type="info">
-  More input styles and combinations will be added in upcoming updates.
-</Callout>
