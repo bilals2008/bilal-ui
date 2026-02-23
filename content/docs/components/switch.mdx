@@ -4,9 +4,6 @@ description: A control that allows the user to toggle between checked and unchec
 ---
 
 import { BasicSwitch } from "@/components/bilalUi/switch/basic-switch";
-import { WithLabelSwitch } from "@/components/bilalUi/switch/with-label-switch";
-import { SettingsSwitch } from "@/components/bilalUi/switch/settings-switch";
-import { Callout } from "@/components/ui/callout";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 
 ### Basic Switch
@@ -15,21 +12,3 @@ Default, checked, and disabled states at a glance.
 <ComponentPreview name="basic-switch" registry="basic-switch">
   <BasicSwitch />
 </ComponentPreview>
-
-### With Label
-A switch paired with a clickable label.
-
-<ComponentPreview name="with-label-switch" registry="with-label-switch">
-  <WithLabelSwitch />
-</ComponentPreview>
-
-### Settings Group
-Switches with labels and descriptions — perfect for notification and preference pages.
-
-<ComponentPreview name="settings-switch" registry="settings-switch">
-  <SettingsSwitch />
-</ComponentPreview>
-
-<Callout title="More Variants Coming Soon" type="info">
-  More switch styles and combinations will be added in upcoming updates.
-</Callout>
