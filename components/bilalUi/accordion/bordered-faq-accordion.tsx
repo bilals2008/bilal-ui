@@ -5,56 +5,163 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import { cn } from "@/lib/utils";
+import {
+  ChevronDown,
+  FileText,
+  Folder,
+  Handshake,
+  MinusIcon,
+  PlusIcon,
+  Users,
+} from "lucide-react";
 
-const faqs = [
+const items = [
   {
-    value: "customize",
-    question: "Can I customize the styles?",
-    answer:
-      "Yes. Update Tailwind classes directly in the component and adjust spacing, colors, and typography for your brand.",
+    id: "item-1",
+    title: "Company Overview",
+    icon: FileText,
+    textColor: "text-blue-500",
+    bgColor: "bg-blue-500/10",
+    collapsibles: [
+      {
+        id: "collapsible-1-1",
+        title: "Mission Statement",
+        content:
+          "Our mission is to deliver high-quality products that improve the lives of our customers.",
+      },
+      {
+        id: "collapsible-1-2",
+        title: "Core Values",
+        content:
+          "Integrity, innovation, and customer satisfaction are at the heart of everything we do.",
+      },
+    ],
   },
   {
-    value: "accessibility",
-    question: "Is it accessible out of the box?",
-    answer:
-      "It uses the shared accordion primitives, so keyboard support and ARIA behavior are handled consistently.",
+    id: "item-2",
+    title: "Products & Services",
+    icon: Folder,
+    textColor: "text-orange-400",
+    bgColor: "bg-orange-400/10",
+    collapsibles: [
+      {
+        id: "collapsible-2-1",
+        title: "Software Solutions",
+        content:
+          "We offer a range of software tools designed to enhance business efficiency and productivity.",
+      },
+      {
+        id: "collapsible-2-2",
+        title: "Consulting Services",
+        content:
+          "Our consulting team helps clients identify opportunities, streamline operations, and drive growth.",
+      },
+    ],
   },
   {
-    value: "multiple",
-    question: "Can I keep more than one item open?",
-    answer:
-      "Switch the accordion type to multiple if you want several sections expanded at the same time.",
+    id: "item-3",
+    title: "Team & Culture",
+    icon: Handshake,
+    textColor: "text-teal-400",
+    bgColor: "bg-teal-400/10",
+    collapsibles: [
+      {
+        id: "collapsible-3-1",
+        title: "Leadership Team",
+        content:
+          "Our leadership team is composed of experienced professionals committed to innovation and growth.",
+      },
+      {
+        id: "collapsible-3-2",
+        title: "Work Environment",
+        content:
+          "We foster a collaborative and inclusive culture where everyone can thrive.",
+      },
+    ],
   },
   {
-    value: "production",
-    question: "Is this suitable for production FAQs?",
-    answer:
-      "Yes. This variant is intentionally minimal and works well for docs pages, pricing FAQs, and support sections.",
+    id: "item-4",
+    title: "Contact Information",
+    icon: Users,
+    textColor: "text-red-500",
+    bgColor: "bg-red-500/10",
+    collapsibles: [
+      {
+        id: "collapsible-4-1",
+        title: "Support",
+        content:
+          "Reach out to our support team via email or phone for any inquiries or assistance.",
+      },
+      {
+        id: "collapsible-4-2",
+        title: "Locations",
+        content:
+          "Our offices are located in New York, San Francisco, and London to serve clients globally.",
+      },
+    ],
   },
 ];
 
 export default function BorderedFaqAccordion() {
   return (
-    <Accordion
-      type="single"
-      collapsible
-      defaultValue="customize"
-      className="w-full rounded-xl border border-zinc-200 bg-white p-2 dark:border-zinc-800 dark:bg-zinc-950"
-    >
-      {faqs.map((faq) => (
-        <AccordionItem
-          key={faq.value}
-          value={faq.value}
-          className="rounded-lg px-2 data-[state=open]:bg-zinc-50 dark:data-[state=open]:bg-zinc-900/60"
-        >
-          <AccordionTrigger className="py-3 text-left text-zinc-900 hover:no-underline dark:text-zinc-100">
-            {faq.question}
-          </AccordionTrigger>
-          <AccordionContent className="pb-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-            {faq.answer}
-          </AccordionContent>
-        </AccordionItem>
-      ))}
-    </Accordion>
+    <div className="w-full">
+      <Accordion
+        type="multiple"
+        className="w-full -space-y-1"
+        defaultValue={[items[0].id]}
+      >
+        {items.map((item) => (
+          <AccordionItem
+            className="overflow-hidden border bg-background first:rounded-t-lg last:rounded-b-lg last:border-b"
+            key={item.id}
+            value={item.id}
+          >
+            <AccordionTrigger className="group px-4 py-3 hover:no-underline last:[&>svg]:hidden">
+              <div className="flex w-full items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <div
+                    className={cn("rounded-xl p-2.5", item.bgColor, item.textColor)}
+                  >
+                    <item.icon size={20} className="size-5" />
+                  </div>
+                  <span className="flex-1 text-left">{item.title}</span>
+                </div>
+                <div className="relative size-4 shrink-0">
+                  <PlusIcon className="absolute inset-0 size-4 text-muted-foreground transition-opacity duration-200 group-data-[state=open]:opacity-0" />
+                  <MinusIcon className="absolute inset-0 size-4 text-muted-foreground opacity-0 transition-opacity duration-200 group-data-[state=open]:opacity-100" />
+                </div>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent className="p-0">
+              {item.collapsibles.map((collapsible) => (
+                <Collapsible
+                  className="space-y-1 border-t border-border bg-accent px-4 py-3"
+                  key={collapsible.id}
+                >
+                  <CollapsibleTrigger className="flex items-center gap-2 font-medium [&[data-state=open]>svg]:rotate-180">
+                    <ChevronDown
+                      aria-hidden="true"
+                      className="shrink-0 opacity-60 transition-transform duration-200"
+                      size={16}
+                      strokeWidth={2}
+                    />
+                    {collapsible.title}
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="overflow-hidden ps-6 text-sm text-muted-foreground transition-all data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
+                    {collapsible.content}
+                  </CollapsibleContent>
+                </Collapsible>
+              ))}
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </div>
   );
 }
