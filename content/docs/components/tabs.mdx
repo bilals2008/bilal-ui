@@ -1,12 +1,15 @@
 ---
 title: Tabs
-description: A set of layered sections of content—known as tab panels—that are displayed one at a time.
+description: A set of layered sections of content, known as tab panels, that are displayed one at a time.
 ---
 
 import { BasicTabs } from "@/components/bilalUi/tabs/basic-tabs";
-import { WithCardTabs } from "@/components/bilalUi/tabs/with-card-tabs";
-import { Callout } from "@/components/ui/callout";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
+import { Callout } from "@/components/ui/callout";
+
+<Callout title="Under Development" type="warn">
+  This component is currently being updated with more polished variants.
+</Callout>
 
 ### Basic Tabs
 A minimal two-tab layout with simple content.
@@ -15,13 +18,8 @@ A minimal two-tab layout with simple content.
   <BasicTabs />
 </ComponentPreview>
 
-### With Card
-Tabs with rich Card content — ideal for settings and profile pages.
-
-<ComponentPreview name="with-card-tabs" registry="with-card-tabs">
-  <WithCardTabs />
-</ComponentPreview>
-
 <Callout title="More Variants Coming Soon" type="info">
-  More tab styles such as pill, underline, and vertical will be added in upcoming updates.
+  More variants and refinements will be added in upcoming updates.
 </Callout>
+
+
