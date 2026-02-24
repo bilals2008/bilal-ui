@@ -174,6 +174,14 @@ export const navigationSections: NavSection[] = [
         icon: "Menu",
       },
       {
+        id: "navigation-menu",
+        title: "Navigation Menu",
+        href: "/docs/components/navigation-menu",
+        description: "Displays grouped navigation links with dropdown panels",
+        isNew: true,
+        icon: "Menu",
+      },
+      {
         id: "input",
         title: "Input",
         href: "/docs/components/input",
