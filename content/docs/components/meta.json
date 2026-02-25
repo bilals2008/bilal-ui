@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "accordion",
+    "alert",
+    "alert-dialog",
+    "avatar",
+    "badge",
+    "button",
+    "card",
+    "checkbox",
+    "combobox",
+    "date-picker",
+    "dialog",
+    "dropdown-menu",
+    "input",
+    "input-otp",
+    "navigation-menu",
+    "popover",
+    "progress",
+    "radio-group",
+    "select",
+    "sheet",
+    "skeleton",
+    "slider",
+    "switch",
+    "tabs",
+    "textarea",
+    "tooltip"
+  ]
+}
