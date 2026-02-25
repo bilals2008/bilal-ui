@@ -1,3 +1,4 @@
+// File: components/bilalUi/drawer/basic-drawer.tsx
 "use client";
 
 import { Bell, Filter, ShieldCheck } from "lucide-react";
@@ -18,7 +19,7 @@ import { Switch } from "@/components/ui/switch";
 
 export function BasicDrawer() {
   return (
-    <Drawer>
+    <Drawer direction="right">
       <DrawerTrigger asChild>
         <Button variant="outline" className="gap-2">
           <Filter className="size-4 text-emerald-500" />
