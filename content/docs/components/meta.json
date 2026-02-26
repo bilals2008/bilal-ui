@@ -28,6 +28,7 @@
     "toggle-group",
     "tabs",
     "textarea",
+    "toast",
     "tooltip"
   ]
 }
