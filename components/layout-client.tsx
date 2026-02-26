@@ -223,8 +223,8 @@ export function DocsLayoutClient({
                   }
                 }}
                 className={cn(
-                  "flex items-center gap-3 w-full py-2 rounded-lg text-[13px] group relative",
-                  "transition-all duration-200 ease-out",
+                  "flex items-center gap-3 w-full py-2 rounded-lg text-[13px] group/item relative",
+                  "transition-all duration-200 ease-out motion-safe:transform-gpu motion-safe:hover:translate-x-0.5",
                   isActive && ["bg-muted/60", "text-foreground font-semibold"],
                   !isActive && [
                     "text-muted-foreground/90",
@@ -241,7 +241,7 @@ export function DocsLayoutClient({
                 {Icon && (
                   <div
                     className={cn(
-                      "flex items-center justify-center w-5 h-5 rounded-md transition-all duration-300 ml-1",
+                      "flex items-center justify-center w-5 h-5 rounded-md transition-all duration-300 ml-1 motion-safe:group-hover/item:scale-105",
                       isActive
                         ? "text-rose-500 drop-shadow-[0_0_3px_rgba(244,63,94,0.3)]"
                         : "text-muted-foreground/50 group-hover:text-fuchsia-500",
@@ -256,7 +256,7 @@ export function DocsLayoutClient({
 
                 <span
                   className={cn(
-                    "flex-1 truncate tracking-[-0.01em] text-pretty",
+                    "flex-1 truncate tracking-[-0.01em] text-pretty transition-transform duration-200 motion-safe:group-hover/item:translate-x-0.5",
                     isActive ? "font-bold" : "font-semibold",
                   )}
                 >
@@ -268,7 +268,7 @@ export function DocsLayoutClient({
                     variant={badge.variant}
                     appearance="light"
                     size="xs"
-                    className="uppercase tracking-tight"
+                    className="uppercase tracking-tight transition-transform duration-200 motion-safe:group-hover/item:scale-95"
                   >
                     {badge.content}
                   </Badge>
@@ -299,11 +299,11 @@ export function DocsLayoutClient({
                 className="group/folder flex flex-col w-full"
               >
                 <CollapsibleTrigger
-                  className={cn(
-                    "flex items-center justify-between w-full py-2.5 px-3 rounded-lg text-[14px] no-underline group relative",
-                    "transition-all duration-300 ease-out",
-                    "text-foreground/90 hover:bg-rose-500/3 hover:text-foreground",
-                    "dark:hover:bg-rose-500/5",
+                className={cn(
+                  "flex items-center justify-between w-full py-2.5 px-3 rounded-lg text-[14px] no-underline group relative",
+                  "transition-all duration-300 ease-out motion-safe:transform-gpu motion-safe:hover:translate-x-0.5",
+                  "text-foreground/90 hover:bg-rose-500/3 hover:text-foreground",
+                  "dark:hover:bg-rose-500/5",
                     isActive &&
                       "text-foreground font-bold bg-muted/40 backdrop-blur-[1px]",
                   )}
@@ -318,9 +318,9 @@ export function DocsLayoutClient({
                   >
                     {item.name}
                   </span>
-                  <ChevronDown className="size-3.5 text-muted-foreground/50 transition-transform duration-200 group-data-[state=open]/folder:rotate-180" />
+                  <ChevronDown className="size-3.5 text-muted-foreground/50 transition-transform duration-200 group-hover/folder:text-foreground/80 group-data-[state=open]/folder:rotate-180" />
                 </CollapsibleTrigger>
-                <CollapsibleContent className="flex flex-col gap-1 mt-1 pl-2 border-l border-muted/30 ml-3">
+                <CollapsibleContent className="flex flex-col gap-1 mt-1 pl-2 border-l border-muted/30 ml-3 overflow-hidden data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0 data-[state=open]:slide-in-from-top-1 data-[state=closed]:slide-out-to-top-1 duration-200">
                   {children}
                 </CollapsibleContent>
               </Collapsible>
