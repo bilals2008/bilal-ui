@@ -13,37 +13,28 @@ export interface ChangelogEntry {
 
 export const changelogData: ChangelogEntry[] = [
   {
-    version: "0.1.0",
-    date: "January 26, 2026",
-    title: "Initial Alpha Release",
-    description: "The very first public alpha version of Bilal UI. Focusing on core components and layout systems.",
+    version: "0.1.0-alpha",
+    date: "February 26, 2026",
+    title: "Public Alpha Baseline",
+    description: "Initial public alpha release of Bilal UI.",
     changes: [
-      { type: "feature", content: "Initial release of core components (Button, Badge, Card, etc.)." },
-      { type: "feature", content: "Advanced layout system with flexible grid patterns." },
-      { type: "improvement", content: "Enhanced dark mode support across all components." },
-      { type: "fix", content: "Resolved flickering issues during theme transitions." },
-    ],
-  },
-  {
-    version: "0.0.5",
-    date: "January 15, 2026",
-    title: "Component Refinement",
-    description: "Polishing existing components and adding new utility hooks.",
-    changes: [
-      { type: "feature", content: "Added new Hero and CTA sections for landing pages." },
-      { type: "improvement", content: "Improved accessibility for navigation components." },
-      { type: "fix", content: "Fixed responsive layout bugs in the documentation template." },
-    ],
-  },
-  {
-    version: "0.0.2",
-    date: "January 05, 2026",
-    title: "Foundation Work",
-    description: "Setting up the project structure and design system foundations.",
-    changes: [
-      { type: "feature", content: "Project scaffolding with Next.js and Tailwind CSS." },
-      { type: "internal", content: "Integrated Framer Motion for premium animations." },
-      { type: "internal", content: "Setup documentation system using Fumadocs." },
+      {
+        type: "feature",
+        content: "Launched docs with Fumadocs and custom sidebar navigation.",
+      },
+      {
+        type: "feature",
+        content:
+          "Published core components: Button, Alert, Badge, Card, Dialog, Drawer, Tabs, and Toast.",
+      },
+      {
+        type: "improvement",
+        content: "Added source/registry install command flow for previews.",
+      },
+      {
+        type: "internal",
+        content: "Aligned stack to Next.js 16, React 19, and Tailwind CSS 4.",
+      },
     ],
   },
 ];
