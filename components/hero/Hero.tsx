@@ -1,7 +1,7 @@
 // File: components/hero/Hero.tsx
 "use client";
-import type React from "react";
-import { motion } from "motion/react";
+import React from "react";
+import { motion, useReducedMotion } from "motion/react";
 import { Sparkles, ArrowRight } from "lucide-react";
 import Features from "./feature-block";
 import TailwindCSS from "../icons/tailwindcss";
@@ -9,6 +9,124 @@ import { BrowseComponentsButton } from "../ui/browse-components-button";
 import { BrowseBlocksButton } from "../ui/browse-blocks";
 import { GridPattern } from "../ui/grid-pattern";
 import { cn } from "@/lib/utils";
+
+// Separate component for the announcement badge
+const AnnouncementBadge = () => {
+  const shouldReduceMotion = useReducedMotion();
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="mb-8"
+      role="status"
+      aria-label="Bilal UI development status"
+    >
+      <div className="group relative inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-zinc-100/50 dark:bg-zinc-900/30 border border-zinc-200/80 dark:border-zinc-800/80 backdrop-blur-md transition-all hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-2xl hover:shadow-purple-500/10 cursor-default overflow-hidden">
+        {/* Animated Shimmer Background (disabled if user prefers reduced motion) */}
+        {!shouldReduceMotion && (
+          <motion.div
+            className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 dark:via-white/5 to-transparent w-[200%]"
+            animate={{ x: ["-100%", "100%"] }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            aria-hidden="true"
+          />
+        )}
+
+        <div className="relative flex items-center gap-2">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500 shadow-[0_0_8px_rgba(244,63,94,0.5)]"></span>
+          </span>
+          <div className="h-4 w-px bg-zinc-200 dark:bg-zinc-800 hidden sm:block mx-1" />
+          <span className="text-sm font-medium text-zinc-600 dark:text-zinc-300 flex items-center gap-1.5">
+            Bilal UI is currently
+            <span className="bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-purple-500 font-bold">
+              under development
+            </span>
+          </span>
+          <ArrowRight className="w-4 h-4 text-zinc-400 group-hover:translate-x-1 transition-transform ml-1" />
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+// Animated underline for the main heading
+const AnimatedUnderline = () => {
+  const gradientId = React.useMemo(() => `underline-gradient-${Math.random()}`, []);
+  const shouldReduceMotion = useReducedMotion();
+
+  if (shouldReduceMotion) {
+    return (
+      <svg
+        className="absolute -bottom-2 left-0 w-full h-2 sm:h-3 pointer-events-none"
+        viewBox="0 0 100 10"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M0,5 Q25,0 50,5 T100,5"
+          fill="none"
+          stroke={`url(#${gradientId})`}
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
+        <defs>
+          <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#f43f5e" />
+            <stop offset="50%" stopColor="#d946ef" />
+            <stop offset="100%" stopColor="#8b5cf6" />
+          </linearGradient>
+        </defs>
+      </svg>
+    );
+  }
+
+  return (
+    <svg
+      className="absolute -bottom-2 left-0 w-full h-2 sm:h-3 pointer-events-none"
+      viewBox="0 0 100 10"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      <motion.path
+        d="M0,5 Q25,0 50,5 T100,5"
+        fill="none"
+        stroke={`url(#${gradientId})`}
+        strokeWidth="3"
+        strokeLinecap="round"
+        initial={{ pathLength: 0, opacity: 0 }}
+        animate={{
+          pathLength: 1,
+          opacity: 1,
+          d: [
+            "M0,5 Q25,0 50,5 T100,5",
+            "M0,5 Q25,8 50,5 T100,5",
+            "M0,5 Q25,0 50,5 T100,5",
+          ],
+        }}
+        transition={{
+          pathLength: { duration: 1.5, delay: 0.8, ease: "easeOut" },
+          opacity: { duration: 1, delay: 0.8 },
+          d: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+        }}
+      />
+      <defs>
+        <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#f43f5e" />
+          <stop offset="50%" stopColor="#d946ef" />
+          <stop offset="100%" stopColor="#8b5cf6" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+};
 
 export function HeroSection() {
   return (
@@ -25,43 +143,7 @@ export function HeroSection() {
         )}
       />
 
-      {/* Announcement Badge */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="mb-8"
-      >
-        <div className="group relative inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-zinc-100/50 dark:bg-zinc-900/30 border border-zinc-200/80 dark:border-zinc-800/80 backdrop-blur-md transition-all hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-2xl hover:shadow-purple-500/10 cursor-default overflow-hidden">
-          {/* Animated Shimmer Background */}
-          <motion.div
-            className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 dark:via-white/5 to-transparent w-[200%]"
-            animate={{
-              x: ["-100%", "100%"],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-          />
-
-          <div className="relative flex items-center gap-2">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500 shadow-[0_0_8px_rgba(244,63,94,0.5)]"></span>
-            </span>
-            <div className="h-4 w-px bg-zinc-200 dark:bg-zinc-800 hidden sm:block mx-1" />
-            <span className="text-sm font-medium text-zinc-600 dark:text-zinc-300 flex items-center gap-1.5">
-              Bilal UI is currently
-              <span className="bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-purple-500 font-bold">
-                under development
-              </span>
-            </span>
-            <ArrowRight className="w-4 h-4 text-zinc-400 group-hover:translate-x-1 transition-transform ml-1" />
-          </div>
-        </div>
-      </motion.div>
+      <AnnouncementBadge />
 
       <div className="w-full flex flex-col items-center justify-center text-center gap-8">
         {/* Main Content - Centered */}
@@ -72,57 +154,13 @@ export function HeroSection() {
             transition={{ duration: 0.6 }}
             className="flex flex-col items-center"
           >
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-zinc-900 dark:text-zinc-100">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-zinc-900 dark:text-zinc-100">
               Ship faster with{" "}
               <span className="relative inline-block">
                 <span className="bg-clip-text text-transparent bg-linear-to-r from-rose-500 via-fuchsia-500 to-purple-500 dark:from-rose-400 dark:via-fuchsia-400 dark:to-purple-400">
                   BilalUi
                 </span>
-                <svg
-                  className="absolute -bottom-2 left-0 w-full h-2 sm:h-3 pointer-events-none"
-                  viewBox="0 0 100 10"
-                  preserveAspectRatio="none"
-                >
-                  <motion.path
-                    d="M0,5 Q25,0 50,5 T100,5"
-                    fill="none"
-                    stroke="url(#underline-gradient)"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    initial={{ pathLength: 0, opacity: 0 }}
-                    animate={{
-                      pathLength: 1,
-                      opacity: 1,
-                      d: [
-                        "M0,5 Q25,0 50,5 T100,5",
-                        "M0,5 Q25,8 50,5 T100,5",
-                        "M0,5 Q25,0 50,5 T100,5",
-                      ],
-                    }}
-                    transition={{
-                      pathLength: {
-                        duration: 1.5,
-                        delay: 0.8,
-                        ease: "easeOut",
-                      },
-                      opacity: { duration: 1, delay: 0.8 },
-                      d: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-                    }}
-                  />
-                  <defs>
-                    <linearGradient
-                      id="underline-gradient"
-                      x1="0%"
-                      y1="0%"
-                      x2="100%"
-                      y2="0%"
-                    >
-                      <stop offset="0%" stopColor="#f43f5e" />
-                      <stop offset="50%" stopColor="#d946ef" />
-                      <stop offset="100%" stopColor="#8b5cf6" />
-                    </linearGradient>
-                  </defs>
-                </svg>
+                <AnimatedUnderline />
               </span>
               <br />
               build for{" "}
