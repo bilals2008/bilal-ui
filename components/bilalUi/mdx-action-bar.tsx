@@ -31,7 +31,19 @@ export function MDXActionBar({ className, slug, title }: MDXActionBarProps) {
   const [isCopied, setIsCopied] = React.useState(false);
   const [isBookmarked, setIsBookmarked] = React.useState(false);
 
-  const githubUrl = `https://github.com/bilals2008/bilal-ui/blob/main/content/docs/${slug}.mdx`;
+  // Load bookmark state from localStorage on mount
+  React.useEffect(() => {
+    if (slug) {
+      const stored = localStorage.getItem(`bookmark-${slug}`);
+      if (stored === "true") {
+        setIsBookmarked(true);
+      }
+    }
+  }, [slug]);
+
+  const githubUrl = slug
+    ? `https://github.com/bilals2008/bilal-ui/blob/main/content/docs/${slug}.mdx`
+    : "#"; // fallback if slug is missing
 
   const handleCopyMarkdown = async () => {
     try {
@@ -43,21 +55,23 @@ export function MDXActionBar({ className, slug, title }: MDXActionBarProps) {
       toast.success("Link copied to clipboard!");
       setTimeout(() => setIsCopied(false), 2000);
     } catch {
-      toast.error("Failed to copy");
+      toast.error("Clipboard access denied. Please copy manually.");
     }
   };
 
   const handleBookmark = () => {
-    setIsBookmarked(!isBookmarked);
-    toast.success(
-      isBookmarked ? "Removed from bookmarks" : "Added to bookmarks",
-    );
+    const newValue = !isBookmarked;
+    setIsBookmarked(newValue);
+    if (slug) {
+      localStorage.setItem(`bookmark-${slug}`, String(newValue));
+    }
+    toast.success(newValue ? "Added to bookmarks" : "Removed from bookmarks");
   };
 
   return (
     <div
       className={cn(
-        "flex names-center justify-between gap-4 py-3 px-1 bg-background/80 border-b border-border/40 transition-all duration-300",
+        "flex items-center justify-between gap-4 py-3 px-1 bg-background/80 border-b border-border/40 transition-all duration-300",
         className,
       )}
     >
@@ -67,6 +81,7 @@ export function MDXActionBar({ className, slug, title }: MDXActionBarProps) {
           size="sm"
           className="h-8 px-3 gap-2 text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-md transition-all duration-200 group"
           onClick={handleCopyMarkdown}
+          aria-label="Copy link to clipboard"
         >
           <AnimatePresence mode="wait" initial={false}>
             {isCopied ? (
@@ -100,6 +115,7 @@ export function MDXActionBar({ className, slug, title }: MDXActionBarProps) {
               variant="ghost"
               size="sm"
               className="h-8 px-3 gap-2 text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-md transition-all duration-200 group"
+              aria-label="More options"
             >
               <span className="text-xs font-medium">Open</span>
               <ChevronDown className="w-3.5 h-3.5 text-orange-500 group-hover:text-orange-600 transition-colors opacity-80" />
@@ -110,7 +126,12 @@ export function MDXActionBar({ className, slug, title }: MDXActionBarProps) {
               asChild
               className="gap-2 cursor-pointer text-xs group"
             >
-              <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+              <a
+                href={githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Edit this page on GitHub"
+              >
                 <ExternalLink className="w-3.5 h-3.5 text-blue-500 group-hover:text-blue-600 transition-colors" />
                 <span>Edit on GitHub</span>
               </a>
@@ -127,6 +148,7 @@ export function MDXActionBar({ className, slug, title }: MDXActionBarProps) {
                   handleCopyMarkdown();
                 }
               }}
+              aria-label="Share this page"
             >
               <Share2 className="w-3.5 h-3.5 text-indigo-500 group-hover:text-indigo-600 transition-colors" />
               <span>Share</span>
@@ -145,6 +167,8 @@ export function MDXActionBar({ className, slug, title }: MDXActionBarProps) {
             : "text-muted-foreground hover:text-foreground hover:bg-muted/50",
         )}
         onClick={handleBookmark}
+        aria-pressed={isBookmarked}
+        aria-label={isBookmarked ? "Remove bookmark" : "Add bookmark"}
       >
         <Bookmark
           className={cn(
