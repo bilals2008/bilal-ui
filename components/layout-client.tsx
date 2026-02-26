@@ -31,6 +31,8 @@ import {
   Menu,
   ToggleRight,
   PanelTop,
+  RectangleEllipsis,
+  ChevronsUpDown,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import React, { useMemo, useState, useEffect } from "react";
@@ -71,6 +73,8 @@ const IconMap: Record<
   Menu,
   ToggleRight,
   PanelTop,
+  RectangleEllipsis,
+  ChevronsUpDown,
 };
 
 interface NavigationNode {

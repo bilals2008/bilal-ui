@@ -234,6 +234,7 @@ export const navigationSections: NavSection[] = [
         title: "Aspect Ratio",
         href: "/docs/components/aspect-ratio",
         description: "Displays content within a desired ratio",
+        icon: "PanelTop",
         isComingSoon: true,
       },
       {
@@ -241,6 +242,7 @@ export const navigationSections: NavSection[] = [
         title: "Calendar",
         href: "/docs/components/calendar",
         description: "Date picker calendar interface",
+        icon: "History",
         isComingSoon: true,
       },
       {
@@ -248,6 +250,7 @@ export const navigationSections: NavSection[] = [
         title: "Carousel",
         href: "/docs/components/carousel",
         description: "Horizontally scrollable content",
+        icon: "MousePointerClick",
         isComingSoon: true,
       },
       {
@@ -255,6 +258,7 @@ export const navigationSections: NavSection[] = [
         title: "Chart",
         href: "/docs/components/chart",
         description: "Data visualization components",
+        icon: "BadgeCheck",
         isComingSoon: true,
       },
       {
@@ -262,6 +266,7 @@ export const navigationSections: NavSection[] = [
         title: "Collapsible",
         href: "/docs/components/collapsible",
         description: "Expandable and collapsible sections",
+        icon: "ListCollapse",
         isComingSoon: true,
       },
       {
@@ -269,6 +274,7 @@ export const navigationSections: NavSection[] = [
         title: "Command",
         href: "/docs/components/command",
         description: "Command menu and quick actions",
+        icon: "Menu",
         isComingSoon: true,
       },
       {
@@ -276,6 +282,7 @@ export const navigationSections: NavSection[] = [
         title: "Context Menu",
         href: "/docs/components/context-menu",
         description: "Right-click contextual menu",
+        icon: "Menu",
         isComingSoon: true,
       },
       {
@@ -283,6 +290,7 @@ export const navigationSections: NavSection[] = [
         title: "Form",
         href: "/docs/components/form",
         description: "Composable form building patterns",
+        icon: "TextCursorInput",
         isComingSoon: true,
       },
       {
@@ -290,6 +298,7 @@ export const navigationSections: NavSection[] = [
         title: "Hover Card",
         href: "/docs/components/hover-card",
         description: "Hover-triggered content card",
+        icon: "IdCard",
         isComingSoon: true,
       },
       {
@@ -297,6 +306,7 @@ export const navigationSections: NavSection[] = [
         title: "Menubar",
         href: "/docs/components/menubar",
         description: "Desktop-style menu bar",
+        icon: "Menu",
         isComingSoon: true,
       },
       {
@@ -304,6 +314,7 @@ export const navigationSections: NavSection[] = [
         title: "Pagination",
         href: "/docs/components/pagination",
         description: "Paginated navigation controls",
+        icon: "ListFilter",
         isComingSoon: true,
       },
       {
@@ -311,6 +322,7 @@ export const navigationSections: NavSection[] = [
         title: "Resizable",
         href: "/docs/components/resizable",
         description: "Resizable layout panels",
+        icon: "PanelTop",
         isComingSoon: true,
       },
       {
@@ -318,6 +330,7 @@ export const navigationSections: NavSection[] = [
         title: "Scroll Area",
         href: "/docs/components/scroll-area",
         description: "Custom scrollable area",
+        icon: "AlignLeft",
         isComingSoon: true,
       },
       {
@@ -325,6 +338,7 @@ export const navigationSections: NavSection[] = [
         title: "Table",
         href: "/docs/components/table",
         description: "Structured tabular data UI",
+        icon: "ListFilter",
         isComingSoon: true,
       },
       {
@@ -332,6 +346,7 @@ export const navigationSections: NavSection[] = [
         title: "Toggle",
         href: "/docs/components/toggle",
         description: "Two-state pressed button",
+        icon: "ToggleRight",
         isComingSoon: true,
       },
     ],
