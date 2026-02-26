@@ -264,7 +264,12 @@ export function DocsLayoutClient({
                 </span>
 
                 {badge && (
-                  <Badge variant={badge.variant} appearance="outline" size="sm">
+                  <Badge
+                    variant={badge.variant}
+                    appearance="light"
+                    size="xs"
+                    className="uppercase tracking-tight"
+                  >
                     {badge.content}
                   </Badge>
                 )}
