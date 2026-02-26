@@ -28,8 +28,8 @@ export default defineConfig({
     rehypeCodeOptions: {
       inline: 'tailing-curly-colon',
       themes: {
-        light: "github-light",
-        dark: "tokyo-night",
+        light: "vitesse-light",
+        dark: "vitesse-black",
       },
     },
     rehypePlugins: [forceLineNumbers],
