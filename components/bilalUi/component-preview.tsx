@@ -329,8 +329,8 @@ export function ComponentPreview({
           </TabsContent>
 
           <TabsContent value="code" className="mt-0">
-            <div className="relative overflow-hidden rounded-b-xl bg-black">
-              <div className="overflow-x-auto max-h-150 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+            <div className="relative overflow-hidden rounded-b-xl border-t border-zinc-800/80 bg-[radial-gradient(circle_at_top,#18181b_0%,#09090b_45%,#030303_100%)]">
+              <div className="overflow-x-auto max-h-150 scrollbar-thin scrollbar-thumb-zinc-700 scrollbar-track-transparent">
                 <CodeBlock
                   language="tsx"
                   code={sourceCode || "// Loading..."}

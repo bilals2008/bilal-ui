@@ -15,10 +15,12 @@ export function CodeBlock({
 }: CodeBlockProps) {
   const [tokens, setTokens] = React.useState<ThemedToken[][]>([]);
   const [loading, setLoading] = React.useState(true);
+  const [hasError, setHasError] = React.useState(false);
 
   React.useEffect(() => {
     async function highlight() {
       setLoading(true);
+      setHasError(false);
       try {
         const result = await codeToTokens(code, {
           lang: language as any,
@@ -27,6 +29,7 @@ export function CodeBlock({
         setTokens(result.tokens);
       } catch (error) {
         console.error("Shiki highlight error:", error);
+        setHasError(true);
       } finally {
         setLoading(false);
       }
@@ -36,23 +39,31 @@ export function CodeBlock({
 
   if (loading) {
     return (
-      <div className="flex flex-col gap-2 p-4 bg-black">
-        <div className="h-4 w-3/4 animate-pulse rounded bg-zinc-800" />
-        <div className="h-4 w-1/2 animate-pulse rounded bg-zinc-800" />
-        <div className="h-4 w-2/3 animate-pulse rounded bg-zinc-800" />
+      <div className="flex flex-col gap-2 p-5">
+        <div className="h-4 w-3/4 animate-pulse rounded bg-zinc-700/60" />
+        <div className="h-4 w-1/2 animate-pulse rounded bg-zinc-700/60" />
+        <div className="h-4 w-2/3 animate-pulse rounded bg-zinc-700/60" />
       </div>
     );
   }
 
+  if (hasError || tokens.length === 0) {
+    return (
+      <pre className="p-5 font-mono text-[13px] leading-6 text-zinc-100">
+        <code>{code}</code>
+      </pre>
+    );
+  }
+
   return (
-    <div className="relative overflow-x-auto bg-black">
-      <pre className="font-mono text-[15px] font-medium leading-6 p-4">
+    <div className="relative overflow-x-auto">
+      <pre className="p-5 font-mono text-[13px] leading-6 antialiased">
         {tokens.map((line, lineIndex) => (
-          <div key={lineIndex} className="table-row">
-            <span className="table-cell w-10 min-w-10 select-none text-right pr-4 text-zinc-600 text-[13px] align-top">
+          <div key={lineIndex} className="grid grid-cols-[2.5rem_1fr] items-start">
+            <span className="select-none pr-3 text-right text-[11px] text-zinc-500 tabular-nums">
               {lineIndex + 1}
             </span>
-            <span className="table-cell align-top whitespace-pre">
+            <span className="whitespace-pre">
               {line.length > 0 ? (
                 line.map((token, tokenIndex) => (
                   <span key={tokenIndex} style={{ color: token.color }}>
@@ -60,7 +71,6 @@ export function CodeBlock({
                   </span>
                 ))
               ) : (
-                // Render empty line to maintain height
                 <span>{"\n"}</span>
               )}
             </span>
