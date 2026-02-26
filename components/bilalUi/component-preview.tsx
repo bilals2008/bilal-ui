@@ -160,7 +160,7 @@ export function ComponentPreview({
   // Construct the command dynamically
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
   const canInstallFromRegistry = React.useMemo(
-    () => Boolean(registry || (!name.endsWith("-demo") && name)),
+    () => Boolean(registry || name),
     [registry, name],
   );
   const installRegistryName = registry || name;
