@@ -1,4 +1,5 @@
 // File: data/changelog.ts
+import pkg from "@/package.json";
 
 export interface ChangelogEntry {
   version: string;
@@ -13,8 +14,8 @@ export interface ChangelogEntry {
 
 export const changelogData: ChangelogEntry[] = [
   {
-    version: "0.1.0-alpha",
-    date: "February 26, 2026",
+    version: pkg.version,
+    date: "January 26, 2026",
     title: "Public Alpha Baseline",
     description: "Initial public alpha release of Bilal UI.",
     changes: [
