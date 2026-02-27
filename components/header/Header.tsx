@@ -128,7 +128,7 @@ export function Header() {
                 </div>
 
                 {/* Mobile Navigation */}
-                <div className="flex sm:hidden items-center gap-2 ml-auto">
+                <div className="flex sm:hidden items-center gap-2 ml-auto py-2">
                   <div className="relative"></div>
                   <IconButton
                     href="https://github.com/bilals2008/bilal-ui"
