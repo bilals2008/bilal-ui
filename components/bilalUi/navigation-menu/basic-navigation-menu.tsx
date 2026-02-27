@@ -1,3 +1,4 @@
+// File: components/bilalUi/navigation-menu/basic-navigation-menu.tsx
 "use client";
 
 import {
@@ -21,11 +22,7 @@ const productLinks: MenuLink[] = [
     href: "/docs/components",
     description: "Browse production-ready blocks and UI patterns.",
   },
-  {
-    title: "Templates",
-    href: "/docs/getting-started/roadmap",
-    description: "Explore full-page sections and starter layouts.",
-  },
+
   {
     title: "Theming",
     href: "/docs/getting-started/theming",
@@ -54,11 +51,7 @@ const resourceLinks: MenuLink[] = [
     href: "/docs/getting-started/troubleshooting",
     description: "Fix common setup and runtime issues quickly.",
   },
-  {
-    title: "Roadmap",
-    href: "/docs/getting-started/roadmap",
-    description: "See what is planned next for the library.",
-  },
+
 ];
 
 function NavigationGrid({ links }: { links: MenuLink[] }) {

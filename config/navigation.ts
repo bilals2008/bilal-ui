@@ -76,13 +76,7 @@ export const navigationSections: NavSection[] = [
       description: "Latest updates and announcements",
       icon: "History",
     },
-    {
-      id: "roadmap",
-      title: "Roadmap",
-      href: "/docs/getting-started/roadmap",
-      description: "Future plans and upcoming features",
-      icon: "Map",
-    },
+
   ],
 },
  
