@@ -20,6 +20,9 @@ export const docs = defineDocs({
       icon: z.string().optional(),
       badge: z.string().optional(),
     }),
+    postprocess: {
+      includeProcessedMarkdown: true,
+    },
   },
 });
 
