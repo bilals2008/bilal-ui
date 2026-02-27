@@ -115,6 +115,7 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
       <MDXActionBar
         slug={(params.slug || []).join("/")}
         title={page.data.title}
+        url={page.url}
       />
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
