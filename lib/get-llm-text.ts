@@ -17,8 +17,11 @@ export async function getLLMText(page: NonNullable<Page>) {
   const repo = "bilal-ui";
   const path = `content/docs/${page.file.path}`;
 
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "";
+  const fullUrl = page.url.startsWith("http") ? page.url : `${baseUrl}${page.url}`;
+
   return `# ${page.data.title}
-URL: ${page.url}
+URL: ${fullUrl}
 Source: https://raw.githubusercontent.com/${owner}/${repo}/refs/heads/main/${path}
 
 ${page.data.description ?? ''}

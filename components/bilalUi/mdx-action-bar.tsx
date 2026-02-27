@@ -64,9 +64,9 @@ export function MDXActionBar({
       let content = cached;
 
       if (!content) {
-        const res = await fetch(markdownUrl);
+        const res = await fetch(internalFetchUrl);
         content = await res.text();
-        cache.set(markdownUrl, content);
+        cache.set(internalFetchUrl, content);
       }
 
       await navigator.clipboard.writeText(content);
@@ -89,10 +89,15 @@ export function MDXActionBar({
     toast.success(newValue ? "Added to bookmarks" : "Removed from bookmarks");
   };
 
-  const fullMarkdownUrl =
-    typeof window !== "undefined"
-      ? new URL(markdownUrl, window.location.origin).toString()
-      : "";
+  // Use relative URL for internal fetch to avoid CORS/network issues in dev
+  const internalFetchUrl = markdownUrl;
+
+  const baseUrl =
+    process.env.NEXT_PUBLIC_APP_URL ||
+    (typeof window !== "undefined" ? window.location.origin : "");
+  const fullMarkdownUrl = markdownUrl
+    ? new URL(markdownUrl, baseUrl).toString()
+    : "";
   const q = `Read the documentation for ${title || "this component"} at ${fullMarkdownUrl}. I want to ask questions about it.`;
 
   const aiTools = [
