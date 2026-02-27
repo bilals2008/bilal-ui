@@ -1,5 +1,6 @@
 // File: source.config.ts
 import { defineDocs, defineConfig, frontmatterSchema } from "fumadocs-mdx/config";
+import lastModified from "fumadocs-mdx/plugins/last-modified";
 import { z } from "zod";
 import { visit } from "unist-util-visit";
 
@@ -27,6 +28,7 @@ export const docs = defineDocs({
 });
 
 export default defineConfig({
+  plugins: [lastModified()],
   mdxOptions: {
     rehypeCodeOptions: {
       inline: 'tailing-curly-colon',

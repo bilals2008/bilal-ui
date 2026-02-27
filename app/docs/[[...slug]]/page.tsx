@@ -29,6 +29,14 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
   if (!page) notFound();
 
   const MDX = page.data.body;
+  const lastModified = page.data.lastModified;
+  const formattedLastModified = lastModified
+    ? new Date(lastModified).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    : null;
 
   return (
     <DocsPage
@@ -119,6 +127,11 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
       />
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
+      {formattedLastModified ? (
+        <p className="mt-2 text-xs text-muted-foreground">
+          Last updated: {formattedLastModified}
+        </p>
+      ) : null}
       <DocsBody>
         <MDX
           components={getMDXComponents({

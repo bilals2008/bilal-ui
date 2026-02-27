@@ -8,7 +8,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://bilal-ui.vercel.app";
   return getPages().map((page) => ({
     url: `${baseUrl}${page.url}`,
-    lastModified: new Date(),
+    lastModified: page.data.lastModified
+      ? new Date(page.data.lastModified)
+      : undefined,
     changeFrequency: "weekly",
     priority: 0.5,
   }));
