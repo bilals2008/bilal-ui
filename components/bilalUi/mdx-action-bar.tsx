@@ -66,7 +66,19 @@ export function MDXActionBar({
 
       if (!content) {
         const res = await fetch(internalFetchUrl);
+        if (!res.ok) {
+          throw new Error(`Failed to fetch markdown: ${res.status}`);
+        }
+
+        const contentType = res.headers.get("content-type") || "";
+        if (!contentType.includes("text/markdown") && !contentType.includes("text/plain")) {
+          throw new Error("Unexpected content type");
+        }
+
         content = await res.text();
+        if (content.trimStart().startsWith("<!DOCTYPE html")) {
+          throw new Error("Received HTML instead of markdown");
+        }
         cache.set(internalFetchUrl, content);
       }
 
