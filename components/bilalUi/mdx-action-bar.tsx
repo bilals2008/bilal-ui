@@ -50,7 +50,8 @@ export function MDXActionBar({
     }
   }, [slug]);
 
-  const markdownUrl = url ? `${url}.mdx` : "";
+  const pageUrl = (url || "").replace(/\.mdx$/, "");
+  const markdownUrl = pageUrl ? `${pageUrl}.mdx` : "";
   const githubUrl = slug
     ? `https://github.com/bilals2008/bilal-ui/blob/main/content/docs/${slug}.mdx`
     : "#";
@@ -95,10 +96,10 @@ export function MDXActionBar({
   const baseUrl =
     process.env.NEXT_PUBLIC_APP_URL ||
     (typeof window !== "undefined" ? window.location.origin : "");
-  const fullMarkdownUrl = markdownUrl
-    ? new URL(markdownUrl, baseUrl).toString()
+  const fullPageUrl = pageUrl
+    ? new URL(pageUrl, baseUrl).toString()
     : "";
-  const q = `Read the documentation for ${title || "this component"} at ${fullMarkdownUrl}. I want to ask questions about it.`;
+  const q = `Read the documentation for ${title || "this component"} at ${fullPageUrl}. I want to ask questions about it.`;
 
   const aiTools = [
     {
