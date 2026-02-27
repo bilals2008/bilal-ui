@@ -280,7 +280,7 @@ export const navigationSections: NavSection[] = [
         title: "Tabs",
         href: "/docs/components/tabs",
         description: "A set of layered sections displayed one at a time",
-        isNew: true,
+        isUpdated: true,
         icon: "PanelTop",
       },
       {
