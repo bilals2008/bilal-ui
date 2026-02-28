@@ -4,6 +4,7 @@ description: Displays a form input field or a component that looks like an input
 ---
 
 import { BasicInput } from "@/components/bilalUi/input/basic-input";
+import { ClearableInput } from "@/components/bilalUi/input/clearable-input";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 import { Callout } from "@/components/ui/callout";
 
@@ -18,8 +19,14 @@ Default and disabled input states.
   <BasicInput />
 </ComponentPreview>
 
+### Clearable Input
+An input with an inline clear action that resets and refocuses the field.
+
+<ComponentPreview name="clearable-input" registry="clearable-input">
+  <ClearableInput />
+</ComponentPreview>
+
 <Callout title="More Variants Coming Soon" type="info">
   More variants and refinements will be added in upcoming updates.
 </Callout>
-
 
