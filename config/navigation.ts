@@ -7,29 +7,29 @@ export interface NavItem {
   icon?: string;
   badge?: string;
   count?: number | string;
-  isComingSoon?: boolean;
-  isNew?: boolean;
-  isLab?: boolean;
-  isUpdated?: boolean;
-  isFeatured?: boolean;
-  isRequest?: boolean;
-  isWIP?: boolean;
-  isStable?: boolean;
-  isLegacy?: boolean;
-  isHeadless?: boolean;
-  isAlpha?: boolean;
-  isDeprecated?: boolean;
-  isVersion?: boolean;
-  isBeta?: boolean;
-  isExperimental?: boolean;
-  isPreview?: boolean;
-  isVerified?: boolean;
-  isPro?: boolean;
-  isBreaking?: boolean;
-  isFix?: boolean;
-  isDocs?: boolean;
-  isPerf?: boolean;
-  isRefactor?: boolean;
+  isComingSoon?: boolean | number;
+  isNew?: boolean | number;
+  isLab?: boolean | number;
+  isUpdated?: boolean | number;
+  isFeatured?: boolean | number;
+  isRequest?: boolean | number;
+  isWIP?: boolean | number;
+  isStable?: boolean | number;
+  isLegacy?: boolean | number;
+  isHeadless?: boolean | number;
+  isAlpha?: boolean | number;
+  isDeprecated?: boolean | number;
+  isVersion?: boolean | number;
+  isBeta?: boolean | number;
+  isExperimental?: boolean | number;
+  isPreview?: boolean | number;
+  isVerified?: boolean | number;
+  isPro?: boolean | number;
+  isBreaking?: boolean | number;
+  isFix?: boolean | number;
+  isDocs?: boolean | number;
+  isPerf?: boolean | number;
+  isRefactor?: boolean | number;
 }
 
 export interface NavSection {
@@ -197,6 +197,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/input",
         description: "Displays a form input field or a component that looks like an input field",
         icon: "TextCursorInput",
+        isNew: +1,
       },
       {
         id: "popover",
