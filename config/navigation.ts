@@ -190,6 +190,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/navigation-menu",
         description: "Displays grouped navigation links with dropdown panels",
         icon: "Menu",
+        isUpdated: true,
       },
       {
         id: "input",
