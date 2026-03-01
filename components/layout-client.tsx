@@ -283,7 +283,7 @@ export function DocsLayoutClient({
                 {badge && (
                   <Badge
                     variant={badge.variant}
-                    appearance="light"
+                    appearance="ghost"
                     size="xs"
                     className="uppercase tracking-tight transition-transform duration-200 motion-safe:group-hover/item:scale-95"
                   >
