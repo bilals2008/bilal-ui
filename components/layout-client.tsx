@@ -96,29 +96,30 @@ const BADGE_FLAGS: ReadonlyArray<{
   key: keyof NavItem;
   variant: BadgeVariant;
   label: React.ReactNode;
+  numericLabel?: string;
 }> = [
-  { key: "isNew", variant: "new", label: "New" },
-  { key: "isUpdated", variant: "updated", label: "Updated" },
-  { key: "isLab", variant: "lab", label: <FlaskConical className="size-3" /> },
-  { key: "isFeatured", variant: "featured", label: "Featured" },
-  { key: "isRequest", variant: "request", label: "Request" },
-  { key: "isWIP", variant: "wip", label: "WIP" },
-  { key: "isStable", variant: "stable", label: "Stable" },
-  { key: "isLegacy", variant: "legacy", label: "Legacy" },
-  { key: "isHeadless", variant: "headless", label: "Headless" },
-  { key: "isAlpha", variant: "alpha", label: "Alpha" },
-  { key: "isDeprecated", variant: "deprecated", label: "Deprecated" },
-  { key: "isVersion", variant: "version", label: `v${pkg.version}` },
-  { key: "isBeta", variant: "beta", label: "Beta" },
-  { key: "isExperimental", variant: "experimental", label: "Experimental" },
-  { key: "isPreview", variant: "preview", label: "Preview" },
-  { key: "isVerified", variant: "verified", label: "Verified" },
-  { key: "isPro", variant: "pro", label: "Pro" },
-  { key: "isBreaking", variant: "breaking", label: "Breaking" },
-  { key: "isFix", variant: "fix", label: "Fix" },
-  { key: "isDocs", variant: "docs", label: "Docs" },
-  { key: "isPerf", variant: "perf", label: "Perf" },
-  { key: "isRefactor", variant: "refactor", label: "Refactor" },
+  { key: "isNew", variant: "new", label: "New", numericLabel: "New" },
+  { key: "isUpdated", variant: "updated", label: "Updated", numericLabel: "Updated" },
+  { key: "isLab", variant: "lab", label: <FlaskConical className="size-3" />, numericLabel: "Lab" },
+  { key: "isFeatured", variant: "featured", label: "Featured", numericLabel: "Featured" },
+  { key: "isRequest", variant: "request", label: "Request", numericLabel: "Request" },
+  { key: "isWIP", variant: "wip", label: "WIP", numericLabel: "WIP" },
+  { key: "isStable", variant: "stable", label: "Stable", numericLabel: "Stable" },
+  { key: "isLegacy", variant: "legacy", label: "Legacy", numericLabel: "Legacy" },
+  { key: "isHeadless", variant: "headless", label: "Headless", numericLabel: "Headless" },
+  { key: "isAlpha", variant: "alpha", label: "Alpha", numericLabel: "Alpha" },
+  { key: "isDeprecated", variant: "deprecated", label: "Deprecated", numericLabel: "Deprecated" },
+  { key: "isVersion", variant: "version", label: `v${pkg.version}`, numericLabel: `v${pkg.version}` },
+  { key: "isBeta", variant: "beta", label: "Beta", numericLabel: "Beta" },
+  { key: "isExperimental", variant: "experimental", label: "Experimental", numericLabel: "Experimental" },
+  { key: "isPreview", variant: "preview", label: "Preview", numericLabel: "Preview" },
+  { key: "isVerified", variant: "verified", label: "Verified", numericLabel: "Verified" },
+  { key: "isPro", variant: "pro", label: "Pro", numericLabel: "Pro" },
+  { key: "isBreaking", variant: "breaking", label: "Breaking", numericLabel: "Breaking" },
+  { key: "isFix", variant: "fix", label: "Fix", numericLabel: "Fix" },
+  { key: "isDocs", variant: "docs", label: "Docs", numericLabel: "Docs" },
+  { key: "isPerf", variant: "perf", label: "Perf", numericLabel: "Perf" },
+  { key: "isRefactor", variant: "refactor", label: "Refactor", numericLabel: "Refactor" },
 ];
 
 function getBadgeInfo(
@@ -126,8 +127,24 @@ function getBadgeInfo(
   node: NavigationNode,
 ): { variant: BadgeVariant; content: React.ReactNode } | null {
   if (configItem) {
-    const match = BADGE_FLAGS.find((flag) => configItem[flag.key]);
-    if (match) return { variant: match.variant, content: match.label };
+    const match = BADGE_FLAGS.find((flag) => {
+      const value = configItem[flag.key];
+      return typeof value === "number" ? value > 0 : Boolean(value);
+    });
+
+    if (match) {
+      const value = configItem[match.key];
+      let content: React.ReactNode = match.label;
+
+      if (typeof value === "number") {
+        const count = Math.trunc(value);
+        if (count > 0) {
+          content = match.numericLabel ? `+${count} ${match.numericLabel}` : `+${count}`;
+        }
+      }
+
+      return { variant: match.variant, content };
+    }
   }
 
   const fallback = configItem?.badge || node.badge;
