@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronDown, HelpCircle } from "lucide-react";
+import { HelpCircle, Minus, Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const faqs = [
@@ -84,14 +84,17 @@ export function FAQSection() {
                   >
                     {faq.question}
                   </span>
-                  <ChevronDown
+                  <span
                     className={cn(
-                      "w-5 h-5 text-zinc-500 transition-transform duration-300",
+                      "inline-flex h-7 w-7 items-center justify-center rounded-full border transition-colors duration-300",
                       isOpen
-                        ? "rotate-180 text-purple-600 dark:text-purple-400"
-                        : "group-hover:text-zinc-600 dark:group-hover:text-zinc-300",
+                        ? "border-purple-400/60 bg-purple-50 text-purple-600 dark:border-purple-700 dark:bg-purple-900/30 dark:text-purple-400"
+                        : "border-zinc-200 text-zinc-500 group-hover:border-zinc-300 group-hover:text-zinc-700 dark:border-zinc-700 dark:text-zinc-400 dark:group-hover:border-zinc-600 dark:group-hover:text-zinc-200",
                     )}
-                  />
+                    aria-hidden="true"
+                  >
+                    {isOpen ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+                  </span>
                 </button>
                 <AnimatePresence initial={false}>
                   {isOpen && (
