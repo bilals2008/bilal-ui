@@ -5,41 +5,70 @@ description: Latest updates and announcements.
 
 import { Callout } from "@/components/ui/callout";
 import { Badge } from "@/components/ui/badge";
+import { changelogData } from "@/data/changelog";
+
+export const changeTypeBadge = {
+  feature: { label: "Feature", variant: "info" },
+  improvement: { label: "Improvement", variant: "updated" },
+  fix: { label: "Fix", variant: "fix" },
+  internal: { label: "Internal", variant: "secondary" },
+};
+
+export const formatVersion = (version) =>
+  version.startsWith("v") ? version : `v${version}`;
 
 <Callout title="Alpha Stage" type="warn">
   **Bilal UI** is currently in **Alpha**. Components are being developed and breaking changes may occur.
 </Callout>
 
-## v0.2.0-alpha <Badge variant="alpha" className="ml-2 align-middle">Alpha</Badge>
-*March 2026*
+{changelogData.map((entry, index) => {
+  const isAlpha = entry.version.toLowerCase().includes("alpha");
 
-### Progress Update
-- **Completed components**: Most core component docs are now published and usable in this alpha.
-- **Updated components**: Navigation Menu and Tabs received refinements and polish.
-- **Component Preview polish**: Improved preview presentation and overall usability.
-- **MDX Action Bar improvements**: Added **Open with LLM** and a **Markdown copy** action.
-- **Coming soon**: Aspect Ratio, Calendar, Form, Table, and dedicated Blocks pages are in progress.
+  return (
+    <section key={`${entry.version}-${entry.date}`}>
+      <h2>
+        {formatVersion(entry.version)}{" "}
+        {isAlpha ? (
+          <Badge variant="alpha" className="ml-2 align-middle">
+            Alpha
+          </Badge>
+        ) : (
+          <Badge variant="version" className="ml-2 align-middle">
+            Release
+          </Badge>
+        )}
+      </h2>
 
----
+      <p>
+        <em>{entry.date}</em>
+      </p>
 
-## v0.1.0-alpha <Badge variant="alpha" className="ml-2 align-middle">Alpha</Badge>
-*January 2026*
+      <p>{entry.description}</p>
 
-The first public look at Bilal UI. We've laid the foundation for a premium, copy-paste component library.
+      <ul>
+        {entry.changes.map((change, changeIndex) => {
+          const badge = changeTypeBadge[change.type] ?? {
+            label: "Update",
+            variant: "secondary",
+          };
 
-### Core Foundation
-- **Tailwind CSS 4**: Full support for the latest CSS engine.
-- **Next.js 16**: Built for the latest app router features.
-- **Framer Motion Integration**: Smooth transitions out of the box.
+          return (
+            <li key={`${entry.version}-${changeIndex}`}>
+              <Badge
+                variant={badge.variant}
+                appearance="light"
+                size="xs"
+                className="mr-2 align-middle"
+              >
+                {badge.label}
+              </Badge>
+              {change.content}
+            </li>
+          );
+        })}
+      </ul>
 
-### Initial Components
-- **Navigation**: Premium Sidebar and Table of Contents with gradient indicators.
-- **Layout**: High-performance documentation layout using Fumadocs.
-- **UI Kit**: Core Radix-based components (Buttons, Cards, Inputs).
-
----
-
-### What's Next?
-- More animated specialized components.
-- Enhanced dark mode refinements.
-- Interactive playground for component customization.
+      {index < changelogData.length - 1 ? <hr /> : null}
+    </section>
+  );
+})}
