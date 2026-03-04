@@ -15,6 +15,30 @@ export interface ChangelogEntry {
 export const changelogData: ChangelogEntry[] = [
   {
     version: pkg.version,
+    date: "March 1, 2026",
+    title: "Alpha Progress Update",
+    description:
+      "Expanded component coverage, polished previews, and improved MDX action bar utilities.",
+    changes: [
+      {
+        type: "feature",
+        content:
+          "Added more components to the docs and library catalog, with additional entries marked as coming soon.",
+      },
+      {
+        type: "improvement",
+        content:
+          "Polished the component-preview experience for cleaner presentation and better usability.",
+      },
+      {
+        type: "improvement",
+        content:
+          "Improved MDX action bar with Open with LLM support and a markdown copy feature.",
+      },
+    ],
+  },
+  {
+    version: "0.1.0-alpha",
     date: "January 26, 2026",
     title: "Public Alpha Baseline",
     description: "Initial public alpha release of Bilal UI.",
