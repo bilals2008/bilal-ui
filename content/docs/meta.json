@@ -1,6 +1,7 @@
 {
   "pages": [
     "getting-started",
-    "components"
+    "components",
+    "blocks"
   ]
 }

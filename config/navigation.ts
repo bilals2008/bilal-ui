@@ -340,4 +340,40 @@ export const navigationSections: NavSection[] = [
       },
     ],
   },
+  {
+    title: "Blocks",
+    items: [
+      {
+        id: "blocks-introduction",
+        title: "Introduction",
+        href: "/docs/blocks/introduction",
+        description: "Overview of reusable multi-component blocks",
+        icon: "Map",
+      },
+      {
+        id: "blocks-hero-sections",
+        title: "Hero Sections",
+        href: "/docs/blocks/hero-sections",
+        description: "Ready-to-use hero block patterns",
+        icon: "PanelTop",
+        isComingSoon: true,
+      },
+      {
+        id: "blocks-pricing-sections",
+        title: "Pricing Sections",
+        href: "/docs/blocks/pricing-sections",
+        description: "Composable pricing table and plan blocks",
+        icon: "ListFilter",
+        isComingSoon: true,
+      },
+      {
+        id: "blocks-dashboard-shells",
+        title: "Dashboard Shells",
+        href: "/docs/blocks/dashboard-shells",
+        description: "Starter dashboard structures and app shells",
+        icon: "RectangleEllipsis",
+        isComingSoon: true,
+      },
+    ],
+  },
 ];
