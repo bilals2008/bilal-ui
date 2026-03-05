@@ -5,6 +5,7 @@ description: Displays the path to the current resource using a hierarchy of link
 
 import BasicBreadcrumbDemo from "@/components/bilalUi/demo/breadcrumb/basic-breadcrumb-demo";
 import SmartEllipsisBreadcrumbDemo from "@/components/bilalUi/demo/breadcrumb/smart-ellipsis-breadcrumb-demo";
+import SegmentSwitchBreadcrumbDemo from "@/components/bilalUi/demo/breadcrumb/segment-switch-breadcrumb-demo";
 import { Callout } from "@/components/ui/callout";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 
@@ -29,6 +30,17 @@ Collapses middle path segments into an ellipsis and reveals hidden items in a dr
   sourceName="smart-ellipsis-breadcrumb-demo"
 >
   <SmartEllipsisBreadcrumbDemo />
+</ComponentPreview>
+
+### Segment Switch Breadcrumb
+
+Lets users switch the current segment with a dropdown of sibling routes.
+
+<ComponentPreview
+  name="segment-switch-breadcrumb-demo"
+  sourceName="segment-switch-breadcrumb-demo"
+>
+  <SegmentSwitchBreadcrumbDemo />
 </ComponentPreview>
 
 <Callout title="More Variants Coming Soon" type="info">
