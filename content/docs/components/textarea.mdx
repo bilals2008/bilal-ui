@@ -5,6 +5,7 @@ description: Displays a form textarea or a component that looks like a textarea.
 
 import { BasicTextarea } from "@/components/bilalUi/textarea/basic-textarea";
 import { CommandTextarea } from "@/components/bilalUi/textarea/command-textarea";
+import { DiffTextarea } from "@/components/bilalUi/textarea/diff-textarea";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 import { Callout } from "@/components/ui/callout";
 
@@ -24,6 +25,13 @@ A slash-command writing surface with inline `/commands` plus keyboard shortcuts 
 
 <ComponentPreview name="command-textarea" registry="command-textarea">
   <CommandTextarea />
+</ComponentPreview>
+
+### Diff Textarea
+A rewrite-focused textarea that highlights added text inline and surfaces removed text below.
+
+<ComponentPreview name="diff-textarea" registry="diff-textarea">
+  <DiffTextarea />
 </ComponentPreview>
 
 <Callout title="More Variants Coming Soon" type="info">
