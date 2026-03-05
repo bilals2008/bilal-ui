@@ -227,6 +227,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/textarea",
         description: "Displays a form textarea or a component that looks like a textarea",
         icon: "AlignLeft",
+        isNew: +2
       },
       {
         id: "select",
