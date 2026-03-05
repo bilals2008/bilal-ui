@@ -4,6 +4,7 @@ description: Displays the path to the current resource using a hierarchy of link
 ---
 
 import BasicBreadcrumbDemo from "@/components/bilalUi/demo/breadcrumb/basic-breadcrumb-demo";
+import SmartEllipsisBreadcrumbDemo from "@/components/bilalUi/demo/breadcrumb/smart-ellipsis-breadcrumb-demo";
 import { Callout } from "@/components/ui/callout";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 
@@ -19,6 +20,16 @@ A standard breadcrumb implementation using Shadcn primitives.
   <BasicBreadcrumbDemo />
 </ComponentPreview>
 
+### Smart Ellipsis Breadcrumb
+
+Collapses middle path segments into an ellipsis and reveals hidden items in a dropdown.
+
+<ComponentPreview
+  name="smart-ellipsis-breadcrumb-demo"
+  sourceName="smart-ellipsis-breadcrumb-demo"
+>
+  <SmartEllipsisBreadcrumbDemo />
+</ComponentPreview>
 
 <Callout title="More Variants Coming Soon" type="info">
   Advanced breadcrumb layouts (e.g. collapsable items, custom separators, and routing integrations) are currently planned.
