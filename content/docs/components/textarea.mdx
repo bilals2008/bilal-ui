@@ -4,6 +4,7 @@ description: Displays a form textarea or a component that looks like a textarea.
 ---
 
 import { BasicTextarea } from "@/components/bilalUi/textarea/basic-textarea";
+import { CommandTextarea } from "@/components/bilalUi/textarea/command-textarea";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 import { Callout } from "@/components/ui/callout";
 
@@ -18,8 +19,14 @@ Default textarea state.
   <BasicTextarea />
 </ComponentPreview>
 
+### Command Textarea
+A slash-command writing surface that suggests and applies `/commands` inline.
+
+<ComponentPreview name="command-textarea" registry="command-textarea">
+  <CommandTextarea />
+</ComponentPreview>
+
 <Callout title="More Variants Coming Soon" type="info">
   More variants and refinements will be added in upcoming updates.
 </Callout>
-
 
