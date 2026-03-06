@@ -242,6 +242,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/combobox",
         description: "Searchable select input for quick option discovery",
         icon: "ChevronsUpDown",
+        isNew: 3,
       },
       {
         id: "separator",
