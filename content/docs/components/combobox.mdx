@@ -6,6 +6,7 @@ description: Searchable select input that supports single and multiple selection
 import { BasicCombobox } from "@/components/bilalUi/combobox/basic-combobox";
 import { FacetedQueryCombobox } from "@/components/bilalUi/combobox/faceted-query-combobox";
 import { IntentCombobox } from "@/components/bilalUi/combobox/intent-combobox";
+import { PipelineCombobox } from "@/components/bilalUi/combobox/pipeline-combobox";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 import { Callout } from "@/components/ui/callout";
 
@@ -32,6 +33,13 @@ Select an intent first (Find, Create, Assign, Link), then search targets scoped 
 
 <ComponentPreview name="intent-combobox" registry="intent-combobox">
   <IntentCombobox />
+</ComponentPreview>
+
+### Pipeline Combobox
+Build a guided pipeline in one flow: Source -> Transform -> Destination.
+
+<ComponentPreview name="pipeline-combobox" registry="pipeline-combobox">
+  <PipelineCombobox />
 </ComponentPreview>
 
 <Callout title="More Variants Coming Soon" type="info">
