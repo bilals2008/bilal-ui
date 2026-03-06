@@ -5,6 +5,7 @@ description: A control that allows the user to toggle between checked and unchec
 
 import { BasicCheckbox } from "@/components/bilalUi/checkbox/basic-checkbox";
 import { ProgressCheckbox } from "@/components/bilalUi/checkbox/progress-checkbox";
+import { TriStateIntentCheckbox } from "@/components/bilalUi/checkbox/tri-state-intent-checkbox";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 import { Callout } from "@/components/ui/callout";
 
@@ -24,6 +25,13 @@ An animated progress ring that fills from 0% to 100% when checked.
 
 <ComponentPreview name="progress-checkbox" registry="progress-checkbox">
   <ProgressCheckbox />
+</ComponentPreview>
+
+### Tri-State Intent Checkbox
+Cycles through not applied, partially applied, and confirmed states.
+
+<ComponentPreview name="tri-state-intent-checkbox" registry="tri-state-intent-checkbox">
+  <TriStateIntentCheckbox />
 </ComponentPreview>
 
 <Callout title="More Variants Coming Soon" type="info">
