@@ -146,7 +146,7 @@ export const navigationSections: NavSection[] = [
         title: "Checkbox",
         href: "/docs/components/checkbox",
         description: "A control for toggling between checked and unchecked",
-        isNew: 4,
+        isNew: 7,
         icon: "SquareCheck",
       },
       {
