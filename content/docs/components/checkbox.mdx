@@ -7,6 +7,7 @@ import { BasicCheckbox } from "@/components/bilalUi/checkbox/basic-checkbox";
 import { ProgressCheckbox } from "@/components/bilalUi/checkbox/progress-checkbox";
 import { TriStateIntentCheckbox } from "@/components/bilalUi/checkbox/tri-state-intent-checkbox";
 import { TokenizedCheckbox } from "@/components/bilalUi/checkbox/tokenized-checkbox";
+import { RiskAwareCheckbox } from "@/components/bilalUi/checkbox/risk-aware-checkbox";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 import { Callout } from "@/components/ui/callout";
 
@@ -40,6 +41,13 @@ Transforms into a selected token chip when checked.
 
 <ComponentPreview name="tokenized-checkbox" registry="tokenized-checkbox">
   <TokenizedCheckbox />
+</ComponentPreview>
+
+### Risk-Aware Checkbox
+Color intent changes by risk level, with explicit acknowledgment messaging.
+
+<ComponentPreview name="risk-aware-checkbox" registry="risk-aware-checkbox">
+  <RiskAwareCheckbox />
 </ComponentPreview>
 
 <Callout title="More Variants Coming Soon" type="info">
