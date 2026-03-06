@@ -8,6 +8,7 @@ import { ProgressCheckbox } from "@/components/bilalUi/checkbox/progress-checkbo
 import { TriStateIntentCheckbox } from "@/components/bilalUi/checkbox/tri-state-intent-checkbox";
 import { TokenizedCheckbox } from "@/components/bilalUi/checkbox/tokenized-checkbox";
 import { RiskAwareCheckbox } from "@/components/bilalUi/checkbox/risk-aware-checkbox";
+import { WeightedCheckbox } from "@/components/bilalUi/checkbox/weighted-checkbox";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 import { Callout } from "@/components/ui/callout";
 
@@ -48,6 +49,13 @@ Color intent changes by risk level, with explicit acknowledgment messaging.
 
 <ComponentPreview name="risk-aware-checkbox" registry="risk-aware-checkbox">
   <RiskAwareCheckbox />
+</ComponentPreview>
+
+### Weighted Checkbox
+Each selected item contributes a weighted score to a live total.
+
+<ComponentPreview name="weighted-checkbox" registry="weighted-checkbox">
+  <WeightedCheckbox />
 </ComponentPreview>
 
 <Callout title="More Variants Coming Soon" type="info">
