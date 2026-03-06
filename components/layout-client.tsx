@@ -240,9 +240,9 @@ export function DocsLayoutClient({
                   }
                 }}
                 className={cn(
-                  "flex items-center gap-3 w-full py-2 rounded-lg text-[13px] group/item relative",
+                  "flex items-center gap-3 w-full py-2 px-2.5 rounded-lg text-[13px] group/item relative",
                   "transition-all duration-200 ease-out motion-safe:transform-gpu motion-safe:hover:translate-x-0.5",
-                  isActive && ["bg-muted/60", "text-foreground font-semibold"],
+                  isActive && ["bg-muted/60", "text-foreground font-semibold", "px-3"],
                   !isActive && [
                     "text-muted-foreground/90",
                     "hover:bg-rose-500/3 hover:text-foreground",
@@ -285,7 +285,7 @@ export function DocsLayoutClient({
                     variant={badge.variant}
                     appearance="ghost"
                     size="xs"
-                    className="uppercase tracking-tight transition-transform duration-200 motion-safe:group-hover/item:scale-95"
+                    className="ml-2 shrink-0 uppercase tracking-tight transition-transform duration-200 motion-safe:group-hover/item:scale-95"
                   >
                     {badge.content}
                   </Badge>
