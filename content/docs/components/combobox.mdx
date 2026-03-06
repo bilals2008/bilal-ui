@@ -5,6 +5,7 @@ description: Searchable select input that supports single and multiple selection
 
 import { BasicCombobox } from "@/components/bilalUi/combobox/basic-combobox";
 import { FacetedQueryCombobox } from "@/components/bilalUi/combobox/faceted-query-combobox";
+import { IntentCombobox } from "@/components/bilalUi/combobox/intent-combobox";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 import { Callout } from "@/components/ui/callout";
 
@@ -26,7 +27,13 @@ Search with structured facet syntax like `status:in-progress` and refine results
   <FacetedQueryCombobox />
 </ComponentPreview>
 
+### Intent Combobox
+Select an intent first (Find, Create, Assign, Link), then search targets scoped to that intent.
+
+<ComponentPreview name="intent-combobox" registry="intent-combobox">
+  <IntentCombobox />
+</ComponentPreview>
+
 <Callout title="More Variants Coming Soon" type="info">
   More variants and refinements will be added in upcoming updates.
 </Callout>
-
