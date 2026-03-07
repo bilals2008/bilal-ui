@@ -6,6 +6,7 @@ description: Enter one-time passwords with segmented, accessible input slots.
 import { BasicInputOtp } from "@/components/bilalUi/input-otp/basic-input-otp";
 import { CardInputOtp } from "@/components/bilalUi/input-otp/card-input-otp";
 import { ErrorInputOtp } from "@/components/bilalUi/input-otp/error-input-otp";
+import { ResendInputOtp } from "@/components/bilalUi/input-otp/resend-input-otp";
 import { VerificationInputOtp } from "@/components/bilalUi/input-otp/verification-input-otp";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 import { Callout } from "@/components/ui/callout";
@@ -43,4 +44,11 @@ An OTP variant with inline valid/invalid feedback states.
 
 <ComponentPreview name="error-input-otp" registry="error-input-otp">
   <ErrorInputOtp />
+</ComponentPreview>
+
+### Resend Input OTP
+A verification input with resend timer and reset action.
+
+<ComponentPreview name="resend-input-otp" registry="resend-input-otp">
+  <ResendInputOtp />
 </ComponentPreview>
