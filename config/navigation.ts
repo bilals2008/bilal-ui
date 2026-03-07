@@ -176,6 +176,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/dropdown-menu",
         description: "Displays a menu to the user when triggered by a button",
         icon: "Menu",
+        isNew: 10
       },
       {
         id: "input-otp",
