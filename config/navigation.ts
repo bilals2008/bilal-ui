@@ -169,6 +169,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/drawer",
         description: "Slide-up panel for focused tasks",
         icon: "PanelTop",
+        isNew: 10,
       },
       {
         id: "dropdown-menu",
