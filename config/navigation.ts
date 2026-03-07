@@ -222,6 +222,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/radio-group",
         description: "Single-choice selection group",
         icon: "SquareCheck",
+        isNew: +8,
       },
       {
         id: "textarea",
