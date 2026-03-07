@@ -6,6 +6,7 @@ description: Enter one-time passwords with segmented, accessible input slots.
 import { BasicInputOtp } from "@/components/bilalUi/input-otp/basic-input-otp";
 import { CardInputOtp } from "@/components/bilalUi/input-otp/card-input-otp";
 import { ErrorInputOtp } from "@/components/bilalUi/input-otp/error-input-otp";
+import { NumericOnlyInputOtp } from "@/components/bilalUi/input-otp/numeric-only-input-otp";
 import { ResendInputOtp } from "@/components/bilalUi/input-otp/resend-input-otp";
 import { VerificationInputOtp } from "@/components/bilalUi/input-otp/verification-input-otp";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
@@ -51,4 +52,14 @@ A verification input with resend timer and reset action.
 
 <ComponentPreview name="resend-input-otp" registry="resend-input-otp">
   <ResendInputOtp />
+</ComponentPreview>
+
+### Numeric-Only Input OTP
+An OTP field that accepts and keeps only numeric characters.
+
+<ComponentPreview
+  name="numeric-only-input-otp"
+  registry="numeric-only-input-otp"
+>
+  <NumericOnlyInputOtp />
 </ComponentPreview>
