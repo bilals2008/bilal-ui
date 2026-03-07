@@ -4,12 +4,13 @@ description: Enter one-time passwords with segmented, accessible input slots.
 ---
 
 import { BasicInputOtp } from "@/components/bilalUi/input-otp/basic-input-otp";
+import { CardInputOtp } from "@/components/bilalUi/input-otp/card-input-otp";
 import { VerificationInputOtp } from "@/components/bilalUi/input-otp/verification-input-otp";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 import { Callout } from "@/components/ui/callout";
 
-<Callout title="Under Development" type="warn">
-  This component is currently being updated with more polished variants.
+<Callout title="Expanded Variants" type="info">
+  This page now includes multiple OTP patterns for authentication and verification flows.
 </Callout>
 
 ### Basic Input OTP
@@ -29,6 +30,9 @@ A verification flow where users can submit OTP and see the next-step success sta
   <VerificationInputOtp />
 </ComponentPreview>
 
-<Callout title="More Variants Coming Soon" type="info">
-  More variants and refinements will be added in upcoming updates.
-</Callout>
+### Card Input OTP
+A card-styled OTP layout with title and helper content.
+
+<ComponentPreview name="card-input-otp" registry="card-input-otp">
+  <CardInputOtp />
+</ComponentPreview>
