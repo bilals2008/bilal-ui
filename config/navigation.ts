@@ -200,7 +200,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/input",
         description: "Displays a form input field or a component that looks like an input field",
         icon: "TextCursorInput",
-        isNew: +1,
+        isNew: +9,
       },
       {
         id: "popover",
