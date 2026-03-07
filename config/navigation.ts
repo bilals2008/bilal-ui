@@ -146,7 +146,7 @@ export const navigationSections: NavSection[] = [
         title: "Checkbox",
         href: "/docs/components/checkbox",
         description: "A control for toggling between checked and unchecked",
-        isNew: true,
+        isNew: 7,
         icon: "SquareCheck",
       },
       {
@@ -169,6 +169,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/drawer",
         description: "Slide-up panel for focused tasks",
         icon: "PanelTop",
+        isNew: 10,
       },
       {
         id: "dropdown-menu",
@@ -176,6 +177,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/dropdown-menu",
         description: "Displays a menu to the user when triggered by a button",
         icon: "Menu",
+        isNew: 10
       },
       {
         id: "input-otp",
@@ -198,7 +200,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/input",
         description: "Displays a form input field or a component that looks like an input field",
         icon: "TextCursorInput",
-        isNew: +1,
+        isNew: +9,
       },
       {
         id: "popover",
@@ -227,6 +229,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/textarea",
         description: "Displays a form textarea or a component that looks like a textarea",
         icon: "AlignLeft",
+        isNew: +2
       },
       {
         id: "select",
@@ -241,6 +244,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/combobox",
         description: "Searchable select input for quick option discovery",
         icon: "ChevronsUpDown",
+        isNew: 3,
       },
       {
         id: "separator",

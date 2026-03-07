@@ -4,6 +4,7 @@ description: Lets users select a date and time for scheduling flows.
 ---
 
 import { BasicDatePicker } from "@/components/bilalUi/date-picker/basic-date-picker";
+import { ConstrainedBookingDatePicker } from "@/components/bilalUi/date-picker/constrained-booking-date-picker";
 import { DateRangePicker } from "@/components/bilalUi/date-picker/date-range-picker";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 import { Callout } from "@/components/ui/callout";
@@ -26,8 +27,17 @@ A travel-style range picker with quick night presets and a live range summary.
   <DateRangePicker />
 </ComponentPreview>
 
+### Constrained Booking Date Picker
+A booking-focused date range picker with blocked nights, Sunday blackout, and stay-length limits.
+
+<ComponentPreview
+  name="constrained-booking-date-picker"
+  registry="constrained-booking-date-picker"
+>
+  <ConstrainedBookingDatePicker />
+</ComponentPreview>
+
 <Callout title="More Variants Coming Soon" type="info">
   More variants and refinements will be added in upcoming updates.
 </Callout>
-
 

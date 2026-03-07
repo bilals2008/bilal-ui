@@ -4,6 +4,7 @@ description: An image element with a fallback for representing the user.
 ---
 
 import { BasicAvatar } from "@/components/bilalUi/avatar/basic-avatar";
+import { BadgeAvatar } from "@/components/bilalUi/avatar/badge-avatar";
 import { AnimatedAvatarGroupDemo } from "@/components/bilalUi/avatar/animated-avatar-group";
 import { Callout } from "@/components/ui/callout";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
@@ -19,6 +20,13 @@ A basic avatar with image and fallback.
   <BasicAvatar />
 </ComponentPreview>
 
+### Badge Avatar
+Avatar with a verified status badge.
+
+<ComponentPreview name="badge-avatar" registry="badge-avatar">
+  <BadgeAvatar />
+</ComponentPreview>
+
 ### Animated Avatar Group
 A stacked group of avatars that expands smoothly on hover, with overflow count indicator.
 
@@ -29,5 +37,4 @@ A stacked group of avatars that expands smoothly on hover, with overflow count i
 <Callout title="More Variants Coming Soon" type="info">
   More variants and refinements will be added in upcoming updates.
 </Callout>
-
 
