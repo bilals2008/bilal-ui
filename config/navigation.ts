@@ -254,6 +254,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/separator",
         description: "Visually separates content sections",
         icon: "ListCollapse",
+        isNew: +18,
       },
       {
         id: "sheet",
