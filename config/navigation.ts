@@ -262,6 +262,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/sheet",
         description: "Side panel overlay for contextual content",
         icon: "PanelTop",
+        isNew: +14,
       },
       {
         id: "skeleton",
