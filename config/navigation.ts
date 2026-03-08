@@ -302,6 +302,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/toast",
         description: "Temporary notification messages",
         icon: "AlertCircle",
+        isNew: +19,
       },
       {
         id: "toggle-group",
