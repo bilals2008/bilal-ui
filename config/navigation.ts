@@ -309,6 +309,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/toggle-group",
         description: "Grouped toggle controls",
         icon: "ToggleRight",
+        isNew: +20,
       },
       {
         id: "tooltip",
