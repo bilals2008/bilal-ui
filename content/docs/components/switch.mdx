@@ -4,11 +4,31 @@ description: A control that allows the user to toggle between checked and unchec
 ---
 
 import { BasicSwitch } from "@/components/bilalUi/switch/basic-switch";
+import { AccessibilitySwitchOptions } from "@/components/bilalUi/switch/accessibility-switch-options";
+import { AnalyticsToggleSwitch } from "@/components/bilalUi/switch/analytics-toggle-switch";
+import { ColoredSwitches } from "@/components/bilalUi/switch/colored-switches";
+import { CompactSwitch } from "@/components/bilalUi/switch/compact-switch";
+import { DescriptionSwitch } from "@/components/bilalUi/switch/description-switch";
+import { DisabledStateSwitch } from "@/components/bilalUi/switch/disabled-state-switch";
+import { FeatureToggleSwitch } from "@/components/bilalUi/switch/feature-toggle-switch";
+import { FilterToggleSwitch } from "@/components/bilalUi/switch/filter-toggle-switch";
+import { LabeledSwitch } from "@/components/bilalUi/switch/labeled-switch";
+import { LargeSwitchAccessible } from "@/components/bilalUi/switch/large-switch-accessible";
+import { LoadingStateSwitch } from "@/components/bilalUi/switch/loading-state-switch";
+import { NotificationPreferenceSwitch } from "@/components/bilalUi/switch/notification-preference-switch";
+import { PermissionSwitch } from "@/components/bilalUi/switch/permission-switch";
+import { SettingsPanelSwitch } from "@/components/bilalUi/switch/settings-panel-switch";
+import { StatusIndicatorSwitch } from "@/components/bilalUi/switch/status-indicator-switch";
+import { ThemeModeSwitch } from "@/components/bilalUi/switch/theme-mode-switch";
+import { ToggleGroupSwitch } from "@/components/bilalUi/switch/toggle-group-switch";
+import { WithActionSwitch } from "@/components/bilalUi/switch/with-action-switch";
+import { WithIconSwitch } from "@/components/bilalUi/switch/with-icon-switch";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 import { Callout } from "@/components/ui/callout";
 
-<Callout title="Under Development" type="warn">
-  This component is currently being updated with more polished variants.
+<Callout title="Expanded Variants" type="info">
+  This page now includes practical switch patterns for settings, permissions,
+  filtering, status, and theme controls.
 </Callout>
 
 ### Basic Switch
@@ -18,8 +38,160 @@ Default, checked, and disabled states at a glance.
   <BasicSwitch />
 </ComponentPreview>
 
-<Callout title="More Variants Coming Soon" type="info">
-  More variants and refinements will be added in upcoming updates.
-</Callout>
+### Labeled Switch
+Switches with clear labels for settings rows.
 
+<ComponentPreview name="labeled-switch" registry="labeled-switch">
+  <LabeledSwitch />
+</ComponentPreview>
+
+### Description Switch
+Switch cards with helper text descriptions.
+
+<ComponentPreview name="description-switch" registry="description-switch">
+  <DescriptionSwitch />
+</ComponentPreview>
+
+### With Icon Switch
+Switch rows paired with icon badges.
+
+<ComponentPreview name="with-icon-switch" registry="with-icon-switch">
+  <WithIconSwitch />
+</ComponentPreview>
+
+### Compact Switch
+Dense switch layout for multi-channel toggles.
+
+<ComponentPreview name="compact-switch" registry="compact-switch">
+  <CompactSwitch />
+</ComponentPreview>
+
+### Large Accessible Switch
+Larger switch target for accessibility-focused UIs.
+
+<ComponentPreview
+  name="large-switch-accessible"
+  registry="large-switch-accessible"
+>
+  <LargeSwitchAccessible />
+</ComponentPreview>
+
+### Colored Switches
+Color-themed checked states.
+
+<ComponentPreview name="colored-switches" registry="colored-switches">
+  <ColoredSwitches />
+</ComponentPreview>
+
+### Disabled State Switch
+Visual examples of disabled on/off states.
+
+<ComponentPreview
+  name="disabled-state-switch"
+  registry="disabled-state-switch"
+>
+  <DisabledStateSwitch />
+</ComponentPreview>
+
+### Loading State Switch
+Switch interaction with processing state.
+
+<ComponentPreview name="loading-state-switch" registry="loading-state-switch">
+  <LoadingStateSwitch />
+</ComponentPreview>
+
+### With Action Switch
+Conditional destructive action based on toggle.
+
+<ComponentPreview name="with-action-switch" registry="with-action-switch">
+  <WithActionSwitch />
+</ComponentPreview>
+
+### Toggle Group Switch
+Segmented group toggle behavior.
+
+<ComponentPreview name="toggle-group-switch" registry="toggle-group-switch">
+  <ToggleGroupSwitch />
+</ComponentPreview>
+
+### Settings Panel Switch
+Grouped app settings toggles.
+
+<ComponentPreview
+  name="settings-panel-switch"
+  registry="settings-panel-switch"
+>
+  <SettingsPanelSwitch />
+</ComponentPreview>
+
+### Feature Toggle Switch
+Feature flag style switch cards.
+
+<ComponentPreview
+  name="feature-toggle-switch"
+  registry="feature-toggle-switch"
+>
+  <FeatureToggleSwitch />
+</ComponentPreview>
+
+### Accessibility Switch Options
+Accessibility preference switches.
+
+<ComponentPreview
+  name="accessibility-switch-options"
+  registry="accessibility-switch-options"
+>
+  <AccessibilitySwitchOptions />
+</ComponentPreview>
+
+### Analytics Toggle Switch
+Analytics event toggles with state indicators.
+
+<ComponentPreview
+  name="analytics-toggle-switch"
+  registry="analytics-toggle-switch"
+>
+  <AnalyticsToggleSwitch />
+</ComponentPreview>
+
+### Notification Preference Switch
+Channel-specific notification toggles.
+
+<ComponentPreview
+  name="notification-preference-switch"
+  registry="notification-preference-switch"
+>
+  <NotificationPreferenceSwitch />
+</ComponentPreview>
+
+### Theme Mode Switch
+Light and dark mode toggle UI.
+
+<ComponentPreview name="theme-mode-switch" registry="theme-mode-switch">
+  <ThemeModeSwitch />
+</ComponentPreview>
+
+### Permission Switch
+Permission grant/revoke controls.
+
+<ComponentPreview name="permission-switch" registry="permission-switch">
+  <PermissionSwitch />
+</ComponentPreview>
+
+### Filter Toggle Switch
+Filter toggles with active count.
+
+<ComponentPreview name="filter-toggle-switch" registry="filter-toggle-switch">
+  <FilterToggleSwitch />
+</ComponentPreview>
+
+### Status Indicator Switch
+Status toggles with colored indicators.
+
+<ComponentPreview
+  name="status-indicator-switch"
+  registry="status-indicator-switch"
+>
+  <StatusIndicatorSwitch />
+</ComponentPreview>
 
