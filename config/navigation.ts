@@ -286,6 +286,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/switch",
         description: "A control that allows the user to toggle between checked and unchecked",
         icon: "ToggleRight",
+        isNew: +20,
       },
       {
         id: "tabs",
