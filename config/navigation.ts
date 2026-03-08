@@ -238,6 +238,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/select",
         description: "Displays a list of options for the user to pick from",
         icon: "ListFilter",
+        isNew: +7
       },
       {
         id: "combobox",
