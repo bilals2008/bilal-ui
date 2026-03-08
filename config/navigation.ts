@@ -317,6 +317,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/tooltip",
         description: "Contextual hint on hover/focus",
         icon: "CircleHelp",
+        isNew: +21,
       },
       {
         id: "aspect-ratio",
