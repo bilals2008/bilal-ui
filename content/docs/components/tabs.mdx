@@ -4,22 +4,175 @@ description: A set of layered sections of content, known as tab panels, that are
 ---
 
 import { BasicTabs } from "@/components/bilalUi/tabs/basic-tabs";
+import { BottomNavTabs } from "@/components/bilalUi/tabs/bottom-nav-tabs";
+import { BorderedTabs } from "@/components/bilalUi/tabs/bordered-tabs";
+import { CardTabs } from "@/components/bilalUi/tabs/card-tabs";
+import { ColoredTabs } from "@/components/bilalUi/tabs/colored-tabs";
+import { CompactTabs } from "@/components/bilalUi/tabs/compact-tabs";
+import { DisabledTabs } from "@/components/bilalUi/tabs/disabled-tabs";
+import { FloatingTabs } from "@/components/bilalUi/tabs/floating-tabs";
+import { FullWidthTabs } from "@/components/bilalUi/tabs/full-width-tabs";
+import { IconOnlyTabs } from "@/components/bilalUi/tabs/icon-only-tabs";
+import { PillTabs } from "@/components/bilalUi/tabs/pill-tabs";
+import { ScrollableTabs } from "@/components/bilalUi/tabs/scrollable-tabs";
+import { StackedIconTabs } from "@/components/bilalUi/tabs/stacked-icon-tabs";
+import { TabsWithBadge } from "@/components/bilalUi/tabs/tabs-with-badge";
+import { TabsWithContentCard } from "@/components/bilalUi/tabs/tabs-with-content-card";
+import { TabsWithDescription } from "@/components/bilalUi/tabs/tabs-with-description";
+import { TabsWithDot } from "@/components/bilalUi/tabs/tabs-with-dot";
+import { TabsWithLoading } from "@/components/bilalUi/tabs/tabs-with-loading";
+import { UnderlineTabs } from "@/components/bilalUi/tabs/underline-tabs";
+import { VerticalTabs } from "@/components/bilalUi/tabs/vertical-tabs";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 import { Callout } from "@/components/ui/callout";
 
-<Callout title="Under Development" type="warn">
-  This component is currently being updated with more polished variants.
+<Callout title="Expanded Variants" type="info">
+  This page now includes tab patterns for account settings, dashboards, inboxes,
+  cards, mobile navigation, loading states, and dense data views.
 </Callout>
 
 ### Basic Tabs
-A minimal two-tab layout with simple content.
+A standard account settings layout with icon labels.
 
 <ComponentPreview name="basic-tabs" registry="basic-tabs">
   <BasicTabs />
 </ComponentPreview>
 
-<Callout title="More Variants Coming Soon" type="info">
-  More variants and refinements will be added in upcoming updates.
-</Callout>
+### Icon Only Tabs
+Compact icon tabs for toolbars and dashboards.
 
+<ComponentPreview name="icon-only-tabs" registry="icon-only-tabs">
+  <IconOnlyTabs />
+</ComponentPreview>
 
+### Tabs With Badge
+Inbox-style tabs with message counts and secondary status badges.
+
+<ComponentPreview name="tabs-with-badge" registry="tabs-with-badge">
+  <TabsWithBadge />
+</ComponentPreview>
+
+### Vertical Tabs
+Sidebar-style tab navigation for settings and profile pages.
+
+<ComponentPreview name="vertical-tabs" registry="vertical-tabs">
+  <VerticalTabs />
+</ComponentPreview>
+
+### Pill Tabs
+Rounded filter tabs for search and content grouping.
+
+<ComponentPreview name="pill-tabs" registry="pill-tabs">
+  <PillTabs />
+</ComponentPreview>
+
+### Underline Tabs
+Borderless tabs with a focused underline treatment.
+
+<ComponentPreview name="underline-tabs" registry="underline-tabs">
+  <UnderlineTabs />
+</ComponentPreview>
+
+### Full Width Tabs
+Equal-width tabs for balanced file and media views.
+
+<ComponentPreview name="full-width-tabs" registry="full-width-tabs">
+  <FullWidthTabs />
+</ComponentPreview>
+
+### Card Tabs
+Card-shaped tab selectors for media or feature categories.
+
+<ComponentPreview name="card-tabs" registry="card-tabs">
+  <CardTabs />
+</ComponentPreview>
+
+### Scrollable Tabs
+Horizontally scrollable tabs for long mobile tab lists.
+
+<ComponentPreview name="scrollable-tabs" registry="scrollable-tabs">
+  <ScrollableTabs />
+</ComponentPreview>
+
+### Tabs With Description
+Tabs with short helper descriptions inside the trigger.
+
+<ComponentPreview
+  name="tabs-with-description"
+  registry="tabs-with-description"
+>
+  <TabsWithDescription />
+</ComponentPreview>
+
+### Colored Tabs
+State tabs with strong active colors for dashboards.
+
+<ComponentPreview name="colored-tabs" registry="colored-tabs">
+  <ColoredTabs />
+</ComponentPreview>
+
+### Bordered Tabs
+Boxed tabs with segmented dividers and a contained panel.
+
+<ComponentPreview name="bordered-tabs" registry="bordered-tabs">
+  <BorderedTabs />
+</ComponentPreview>
+
+### Tabs With Dot
+Live-state tabs with an animated activity indicator.
+
+<ComponentPreview name="tabs-with-dot" registry="tabs-with-dot">
+  <TabsWithDot />
+</ComponentPreview>
+
+### Disabled Tabs
+A settings group that includes unavailable states.
+
+<ComponentPreview name="disabled-tabs" registry="disabled-tabs">
+  <DisabledTabs />
+</ComponentPreview>
+
+### Stacked Icon Tabs
+Mobile-friendly tabs with icons stacked above labels.
+
+<ComponentPreview name="stacked-icon-tabs" registry="stacked-icon-tabs">
+  <StackedIconTabs />
+</ComponentPreview>
+
+### Tabs With Loading
+Async-looking tabs that simulate panel loading between switches.
+
+<ComponentPreview name="tabs-with-loading" registry="tabs-with-loading">
+  <TabsWithLoading />
+</ComponentPreview>
+
+### Floating Tabs
+Detached tab controls paired with a separate content card.
+
+<ComponentPreview name="floating-tabs" registry="floating-tabs">
+  <FloatingTabs />
+</ComponentPreview>
+
+### Compact Tabs
+Dense, chart-style tabs for time-range switching.
+
+<ComponentPreview name="compact-tabs" registry="compact-tabs">
+  <CompactTabs />
+</ComponentPreview>
+
+### Tabs With Content Card
+Tabs that reveal more structured card-style panel content.
+
+<ComponentPreview
+  name="tabs-with-content-card"
+  registry="tabs-with-content-card"
+>
+  <TabsWithContentCard />
+</ComponentPreview>
+
+### Bottom Nav Tabs
+Bottom navigation tabs for mobile app shells.
+
+<ComponentPreview name="bottom-nav-tabs" registry="bottom-nav-tabs">
+  <BottomNavTabs />
+</ComponentPreview>
