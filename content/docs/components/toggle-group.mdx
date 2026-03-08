@@ -4,12 +4,33 @@ description: A set of two-state buttons that can be toggled in single or multipl
 ---
 
 import { BasicToggleGroup } from "@/components/bilalUi/toggle-group/basic-toggle-group";
+import { ChartTypeToggleGroup } from "@/components/bilalUi/toggle-group/chart-type-toggle-group";
+import { ContentTypeToggleGroup } from "@/components/bilalUi/toggle-group/content-type-toggle-group";
+import { CurrencySelectorToggleGroup } from "@/components/bilalUi/toggle-group/currency-selector-toggle-group";
+import { DeviceTypeToggleGroup } from "@/components/bilalUi/toggle-group/device-type-toggle-group";
+import { DifficultyLevelToggleGroup } from "@/components/bilalUi/toggle-group/difficulty-level-toggle-group";
+import { DisplayModeToggleGroup } from "@/components/bilalUi/toggle-group/display-mode-toggle-group";
+import { LanguageSelectorToggleGroup } from "@/components/bilalUi/toggle-group/language-selector-toggle-group";
+import { MediaTypeFilterToggleGroup } from "@/components/bilalUi/toggle-group/media-type-filter-toggle-group";
 import { MultiToggleGroup } from "@/components/bilalUi/toggle-group/multi-toggle-group";
+import { PeriodSelectorToggleGroup } from "@/components/bilalUi/toggle-group/period-selector-toggle-group";
+import { PriorityFilterToggleGroup } from "@/components/bilalUi/toggle-group/priority-filter-toggle-group";
+import { PrivacyToggleGroup } from "@/components/bilalUi/toggle-group/privacy-toggle-group";
+import { SelectAllToggleGroup } from "@/components/bilalUi/toggle-group/select-all-toggle-group";
+import { SortDirectionToggleGroup } from "@/components/bilalUi/toggle-group/sort-direction-toggle-group";
+import { StatusFilterToggleGroup } from "@/components/bilalUi/toggle-group/status-filter-toggle-group";
+import { TextAlignmentToggleGroup } from "@/components/bilalUi/toggle-group/text-alignment-toggle-group";
+import { TextFormattingToggleGroup } from "@/components/bilalUi/toggle-group/text-formatting-toggle-group";
+import { ThemeSwitcherToggleGroup } from "@/components/bilalUi/toggle-group/theme-switcher-toggle-group";
+import { ViewModeToggleGroup } from "@/components/bilalUi/toggle-group/view-mode-toggle-group";
+import { VisibilityToggleGroup } from "@/components/bilalUi/toggle-group/visibility-toggle-group";
+import { VolumeControlToggleGroup } from "@/components/bilalUi/toggle-group/volume-control-toggle-group";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 import { Callout } from "@/components/ui/callout";
 
-<Callout title="Under Development" type="warn">
-  This component is currently being updated with more polished variants.
+<Callout title="Expanded Variants" type="info">
+  This page now includes toggle patterns for filters, settings, formatting,
+  devices, permissions, and data views.
 </Callout>
 
 ### Basic Toggle Group
@@ -26,6 +47,196 @@ A multi-select text formatting control with live selected state.
   <MultiToggleGroup />
 </ComponentPreview>
 
-<Callout title="More Variants Coming Soon" type="info">
-  More variants and refinements will be added in upcoming updates.
-</Callout>
+### Device Type Toggle Group
+Single-select device preview toggles.
+
+<ComponentPreview
+  name="device-type-toggle-group"
+  registry="device-type-toggle-group"
+>
+  <DeviceTypeToggleGroup />
+</ComponentPreview>
+
+### Language Selector Toggle Group
+Language/region quick selector.
+
+<ComponentPreview
+  name="language-selector-toggle-group"
+  registry="language-selector-toggle-group"
+>
+  <LanguageSelectorToggleGroup />
+</ComponentPreview>
+
+### Currency Selector Toggle Group
+Currency switcher with icon cues.
+
+<ComponentPreview
+  name="currency-selector-toggle-group"
+  registry="currency-selector-toggle-group"
+>
+  <CurrencySelectorToggleGroup />
+</ComponentPreview>
+
+### Media Type Filter Toggle Group
+Multiple media type filters.
+
+<ComponentPreview
+  name="media-type-filter-toggle-group"
+  registry="media-type-filter-toggle-group"
+>
+  <MediaTypeFilterToggleGroup />
+</ComponentPreview>
+
+### Content Type Toggle Group
+Content mode selection with icons.
+
+<ComponentPreview
+  name="content-type-toggle-group"
+  registry="content-type-toggle-group"
+>
+  <ContentTypeToggleGroup />
+</ComponentPreview>
+
+### Privacy Toggle Group
+Private/public/shared visibility toggles.
+
+<ComponentPreview name="privacy-toggle-group" registry="privacy-toggle-group">
+  <PrivacyToggleGroup />
+</ComponentPreview>
+
+### Display Mode Toggle Group
+Compact and expanded layout toggle.
+
+<ComponentPreview
+  name="display-mode-toggle-group"
+  registry="display-mode-toggle-group"
+>
+  <DisplayModeToggleGroup />
+</ComponentPreview>
+
+### Visibility Toggle Group
+Toggle control for visible UI layers.
+
+<ComponentPreview
+  name="visibility-toggle-group"
+  registry="visibility-toggle-group"
+>
+  <VisibilityToggleGroup />
+</ComponentPreview>
+
+### Difficulty Level Toggle Group
+Easy, medium, and hard difficulty selector.
+
+<ComponentPreview
+  name="difficulty-level-toggle-group"
+  registry="difficulty-level-toggle-group"
+>
+  <DifficultyLevelToggleGroup />
+</ComponentPreview>
+
+### Select All Toggle Group
+Single-select all/none state pattern.
+
+<ComponentPreview
+  name="select-all-toggle-group"
+  registry="select-all-toggle-group"
+>
+  <SelectAllToggleGroup />
+</ComponentPreview>
+
+### Text Alignment Toggle Group
+Classic alignment toolbar control.
+
+<ComponentPreview
+  name="text-alignment-toggle-group"
+  registry="text-alignment-toggle-group"
+>
+  <TextAlignmentToggleGroup />
+</ComponentPreview>
+
+### View Mode Toggle Group
+Grid vs list view toggle.
+
+<ComponentPreview name="view-mode-toggle-group" registry="view-mode-toggle-group">
+  <ViewModeToggleGroup />
+</ComponentPreview>
+
+### Chart Type Toggle Group
+Chart style quick switch.
+
+<ComponentPreview
+  name="chart-type-toggle-group"
+  registry="chart-type-toggle-group"
+>
+  <ChartTypeToggleGroup />
+</ComponentPreview>
+
+### Volume Control Toggle Group
+Simple mute/medium volume selector.
+
+<ComponentPreview
+  name="volume-control-toggle-group"
+  registry="volume-control-toggle-group"
+>
+  <VolumeControlToggleGroup />
+</ComponentPreview>
+
+### Theme Switcher Toggle Group
+Light and dark mode toggle.
+
+<ComponentPreview
+  name="theme-switcher-toggle-group"
+  registry="theme-switcher-toggle-group"
+>
+  <ThemeSwitcherToggleGroup />
+</ComponentPreview>
+
+### Text Formatting Toggle Group
+Multi-select formatting toolbar.
+
+<ComponentPreview
+  name="text-formatting-toggle-group"
+  registry="text-formatting-toggle-group"
+>
+  <TextFormattingToggleGroup />
+</ComponentPreview>
+
+### Priority Filter Toggle Group
+Priority level filter control.
+
+<ComponentPreview
+  name="priority-filter-toggle-group"
+  registry="priority-filter-toggle-group"
+>
+  <PriorityFilterToggleGroup />
+</ComponentPreview>
+
+### Sort Direction Toggle Group
+Ascending and descending sort toggle.
+
+<ComponentPreview
+  name="sort-direction-toggle-group"
+  registry="sort-direction-toggle-group"
+>
+  <SortDirectionToggleGroup />
+</ComponentPreview>
+
+### Status Filter Toggle Group
+Status multi-filter selection.
+
+<ComponentPreview
+  name="status-filter-toggle-group"
+  registry="status-filter-toggle-group"
+>
+  <StatusFilterToggleGroup />
+</ComponentPreview>
+
+### Period Selector Toggle Group
+Day, week, month, year period selector.
+
+<ComponentPreview
+  name="period-selector-toggle-group"
+  registry="period-selector-toggle-group"
+>
+  <PeriodSelectorToggleGroup />
+</ComponentPreview>
