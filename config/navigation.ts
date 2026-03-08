@@ -270,6 +270,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/skeleton",
         description: "Placeholder loading blocks",
         icon: "SquareCheck",
+        isNew: +20,
       },
       {
         id: "slider",
