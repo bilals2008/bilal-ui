@@ -146,7 +146,7 @@ export const navigationSections: NavSection[] = [
         title: "Checkbox",
         href: "/docs/components/checkbox",
         description: "A control for toggling between checked and unchecked",
-        isNew: 7,
+        isNew: +7,
         icon: "SquareCheck",
       },
       {
@@ -169,7 +169,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/drawer",
         description: "Slide-up panel for focused tasks",
         icon: "PanelTop",
-        isNew: 10,
+        isNew: +10,
       },
       {
         id: "dropdown-menu",
@@ -177,7 +177,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/dropdown-menu",
         description: "Displays a menu to the user when triggered by a button",
         icon: "Menu",
-        isNew: 10
+        isNew: +10
       },
       {
         id: "input-otp",
@@ -222,6 +222,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/radio-group",
         description: "Single-choice selection group",
         icon: "SquareCheck",
+        isNew: +8,
       },
       {
         id: "textarea",
@@ -237,6 +238,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/select",
         description: "Displays a list of options for the user to pick from",
         icon: "ListFilter",
+        isNew: +7
       },
       {
         id: "combobox",
@@ -244,7 +246,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/combobox",
         description: "Searchable select input for quick option discovery",
         icon: "ChevronsUpDown",
-        isNew: 3,
+        isNew: +3,
       },
       {
         id: "separator",
@@ -252,6 +254,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/separator",
         description: "Visually separates content sections",
         icon: "ListCollapse",
+        isNew: +18,
       },
       {
         id: "sheet",
@@ -259,6 +262,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/sheet",
         description: "Side panel overlay for contextual content",
         icon: "PanelTop",
+        isNew: +14,
       },
       {
         id: "skeleton",
@@ -266,6 +270,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/skeleton",
         description: "Placeholder loading blocks",
         icon: "SquareCheck",
+        isNew: +20,
       },
       {
         id: "slider",
@@ -273,6 +278,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/slider",
         description: "Interactive range input",
         icon: "ToggleRight",
+        isNew: +15
       },
       {
         id: "switch",
@@ -280,6 +286,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/switch",
         description: "A control that allows the user to toggle between checked and unchecked",
         icon: "ToggleRight",
+        isNew: +20,
       },
       {
         id: "tabs",
@@ -302,6 +309,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/toggle-group",
         description: "Grouped toggle controls",
         icon: "ToggleRight",
+        isNew: +20,
       },
       {
         id: "tooltip",

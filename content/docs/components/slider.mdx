@@ -4,11 +4,27 @@ description: An input for selecting a value from a range.
 ---
 
 import { BasicSlider } from "@/components/bilalUi/slider/basic-slider";
+import { BlurSlider } from "@/components/bilalUi/slider/blur-slider";
+import { BrightnessSlider } from "@/components/bilalUi/slider/brightness-slider";
+import { DisabledSlider } from "@/components/bilalUi/slider/disabled-slider";
+import { GradientSlider } from "@/components/bilalUi/slider/gradient-slider";
+import { LargeSlider } from "@/components/bilalUi/slider/large-slider";
+import { OpacitySlider } from "@/components/bilalUi/slider/opacity-slider";
+import { PriceRangeSlider } from "@/components/bilalUi/slider/price-range-slider";
+import { RangeSlider } from "@/components/bilalUi/slider/range-slider";
+import { SaturationSlider } from "@/components/bilalUi/slider/saturation-slider";
+import { SmallSlider } from "@/components/bilalUi/slider/small-slider";
+import { SpeedSlider } from "@/components/bilalUi/slider/speed-slider";
+import { StepSlider } from "@/components/bilalUi/slider/step-slider";
+import { TemperatureSlider } from "@/components/bilalUi/slider/temperature-slider";
+import { TimeSlider } from "@/components/bilalUi/slider/time-slider";
+import { VolumeSlider } from "@/components/bilalUi/slider/volume-slider";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 import { Callout } from "@/components/ui/callout";
 
-<Callout title="Under Development" type="warn">
-  This component is currently being updated with more polished variants.
+<Callout title="Expanded Variants" type="info">
+  This page now includes multiple slider patterns for controls, media, filters,
+  and settings.
 </Callout>
 
 ### Basic Slider
@@ -18,8 +34,108 @@ A simple single-thumb slider with a default value.
   <BasicSlider />
 </ComponentPreview>
 
-<Callout title="More Variants Coming Soon" type="info">
-  More variants and refinements will be added in upcoming updates.
-</Callout>
+### Range Slider
+Dual-thumb slider for selecting a min and max value.
 
+<ComponentPreview name="range-slider" registry="range-slider">
+  <RangeSlider />
+</ComponentPreview>
+
+### Disabled Slider
+A non-interactive slider state for read-only contexts.
+
+<ComponentPreview name="disabled-slider" registry="disabled-slider">
+  <DisabledSlider />
+</ComponentPreview>
+
+### Step Slider
+Slider with fixed increments for controlled selections.
+
+<ComponentPreview name="step-slider" registry="step-slider">
+  <StepSlider />
+</ComponentPreview>
+
+### Small Slider
+Compact slider variant for dense UI layouts.
+
+<ComponentPreview name="small-slider" registry="small-slider">
+  <SmallSlider />
+</ComponentPreview>
+
+### Large Slider
+Larger hit-area slider for improved accessibility.
+
+<ComponentPreview name="large-slider" registry="large-slider">
+  <LargeSlider />
+</ComponentPreview>
+
+### Volume Slider
+Media volume control slider with live percentage feedback.
+
+<ComponentPreview name="volume-slider" registry="volume-slider">
+  <VolumeSlider />
+</ComponentPreview>
+
+### Temperature Slider
+Temperature selector with dynamic visual feedback.
+
+<ComponentPreview name="temperature-slider" registry="temperature-slider">
+  <TemperatureSlider />
+</ComponentPreview>
+
+### Brightness Slider
+Brightness control with real-time preview panel.
+
+<ComponentPreview name="brightness-slider" registry="brightness-slider">
+  <BrightnessSlider />
+</ComponentPreview>
+
+### Price Range Slider
+Styled dual-thumb slider for price filtering.
+
+<ComponentPreview name="price-range-slider" registry="price-range-slider">
+  <PriceRangeSlider />
+</ComponentPreview>
+
+### Gradient Slider
+Hue selection slider with color preview.
+
+<ComponentPreview name="gradient-slider" registry="gradient-slider">
+  <GradientSlider />
+</ComponentPreview>
+
+### Time Slider
+Duration selector for minute/hour ranges.
+
+<ComponentPreview name="time-slider" registry="time-slider">
+  <TimeSlider />
+</ComponentPreview>
+
+### Speed Slider
+Playback speed control with decimal increments.
+
+<ComponentPreview name="speed-slider" registry="speed-slider">
+  <SpeedSlider />
+</ComponentPreview>
+
+### Opacity Slider
+Opacity control with visual alpha preview.
+
+<ComponentPreview name="opacity-slider" registry="opacity-slider">
+  <OpacitySlider />
+</ComponentPreview>
+
+### Saturation Slider
+Color saturation adjustment slider with live preview.
+
+<ComponentPreview name="saturation-slider" registry="saturation-slider">
+  <SaturationSlider />
+</ComponentPreview>
+
+### Blur Slider
+Image blur intensity slider with pixel-level control.
+
+<ComponentPreview name="blur-slider" registry="blur-slider">
+  <BlurSlider />
+</ComponentPreview>
 

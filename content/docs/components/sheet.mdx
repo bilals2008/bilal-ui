@@ -4,11 +4,26 @@ description: Displays a panel that slides in from the edge of the screen.
 ---
 
 import { BasicSheet } from "@/components/bilalUi/sheet/basic-sheet";
+import { CommandPaletteSheet } from "@/components/bilalUi/sheet/command-palette-sheet";
+import { CompactDrawerSheet } from "@/components/bilalUi/sheet/compact-drawer-sheet";
+import { ComparisonSheet } from "@/components/bilalUi/sheet/comparison-sheet";
+import { FilterPanelSheet } from "@/components/bilalUi/sheet/filter-panel-sheet";
+import { FloatingActionSheet } from "@/components/bilalUi/sheet/floating-action-sheet";
+import { GlowingBorderSheet } from "@/components/bilalUi/sheet/glowing-border-sheet";
+import { IconNudgeSheet } from "@/components/bilalUi/sheet/icon-nudge-sheet";
+import { MinimalistSheet } from "@/components/bilalUi/sheet/minimalist-sheet";
+import { ModalStyleSheet } from "@/components/bilalUi/sheet/modal-style-sheet";
+import { NotificationCenterSheet } from "@/components/bilalUi/sheet/notification-center-sheet";
+import { ResponsiveMobileSheet } from "@/components/bilalUi/sheet/responsive-mobile-sheet";
+import { SettingsSidebarSheet } from "@/components/bilalUi/sheet/settings-sidebar-sheet";
+import { SlideBorderShiftSheet } from "@/components/bilalUi/sheet/slide-border-shift-sheet";
+import { SlideOutMenuSheet } from "@/components/bilalUi/sheet/slide-out-menu-sheet";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 import { Callout } from "@/components/ui/callout";
 
-<Callout title="Under Development" type="warn">
-  This component is currently being updated with more polished variants.
+<Callout title="Expanded Variants" type="info">
+  This page now includes sheet patterns for settings, filters, search, and
+  navigation flows.
 </Callout>
 
 ### Basic Sheet
@@ -18,6 +33,118 @@ A right-side settings panel with quick toggles and action buttons.
   <BasicSheet />
 </ComponentPreview>
 
-<Callout title="More Variants Coming Soon" type="info">
-  More variants and refinements will be added in upcoming updates.
-</Callout>
+### Minimalist Sheet
+Compact settings sheet with minimal visual weight.
+
+<ComponentPreview name="minimalist-sheet" registry="minimalist-sheet">
+  <MinimalistSheet />
+</ComponentPreview>
+
+### Glowing Border Sheet
+Filter panel with subtle hover glow and accent transitions.
+
+<ComponentPreview name="glowing-border-sheet" registry="glowing-border-sheet">
+  <GlowingBorderSheet />
+</ComponentPreview>
+
+### Icon Nudge Sheet
+Search sheet with icon micro-motion on trigger hover.
+
+<ComponentPreview name="icon-nudge-sheet" registry="icon-nudge-sheet">
+  <IconNudgeSheet />
+</ComponentPreview>
+
+### Slide Border Shift Sheet
+Details sheet with accent border and gradient surface.
+
+<ComponentPreview
+  name="slide-border-shift-sheet"
+  registry="slide-border-shift-sheet"
+>
+  <SlideBorderShiftSheet />
+</ComponentPreview>
+
+### Command Palette Sheet
+Search-focused command palette style sheet.
+
+<ComponentPreview
+  name="command-palette-sheet"
+  registry="command-palette-sheet"
+>
+  <CommandPaletteSheet />
+</ComponentPreview>
+
+### Notification Center Sheet
+Notification stack layout with status icons.
+
+<ComponentPreview
+  name="notification-center-sheet"
+  registry="notification-center-sheet"
+>
+  <NotificationCenterSheet />
+</ComponentPreview>
+
+### Settings Sidebar Sheet
+Full-height settings sidebar pattern.
+
+<ComponentPreview
+  name="settings-sidebar-sheet"
+  registry="settings-sidebar-sheet"
+>
+  <SettingsSidebarSheet />
+</ComponentPreview>
+
+### Floating Action Sheet
+Floating trigger that opens quick actions.
+
+<ComponentPreview
+  name="floating-action-sheet"
+  registry="floating-action-sheet"
+>
+  <FloatingActionSheet />
+</ComponentPreview>
+
+### Filter Panel Sheet
+Advanced filter controls with grouped choices.
+
+<ComponentPreview name="filter-panel-sheet" registry="filter-panel-sheet">
+  <FilterPanelSheet />
+</ComponentPreview>
+
+### Slide-Out Menu Sheet
+Navigation menu sheet that slides from the left.
+
+<ComponentPreview name="slide-out-menu-sheet" registry="slide-out-menu-sheet">
+  <SlideOutMenuSheet />
+</ComponentPreview>
+
+### Modal Style Sheet
+Confirmation-focused sheet with warning context.
+
+<ComponentPreview name="modal-style-sheet" registry="modal-style-sheet">
+  <ModalStyleSheet />
+</ComponentPreview>
+
+### Compact Drawer Sheet
+Action list in a compact narrow sheet.
+
+<ComponentPreview name="compact-drawer-sheet" registry="compact-drawer-sheet">
+  <CompactDrawerSheet />
+</ComponentPreview>
+
+### Comparison Sheet
+Two-column comparison layout inside a wide sheet.
+
+<ComponentPreview name="comparison-sheet" registry="comparison-sheet">
+  <ComparisonSheet />
+</ComponentPreview>
+
+### Responsive Mobile Sheet
+Mobile-first form sheet with responsive footer actions.
+
+<ComponentPreview
+  name="responsive-mobile-sheet"
+  registry="responsive-mobile-sheet"
+>
+  <ResponsiveMobileSheet />
+</ComponentPreview>
