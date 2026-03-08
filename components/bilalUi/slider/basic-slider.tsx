@@ -1,10 +1,10 @@
 "use client";
 
 import * as React from "react";
-
 import { cn } from "@/lib/utils";
 import { Slider } from "@/components/ui/slider";
 
+// Helper functions for color mapping.
 function getSliderTone(value: number) {
   if (value >= 90) return "danger";
   if (value >= 70) return "warning-high";
@@ -41,6 +41,7 @@ export function BasicSlider() {
         step={1}
         className={cn(getToneClasses(tone))}
       />
+      <p className="mt-2 text-sm text-muted-foreground">Value: {value}%</p>
     </div>
   );
 }
