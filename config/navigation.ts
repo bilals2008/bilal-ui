@@ -215,6 +215,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/progress",
         description: "Visual indicator for completion state",
         icon: "PanelTop",
+        isNew: +19,
       },
       {
         id: "radio-group",
