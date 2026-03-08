@@ -146,7 +146,7 @@ export const navigationSections: NavSection[] = [
         title: "Checkbox",
         href: "/docs/components/checkbox",
         description: "A control for toggling between checked and unchecked",
-        isNew: 7,
+        isNew: +7,
         icon: "SquareCheck",
       },
       {
@@ -169,7 +169,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/drawer",
         description: "Slide-up panel for focused tasks",
         icon: "PanelTop",
-        isNew: 10,
+        isNew: +10,
       },
       {
         id: "dropdown-menu",
@@ -177,7 +177,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/dropdown-menu",
         description: "Displays a menu to the user when triggered by a button",
         icon: "Menu",
-        isNew: 10
+        isNew: +10
       },
       {
         id: "input-otp",
@@ -246,7 +246,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/combobox",
         description: "Searchable select input for quick option discovery",
         icon: "ChevronsUpDown",
-        isNew: 3,
+        isNew: +3,
       },
       {
         id: "separator",
@@ -275,6 +275,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/slider",
         description: "Interactive range input",
         icon: "ToggleRight",
+        isNew: +15
       },
       {
         id: "switch",
