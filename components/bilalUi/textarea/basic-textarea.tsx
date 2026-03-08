@@ -1,4 +1,5 @@
-// File: components/bilalUi/textarea/basic-textarea.tsx
+"use client";
+
 import { Textarea } from "@/components/ui/textarea";
 
 export function BasicTextarea() {
@@ -8,3 +9,4 @@ export function BasicTextarea() {
     </div>
   );
 }
+
