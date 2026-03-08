@@ -294,7 +294,7 @@ export const navigationSections: NavSection[] = [
         title: "Tabs",
         href: "/docs/components/tabs",
         description: "A set of layered sections displayed one at a time",
-        isUpdated: true,
+        isNew: +20,
         icon: "PanelTop",
       },
       {
