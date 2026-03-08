@@ -4,11 +4,12 @@ description: Displays a list of options for the user to pick from, triggered by 
 ---
 
 import { BasicSelect } from "@/components/bilalUi/select/basic-select";
+import { IconSelect } from "@/components/bilalUi/select/icon-select";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 import { Callout } from "@/components/ui/callout";
 
-<Callout title="Under Development" type="warn">
-  This component is currently being updated with more polished variants.
+<Callout title="Expanded Variants" type="info">
+  This page now includes more select patterns for forms, filters, and settings.
 </Callout>
 
 ### Basic Select
@@ -18,8 +19,9 @@ A simple dropdown to pick one option from a list.
   <BasicSelect />
 </ComponentPreview>
 
-<Callout title="More Variants Coming Soon" type="info">
-  More variants and refinements will be added in upcoming updates.
-</Callout>
+### Icon Select
+A select input with colorful icons in the trigger and dropdown options.
 
-
+<ComponentPreview name="icon-select" registry="icon-select">
+  <IconSelect />
+</ComponentPreview>
