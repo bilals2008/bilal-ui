@@ -1,4 +1,5 @@
-// File: components/bilalUi/progress/basic-progress.tsx
+"use client";
+
 import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
 
@@ -27,11 +28,11 @@ function getToneClasses(tone: ReturnType<typeof getProgressTone>) {
 
 export function BasicProgress() {
   const value = 60;
-  const tone = getProgressTone(value);
 
   return (
     <div className="w-full max-w-sm">
-      <Progress value={value} className={cn(getToneClasses(tone))} />
+      <Progress value={value} className={cn(getToneClasses(getProgressTone(value)))} />
     </div>
   );
 }
+

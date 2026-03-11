@@ -3,38 +3,185 @@ title: Avatar
 description: An image element with a fallback for representing the user.
 ---
 
-import { BasicAvatar } from "@/components/bilalUi/avatar/basic-avatar";
-import { BadgeAvatar } from "@/components/bilalUi/avatar/badge-avatar";
-import { AnimatedAvatarGroupDemo } from "@/components/bilalUi/avatar/animated-avatar-group";
+import { AvatarAddMember } from "@/components/bilalUi/avatar/add-member-avatar";
+import { AvatarAdminBadge } from "@/components/bilalUi/avatar/admin-badge-avatar";
+import { AvatarColoredFallbacks } from "@/components/bilalUi/avatar/colored-fallbacks-avatar";
+import { AvatarConnectionStatus } from "@/components/bilalUi/avatar/connection-status-avatar";
+import { AvatarDefault } from "@/components/bilalUi/avatar/default-avatar";
+import { AvatarEditable } from "@/components/bilalUi/avatar/editable-avatar";
+import { AvatarEmojiFallback } from "@/components/bilalUi/avatar/emoji-fallback-avatar";
+import { AvatarFallbackOnly } from "@/components/bilalUi/avatar/fallback-only-avatar";
+import { AvatarGroup } from "@/components/bilalUi/avatar/group-avatar";
+import { AvatarNotifBell } from "@/components/bilalUi/avatar/notif-bell-avatar";
+import { AvatarWithNotifBadge } from "@/components/bilalUi/avatar/notif-badge-avatar";
+import { AvatarProBadge } from "@/components/bilalUi/avatar/pro-badge-avatar";
+import { AvatarRoundedSquare } from "@/components/bilalUi/avatar/rounded-square-avatar";
+import { AvatarSizes } from "@/components/bilalUi/avatar/sizes-avatar";
+import { AvatarStatusDot } from "@/components/bilalUi/avatar/status-dot-avatar";
+import { AvatarTeamList } from "@/components/bilalUi/avatar/team-list-avatar";
+import { AvatarVerified } from "@/components/bilalUi/avatar/verified-avatar";
+import { AvatarWithName } from "@/components/bilalUi/avatar/with-name-avatar";
+import { AvatarWithNameRole } from "@/components/bilalUi/avatar/with-name-role-avatar";
+import { AvatarWithRing } from "@/components/bilalUi/avatar/ring-avatar";
 import { Callout } from "@/components/ui/callout";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 
-<Callout title="Under Development" type="warn">
-  This component is currently being updated with more polished variants.
+<Callout title="Expanded Variants" type="info">
+  This page now includes avatar patterns for status badges, team presence,
+  editable profiles, grouped members, and richer account cards.
 </Callout>
 
-### Basic Avatar
-A basic avatar with image and fallback.
+### Default Avatar
+The base avatar with image and fallback.
 
-<ComponentPreview name="basic-avatar" registry="basic-avatar">
-  <BasicAvatar />
+<ComponentPreview name="default-avatar" registry="default-avatar">
+  <AvatarDefault />
 </ComponentPreview>
 
-### Badge Avatar
-Avatar with a verified status badge.
+### Fallback Only Avatar
+Displays initials without relying on an image source.
 
-<ComponentPreview name="badge-avatar" registry="badge-avatar">
-  <BadgeAvatar />
+<ComponentPreview name="fallback-only-avatar" registry="fallback-only-avatar">
+  <AvatarFallbackOnly />
 </ComponentPreview>
 
-### Animated Avatar Group
-A stacked group of avatars that expands smoothly on hover, with overflow count indicator.
+### Sizes Avatar
+Shows avatar sizing from compact to extra large.
 
-<ComponentPreview name="animated-avatar-group" registry="animated-avatar-group">
-  <AnimatedAvatarGroupDemo />
+<ComponentPreview name="sizes-avatar" registry="sizes-avatar">
+  <AvatarSizes />
 </ComponentPreview>
 
-<Callout title="More Variants Coming Soon" type="info">
-  More variants and refinements will be added in upcoming updates.
-</Callout>
+### Rounded Square Avatar
+Compares different corner radius treatments.
 
+<ComponentPreview
+  name="rounded-square-avatar"
+  registry="rounded-square-avatar"
+>
+  <AvatarRoundedSquare />
+</ComponentPreview>
+
+### Verified Avatar
+Adds a verification badge to the base avatar.
+
+<ComponentPreview name="verified-avatar" registry="verified-avatar">
+  <AvatarVerified />
+</ComponentPreview>
+
+### Status Dot Avatar
+Presence indicators for online, away, offline, and busy states.
+
+<ComponentPreview name="status-dot-avatar" registry="status-dot-avatar">
+  <AvatarStatusDot />
+</ComponentPreview>
+
+### Pro Badge Avatar
+Premium member presentation with crown badge.
+
+<ComponentPreview name="pro-badge-avatar" registry="pro-badge-avatar">
+  <AvatarProBadge />
+</ComponentPreview>
+
+### Admin Badge Avatar
+Administrative state with shield icon treatment.
+
+<ComponentPreview name="admin-badge-avatar" registry="admin-badge-avatar">
+  <AvatarAdminBadge />
+</ComponentPreview>
+
+### Notification Badge Avatar
+Avatar with a compact numeric badge.
+
+<ComponentPreview name="notif-badge-avatar" registry="notif-badge-avatar">
+  <AvatarWithNotifBadge />
+</ComponentPreview>
+
+### Editable Avatar
+Profile image pattern with camera affordance and hover overlay.
+
+<ComponentPreview name="editable-avatar" registry="editable-avatar">
+  <AvatarEditable />
+</ComponentPreview>
+
+### Group Avatar
+Stacked member avatars with overflow count.
+
+<ComponentPreview name="group-avatar" registry="group-avatar">
+  <AvatarGroup />
+</ComponentPreview>
+
+### With Name Avatar
+Simple identity row with name and email.
+
+<ComponentPreview name="with-name-avatar" registry="with-name-avatar">
+  <AvatarWithName />
+</ComponentPreview>
+
+### With Name Role Avatar
+Compact user card with role metadata and status.
+
+<ComponentPreview
+  name="with-name-role-avatar"
+  registry="with-name-role-avatar"
+>
+  <AvatarWithNameRole />
+</ComponentPreview>
+
+### Colored Fallbacks Avatar
+Fallback-only avatars with color-coded initials.
+
+<ComponentPreview
+  name="colored-fallbacks-avatar"
+  registry="colored-fallbacks-avatar"
+>
+  <AvatarColoredFallbacks />
+</ComponentPreview>
+
+### Emoji Fallback Avatar
+Uses emoji placeholders for playful identity states.
+
+<ComponentPreview
+  name="emoji-fallback-avatar"
+  registry="emoji-fallback-avatar"
+>
+  <AvatarEmojiFallback />
+</ComponentPreview>
+
+### Ring Avatar
+Highlights selected or active profiles with outer rings.
+
+<ComponentPreview name="ring-avatar" registry="ring-avatar">
+  <AvatarWithRing />
+</ComponentPreview>
+
+### Connection Status Avatar
+Network state badges for connected and offline members.
+
+<ComponentPreview
+  name="connection-status-avatar"
+  registry="connection-status-avatar"
+>
+  <AvatarConnectionStatus />
+</ComponentPreview>
+
+### Add Member Avatar
+Member group pattern with an inline add action.
+
+<ComponentPreview name="add-member-avatar" registry="add-member-avatar">
+  <AvatarAddMember />
+</ComponentPreview>
+
+### Team List Avatar
+List-style team roster with role and presence state.
+
+<ComponentPreview name="team-list-avatar" registry="team-list-avatar">
+  <AvatarTeamList />
+</ComponentPreview>
+
+### Notification Bell Avatar
+Avatar card with a notification bell badge.
+
+<ComponentPreview name="notif-bell-avatar" registry="notif-bell-avatar">
+  <AvatarNotifBell />
+</ComponentPreview>

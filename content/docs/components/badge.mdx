@@ -3,79 +3,179 @@ title: Badge
 description: Small status labels for metadata, states, and tags.
 ---
 
-import { BasicBadge } from "@/components/bilalUi/badge/basic-badge";
-import { DestructiveBadge } from "@/components/bilalUi/badge/destructive-badge";
-import { InfoBadge } from "@/components/bilalUi/badge/info-badge";
-import { NewBadge } from "@/components/bilalUi/badge/new-badge";
-import { SecondaryBadge } from "@/components/bilalUi/badge/secondary-badge";
-import { SoftBadge } from "@/components/bilalUi/badge/soft-badge";
-import { SuccessBadge } from "@/components/bilalUi/badge/success-badge";
+import { BadgeChangelog } from "@/components/bilalUi/badge/changelog-badge";
+import { BadgeCircle } from "@/components/bilalUi/badge/circle-badge";
+import { BadgeDefault } from "@/components/bilalUi/badge/default-badge";
+import { BadgeDismissible } from "@/components/bilalUi/badge/dismissible-badge";
+import { BadgeDisabled } from "@/components/bilalUi/badge/disabled-badge";
+import { BadgeFeatureFlags } from "@/components/bilalUi/badge/feature-flags-badge";
+import { BadgeGhostRow } from "@/components/bilalUi/badge/ghost-row-badge";
+import { BadgeInlineText } from "@/components/bilalUi/badge/inline-text-badge";
+import { BadgeNotificationCounts } from "@/components/bilalUi/badge/notification-counts-badge";
+import { BadgeOutlineRow } from "@/components/bilalUi/badge/outline-row-badge";
+import { BadgePlanTiers } from "@/components/bilalUi/badge/plan-tiers-badge";
+import { BadgeReleaseStages } from "@/components/bilalUi/badge/release-stages-badge";
+import { BadgeSizes } from "@/components/bilalUi/badge/badge-sizes";
+import { BadgeSpecialTypes } from "@/components/bilalUi/badge/special-types-badge";
+import { BadgeStatusPills } from "@/components/bilalUi/badge/status-pills-badge";
+import { BadgeStatusRow } from "@/components/bilalUi/badge/status-row-badge";
+import { BadgeTagCloud } from "@/components/bilalUi/badge/tag-cloud-badge";
+import { BadgeVersionTable } from "@/components/bilalUi/badge/version-table-badge";
+import { BadgeWithDot } from "@/components/bilalUi/badge/badge-with-dot";
+import { BadgeWithIcon } from "@/components/bilalUi/badge/badge-with-icon";
 import { Callout } from "@/components/ui/callout";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
-import { WarningBadge } from "@/components/bilalUi/badge/warning-badge";
 
-<Callout title="Under Development" type="warn">
-  This component is currently being updated with more polished variants.
+<Callout title="Expanded Variants" type="info">
+  Existing badge examples remain unchanged, and this page now includes a wider
+  set of state, release, notification, and inline content badge patterns.
 </Callout>
 
-### Soft Badge
-Soft variant badge.
+### Default Badge
+Primary badge appearance across default, light, outline, and ghost styles.
 
-<ComponentPreview name="soft-badge" registry="soft-badge">
-  <SoftBadge />
+<ComponentPreview name="default-badge" registry="default-badge">
+  <BadgeDefault />
 </ComponentPreview>
 
-### Primary Badge
-Primary variant badge.
+### Badge Sizes
+Shows the badge scale from `xs` to `lg`.
 
-<ComponentPreview name="basic-badge" registry="basic-badge">
-  <BasicBadge />
+<ComponentPreview name="badge-sizes" registry="badge-sizes">
+  <BadgeSizes />
 </ComponentPreview>
 
-### Secondary Badge
-A softer badge style for secondary emphasis.
+### Circle Badge
+Compact numeric and symbolic badges with circular shape.
 
-<ComponentPreview name="secondary-badge" registry="secondary-badge">
-  <SecondaryBadge />
+<ComponentPreview name="circle-badge" registry="circle-badge">
+  <BadgeCircle />
 </ComponentPreview>
 
-### New Badge
-A highlighted badge style for new items.
+### Badge With Dot
+Status labels using the built-in dot primitive.
 
-<ComponentPreview name="new-badge" registry="new-badge">
-  <NewBadge />
+<ComponentPreview name="badge-with-dot" registry="badge-with-dot">
+  <BadgeWithDot />
 </ComponentPreview>
 
-### Deprecated Badge
-Deprecated variant badge.
+### Dismissible Badge
+Token-style badges with removable actions.
 
-<ComponentPreview name="destructive-badge" registry="destructive-badge">
-  <DestructiveBadge />
+<ComponentPreview name="dismissible-badge" registry="dismissible-badge">
+  <BadgeDismissible />
 </ComponentPreview>
 
-### Stable Badge
-Stable variant badge.
+### Badge With Icon
+Leading icon treatment for plan and state labels.
 
-<ComponentPreview name="success-badge" registry="success-badge">
-  <SuccessBadge />
+<ComponentPreview name="badge-with-icon" registry="badge-with-icon">
+  <BadgeWithIcon />
 </ComponentPreview>
 
-### Info Badge
-Informational style badge.
+### Badge Status Row
+One state shown in all four appearances.
 
-<ComponentPreview name="info-badge" registry="info-badge">
-  <InfoBadge />
+<ComponentPreview name="status-row-badge" registry="status-row-badge">
+  <BadgeStatusRow />
 </ComponentPreview>
 
-### Soon Badge
-Soon variant badge.
+### Release Stages Badge
+Alpha through deprecated release lifecycle examples.
 
-<ComponentPreview name="warning-badge" registry="warning-badge">
-  <WarningBadge />
+<ComponentPreview
+  name="release-stages-badge"
+  registry="release-stages-badge"
+>
+  <BadgeReleaseStages />
 </ComponentPreview>
 
-<Callout title="More Variants Coming Soon" type="info">
-  More variants and refinements will be added in upcoming updates.
-</Callout>
+### Changelog Badge
+Release note labels for updates, fixes, docs, and perf changes.
 
+<ComponentPreview name="changelog-badge" registry="changelog-badge">
+  <BadgeChangelog />
+</ComponentPreview>
 
+### Feature Flags Badge
+Flags for runtime, lab, legacy, and headless availability.
+
+<ComponentPreview
+  name="feature-flags-badge"
+  registry="feature-flags-badge"
+>
+  <BadgeFeatureFlags />
+</ComponentPreview>
+
+### Notification Counts Badge
+Circular count badges for inbox, alerts, and review totals.
+
+<ComponentPreview
+  name="notification-counts-badge"
+  registry="notification-counts-badge"
+>
+  <BadgeNotificationCounts />
+</ComponentPreview>
+
+### Plan Tiers Badge
+Pricing and plan emphasis with larger badge sizing.
+
+<ComponentPreview name="plan-tiers-badge" registry="plan-tiers-badge">
+  <BadgePlanTiers />
+</ComponentPreview>
+
+### Tag Cloud Badge
+Mixed-size tags with removable actions.
+
+<ComponentPreview name="tag-cloud-badge" registry="tag-cloud-badge">
+  <BadgeTagCloud />
+</ComponentPreview>
+
+### Status Pills Badge
+Rounded status pills including a live animated dot state.
+
+<ComponentPreview name="status-pills-badge" registry="status-pills-badge">
+  <BadgeStatusPills />
+</ComponentPreview>
+
+### Special Types Badge
+WIP, lab, request, and featured metadata styles.
+
+<ComponentPreview name="special-types-badge" registry="special-types-badge">
+  <BadgeSpecialTypes />
+</ComponentPreview>
+
+### Outline Row Badge
+Outline treatment across many supported badge variants.
+
+<ComponentPreview name="outline-row-badge" registry="outline-row-badge">
+  <BadgeOutlineRow />
+</ComponentPreview>
+
+### Ghost Row Badge
+Ghost appearance examples for lightweight metadata.
+
+<ComponentPreview name="ghost-row-badge" registry="ghost-row-badge">
+  <BadgeGhostRow />
+</ComponentPreview>
+
+### Inline Text Badge
+Inline badge usage inside prose and UI copy.
+
+<ComponentPreview name="inline-text-badge" registry="inline-text-badge">
+  <BadgeInlineText />
+</ComponentPreview>
+
+### Disabled Badge
+Disabled states across multiple variants and appearances.
+
+<ComponentPreview name="disabled-badge" registry="disabled-badge">
+  <BadgeDisabled />
+</ComponentPreview>
+
+### Version Table Badge
+Structured package table with version and lifecycle badges.
+
+<ComponentPreview name="version-table-badge" registry="version-table-badge">
+  <BadgeVersionTable />
+</ComponentPreview>

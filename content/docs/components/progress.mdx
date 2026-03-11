@@ -4,11 +4,31 @@ description: Displays an indicator showing the completion progress of a task.
 ---
 
 import { BasicProgress } from "@/components/bilalUi/progress/basic-progress";
+import { ProgressAnimated } from "@/components/bilalUi/progress/progress-animated";
+import { ProgressCircular } from "@/components/bilalUi/progress/progress-circular";
+import { ProgressControlled } from "@/components/bilalUi/progress/progress-controlled";
+import { ProgressCountdown } from "@/components/bilalUi/progress/progress-countdown";
+import { ProgressFileUpload } from "@/components/bilalUi/progress/progress-file-upload";
+import { ProgressGradient } from "@/components/bilalUi/progress/progress-gradient";
+import { ProgressIndeterminate } from "@/components/bilalUi/progress/progress-indeterminate";
+import { ProgressInlineList } from "@/components/bilalUi/progress/progress-inline-list";
+import { ProgressMultiStep } from "@/components/bilalUi/progress/progress-multi-step";
+import { ProgressSegmented } from "@/components/bilalUi/progress/progress-segmented";
+import { ProgressSkillBars } from "@/components/bilalUi/progress/progress-skill-bars";
+import { ProgressStorage } from "@/components/bilalUi/progress/progress-storage";
+import { ProgressStriped } from "@/components/bilalUi/progress/progress-striped";
+import { ProgressSuccessError } from "@/components/bilalUi/progress/progress-success-error";
+import { ProgressThick } from "@/components/bilalUi/progress/progress-thick";
+import { ProgressThin } from "@/components/bilalUi/progress/progress-thin";
+import { ProgressWithBadge } from "@/components/bilalUi/progress/progress-with-badge";
+import { ProgressWithLabel } from "@/components/bilalUi/progress/progress-with-label";
+import { ProgressWithPercentage } from "@/components/bilalUi/progress/progress-with-percentage";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 import { Callout } from "@/components/ui/callout";
 
-<Callout title="Under Development" type="warn">
-  This component is currently being updated with more polished variants.
+<Callout title="Expanded Variants" type="info">
+  This page now includes progress patterns for uploads, storage, multi-step
+  flows, inline lists, countdowns, and status feedback.
 </Callout>
 
 ### Basic Progress
@@ -18,8 +38,145 @@ A simple progress indicator with a fixed value.
   <BasicProgress />
 </ComponentPreview>
 
-<Callout title="More Variants Coming Soon" type="info">
-  More variants and refinements will be added in upcoming updates.
-</Callout>
+### Progress With Label
+Progress bar with simple label text.
 
+<ComponentPreview name="progress-with-label" registry="progress-with-label">
+  <ProgressWithLabel />
+</ComponentPreview>
+
+### Progress With Percentage
+Progress bar with numeric percentage.
+
+<ComponentPreview
+  name="progress-with-percentage"
+  registry="progress-with-percentage"
+>
+  <ProgressWithPercentage />
+</ComponentPreview>
+
+### Progress Animated
+Auto-incrementing animated progress example.
+
+<ComponentPreview name="progress-animated" registry="progress-animated">
+  <ProgressAnimated />
+</ComponentPreview>
+
+### Progress Controlled
+Progress controlled with increment/decrement buttons.
+
+<ComponentPreview name="progress-controlled" registry="progress-controlled">
+  <ProgressControlled />
+</ComponentPreview>
+
+### Progress Multi Step
+Stepper-style progress for multi-stage flows.
+
+<ComponentPreview name="progress-multi-step" registry="progress-multi-step">
+  <ProgressMultiStep />
+</ComponentPreview>
+
+### Progress Segmented
+Segmented progress bar with legend.
+
+<ComponentPreview name="progress-segmented" registry="progress-segmented">
+  <ProgressSegmented />
+</ComponentPreview>
+
+### Progress Thin
+Minimal thin progress line.
+
+<ComponentPreview name="progress-thin" registry="progress-thin">
+  <ProgressThin />
+</ComponentPreview>
+
+### Progress Thick
+Larger bold progress bar variant.
+
+<ComponentPreview name="progress-thick" registry="progress-thick">
+  <ProgressThick />
+</ComponentPreview>
+
+### Progress With Badge
+Progress row with status badge.
+
+<ComponentPreview name="progress-with-badge" registry="progress-with-badge">
+  <ProgressWithBadge />
+</ComponentPreview>
+
+### Progress Indeterminate
+Indeterminate loading bar pattern.
+
+<ComponentPreview
+  name="progress-indeterminate"
+  registry="progress-indeterminate"
+>
+  <ProgressIndeterminate />
+</ComponentPreview>
+
+### Progress Success Error
+Interactive success/error state transitions.
+
+<ComponentPreview
+  name="progress-success-error"
+  registry="progress-success-error"
+>
+  <ProgressSuccessError />
+</ComponentPreview>
+
+### Progress Gradient
+Gradient-filled progress indicator.
+
+<ComponentPreview name="progress-gradient" registry="progress-gradient">
+  <ProgressGradient />
+</ComponentPreview>
+
+### Progress Striped
+Striped visual treatment for activity progress.
+
+<ComponentPreview name="progress-striped" registry="progress-striped">
+  <ProgressStriped />
+</ComponentPreview>
+
+### Progress Circular
+Circular SVG progress indicator.
+
+<ComponentPreview name="progress-circular" registry="progress-circular">
+  <ProgressCircular />
+</ComponentPreview>
+
+### Progress Inline List
+Small inline progress bars for lists.
+
+<ComponentPreview name="progress-inline-list" registry="progress-inline-list">
+  <ProgressInlineList />
+</ComponentPreview>
+
+### Progress Countdown
+Decreasing countdown progress with controls.
+
+<ComponentPreview name="progress-countdown" registry="progress-countdown">
+  <ProgressCountdown />
+</ComponentPreview>
+
+### Progress File Upload
+Multiple file upload progress list.
+
+<ComponentPreview name="progress-file-upload" registry="progress-file-upload">
+  <ProgressFileUpload />
+</ComponentPreview>
+
+### Progress Skill Bars
+Labeled skill percentage bars.
+
+<ComponentPreview name="progress-skill-bars" registry="progress-skill-bars">
+  <ProgressSkillBars />
+</ComponentPreview>
+
+### Progress Storage
+Storage usage card with dual labels.
+
+<ComponentPreview name="progress-storage" registry="progress-storage">
+  <ProgressStorage />
+</ComponentPreview>
 

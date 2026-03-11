@@ -215,6 +215,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/progress",
         description: "Visual indicator for completion state",
         icon: "PanelTop",
+        isNew: +19,
       },
       {
         id: "radio-group",
@@ -230,7 +231,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/textarea",
         description: "Displays a form textarea or a component that looks like a textarea",
         icon: "AlignLeft",
-        isNew: +2
+        isNew: +21
       },
       {
         id: "select",
@@ -293,7 +294,7 @@ export const navigationSections: NavSection[] = [
         title: "Tabs",
         href: "/docs/components/tabs",
         description: "A set of layered sections displayed one at a time",
-        isUpdated: true,
+        isNew: +20,
         icon: "PanelTop",
       },
       {
@@ -302,6 +303,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/toast",
         description: "Temporary notification messages",
         icon: "AlertCircle",
+        isNew: +19,
       },
       {
         id: "toggle-group",
@@ -317,6 +319,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/tooltip",
         description: "Contextual hint on hover/focus",
         icon: "CircleHelp",
+        isNew: +21,
       },
       {
         id: "aspect-ratio",

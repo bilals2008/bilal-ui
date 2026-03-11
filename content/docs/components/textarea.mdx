@@ -6,11 +6,31 @@ description: Displays a form textarea or a component that looks like a textarea.
 import { BasicTextarea } from "@/components/bilalUi/textarea/basic-textarea";
 import { CommandTextarea } from "@/components/bilalUi/textarea/command-textarea";
 import { DiffTextarea } from "@/components/bilalUi/textarea/diff-textarea";
+import { TextareaAutoResize } from "@/components/bilalUi/textarea/textarea-auto-resize";
+import { TextareaBorderless } from "@/components/bilalUi/textarea/textarea-borderless";
+import { TextareaCodeInput } from "@/components/bilalUi/textarea/textarea-code-input";
+import { TextareaDisabled } from "@/components/bilalUi/textarea/textarea-disabled";
+import { TextareaFixedHeight } from "@/components/bilalUi/textarea/textarea-fixed-height";
+import { TextareaFloatingLabel } from "@/components/bilalUi/textarea/textarea-floating-label";
+import { TextareaLargeEditor } from "@/components/bilalUi/textarea/textarea-large-editor";
+import { TextareaReadOnly } from "@/components/bilalUi/textarea/textarea-read-only";
+import { TextareaSuccess } from "@/components/bilalUi/textarea/textarea-success";
+import { TextareaWithBadge } from "@/components/bilalUi/textarea/textarea-with-badge";
+import { TextareaWithCharCount } from "@/components/bilalUi/textarea/textarea-with-char-count";
+import { TextareaWithClear } from "@/components/bilalUi/textarea/textarea-with-clear";
+import { TextareaWithError } from "@/components/bilalUi/textarea/textarea-with-error";
+import { TextareaWithHelperText } from "@/components/bilalUi/textarea/textarea-with-helper-text";
+import { TextareaWithLabel } from "@/components/bilalUi/textarea/textarea-with-label";
+import { TextareaWithSaveState } from "@/components/bilalUi/textarea/textarea-with-save-state";
+import { TextareaWithSubject } from "@/components/bilalUi/textarea/textarea-with-subject";
+import { TextareaWithSubmit } from "@/components/bilalUi/textarea/textarea-with-submit";
+import { TextareaWithWordCount } from "@/components/bilalUi/textarea/textarea-with-word-count";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 import { Callout } from "@/components/ui/callout";
 
-<Callout title="Under Development" type="warn">
-  This component is currently being updated with more polished variants.
+<Callout title="Expanded Variants" type="info">
+  This page now includes textarea patterns for forms, writing flows, feedback,
+  validation, and editor-like inputs.
 </Callout>
 
 ### Basic Textarea
@@ -34,7 +54,151 @@ A rewrite-focused textarea that highlights added text inline and surfaces remove
   <DiffTextarea />
 </ComponentPreview>
 
-<Callout title="More Variants Coming Soon" type="info">
-  More variants and refinements will be added in upcoming updates.
-</Callout>
+### Textarea With Label
+Textarea field paired with a standard label.
+
+<ComponentPreview name="textarea-with-label" registry="textarea-with-label">
+  <TextareaWithLabel />
+</ComponentPreview>
+
+### Textarea With Character Count
+Textarea that limits and displays character usage.
+
+<ComponentPreview
+  name="textarea-with-char-count"
+  registry="textarea-with-char-count"
+>
+  <TextareaWithCharCount />
+</ComponentPreview>
+
+### Textarea With Helper Text
+Textarea with supporting copy below the field.
+
+<ComponentPreview
+  name="textarea-with-helper-text"
+  registry="textarea-with-helper-text"
+>
+  <TextareaWithHelperText />
+</ComponentPreview>
+
+### Textarea With Error
+Error-state textarea with destructive styling.
+
+<ComponentPreview name="textarea-with-error" registry="textarea-with-error">
+  <TextareaWithError />
+</ComponentPreview>
+
+### Textarea Disabled
+Disabled textarea state.
+
+<ComponentPreview name="textarea-disabled" registry="textarea-disabled">
+  <TextareaDisabled />
+</ComponentPreview>
+
+### Textarea Read Only
+Read-only textarea for terms and immutable content.
+
+<ComponentPreview name="textarea-read-only" registry="textarea-read-only">
+  <TextareaReadOnly />
+</ComponentPreview>
+
+### Textarea Auto Resize
+Textarea that grows as content expands.
+
+<ComponentPreview name="textarea-auto-resize" registry="textarea-auto-resize">
+  <TextareaAutoResize />
+</ComponentPreview>
+
+### Textarea With Submit
+Comment-style textarea with inline submit action.
+
+<ComponentPreview name="textarea-with-submit" registry="textarea-with-submit">
+  <TextareaWithSubmit />
+</ComponentPreview>
+
+### Textarea With Clear
+Textarea with clear/reset affordance.
+
+<ComponentPreview name="textarea-with-clear" registry="textarea-with-clear">
+  <TextareaWithClear />
+</ComponentPreview>
+
+### Textarea Fixed Height
+Textarea with resizing disabled and fixed vertical space.
+
+<ComponentPreview name="textarea-fixed-height" registry="textarea-fixed-height">
+  <TextareaFixedHeight />
+</ComponentPreview>
+
+### Textarea Large Editor
+Full-width larger editor-like writing surface.
+
+<ComponentPreview name="textarea-large-editor" registry="textarea-large-editor">
+  <TextareaLargeEditor />
+</ComponentPreview>
+
+### Textarea Code Input
+Monospace textarea tuned for code snippets.
+
+<ComponentPreview name="textarea-code-input" registry="textarea-code-input">
+  <TextareaCodeInput />
+</ComponentPreview>
+
+### Textarea With Badge
+Label area with additional status badge.
+
+<ComponentPreview name="textarea-with-badge" registry="textarea-with-badge">
+  <TextareaWithBadge />
+</ComponentPreview>
+
+### Textarea Floating Label
+Floating label treatment for compact forms.
+
+<ComponentPreview
+  name="textarea-floating-label"
+  registry="textarea-floating-label"
+>
+  <TextareaFloatingLabel />
+</ComponentPreview>
+
+### Textarea With Word Count
+Shows both word and character totals.
+
+<ComponentPreview
+  name="textarea-with-word-count"
+  registry="textarea-with-word-count"
+>
+  <TextareaWithWordCount />
+</ComponentPreview>
+
+### Textarea With Save State
+Draft editing with save/revert controls.
+
+<ComponentPreview
+  name="textarea-with-save-state"
+  registry="textarea-with-save-state"
+>
+  <TextareaWithSaveState />
+</ComponentPreview>
+
+### Textarea Success
+Validated/success state for positive feedback.
+
+<ComponentPreview name="textarea-success" registry="textarea-success">
+  <TextareaSuccess />
+</ComponentPreview>
+
+### Textarea Borderless
+Minimal borderless writing surface.
+
+<ComponentPreview name="textarea-borderless" registry="textarea-borderless">
+  <TextareaBorderless />
+</ComponentPreview>
+
+### Textarea With Subject
+Two-field composition pattern with subject and body.
+
+<ComponentPreview name="textarea-with-subject" registry="textarea-with-subject">
+  <TextareaWithSubject />
+</ComponentPreview>
 
