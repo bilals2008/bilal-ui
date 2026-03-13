@@ -3,71 +3,191 @@ title: Input OTP
 description: Enter one-time passwords with segmented, accessible input slots.
 ---
 
-import { BasicInputOtp } from "@/components/bilalUi/input-otp/basic-input-otp";
-import { CardInputOtp } from "@/components/bilalUi/input-otp/card-input-otp";
-import { ErrorInputOtp } from "@/components/bilalUi/input-otp/error-input-otp";
-import { LongInputOtp } from "@/components/bilalUi/input-otp/long-input-otp";
-import { NumericOnlyInputOtp } from "@/components/bilalUi/input-otp/numeric-only-input-otp";
-import { ResendInputOtp } from "@/components/bilalUi/input-otp/resend-input-otp";
-import { VerificationInputOtp } from "@/components/bilalUi/input-otp/verification-input-otp";
+import { BadgeStatusInputOtp } from "@/components/bilalUi/input-otp/badge-status-input-otp";
+import { BrandedCardInputOtp } from "@/components/bilalUi/input-otp/branded-card-input-otp";
+import { CompactInlineInputOtp } from "@/components/bilalUi/input-otp/compact-inline-input-otp";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
+import { DefaultInputOtp } from "@/components/bilalUi/input-otp/default-input-otp";
+import { DisabledInputOtp } from "@/components/bilalUi/input-otp/disabled-input-otp";
+import { EmailFlowInputOtp } from "@/components/bilalUi/input-otp/email-flow-input-otp";
+import { ErrorStateInputOtp } from "@/components/bilalUi/input-otp/error-state-input-otp";
+import { ExpiryInputOtp } from "@/components/bilalUi/input-otp/expiry-input-otp";
+import { HintInputOtp } from "@/components/bilalUi/input-otp/hint-input-otp";
+import { InlineVerifyInputOtp } from "@/components/bilalUi/input-otp/inline-verify-input-otp";
+import { LabeledInputOtp } from "@/components/bilalUi/input-otp/labeled-input-otp";
+import { LicenseKeyInputOtp } from "@/components/bilalUi/input-otp/license-key-input-otp";
+import { OnboardingStepInputOtp } from "@/components/bilalUi/input-otp/onboarding-step-input-otp";
+import { PinInputOtp } from "@/components/bilalUi/input-otp/pin-input-otp";
+import { ProgressInputOtp } from "@/components/bilalUi/input-otp/progress-input-otp";
+import { ResendTimerInputOtp } from "@/components/bilalUi/input-otp/resend-timer-input-otp";
+import { SeparatedInputOtp } from "@/components/bilalUi/input-otp/separated-input-otp";
+import { SubmitInputOtp } from "@/components/bilalUi/input-otp/submit-input-otp";
+import { SuccessInputOtp } from "@/components/bilalUi/input-otp/success-input-otp";
+import { TwoFactorInputOtp } from "@/components/bilalUi/input-otp/two-factor-input-otp";
 import { Callout } from "@/components/ui/callout";
 
 <Callout title="Expanded Variants" type="info">
-  This page now includes multiple OTP patterns for authentication and verification flows.
+  This page now includes focused OTP patterns for authentication, onboarding,
+  resend states, inline verification, and card-based confirmation flows.
 </Callout>
 
-### Basic Input OTP
-A segmented one-time password input for verification flows.
+### Default Input OTP
+The base 6-digit OTP layout.
 
-<ComponentPreview name="basic-input-otp" registry="basic-input-otp">
-  <BasicInputOtp />
+<ComponentPreview name="default-input-otp" registry="default-input-otp">
+  <DefaultInputOtp />
 </ComponentPreview>
 
-### Verification Input OTP
-A verification flow where users can submit OTP and see the next-step success state.
+### Labeled Input OTP
+Adds label and helper text above the segmented input.
+
+<ComponentPreview name="labeled-input-otp" registry="labeled-input-otp">
+  <LabeledInputOtp />
+</ComponentPreview>
+
+### Separated Input OTP
+Uses a visual split to present the code in a `3 + 3` layout.
+
+<ComponentPreview name="separated-input-otp" registry="separated-input-otp">
+  <SeparatedInputOtp />
+</ComponentPreview>
+
+### PIN Input OTP
+A compact 4-digit PIN entry pattern.
+
+<ComponentPreview name="pin-input-otp" registry="pin-input-otp">
+  <PinInputOtp />
+</ComponentPreview>
+
+### License Key Input OTP
+An 8-character grouped input for license or recovery codes.
+
+<ComponentPreview name="license-key-input-otp" registry="license-key-input-otp">
+  <LicenseKeyInputOtp />
+</ComponentPreview>
+
+### Submit Input OTP
+Pairs the input with a verification action button.
+
+<ComponentPreview name="submit-input-otp" registry="submit-input-otp">
+  <SubmitInputOtp />
+</ComponentPreview>
+
+### Resend Timer Input OTP
+Shows resend timing feedback for SMS verification flows.
 
 <ComponentPreview
-  name="verification-input-otp"
-  registry="verification-input-otp"
+  name="resend-timer-input-otp"
+  registry="resend-timer-input-otp"
 >
-  <VerificationInputOtp />
+  <ResendTimerInputOtp />
 </ComponentPreview>
 
-### Card Input OTP
-A card-styled OTP layout with title and helper content.
+### Success Input OTP
+Displays a confirmed code with success feedback styling.
 
-<ComponentPreview name="card-input-otp" registry="card-input-otp">
-  <CardInputOtp />
+<ComponentPreview name="success-input-otp" registry="success-input-otp">
+  <SuccessInputOtp />
 </ComponentPreview>
 
-### Error Input OTP
-An OTP variant with inline valid/invalid feedback states.
-
-<ComponentPreview name="error-input-otp" registry="error-input-otp">
-  <ErrorInputOtp />
-</ComponentPreview>
-
-### Resend Input OTP
-A verification input with resend timer and reset action.
-
-<ComponentPreview name="resend-input-otp" registry="resend-input-otp">
-  <ResendInputOtp />
-</ComponentPreview>
-
-### Numeric-Only Input OTP
-An OTP field that accepts and keeps only numeric characters.
+### Error State Input OTP
+Shows invalid-state styling and failure messaging.
 
 <ComponentPreview
-  name="numeric-only-input-otp"
-  registry="numeric-only-input-otp"
+  name="error-state-input-otp"
+  registry="error-state-input-otp"
 >
-  <NumericOnlyInputOtp />
+  <ErrorStateInputOtp />
 </ComponentPreview>
 
-### Long Input OTP
-An 8-digit OTP pattern with a `4 + 4` grouped layout.
+### Disabled Input OTP
+Presents a non-interactive OTP control.
 
-<ComponentPreview name="long-input-otp" registry="long-input-otp">
-  <LongInputOtp />
+<ComponentPreview name="disabled-input-otp" registry="disabled-input-otp">
+  <DisabledInputOtp />
+</ComponentPreview>
+
+### Email Flow Input OTP
+Full email verification card with call-to-action button.
+
+<ComponentPreview name="email-flow-input-otp" registry="email-flow-input-otp">
+  <EmailFlowInputOtp />
+</ComponentPreview>
+
+### Two Factor Input OTP
+An authenticator app flow with primary and secondary actions.
+
+<ComponentPreview name="two-factor-input-otp" registry="two-factor-input-otp">
+  <TwoFactorInputOtp />
+</ComponentPreview>
+
+### Progress Input OTP
+Tracks completion with a compact progress bar.
+
+<ComponentPreview name="progress-input-otp" registry="progress-input-otp">
+  <ProgressInputOtp />
+</ComponentPreview>
+
+### Badge Status Input OTP
+Reflects input state with a live status badge.
+
+<ComponentPreview
+  name="badge-status-input-otp"
+  registry="badge-status-input-otp"
+>
+  <BadgeStatusInputOtp />
+</ComponentPreview>
+
+### Compact Inline Input OTP
+A compact inline verification row for shorter codes.
+
+<ComponentPreview
+  name="compact-inline-input-otp"
+  registry="compact-inline-input-otp"
+>
+  <CompactInlineInputOtp />
+</ComponentPreview>
+
+### Hint Input OTP
+Uses per-slot hints for formatted numeric entry.
+
+<ComponentPreview name="hint-input-otp" registry="hint-input-otp">
+  <HintInputOtp />
+</ComponentPreview>
+
+### Branded Card Input OTP
+Card-based verification flow with stronger brand framing.
+
+<ComponentPreview
+  name="branded-card-input-otp"
+  registry="branded-card-input-otp"
+>
+  <BrandedCardInputOtp />
+</ComponentPreview>
+
+### Inline Verify Input OTP
+Supports verifying a contact row directly in place.
+
+<ComponentPreview
+  name="inline-verify-input-otp"
+  registry="inline-verify-input-otp"
+>
+  <InlineVerifyInputOtp />
+</ComponentPreview>
+
+### Expiry Input OTP
+Adds countdown context for expiring verification codes.
+
+<ComponentPreview name="expiry-input-otp" registry="expiry-input-otp">
+  <ExpiryInputOtp />
+</ComponentPreview>
+
+### Onboarding Step Input OTP
+Places OTP confirmation inside a multi-step onboarding flow.
+
+<ComponentPreview
+  name="onboarding-step-input-otp"
+  registry="onboarding-step-input-otp"
+>
+  <OnboardingStepInputOtp />
 </ComponentPreview>
