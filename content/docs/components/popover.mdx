@@ -4,22 +4,169 @@ description: Displays rich content in a floating panel triggered by another elem
 ---
 
 import { BasicPopover } from "@/components/bilalUi/popover/basic-popover";
+import { ColorPickerPopover } from "@/components/bilalUi/popover/color-picker-popover";
+import { ConfirmPopover } from "@/components/bilalUi/popover/confirm-popover";
+import { DatePickerPopover } from "@/components/bilalUi/popover/date-picker-popover";
+import { FilterPopover } from "@/components/bilalUi/popover/filter-popover";
+import { FormPopover } from "@/components/bilalUi/popover/form-popover";
+import { InfoPopover } from "@/components/bilalUi/popover/info-popover";
+import { InvitePopover } from "@/components/bilalUi/popover/invite-popover";
+import { LocationPopover } from "@/components/bilalUi/popover/location-popover";
+import { MoreActionsPopover } from "@/components/bilalUi/popover/more-actions-popover";
+import { NotificationsPopover } from "@/components/bilalUi/popover/notifications-popover";
+import { PreviewCardPopover } from "@/components/bilalUi/popover/preview-card-popover";
+import { QuickSettingsPopover } from "@/components/bilalUi/popover/quick-settings-popover";
+import { RatingPopover } from "@/components/bilalUi/popover/rating-popover";
+import { RightPlacementPopover } from "@/components/bilalUi/popover/right-placement-popover";
+import { SearchPopover } from "@/components/bilalUi/popover/search-popover";
+import { SelectSearchPopover } from "@/components/bilalUi/popover/select-search-popover";
+import { SharePopover } from "@/components/bilalUi/popover/share-popover";
+import { TopPlacementPopover } from "@/components/bilalUi/popover/top-placement-popover";
+import { UserProfilePopover } from "@/components/bilalUi/popover/user-profile-popover";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
 import { Callout } from "@/components/ui/callout";
 
-<Callout title="Under Development" type="warn">
-  This component is currently being updated with more polished variants.
+<Callout title="Expanded Variants" type="info">
+  This page now includes popovers for profiles, notifications, sharing,
+  filters, quick settings, inline forms, search, confirmations, and preview cards.
 </Callout>
 
 ### Basic Popover
-A simple popover with a colorized content panel.
+A simple default popover with lightweight descriptive content.
 
 <ComponentPreview name="basic-popover" registry="basic-popover">
   <BasicPopover />
 </ComponentPreview>
 
-<Callout title="More Variants Coming Soon" type="info">
-  More variants and refinements will be added in upcoming updates.
-</Callout>
+### User Profile Popover
+An account card with quick profile actions and sign out.
 
+<ComponentPreview name="user-profile-popover" registry="user-profile-popover">
+  <UserProfilePopover />
+</ComponentPreview>
 
+### Notifications Popover
+A compact notification center with unread states and counts.
+
+<ComponentPreview name="notifications-popover" registry="notifications-popover">
+  <NotificationsPopover />
+</ComponentPreview>
+
+### Share Popover
+A share panel with copy-to-clipboard and delivery shortcuts.
+
+<ComponentPreview name="share-popover" registry="share-popover">
+  <SharePopover />
+</ComponentPreview>
+
+### Filter Popover
+Multi-select filtering with active count and reset action.
+
+<ComponentPreview name="filter-popover" registry="filter-popover">
+  <FilterPopover />
+</ComponentPreview>
+
+### Color Picker Popover
+A swatch grid and hex input for theme or brand selection.
+
+<ComponentPreview name="color-picker-popover" registry="color-picker-popover">
+  <ColorPickerPopover />
+</ComponentPreview>
+
+### Date Picker Popover
+A minimal date entry surface with quick Today and Clear actions.
+
+<ComponentPreview name="date-picker-popover" registry="date-picker-popover">
+  <DatePickerPopover />
+</ComponentPreview>
+
+### More Actions Popover
+A compact context menu for secondary item actions.
+
+<ComponentPreview name="more-actions-popover" registry="more-actions-popover">
+  <MoreActionsPopover />
+</ComponentPreview>
+
+### Search Popover
+A lightweight search surface for quick page discovery.
+
+<ComponentPreview name="search-popover" registry="search-popover">
+  <SearchPopover />
+</ComponentPreview>
+
+### Form Popover
+An inline create flow for quick item creation.
+
+<ComponentPreview name="form-popover" registry="form-popover">
+  <FormPopover />
+</ComponentPreview>
+
+### Info Popover
+Tooltip-like contextual help for settings and metrics.
+
+<ComponentPreview name="info-popover" registry="info-popover">
+  <InfoPopover />
+</ComponentPreview>
+
+### Invite Popover
+A team invite pattern with email entry and link sharing.
+
+<ComponentPreview name="invite-popover" registry="invite-popover">
+  <InvitePopover />
+</ComponentPreview>
+
+### Quick Settings Popover
+Small toggle controls for immediate preference changes.
+
+<ComponentPreview name="quick-settings-popover" registry="quick-settings-popover">
+  <QuickSettingsPopover />
+</ComponentPreview>
+
+### Location Popover
+A location picker with checked active state.
+
+<ComponentPreview name="location-popover" registry="location-popover">
+  <LocationPopover />
+</ComponentPreview>
+
+### Confirm Popover
+A compact destructive confirmation flow.
+
+<ComponentPreview name="confirm-popover" registry="confirm-popover">
+  <ConfirmPopover />
+</ComponentPreview>
+
+### Select Search Popover
+A searchable select pattern built with popover primitives.
+
+<ComponentPreview name="select-search-popover" registry="select-search-popover">
+  <SelectSearchPopover />
+</ComponentPreview>
+
+### Rating Popover
+A star rating input with hover preview and submit action.
+
+<ComponentPreview name="rating-popover" registry="rating-popover">
+  <RatingPopover />
+</ComponentPreview>
+
+### Top Placement Popover
+Placement example showing a popover above its trigger.
+
+<ComponentPreview name="top-placement-popover" registry="top-placement-popover">
+  <TopPlacementPopover />
+</ComponentPreview>
+
+### Right Placement Popover
+Placement example showing a popover on the right side.
+
+<ComponentPreview name="right-placement-popover" registry="right-placement-popover">
+  <RightPlacementPopover />
+</ComponentPreview>
+
+### Preview Card Popover
+A richer social preview card with profile metadata and follow action.
+
+<ComponentPreview name="preview-card-popover" registry="preview-card-popover">
+  <PreviewCardPopover />
+</ComponentPreview>
