@@ -3,6 +3,7 @@
 import { Filter } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import {
   Sheet,
@@ -38,10 +39,10 @@ export function GlowingBorderSheet() {
             <div className="mt-2 space-y-2">
               {["Active", "Inactive", "Pending"].map((status) => (
                 <div key={status} className="flex items-center gap-2">
-                  <input type="checkbox" id={status} className="size-4" />
-                  <label htmlFor={status} className="text-sm text-muted-foreground">
+                  <Checkbox id={status} />
+                  <Label htmlFor={status} className="text-sm font-normal text-muted-foreground">
                     {status}
-                  </label>
+                  </Label>
                 </div>
               ))}
             </div>
@@ -58,4 +59,3 @@ export function GlowingBorderSheet() {
     </Sheet>
   );
 }
-
