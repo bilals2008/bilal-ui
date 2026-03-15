@@ -31,12 +31,14 @@ export function CommandPaletteSheet() {
 
         <div className="space-y-2">
           {["Documents", "Settings", "Help", "Notifications"].map((item) => (
-            <button
+            <Button
               key={item}
-              className="w-full rounded-lg px-3 py-2 text-left text-sm transition-all duration-150 hover:translate-x-1 hover:bg-muted/50"
+              type="button"
+              variant="ghost"
+              className="w-full justify-start px-3 py-2 text-sm transition-all duration-150 hover:translate-x-1 hover:bg-muted/50"
             >
               {item}
-            </button>
+            </Button>
           ))}
         </div>
       </SheetContent>

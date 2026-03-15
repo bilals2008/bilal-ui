@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
 export function TextareaFloatingLabel() {
@@ -20,15 +21,14 @@ export function TextareaFloatingLabel() {
         onChange={(e) => setValue(e.target.value)}
         className="peer resize-none pt-5"
       />
-      <label
+      <Label
         htmlFor="floating"
         className={`pointer-events-none absolute left-3 text-muted-foreground transition-all duration-150 ${
           active ? "top-1.5 text-xs" : "top-3 text-sm"
         }`}
       >
         Your message
-      </label>
+      </Label>
     </div>
   );
 }
-

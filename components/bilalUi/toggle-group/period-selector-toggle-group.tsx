@@ -2,6 +2,7 @@
 
 import * as React from "react";
 
+import { Label } from "@/components/ui/label";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 export function PeriodSelectorToggleGroup() {
@@ -9,7 +10,7 @@ export function PeriodSelectorToggleGroup() {
 
   return (
     <div className="space-y-2">
-      <label className="text-sm font-medium">Time Period</label>
+      <Label className="text-sm font-medium">Time Period</Label>
       <ToggleGroup type="single" value={period} onValueChange={(v) => v && setPeriod(v)}>
         <ToggleGroupItem value="day" aria-label="Day">
           <span className="text-xs font-medium">Day</span>
@@ -28,3 +29,6 @@ export function PeriodSelectorToggleGroup() {
     </div>
   );
 }
+
+
+

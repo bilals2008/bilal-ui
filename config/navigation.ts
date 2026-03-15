@@ -126,6 +126,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/badge",
         description: "Badge components and variants",
         icon: "BadgeCheck",
+        isNew: 20
       },
       {
         id: "breadcrumb",
@@ -185,6 +186,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/input-otp",
         description: "One-time password input pattern",
         icon: "TextCursorInput",
+        isUpdated: true,
       },
       {
         id: "navigation-menu",
@@ -208,6 +210,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/popover",
         description: "Displays rich content in a floating panel",
         icon: "RectangleEllipsis",
+        isNew: +20,
       },
       {
         id: "progress",
@@ -240,14 +243,6 @@ export const navigationSections: NavSection[] = [
         description: "Displays a list of options for the user to pick from",
         icon: "ListFilter",
         isNew: +7
-      },
-      {
-        id: "combobox",
-        title: "Combobox",
-        href: "/docs/components/combobox",
-        description: "Searchable select input for quick option discovery",
-        icon: "ChevronsUpDown",
-        isNew: +3,
       },
       {
         id: "separator",

@@ -2,15 +2,16 @@
 
 import { Info } from "lucide-react";
 
+import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
 export function RichContentTooltip() {
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-        <button className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-indigo-50 transition-colors duration-150 hover:bg-indigo-100">
+        <Button type="button" variant="ghost" size="icon" className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-indigo-50 transition-colors duration-150 hover:bg-indigo-100">
           <Info className="size-4 text-indigo-600" />
-        </button>
+        </Button>
       </TooltipTrigger>
       <TooltipContent className="max-w-sm border-slate-800 bg-slate-900 p-3 text-slate-50">
         <div className="space-y-2">
@@ -25,4 +26,7 @@ export function RichContentTooltip() {
     </Tooltip>
   );
 }
+
+
+
 

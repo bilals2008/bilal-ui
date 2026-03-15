@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 
 export function WithActionSwitch() {
@@ -27,9 +28,9 @@ export function WithActionSwitch() {
           <Switch checked={deleteMode} onCheckedChange={setDeleteMode} />
         </div>
         {deleteMode && (
-          <button className="mt-4 w-full rounded-md bg-red-600 px-3 py-2 text-sm font-medium text-white transition-colors hover:bg-red-700">
+          <Button variant="destructive" className="mt-4 w-full">
             Delete account permanently
-          </button>
+          </Button>
         )}
       </div>
     </div>
