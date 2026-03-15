@@ -33,20 +33,21 @@ export function SlideOutMenuSheet() {
 
         <nav className="space-y-1">
           {menuItems.map((item) => (
-            <button
+            <Button
               key={item.label}
-              className={`w-full rounded-md px-3 py-2 text-left text-sm transition-all duration-150 ${
+              type="button"
+              variant="ghost"
+              className={`w-full justify-start px-3 py-2 text-sm transition-all duration-150 ${
                 item.active
                   ? "bg-muted/60 font-medium"
                   : "hover:translate-x-1 hover:bg-muted/40"
               }`}
             >
               {item.label}
-            </button>
+            </Button>
           ))}
         </nav>
       </SheetContent>
     </Sheet>
   );
 }
-
