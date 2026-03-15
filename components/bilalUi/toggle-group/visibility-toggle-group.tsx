@@ -3,6 +3,7 @@
 import * as React from "react";
 import { Eye, Layers, Settings2 } from "lucide-react";
 
+import { Label } from "@/components/ui/label";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 export function VisibilityToggleGroup() {
@@ -10,7 +11,7 @@ export function VisibilityToggleGroup() {
 
   return (
     <div className="space-y-2">
-      <label className="text-sm font-medium">Show/Hide Elements</label>
+      <Label className="text-sm font-medium">Show/Hide Elements</Label>
       <ToggleGroup type="multiple" value={visibility} onValueChange={setVisibility}>
         <ToggleGroupItem value="visible" aria-label="Show">
           <Eye className="size-4" />
@@ -25,4 +26,7 @@ export function VisibilityToggleGroup() {
     </div>
   );
 }
+
+
+
 

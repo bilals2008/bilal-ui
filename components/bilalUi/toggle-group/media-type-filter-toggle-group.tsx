@@ -3,6 +3,7 @@
 import * as React from "react";
 import { FileText, Image as ImageIcon, Music, Video } from "lucide-react";
 
+import { Label } from "@/components/ui/label";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 export function MediaTypeFilterToggleGroup() {
@@ -10,7 +11,7 @@ export function MediaTypeFilterToggleGroup() {
 
   return (
     <div className="space-y-2">
-      <label className="text-sm font-medium">Media Type</label>
+      <Label className="text-sm font-medium">Media Type</Label>
       <ToggleGroup type="multiple" value={mediaTypes} onValueChange={setMediaTypes}>
         <ToggleGroupItem value="image" aria-label="Images">
           <ImageIcon className="size-4" />
@@ -28,3 +29,6 @@ export function MediaTypeFilterToggleGroup() {
     </div>
   );
 }
+
+
+

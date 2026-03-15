@@ -3,6 +3,7 @@
 import * as React from "react";
 import { CheckSquare, Square } from "lucide-react";
 
+import { Label } from "@/components/ui/label";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 export function SelectAllToggleGroup() {
@@ -10,7 +11,7 @@ export function SelectAllToggleGroup() {
 
   return (
     <div className="space-y-3">
-      <label className="text-sm font-medium">Selection Mode</label>
+      <Label className="text-sm font-medium">Selection Mode</Label>
       <ToggleGroup
         type="single"
         value={selection[0] || "none"}
@@ -29,3 +30,6 @@ export function SelectAllToggleGroup() {
     </div>
   );
 }
+
+
+

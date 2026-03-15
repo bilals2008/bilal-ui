@@ -1,11 +1,12 @@
 "use client";
 
+import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 export function TextareaWithSubject() {
   return (
     <div className="flex w-full max-w-sm flex-col overflow-hidden rounded-md border border-border divide-y divide-border">
-      <input
+      <Input
         className="bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus:outline-none"
         placeholder="Subject"
       />

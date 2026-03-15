@@ -3,6 +3,7 @@
 import * as React from "react";
 import { Bold, Code, Italic, Underline } from "lucide-react";
 
+import { Label } from "@/components/ui/label";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 export function TextFormattingToggleGroup() {
@@ -10,7 +11,7 @@ export function TextFormattingToggleGroup() {
 
   return (
     <div className="space-y-2">
-      <label className="text-sm font-medium">Text Formatting</label>
+      <Label className="text-sm font-medium">Text Formatting</Label>
       <ToggleGroup type="multiple" value={formats} onValueChange={setFormats}>
         <ToggleGroupItem value="bold" aria-label="Bold">
           <Bold className="size-4" />
@@ -28,4 +29,7 @@ export function TextFormattingToggleGroup() {
     </div>
   );
 }
+
+
+
 

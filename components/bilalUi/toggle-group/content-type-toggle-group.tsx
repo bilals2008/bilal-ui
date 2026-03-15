@@ -3,6 +3,7 @@
 import * as React from "react";
 import { BarChart3, FileText, Image as ImageIcon } from "lucide-react";
 
+import { Label } from "@/components/ui/label";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 export function ContentTypeToggleGroup() {
@@ -10,7 +11,7 @@ export function ContentTypeToggleGroup() {
 
   return (
     <div className="space-y-2">
-      <label className="text-sm font-medium">Content Type</label>
+      <Label className="text-sm font-medium">Content Type</Label>
       <ToggleGroup type="single" value={content} onValueChange={(v) => v && setContent(v)}>
         <ToggleGroupItem value="text" aria-label="Text">
           <FileText className="size-4" />
@@ -25,3 +26,6 @@ export function ContentTypeToggleGroup() {
     </div>
   );
 }
+
+
+

@@ -2,6 +2,7 @@
 
 import * as React from "react";
 
+import { Label } from "@/components/ui/label";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 export function DifficultyLevelToggleGroup() {
@@ -9,7 +10,7 @@ export function DifficultyLevelToggleGroup() {
 
   return (
     <div className="space-y-2">
-      <label className="text-sm font-medium">Difficulty</label>
+      <Label className="text-sm font-medium">Difficulty</Label>
       <ToggleGroup type="single" value={level} onValueChange={(v) => v && setLevel(v)}>
         <ToggleGroupItem value="easy" aria-label="Easy">
           <span className="text-xs font-medium">Easy</span>
@@ -24,4 +25,7 @@ export function DifficultyLevelToggleGroup() {
     </div>
   );
 }
+
+
+
 

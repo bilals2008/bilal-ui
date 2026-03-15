@@ -3,6 +3,7 @@
 import * as React from "react";
 import { AlignCenter, AlignLeft, AlignRight } from "lucide-react";
 
+import { Label } from "@/components/ui/label";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 export function TextAlignmentToggleGroup() {
@@ -10,7 +11,7 @@ export function TextAlignmentToggleGroup() {
 
   return (
     <div className="space-y-2">
-      <label className="text-sm font-medium">Text Alignment</label>
+      <Label className="text-sm font-medium">Text Alignment</Label>
       <ToggleGroup type="single" value={value} onValueChange={(v) => v && setValue(v)}>
         <ToggleGroupItem value="left" aria-label="Align left">
           <AlignLeft className="size-4" />
@@ -25,4 +26,7 @@ export function TextAlignmentToggleGroup() {
     </div>
   );
 }
+
+
+
 

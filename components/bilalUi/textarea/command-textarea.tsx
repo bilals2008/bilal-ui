@@ -2,6 +2,7 @@
 
 import * as React from "react";
 
+import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
 const COMMANDS = [
@@ -145,14 +146,15 @@ export function CommandTextarea() {
           </div>
           <div className="space-y-1">
             {suggestions.map((item, index) => (
-              <button
+              <Button
                 key={item.key}
                 type="button"
+                variant="ghost"
                 role="option"
                 aria-selected={index === activeIndex}
                 onMouseDown={(event) => event.preventDefault()}
                 onClick={() => applyCommand(item.key)}
-                className={`flex w-full items-center justify-between rounded-md px-2 py-1.5 text-left transition-colors ${
+                className={`h-auto w-full justify-between rounded-md px-2 py-1.5 text-left transition-colors ${
                   index === activeIndex
                     ? "bg-primary/15 text-primary"
                     : "text-foreground hover:bg-muted"
@@ -160,7 +162,7 @@ export function CommandTextarea() {
               >
                 <span className="font-mono text-sm">{item.key}</span>
                 <span className="text-xs text-muted-foreground">{item.description}</span>
-              </button>
+              </Button>
             ))}
           </div>
         </div>

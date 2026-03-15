@@ -3,6 +3,7 @@
 import * as React from "react";
 import { DollarSign, Euro, PoundSterling } from "lucide-react";
 
+import { Label } from "@/components/ui/label";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 export function CurrencySelectorToggleGroup() {
@@ -10,7 +11,7 @@ export function CurrencySelectorToggleGroup() {
 
   return (
     <div className="space-y-2">
-      <label className="text-sm font-medium">Currency</label>
+      <Label className="text-sm font-medium">Currency</Label>
       <ToggleGroup type="single" value={currency} onValueChange={(v) => v && setCurrency(v)}>
         <ToggleGroupItem value="usd" aria-label="US Dollar">
           <DollarSign className="size-4" />
@@ -25,4 +26,7 @@ export function CurrencySelectorToggleGroup() {
     </div>
   );
 }
+
+
+
 

@@ -3,6 +3,7 @@
 import * as React from "react";
 import { Zap } from "lucide-react";
 
+import { Label } from "@/components/ui/label";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 export function PriorityFilterToggleGroup() {
@@ -10,7 +11,7 @@ export function PriorityFilterToggleGroup() {
 
   return (
     <div className="space-y-2">
-      <label className="text-sm font-medium">Priority</label>
+      <Label className="text-sm font-medium">Priority</Label>
       <ToggleGroup
         type="single"
         value={priority}
@@ -29,4 +30,7 @@ export function PriorityFilterToggleGroup() {
     </div>
   );
 }
+
+
+
 

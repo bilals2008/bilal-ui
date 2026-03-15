@@ -2,6 +2,7 @@
 
 import * as React from "react";
 
+import { Label } from "@/components/ui/label";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 export function SortDirectionToggleGroup() {
@@ -9,7 +10,7 @@ export function SortDirectionToggleGroup() {
 
   return (
     <div className="space-y-2">
-      <label className="text-sm font-medium">Sort Order</label>
+      <Label className="text-sm font-medium">Sort Order</Label>
       <ToggleGroup type="single" value={sort} onValueChange={(v) => v && setSort(v)}>
         <ToggleGroupItem value="asc" aria-label="Ascending">
           <span className="text-xs font-medium">A-Z</span>
@@ -21,4 +22,7 @@ export function SortDirectionToggleGroup() {
     </div>
   );
 }
+
+
+
 
