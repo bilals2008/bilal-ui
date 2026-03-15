@@ -3,6 +3,7 @@
 import * as React from "react";
 import { Monitor, Smartphone, Tablet } from "lucide-react";
 
+import { Label } from "@/components/ui/label";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 export function DeviceTypeToggleGroup() {
@@ -10,7 +11,7 @@ export function DeviceTypeToggleGroup() {
 
   return (
     <div className="space-y-2">
-      <label className="text-sm font-medium">Preview Device</label>
+      <Label className="text-sm font-medium">Preview Device</Label>
       <ToggleGroup type="single" value={device} onValueChange={(v) => v && setDevice(v)}>
         <ToggleGroupItem value="mobile" aria-label="Mobile device">
           <Smartphone className="size-4" />
@@ -25,4 +26,7 @@ export function DeviceTypeToggleGroup() {
     </div>
   );
 }
+
+
+
 
