@@ -1,9 +1,11 @@
+// File: components/bilalUi/sheet/filter-panel-sheet.tsx
 "use client";
 
 import { Filter, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import {
   Sheet,
   SheetClose,
@@ -33,9 +35,9 @@ export function FilterPanelSheet() {
           <div className="flex items-center justify-between">
             <SheetTitle>Filters</SheetTitle>
             <SheetClose asChild>
-              <button className="rounded p-1 transition-colors duration-150 hover:bg-muted/50">
+              <Button type="button" variant="ghost" size="icon-sm" className="rounded">
                 <X className="size-4" />
-              </button>
+              </Button>
             </SheetClose>
           </div>
         </SheetHeader>
@@ -45,17 +47,19 @@ export function FilterPanelSheet() {
             <Label className="text-xs font-semibold uppercase text-muted-foreground">
               Category
             </Label>
-            <div className="mt-2 space-y-2">
+            <RadioGroup defaultValue="All" className="mt-2 gap-2">
               {["All", "Active", "Archived"].map((cat) => (
-                <label
+                <div
                   key={cat}
                   className="flex items-center gap-2 rounded px-2 py-1 transition-colors duration-150 hover:bg-muted/50"
                 >
-                  <input type="radio" name="category" className="size-3" />
-                  <span className="text-sm">{cat}</span>
-                </label>
+                  <RadioGroupItem value={cat} id={`category-${cat.toLowerCase()}`} />
+                  <Label htmlFor={`category-${cat.toLowerCase()}`} className="text-sm font-normal">
+                    {cat}
+                  </Label>
+                </div>
               ))}
-            </div>
+            </RadioGroup>
           </div>
 
           <div className="h-px bg-border/50" />
@@ -64,17 +68,19 @@ export function FilterPanelSheet() {
             <Label className="text-xs font-semibold uppercase text-muted-foreground">
               Sort
             </Label>
-            <div className="mt-2 space-y-2">
+            <RadioGroup defaultValue="Newest" className="mt-2 gap-2">
               {["Newest", "Oldest", "Name"].map((sort) => (
-                <label
+                <div
                   key={sort}
                   className="flex items-center gap-2 rounded px-2 py-1 transition-colors duration-150 hover:bg-muted/50"
                 >
-                  <input type="radio" name="sort" className="size-3" />
-                  <span className="text-sm">{sort}</span>
-                </label>
+                  <RadioGroupItem value={sort} id={`sort-${sort.toLowerCase()}`} />
+                  <Label htmlFor={`sort-${sort.toLowerCase()}`} className="text-sm font-normal">
+                    {sort}
+                  </Label>
+                </div>
               ))}
-            </div>
+            </RadioGroup>
           </div>
         </div>
 
