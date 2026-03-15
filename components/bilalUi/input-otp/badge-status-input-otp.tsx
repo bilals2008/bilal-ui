@@ -21,7 +21,7 @@ export function BadgeStatusInputOtp() {
       <div className="flex items-center gap-2">
         <Label className="text-sm font-semibold">Enter OTP</Label>
         <Badge
-          variant={status === "ready" ? "default" : "secondary"}
+          variant={status === "ready" ? "primary" : "secondary"}
           className={cn(
             "text-xs transition-colors",
             status === "ready" && "bg-emerald-500 text-white",
