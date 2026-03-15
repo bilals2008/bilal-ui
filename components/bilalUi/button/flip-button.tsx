@@ -8,7 +8,11 @@ import { cn } from "@/lib/utils";
 
 export const FlipButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, children, ...props }, ref) => (
-    <motion.div whileHover={{ rotateX: 10 }} whileTap={{ scale: 0.95 }} perspective={1000}>
+    <motion.div
+      whileHover={{ rotateX: 10 }}
+      whileTap={{ scale: 0.95 }}
+      style={{ perspective: 1000 }}
+    >
       <Button ref={ref} className={cn("transition-transform", className)} {...props}>
         {children}
       </Button>
