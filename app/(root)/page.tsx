@@ -8,6 +8,7 @@ import { KeyFeatures } from "@/components/landing/key-features";
 import { CTASection } from "@/components/landing/cta-section";
 import { FAQSection } from "@/components/landing/faq-section";
 import { NewsletterSection } from "@/components/landing/newsletter";
+import { ProComingSoonSection } from "@/components/landing/pro-coming-soon";
 import { TemplatesShowcaseSection } from "@/components/landing/templates-showcase";
 
 // import EventToast from "@/components/event-toast";
@@ -16,6 +17,7 @@ export default function Home() {
     <main className="bg-white dark:bg-black/5 overflow-x-hidden">
       <HeroSection />
       <ComponentShowcaseCard className="mb-1" />
+      <ProComingSoonSection />
       <InteractivePreview />
       <BuildInterfacesCard className="mb-1" />
       <TemplatesShowcaseSection />
