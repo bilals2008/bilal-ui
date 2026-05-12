@@ -328,7 +328,7 @@ export const navigationSections: NavSection[] = [
         href: "/docs/components/table",
         description: "Structured tabular data UI",
         icon: "ListFilter",
-        isComingSoon: true,
+        isNew: true,
       },
     ],
   },
