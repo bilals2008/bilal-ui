@@ -1,7 +1,8 @@
-// File: app/api/source/[name]/route.ts
 import { NextResponse } from "next/server"
 import fs from "fs/promises"
+import fsSync from "fs"
 import path from "path"
+import { PRO_COMPONENTS } from "@/config/pro"
 
 async function findFilesRecursively(
   dir: string,
@@ -36,25 +37,64 @@ function selectBestMatch(matches: string[], preferDemo: boolean): string | null 
   return nonDemoMatches[0] || demoMatches[0] || sorted[0];
 }
 
+function getComponentGroupFromPath(filePath: string): string | null {
+  const parts = filePath.replace(/\\/g, "/").split("/");
+  const bilalUiIndex = parts.indexOf("bilalUi");
+  if (bilalUiIndex === -1 || bilalUiIndex + 1 >= parts.length) return null;
+  const group = parts[bilalUiIndex + 1];
+  if (group === "demo" || group === "pricing" || group === "pro") return null;
+  return group;
+}
+
+function isProFile(filePath: string): boolean {
+  const group = getComponentGroupFromPath(filePath);
+  if (!group) return false;
+
+  const config = PRO_COMPONENTS[group];
+  if (!config) return false;
+
+  const filename = path.basename(filePath, path.extname(filePath));
+  const groupDir = path.dirname(filePath);
+  const groupDirname = path.basename(groupDir);
+
+  if (groupDirname !== group) return false;
+
+  try {
+    const allFiles = fsSync.readdirSync(groupDir)
+      .filter(f => f.endsWith(".tsx"))
+      .sort();
+    const index = allFiles.indexOf(`${filename}.tsx`);
+    if (index === -1) return false;
+    return index >= config.freeCount;
+  } catch {
+    return false;
+  }
+}
+
+const PRO_PLACEHOLDER = `// This is a Pro component.
+// Purchase the Lifetime plan ($15) to unlock the full source code.
+// Go to /pricing for more details.
+
+export function ProComponent() {
+  return null;
+}
+`;
+
 export async function GET(
   request: Request,
   { params }: { params: Promise<{ name: string }> }
 ) {
   const { name } = await params
 
-  // Strict Validation & Sanitization
   if (!name) {
     return new NextResponse("Component name required", { status: 400 })
   }
 
-  // Sanitize input to prevent path traversal
   const safeName = path.basename(name)
   if (safeName !== name) {
       return new NextResponse("Invalid request path", { status: 400 })
   }
 
-  // Validate component name format (alphanumeric + hyphens only)
-  // Allow .json extension if that's part of the route pattern (though usually stripped)
   const componentName = safeName.replace(".json", "")
   if (!/^[a-zA-Z0-9-]+$/.test(componentName)) {
        return new NextResponse("Invalid component name", { status: 400 })
@@ -70,6 +110,12 @@ export async function GET(
 
     if (!filePath) {
        return new NextResponse("Component not found", { status: 404 })
+    }
+
+    if (isProFile(filePath)) {
+      return new NextResponse(PRO_PLACEHOLDER, {
+        headers: { "Content-Type": "text/plain" },
+      });
     }
 
     const fileContent = await fs.readFile(filePath, "utf-8")
