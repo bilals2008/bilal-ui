@@ -20,6 +20,7 @@ const NavLinks = [
     label: "Templates",
     badge: { text: "Soon", variant: "soon" as const },
   },
+  { href: "/pricing", label: "Pricing" },
   { href: "/changelog", label: "Changelog" },
 ];
 

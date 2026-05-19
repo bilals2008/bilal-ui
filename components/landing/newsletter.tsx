@@ -30,7 +30,7 @@ export function NewsletterSection() {
   };
 
   return (
-    <section className="relative overflow-hidden px-4 py-14">
+    <section id="newsletter" className="relative overflow-hidden px-4 py-14">
       <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
         <div className="absolute left-1/2 top-0 h-72 w-[26rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.12),rgba(244,63,94,0.08),transparent_72%)] blur-3xl dark:bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.18),rgba(244,63,94,0.12),transparent_72%)]" />
       </div>
