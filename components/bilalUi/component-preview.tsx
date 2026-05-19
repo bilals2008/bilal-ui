@@ -17,6 +17,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { OpenInV0Button } from "./open-in-v0-button";
 import { Spinner } from "@/components/ui/spinner";
 import { CodeBlock } from "@/components/ui/code-block";
+import { ProLock } from "./pro/pro-lock";
 
 function SuccessParticles({
   buttonRef,
@@ -93,6 +94,7 @@ interface ComponentPreviewProps {
    * npx shadcn@latest add {NEXT_PUBLIC_APP_URL}/registry/{registry}
    */
   registry?: string;
+  pro?: boolean;
 }
 
 export function ComponentPreview({
@@ -103,6 +105,7 @@ export function ComponentPreview({
   sourceName,
   installCommand,
   registry,
+  pro,
 }: ComponentPreviewProps) {
   const [isCopied, setIsCopied] = React.useState(false);
   const [isInstallCopied, setIsInstallCopied] = React.useState(false);
@@ -324,17 +327,23 @@ export function ComponentPreview({
           >
             <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#1f2937_1px,transparent_1px)] bg-size-[16px_16px] mask-[radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-50" />
             <div className="relative z-10 flex h-full min-h-100 w-full items-center justify-center p-10">
-              {children}
+              {pro ? <ProLock /> : children}
             </div>
           </TabsContent>
 
           <TabsContent value="code" className="mt-0">
             <div className="relative overflow-hidden rounded-b-xl border-t border-zinc-800/80 bg-[radial-gradient(circle_at_top,#18181b_0%,#09090b_45%,#030303_100%)]">
               <div className="overflow-x-auto max-h-150 scrollbar-thin scrollbar-thumb-zinc-700 scrollbar-track-transparent">
-                <CodeBlock
-                  language="tsx"
-                  code={sourceCode || "// Loading..."}
-                />
+                {pro ? (
+                  <div className="flex items-center justify-center min-h-100">
+                    <ProLock />
+                  </div>
+                ) : (
+                  <CodeBlock
+                    language="tsx"
+                    code={sourceCode || "// Loading..."}
+                  />
+                )}
               </div>
             </div>
           </TabsContent>
