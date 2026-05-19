@@ -58,9 +58,9 @@ interface ProPlaceholderProps {
 
 export function ProPlaceholder({ children }: ProPlaceholderProps) {
   return (
-    <div className="flex flex-col items-center justify-center gap-4 rounded-xl border-2 border-dashed border-violet-200 bg-gradient-to-b from-violet-50/80 to-white px-6 py-12 text-center dark:border-violet-800/50 dark:from-violet-950/20 dark:to-zinc-950">
-      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500 to-fuchsia-500 shadow-lg shadow-violet-500/25">
-        <LockKeyhole className="h-6 w-6 text-white" />
+    <div className="flex flex-col items-center justify-center gap-4 rounded-xl border border-zinc-200 bg-white px-6 py-12 text-center dark:border-zinc-800 dark:bg-zinc-950">
+      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-100 dark:bg-violet-900/30">
+        <LockKeyhole className="h-6 w-6 text-violet-600 dark:text-violet-400" />
       </div>
       <div className="space-y-1">
         <div className="inline-flex items-center gap-1.5 rounded-full border border-violet-200 bg-white px-3 py-1 text-xs font-semibold text-violet-600 dark:border-violet-800 dark:bg-zinc-900 dark:text-violet-400">
@@ -73,7 +73,7 @@ export function ProPlaceholder({ children }: ProPlaceholderProps) {
       </div>
       <Link
         href="/pricing"
-        className="inline-flex h-9 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-5 text-sm font-bold text-white shadow-lg shadow-violet-500/25 transition-all hover:from-violet-500 hover:to-fuchsia-500 active:scale-[0.98]"
+        className="inline-flex h-9 items-center justify-center gap-2 rounded-xl bg-violet-600 px-5 text-sm font-bold text-white transition-all hover:bg-violet-700 active:scale-[0.98] dark:bg-violet-500 dark:hover:bg-violet-400"
       >
         <Sparkles className="h-3.5 w-3.5" />
         Unlock with Pro

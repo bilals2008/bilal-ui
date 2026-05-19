@@ -16,12 +16,12 @@ export function ProLock({
   return (
     <div
       className={cn(
-        "relative flex flex-col items-center justify-center gap-5 rounded-2xl border-2 border-dashed border-violet-200 bg-gradient-to-b from-violet-50/80 to-white px-8 py-16 text-center dark:border-violet-800/50 dark:from-violet-950/20 dark:to-zinc-950",
+        "flex flex-col items-center justify-center gap-5 rounded-2xl border border-zinc-200 bg-white px-8 py-16 text-center dark:border-zinc-800 dark:bg-zinc-950",
         className,
       )}
     >
-      <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500 to-fuchsia-500 shadow-lg shadow-violet-500/25">
-        <LockKeyhole className="h-7 w-7 text-white" />
+      <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-violet-100 dark:bg-violet-900/30">
+        <LockKeyhole className="h-7 w-7 text-violet-600 dark:text-violet-400" />
       </div>
 
       <div className="space-y-2 max-w-sm">
@@ -40,7 +40,7 @@ export function ProLock({
 
       <Link
         href="/pricing"
-        className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-6 text-sm font-bold text-white shadow-lg shadow-violet-500/25 transition-all hover:from-violet-500 hover:to-fuchsia-500 hover:shadow-xl hover:shadow-violet-500/30 active:scale-[0.98]"
+        className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-violet-600 px-6 text-sm font-bold text-white transition-all hover:bg-violet-700 active:scale-[0.98] dark:bg-violet-500 dark:hover:bg-violet-400"
       >
         <Sparkles className="h-4 w-4" />
         Unlock with Pro

@@ -327,7 +327,7 @@ export function ComponentPreview({
           >
             <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#1f2937_1px,transparent_1px)] bg-size-[16px_16px] mask-[radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-50" />
             <div className="relative z-10 flex h-full min-h-100 w-full items-center justify-center p-10">
-              {pro ? <ProLock /> : children}
+              {children}
             </div>
           </TabsContent>
 
