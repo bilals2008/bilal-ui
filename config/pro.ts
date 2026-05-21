@@ -1,3 +1,5 @@
+export const PRO_FREE_MODE = true;
+
 export const PRO_COMPONENTS: Record<string, { freeCount: number }> = {
   button: { freeCount: 5 },
   badge: { freeCount: 5 },
@@ -33,6 +35,8 @@ export function isProComponent(
   componentName: string,
   variantIndex?: number,
 ): boolean {
+  if (PRO_FREE_MODE) return false;
+
   if (!variantIndex !== undefined && variantIndex === undefined) {
     return false;
   }

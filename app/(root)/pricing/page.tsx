@@ -47,6 +47,7 @@ const plans = [
     cta: "Get Lifetime Access",
     href: "#",
     popular: true,
+    badge: "Coming Soon",
     comingSoon: !lemonReady,
     checkout: lemonReady,
   },
