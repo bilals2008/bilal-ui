@@ -48,8 +48,8 @@ const plans = [
     href: "#",
     popular: true,
     badge: "Coming Soon",
-    comingSoon: !lemonReady,
-    checkout: lemonReady,
+    comingSoon: true,
+    checkout: false,
   },
 ];
 

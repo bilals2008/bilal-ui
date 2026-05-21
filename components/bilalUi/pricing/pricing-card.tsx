@@ -233,25 +233,38 @@ function PremiumCard({
         </div>
 
           <ul className="space-y-2.5">
-            {features.map((feature, i) => (
-              <motion.li
-                key={getFeatureLabel(feature)}
-                initial={{ opacity: 0, x: 10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: 0.15 + i * 0.05 }}
-                className="flex items-start gap-3 text-sm text-zinc-600 dark:text-zinc-300"
-              >
-                {isFeatureMore(feature) ? (
-                  <Sparkles className="h-4 w-4 mt-0.5 shrink-0 text-zinc-400" />
-                ) : (
-                  <Crown className="h-4 w-4 mt-0.5 shrink-0 text-zinc-500" />
-                )}
-                <span>{getFeatureLabel(feature)}</span>
-                {isFeatureSoon(feature) && (
-                  <span className="rounded-full border border-amber-200 bg-amber-50 px-2 py-0.5 text-[10px] font-bold text-amber-600 dark:border-amber-800 dark:bg-amber-900/30 dark:text-amber-400">Soon</span>
-                )}
-              </motion.li>
-            ))}
+            {features.map((feature, i) => {
+              const colors = [
+                "text-amber-500",
+                "text-emerald-500",
+                "text-sky-500",
+                "text-violet-500",
+                "text-pink-500",
+                "text-cyan-500",
+                "text-rose-500",
+                "text-indigo-500",
+              ];
+              const iconColor = isFeatureMore(feature) ? "text-amber-500" : (colors[i % colors.length]);
+              return (
+                <motion.li
+                  key={getFeatureLabel(feature)}
+                  initial={{ opacity: 0, x: 10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: 0.15 + i * 0.05 }}
+                  className="flex items-start gap-3 text-sm text-zinc-600 dark:text-zinc-300"
+                >
+                  {isFeatureMore(feature) ? (
+                    <Sparkles className={cn("h-4 w-4 mt-0.5 shrink-0", iconColor)} />
+                  ) : (
+                    <Crown className={cn("h-4 w-4 mt-0.5 shrink-0", iconColor)} />
+                  )}
+                  <span>{getFeatureLabel(feature)}</span>
+                  {isFeatureSoon(feature) && (
+                    <span className="rounded-full border border-amber-200 bg-amber-50 px-2 py-0.5 text-[10px] font-bold text-amber-600 dark:border-amber-800 dark:bg-amber-900/30 dark:text-amber-400">Soon</span>
+                  )}
+                </motion.li>
+              );
+            })}
           </ul>
 
         <div className="relative">
