@@ -6,16 +6,7 @@ description: Displays short, important messages with optional icons and context.
 import InfoAlertDemo from "@/components/bilalUi/demo/alert/info-alert-demo";
 import WarningAlertDemo from "@/components/bilalUi/demo/alert/warning-alert-demo";
 import SuccessAlertDemo from "@/components/bilalUi/demo/alert/success-alert-demo";
-import NotificationAlertDemo from "@/components/bilalUi/demo/alert/notification-alert-demo";
-import ChannelAlertDemo from "@/components/bilalUi/demo/alert/channel-alert-demo";
-import OutlineAlertDemo from "@/components/bilalUi/demo/alert/outline-alert-demo";
-import AlertIndicatorDestructiveDemo from "@/components/bilalUi/demo/alert/alert-indicator-destructive-demo";
-import { Callout } from "@/components/ui/callout";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
-
-<Callout title="Under Development" type="warn">
-  This component is currently being updated with more polished variants.
-</Callout>
 
 ### Info Alert
 A gentle informative message with custom theme colors.
@@ -34,42 +25,3 @@ Confirms that an action was completed successfully.
 <ComponentPreview name="success-alert-demo" sourceName="alert-variants">
   <SuccessAlertDemo />
 </ComponentPreview>
-
-### Notification
-A premium notification style with backdrop blur and accent border.
-<ComponentPreview name="notification-alert-demo" sourceName="alert-variants">
-  <NotificationAlertDemo />
-</ComponentPreview>
-
-### Channel Alert
-Minimal alerts with a rail accent and quick action.
-<ComponentPreview
-  name="channel-alert-demo"
-  sourceName="channel-alert"
-  registry="channel-alert"
->
-  <ChannelAlertDemo />
-</ComponentPreview>
-
-### Outline Alert
-Dashed-outline alerts with compact actions.
-<ComponentPreview
-  name="outline-alert-demo"
-  sourceName="outline-alert"
-  registry="outline-alert"
->
-  <OutlineAlertDemo />
-</ComponentPreview>
-
-### Indicator Alert
-Two compact alerts with left-rail indicators for warning and tips.
-<ComponentPreview
-  name="alert-indicator-destructive-demo"
-  sourceName="alert-indicator-destructive-demo"
->
-  <AlertIndicatorDestructiveDemo />
-</ComponentPreview>
-
-<Callout title="More Variants Coming Soon" type="info">
-  More variants and refinements will be added in upcoming updates.
-</Callout>
