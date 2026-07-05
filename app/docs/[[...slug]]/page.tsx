@@ -20,8 +20,6 @@ import {
   Bug,
 } from "lucide-react";
 
-import { MDXActionBar } from "../../../components/bilalUi/mdx-action-bar";
-import { TOCPoster } from "@/components/bilalUi/toc-poster";
 
 export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
   const params = await props.params;
@@ -46,7 +44,6 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
         style: "clerk",
         footer: (
           <div className="flex flex-col gap-4 text-sm text-muted-foreground mt-4 pt-4 border-t border-dashed border-border/70">
-            <TOCPoster />
             <div className="flex flex-col gap-2">
               <span className="font-medium text-foreground flex items-center gap-2">
                 <LifeBuoy className="w-4 h-4 text-primary" />
@@ -120,11 +117,6 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
         ),
       }}
     >
-      <MDXActionBar
-        slug={(params.slug || []).join("/")}
-        title={page.data.title}
-        url={page.url}
-      />
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
       {formattedLastModified ? (
