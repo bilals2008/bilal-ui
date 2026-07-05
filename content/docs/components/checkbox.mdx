@@ -5,18 +5,7 @@ description: A control that allows the user to toggle between checked and unchec
 
 import { BasicCheckbox } from "@/components/bilalUi/checkbox/basic-checkbox";
 import { ProgressCheckbox } from "@/components/bilalUi/checkbox/progress-checkbox";
-import { TriStateIntentCheckbox } from "@/components/bilalUi/checkbox/tri-state-intent-checkbox";
-import { TokenizedCheckbox } from "@/components/bilalUi/checkbox/tokenized-checkbox";
-import { RiskAwareCheckbox } from "@/components/bilalUi/checkbox/risk-aware-checkbox";
-import { WeightedCheckbox } from "@/components/bilalUi/checkbox/weighted-checkbox";
-import { TimeLockedCheckbox } from "@/components/bilalUi/checkbox/time-locked-checkbox";
-import { SignalCheckbox } from "@/components/bilalUi/checkbox/signal-checkbox";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
-import { Callout } from "@/components/ui/callout";
-
-<Callout title="Under Development" type="warn">
-  This component is currently being updated with more polished variants.
-</Callout>
 
 ### Basic Checkbox
 Default, checked, and disabled states at a glance.
@@ -25,55 +14,9 @@ Default, checked, and disabled states at a glance.
   <BasicCheckbox />
 </ComponentPreview>
 
-### Signal Checkbox
-Uses red, green, and amber tones for quick status communication.
-
-<ComponentPreview name="signal-checkbox" registry="signal-checkbox">
-  <SignalCheckbox />
-</ComponentPreview>
-
 ### Progress Checkbox
 An animated progress ring that fills from 0% to 100% when checked.
 
 <ComponentPreview name="progress-checkbox" registry="progress-checkbox">
   <ProgressCheckbox />
 </ComponentPreview>
-
-### Tri-State Intent Checkbox
-Cycles through not applied, partially applied, and confirmed states.
-
-<ComponentPreview name="tri-state-intent-checkbox" registry="tri-state-intent-checkbox">
-  <TriStateIntentCheckbox />
-</ComponentPreview>
-
-### Tokenized Checkbox
-Transforms into a selected token chip when checked.
-
-<ComponentPreview name="tokenized-checkbox" registry="tokenized-checkbox">
-  <TokenizedCheckbox />
-</ComponentPreview>
-
-### Risk-Aware Checkbox
-Color intent changes by risk level, with explicit acknowledgment messaging.
-
-<ComponentPreview name="risk-aware-checkbox" registry="risk-aware-checkbox">
-  <RiskAwareCheckbox />
-</ComponentPreview>
-
-### Weighted Checkbox
-Each selected item contributes a weighted score to a live total.
-
-<ComponentPreview name="weighted-checkbox" registry="weighted-checkbox">
-  <WeightedCheckbox />
-</ComponentPreview>
-
-### Time-Locked Checkbox
-Allows undo for a short window, then locks confirmation.
-
-<ComponentPreview name="time-locked-checkbox" registry="time-locked-checkbox">
-  <TimeLockedCheckbox />
-</ComponentPreview>
-
-<Callout title="More Variants Coming Soon" type="info">
-  More variants and refinements will be added in upcoming updates.
-</Callout>
