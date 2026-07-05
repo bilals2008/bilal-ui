@@ -3,18 +3,8 @@ title: Accordion
 description: A vertically stacked set of interactive headings that each reveal a section of content.
 ---
 
-import AccordionWithIcons from "@/components/bilalUi/accordion/accordion-with-icons";
-import BorderedFaqAccordion from "@/components/bilalUi/accordion/bordered-faq-accordion";
 import SplitPanelAccordion from "@/components/bilalUi/accordion/split-panel-accordion";
-import GradientRailAccordion from "@/components/bilalUi/accordion/gradient-rail-accordion";
-import { MinimalCleanAccordion } from "@/components/bilalUi/accordion/minimal-clean-accordion";
-import { Callout } from "@/components/ui/callout";
 import { ComponentPreview } from "@/components/bilalUi/component-preview";
-
-<Callout title="Expanded Variants" type="info">
-  Original accordion variants remain, with additional patterns for FAQs, onboarding,
-  docs, and product detail flows.
-</Callout>
 
 ### Split Panel Accordion
 
@@ -23,36 +13,3 @@ Two-column layout where titles and content are visually separated.
 <ComponentPreview name="split-panel-accordion">
   <SplitPanelAccordion />
 </ComponentPreview>
-
-### Accordion With Icons
-
-Accordion variant with icon highlights and color-coded content.
-
-<ComponentPreview name="accordion-with-icons">
-  <AccordionWithIcons />
-</ComponentPreview>
-
-### Multi Level Accordion
-
-Nested accordion with icons and expandable sub-sections.
-
-<ComponentPreview name="bordered-faq-accordion">
-  <BorderedFaqAccordion />
-</ComponentPreview>
-
-### Gradient Rail Accordion
-
-Accordion with animated gradient rails for stronger scanning and visual grouping.
-
-<ComponentPreview name="gradient-rail-accordion">
-  <GradientRailAccordion />
-</ComponentPreview>
-
-### Minimal Clean Accordion
-Simple dividers with clean typography.
-
-<ComponentPreview name="minimal-clean-accordion" registry="minimal-clean-accordion">
-  <MinimalCleanAccordion />
-</ComponentPreview>
-
-
