@@ -33,6 +33,11 @@ import {
   PanelTop,
   RectangleEllipsis,
   ChevronsUpDown,
+  Paintbrush,
+  Image,
+  Loader,
+  Layers,
+  Square,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import React, { useMemo, useState, useEffect } from "react";
@@ -75,6 +80,11 @@ const IconMap: Record<
   PanelTop,
   RectangleEllipsis,
   ChevronsUpDown,
+  Paintbrush,
+  Image,
+  Loader,
+  Layers,
+  Square,
 };
 
 interface NavigationNode {
@@ -337,7 +347,7 @@ export function DocsLayoutClient({
                   </span>
                   <ChevronDown className="size-3.5 text-muted-foreground/50 transition-transform duration-200 group-hover/folder:text-foreground/80 group-data-[state=open]/folder:rotate-180" />
                 </CollapsibleTrigger>
-                <CollapsibleContent className="flex flex-col gap-1 mt-1 pl-2 border-l border-muted/30 ml-3 overflow-hidden data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0 data-[state=open]:slide-in-from-top-1 data-[state=closed]:slide-out-to-top-1 duration-200">
+                <CollapsibleContent className="flex flex-col gap-1 mt-1 pl-2 border-l border-muted/30 ml-1 overflow-hidden data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0 data-[state=open]:slide-in-from-top-1 data-[state=closed]:slide-out-to-top-1 duration-200">
                   {children}
                 </CollapsibleContent>
               </Collapsible>

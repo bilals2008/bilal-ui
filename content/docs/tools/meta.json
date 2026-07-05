@@ -1,0 +1,10 @@
+{
+  "pages": [
+    "gradient-generator",
+    "color-palette",
+    "svg-icons",
+    "loading-icons",
+    "shadow-generator",
+    "border-radius"
+  ]
+}

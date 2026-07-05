@@ -2,6 +2,7 @@
   "pages": [
     "getting-started",
     "components",
-    "blocks"
+    "blocks",
+    "tools"
   ]
 }
