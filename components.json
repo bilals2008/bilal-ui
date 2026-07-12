@@ -22,6 +22,6 @@
   "menuColor": "default-translucent",
   "menuAccent": "subtle",
   "registries": {
-    "@bilal-ui": "http://localhost:3000/r/{name}.json"
+    "@bilal-ui": "https://raw.githubusercontent.com/bilals2008/bilal-ui/cleanup/remove-unused-components/public/r/{name}.json"
   }
 }
