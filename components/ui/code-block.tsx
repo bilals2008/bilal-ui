@@ -57,16 +57,16 @@ export function CodeBlock({
   if (loading) {
     return (
       <div className="flex flex-col gap-2 p-5" aria-busy="true" aria-live="polite">
-        <div className="h-4 w-3/4 animate-pulse rounded bg-zinc-700/60" />
-        <div className="h-4 w-1/2 animate-pulse rounded bg-zinc-700/60" />
-        <div className="h-4 w-2/3 animate-pulse rounded bg-zinc-700/60" />
+        <div className="h-4 w-3/4 animate-pulse rounded bg-muted/60" />
+        <div className="h-4 w-1/2 animate-pulse rounded bg-muted/60" />
+        <div className="h-4 w-2/3 animate-pulse rounded bg-muted/60" />
       </div>
     );
   }
 
   if (hasError || tokens.length === 0) {
     return (
-      <pre className="p-5 font-mono text-[13px] leading-6 text-zinc-100">
+      <pre className="p-5 font-mono text-[13px] leading-6 text-foreground">
         <code>{safeCode}</code>
       </pre>
     );
@@ -77,7 +77,7 @@ export function CodeBlock({
       <pre className="p-5 font-mono text-[13px] leading-6 antialiased tabular-nums">
         {tokens.map((line, lineIndex) => (
           <div key={lineIndex} className="grid grid-cols-[2.5rem_1fr] items-start">
-            <span className="select-none pr-3 text-right text-[11px] text-zinc-500 tabular-nums">
+            <span className="select-none pr-3 text-right text-[11px] text-muted-foreground tabular-nums">
               {lineIndex + 1}
             </span>
             <span className="whitespace-pre">

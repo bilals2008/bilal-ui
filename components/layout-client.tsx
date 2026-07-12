@@ -1,7 +1,6 @@
 // File: components/layout-client.tsx
 "use client";
 
-import { DocsLayout, type DocsLayoutProps } from "fumadocs-ui/layouts/docs";
 import { ThemeSwitcher } from "@/components/kibo-ui/theme-switcher";
 import { useTheme } from "next-themes";
 import Link from "next/link";
@@ -38,9 +37,10 @@ import {
   Loader,
   Layers,
   Square,
+  ChevronLeft,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { navigationSections, type NavItem } from "@/config/navigation";
 import { cn } from "@/lib/utils";
 import pkg from "@/package.json";
@@ -49,6 +49,8 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import { Button } from "@/components/ui/button";
+import { NavTitle } from "@/lib/layout.shared";
 
 const IconMap: Record<
   string,
@@ -165,235 +167,239 @@ function getBadgeInfo(
   return null;
 }
 
-export interface DocsLayoutClientProps extends DocsLayoutProps {
-  sidebarIconBadge?: boolean;
+function SidebarItem({ node }: { node: NavigationNode }) {
+  const pathname = usePathname();
+  const configItem = allNavItems.find((i) => i.href === node.url);
+
+  const iconName = configItem?.icon || node.icon;
+  const Icon = iconName && iconName in IconMap ? IconMap[iconName] : null;
+
+  const isComingSoon = configItem?.isComingSoon;
+  const badge = getBadgeInfo(configItem, node);
+  const isActive = pathname === node.url;
+
+  return (
+    <Link
+      href={(isComingSoon || !node.url) ? "#" : node.url}
+      onClick={(e) => { if (isComingSoon) e.preventDefault(); }}
+      className={cn(
+        "flex items-center gap-3 w-full py-2 px-2.5 rounded-lg text-[13px] group/item relative",
+        "transition-all duration-200 ease-out motion-safe:transform-gpu motion-safe:hover:translate-x-0.5",
+        isActive && ["bg-muted/60", "text-foreground font-semibold", "px-3"],
+        !isActive && [
+          "text-muted-foreground/90",
+          "hover:bg-rose-500/3 hover:text-foreground",
+          "dark:hover:bg-rose-500/5",
+        ],
+        isComingSoon && [
+          "opacity-50 cursor-not-allowed",
+          "hover:bg-transparent dark:hover:bg-transparent",
+          "hover:text-muted-foreground/80",
+        ],
+      )}
+    >
+      {Icon && (
+        <div
+          className={cn(
+            "flex items-center justify-center w-5 h-5 rounded-md transition-all duration-300 ml-1 motion-safe:group-hover/item:scale-105",
+            isActive
+              ? "text-rose-500 drop-shadow-[0_0_3px_rgba(244,63,94,0.3)]"
+              : "text-muted-foreground/50 group-hover:text-fuchsia-500",
+          )}
+        >
+          <Icon className="w-4 h-4" strokeWidth={isActive ? 2.25 : 1.75} />
+        </div>
+      )}
+
+      <span
+        className={cn(
+          "flex-1 truncate tracking-[-0.01em] text-pretty transition-transform duration-200 motion-safe:group-hover/item:translate-x-0.5",
+          isActive ? "font-bold" : "font-semibold",
+        )}
+      >
+        {node.name}
+      </span>
+
+      {badge && (
+        <Badge
+          variant={badge.variant}
+          appearance="ghost"
+          size="xs"
+          className="ml-2 shrink-0 uppercase tracking-tight transition-transform duration-200 motion-safe:group-hover/item:scale-95"
+        >
+          {badge.content}
+        </Badge>
+      )}
+    </Link>
+  );
+}
+
+function SidebarFolder({ node, children }: { node: NavigationNode; children: React.ReactNode }) {
+  const pathname = usePathname();
+
+  const checkActive = (curr: NavigationNode): boolean => {
+    const url = curr.index?.url || curr.url;
+    if (url === pathname) return true;
+    return curr.children?.some(checkActive) ?? false;
+  };
+
+  const isActive = checkActive(node);
+  const [isOpen, setIsOpen] = useState(isActive);
+
+  useEffect(() => {
+    if (isActive) setIsOpen(true);
+  }, [isActive]);
+
+  return (
+    <Collapsible open={isOpen} onOpenChange={setIsOpen} className="group/folder flex flex-col w-full">
+      <CollapsibleTrigger
+        className={cn(
+          "flex items-center justify-between w-full py-2.5 px-3 rounded-lg text-[14px] no-underline group relative",
+          "transition-all duration-300 ease-out motion-safe:transform-gpu motion-safe:hover:translate-x-0.5",
+          "text-foreground/90 hover:bg-rose-500/3 hover:text-foreground",
+          "dark:hover:bg-rose-500/5",
+          isActive && "text-foreground font-bold bg-muted/40 backdrop-blur-[1px]",
+        )}
+      >
+        <span
+          className={cn(
+            "tracking-tight transition-colors duration-200",
+            isActive ? "text-foreground font-bold" : "text-foreground/80 font-semibold",
+          )}
+        >
+          {node.name}
+        </span>
+        <ChevronDown className="size-3.5 text-muted-foreground/50 transition-transform duration-200 group-hover/folder:text-foreground/80 group-data-[state=open]/folder:rotate-180" />
+      </CollapsibleTrigger>
+      <CollapsibleContent className="flex flex-col gap-1 mt-1 pl-2 border-l border-muted/30 ml-1 overflow-hidden data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0 data-[state=open]:slide-in-from-top-1 data-[state=closed]:slide-out-to-top-1 duration-200">
+        {children}
+      </CollapsibleContent>
+    </Collapsible>
+  );
+}
+
+function renderTree(nodes: NavigationNode[]) {
+  return nodes.map((node) => {
+    if (node.children) {
+      return (
+        <SidebarFolder key={node.name} node={node}>
+          {renderTree(node.children)}
+        </SidebarFolder>
+      );
+    }
+    // skip virtual/index nodes without a real url
+    if (!node.url) return null;
+    return <SidebarItem key={node.url || node.name} node={node} />;
+  });
 }
 
 export function DocsLayoutClient({
   children,
-  ...props
-}: DocsLayoutClientProps) {
+  tree,
+}: {
+  children: React.ReactNode;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  tree: any;
+}) {
+  const nodes = (tree as unknown as NavigationNode)?.children || [];
   const { theme, setTheme } = useTheme();
   const pathname = usePathname();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  // Clone tree to inject virtual items
-  const tree = useMemo(() => {
-    const clonedTree = JSON.parse(JSON.stringify(props.tree));
-
-    const injectVirtualItems = (node: NavigationNode) => {
-      if (node.children) {
-        navigationSections.forEach((section) => {
-          const matchesSection = node.children!.some((child) =>
-            section.items.some((item) => item.href === child.url),
-          );
-
-          if (
-            matchesSection ||
-            node.name === section.title ||
-            (node.name === "components" && section.title === "Components")
-          ) {
-            section.items.forEach((navItem) => {
-              const exists = node.children!.find(
-                (child) => child.url === navItem.href,
-              );
-              if (!exists && navItem.isComingSoon) {
-                node.children!.push({
-                  type: "page",
-                  name: navItem.title,
-                  url: navItem.href,
-                  isVirtual: true,
-                });
-              }
-            });
-          }
-        });
-
-        node.children?.forEach((child) =>
-          injectVirtualItems(child as NavigationNode),
-        );
-      }
-    };
-
-    injectVirtualItems(clonedTree);
-    return clonedTree;
-  }, [props.tree]);
+  useEffect(() => {
+    setSidebarOpen(false);
+  }, [pathname]);
 
   return (
-    <DocsLayout
-      {...props}
-      tree={tree}
-      themeSwitch={{ enabled: false }}
-      nav={{
-        ...props.nav,
-      }}
-      links={props.links}
-      sidebar={{
-        components: {
-          Item: ({ item }) => {
-            const node = item as unknown as NavigationNode;
-            const configItem = allNavItems.find((i) => i.href === node.url);
+    <div className="flex min-h-screen">
+      {/* Mobile sidebar overlay */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 z-30 bg-foreground/20 backdrop-blur-sm md:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
 
-            const iconName = configItem?.icon || node.icon;
-            const Icon =
-              iconName && iconName in IconMap ? IconMap[iconName] : null;
+      {/* Sidebar */}
+      <aside
+        className={cn(
+          "fixed inset-y-0 left-0 z-40 flex w-72 flex-col border-r border-border bg-background pt-14",
+          "transition-transform duration-300 ease-in-out md:sticky md:top-0 md:h-screen md:translate-x-0",
+          sidebarOpen ? "translate-x-0" : "-translate-x-full",
+        )}
+      >
+        <div className="flex items-center justify-between px-4 py-3 border-b border-border">
+          <NavTitle />
+          <Button
+            variant="ghost"
+            size="icon-xs"
+            className="md:hidden"
+            onClick={() => setSidebarOpen(false)}
+          >
+            <ChevronLeft className="size-4" />
+          </Button>
+        </div>
 
-            const isComingSoon = configItem?.isComingSoon;
-            const badge = getBadgeInfo(configItem, node);
-            const isActive = pathname === item.url;
+        <nav className="flex-1 overflow-y-auto p-4 space-y-1">
+          {renderTree(nodes)}
+        </nav>
 
-            return (
+        <div className="flex flex-col gap-2 p-4 border-t border-border">
+          <div className="flex items-center justify-between w-full">
+            <ThemeSwitcher
+              value={theme as "light" | "dark" | "system"}
+              onChange={(v) => setTheme(v)}
+              className="h-8"
+            />
+            <div className="flex items-center gap-1">
               <Link
-                href={isComingSoon ? "#" : item.url}
-                onClick={(e) => {
-                  if (isComingSoon) {
-                    e.preventDefault();
-                  }
-                }}
-                className={cn(
-                  "flex items-center gap-3 w-full py-2 px-2.5 rounded-lg text-[13px] group/item relative",
-                  "transition-all duration-200 ease-out motion-safe:transform-gpu motion-safe:hover:translate-x-0.5",
-                  isActive && ["bg-muted/60", "text-foreground font-semibold", "px-3"],
-                  !isActive && [
-                    "text-muted-foreground/90",
-                    "hover:bg-rose-500/3 hover:text-foreground",
-                    "dark:hover:bg-rose-500/5",
-                  ],
-                  isComingSoon && [
-                    "opacity-50 cursor-not-allowed",
-                    "hover:bg-transparent dark:hover:bg-transparent",
-                    "hover:text-muted-foreground/80",
-                  ],
-                )}
+                href="https://github.com/bilals2008/bilal-ui"
+                target="_blank"
+                className="p-2 text-muted-foreground hover:text-rose-500 hover:bg-rose-500/5 rounded-md transition-all group/social"
+                aria-label="GitHub"
               >
-                {Icon && (
-                  <div
-                    className={cn(
-                      "flex items-center justify-center w-5 h-5 rounded-md transition-all duration-300 ml-1 motion-safe:group-hover/item:scale-105",
-                      isActive
-                        ? "text-rose-500 drop-shadow-[0_0_3px_rgba(244,63,94,0.3)]"
-                        : "text-muted-foreground/50 group-hover:text-fuchsia-500",
-                    )}
-                  >
-                    <Icon
-                      className="w-4 h-4"
-                      strokeWidth={isActive ? 2.25 : 1.75}
-                    />
-                  </div>
-                )}
-
-                <span
-                  className={cn(
-                    "flex-1 truncate tracking-[-0.01em] text-pretty transition-transform duration-200 motion-safe:group-hover/item:translate-x-0.5",
-                    isActive ? "font-bold" : "font-semibold",
-                  )}
-                >
-                  {item.name}
-                </span>
-
-                {badge && (
-                  <Badge
-                    variant={badge.variant}
-                    appearance="ghost"
-                    size="xs"
-                    className="ml-2 shrink-0 uppercase tracking-tight transition-transform duration-200 motion-safe:group-hover/item:scale-95"
-                  >
-                    {badge.content}
-                  </Badge>
-                )}
+                <Github className="w-4 h-4 transition-transform group-hover/social:scale-110" />
               </Link>
-            );
-          },
-          Folder: ({ item, children }) => {
-            const node = item as unknown as NavigationNode;
-
-            const checkActive = (curr: NavigationNode): boolean => {
-              const url = curr.index?.url || curr.url;
-              if (url === pathname) return true;
-              return curr.children?.some(checkActive) ?? false;
-            };
-
-            const isActive = checkActive(node);
-            const [isOpen, setIsOpen] = useState(isActive);
-
-            useEffect(() => {
-              if (isActive) setIsOpen(true);
-            }, [isActive]);
-
-            return (
-              <Collapsible
-                open={isOpen}
-                onOpenChange={setIsOpen}
-                className="group/folder flex flex-col w-full"
+              <Link
+                href="https://x.com/bilals2008"
+                target="_blank"
+                className="p-2 text-muted-foreground hover:text-fuchsia-500 hover:bg-fuchsia-500/5 rounded-md transition-all group/social"
+                aria-label="Twitter"
               >
-                <CollapsibleTrigger
-                className={cn(
-                  "flex items-center justify-between w-full py-2.5 px-3 rounded-lg text-[14px] no-underline group relative",
-                  "transition-all duration-300 ease-out motion-safe:transform-gpu motion-safe:hover:translate-x-0.5",
-                  "text-foreground/90 hover:bg-rose-500/3 hover:text-foreground",
-                  "dark:hover:bg-rose-500/5",
-                    isActive &&
-                      "text-foreground font-bold bg-muted/40 backdrop-blur-[1px]",
-                  )}
-                >
-                  <span
-                    className={cn(
-                      "tracking-tight transition-colors duration-200",
-                      isActive
-                        ? "text-foreground font-bold"
-                        : "text-foreground/80 font-semibold",
-                    )}
-                  >
-                    {item.name}
-                  </span>
-                  <ChevronDown className="size-3.5 text-muted-foreground/50 transition-transform duration-200 group-hover/folder:text-foreground/80 group-data-[state=open]/folder:rotate-180" />
-                </CollapsibleTrigger>
-                <CollapsibleContent className="flex flex-col gap-1 mt-1 pl-2 border-l border-muted/30 ml-1 overflow-hidden data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0 data-[state=open]:slide-in-from-top-1 data-[state=closed]:slide-out-to-top-1 duration-200">
-                  {children}
-                </CollapsibleContent>
-              </Collapsible>
-            );
-          },
-        },
-
-        footer: (
-          <div className="flex flex-col items-center gap-2 w-full">
-            <div className="flex items-center justify-between w-full pt-2 border-t border-muted/30">
-              <ThemeSwitcher
-                value={theme as "light" | "dark" | "system"}
-                onChange={(v) => setTheme(v)}
-                className="h-8"
-              />
-              <div className="flex items-center gap-1">
-                <Link
-                  href="https://github.com/bilals2008/bilal-ui"
-                  target="_blank"
-                  className="p-2 text-muted-foreground hover:text-rose-500 hover:bg-rose-500/5 rounded-md transition-all group/social"
-                  aria-label="GitHub"
-                >
-                  <Github className="w-4 h-4 transition-transform group-hover/social:scale-110" />
-                </Link>
-                <Link
-                  href="https://x.com/bilals2008"
-                  target="_blank"
-                  className="p-2 text-muted-foreground hover:text-fuchsia-500 hover:bg-fuchsia-500/5 rounded-md transition-all group/social"
-                  aria-label="Twitter"
-                >
-                  <Twitter className="w-4 h-4 transition-transform group-hover/social:scale-110" />
-                </Link>
-              </div>
-            </div>
-
-            <div className="text-[11px] font-medium text-muted-foreground/40 text-center tracking-wide">
-              © {new Date().getFullYear()}{" "}
-              <span className="text-rose-500/60">Bilal UI</span>{" "}
-              <span className="text-fuchsia-500/50">v{pkg.version}</span>. All
-              rights reserved.
+                <Twitter className="w-4 h-4 transition-transform group-hover/social:scale-110" />
+              </Link>
             </div>
           </div>
-        ),
-      }}
-    >
-      {children}
-    </DocsLayout>
+          <div className="text-[11px] font-medium text-muted-foreground/40 text-center tracking-wide">
+            &copy; {new Date().getFullYear()}{" "}
+            <span className="text-rose-500/60">Bilal UI</span>{" "}
+            <span className="text-fuchsia-500/50">v{pkg.version}</span>. All
+            rights reserved.
+          </div>
+        </div>
+      </aside>
+
+      {/* Main content */}
+      <main className="flex-1 min-w-0">
+        {/* Top nav bar */}
+        <header className="sticky top-0 z-20 border-b border-border bg-background/80 backdrop-blur-lg">
+          <div className="flex h-14 items-center gap-4 px-4">
+            <Button
+              variant="ghost"
+              size="icon-sm"
+              className="md:hidden"
+              onClick={() => setSidebarOpen(true)}
+            >
+              <Menu className="size-5" />
+            </Button>
+            <div className="flex-1" />
+          </div>
+        </header>
+
+        <div className="mx-auto max-w-[900px] px-6 py-8">
+          {children}
+        </div>
+      </main>
+    </div>
   );
 }

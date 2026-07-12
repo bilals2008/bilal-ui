@@ -26,7 +26,7 @@ const FEATURES: Feature[] = [
           <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
           <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
         </div>
-        <pre className="text-zinc-300">
+        <pre className="text-muted-foreground">
           <code>
             <span className="text-pink-400">export function</span>{" "}
             <span className="text-blue-400">Button</span>() {"{"}
@@ -110,22 +110,22 @@ export function InteractivePreview() {
               className={cn(
                 "p-6 rounded-2xl cursor-pointer",
                 activeFeature === index
-                  ? "bg-zinc-100 dark:bg-zinc-800/50"
-                  : "hover:bg-zinc-50 dark:hover:bg-zinc-800/30",
+                  ? "bg-muted"
+                  : "hover:bg-muted/50",
               )}
               onClick={() => setActiveFeature(index)}
               whileHover={{ x: 5 }}
               transition={{ duration: 0.2 }}
             >
               <div className="flex items-start gap-4">
-                <div className="p-2 rounded-lg bg-zinc-200 dark:bg-zinc-700">
+                <div className="p-2 rounded-lg bg-muted">
                   {feature.icon}
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg mb-1">
                     {feature.title}
                   </h3>
-                  <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                  <p className="text-sm text-muted-foreground">
                     {feature.description}
                   </p>
                 </div>
@@ -134,7 +134,7 @@ export function InteractivePreview() {
           ))}
         </div>
 
-        <div className="lg:h-100 p-8 rounded-3xl bg-linear-to-b from-white to-zinc-50 dark:from-zinc-900 dark:to-zinc-900/50 border border-zinc-200 dark:border-zinc-800">
+        <div className="lg:h-100 p-8 rounded-3xl bg-linear-to-b from-background to-muted/50 border border-border">
           <motion.div
             key={activeFeature}
             initial={{ opacity: 0, y: 20 }}

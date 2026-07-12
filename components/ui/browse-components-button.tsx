@@ -22,8 +22,8 @@ export function BrowseComponentsButton() {
           className={cn(
             "relative inline-flex items-center justify-center gap-4 rounded-xl font-medium",
             "relative h-12 px-6 min-w-72 md:min-w-56",
-            "bg-black dark:bg-white ",
-            "text-white dark:text-black",
+            "bg-foreground ",
+            "text-background",
             "border-2 border-orange-500/20 dark:border-orange-400/20",
             "shadow-[0_8px_16px_-6px_rgba(251,113,133,0.3)]",
             "dark:shadow-[0_8px_16px_-6px_rgba(251,113,133,0.2)]",

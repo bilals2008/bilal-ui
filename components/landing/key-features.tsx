@@ -77,9 +77,9 @@ const features = [
     description:
       "Maintain velocity as your codebase grows with composable APIs, readable structure, and type-safe ergonomics.",
     pill: "Scalable Architecture",
-    accent: "from-zinc-700 to-zinc-500",
+    accent: "from-muted-foreground to-muted-foreground/80",
     className:
-      "md:col-span-3 bg-zinc-500/5 dark:bg-zinc-500/10 border-zinc-200/90 dark:border-zinc-800",
+      "md:col-span-3 bg-muted/5 dark:bg-muted/10 border-border/90",
   },
 ] satisfies FeatureItem[];
 
@@ -92,16 +92,16 @@ export function KeyFeatures() {
 
       <div className="mx-auto max-w-7xl">
         <div className="mb-14 text-center">
-          <span className="inline-flex items-center rounded-full border border-zinc-200/80 bg-white/80 px-3 py-1 text-xs font-semibold tracking-wide text-zinc-600 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-900/70 dark:text-zinc-300">
+            <span className="inline-flex items-center rounded-full border border-border/80 bg-background/80 px-3 py-1 text-xs font-semibold tracking-wide text-muted-foreground backdrop-blur-sm">
             Why builders choose Bilal UI
           </span>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-zinc-900 sm:text-5xl dark:text-zinc-100">
+          <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
             Key features that keep
             <span className="ml-2 bg-linear-to-r from-rose-500 via-fuchsia-500 to-purple-500 bg-clip-text text-transparent dark:from-rose-400 dark:via-fuchsia-400 dark:to-purple-400">
               shipping fast
             </span>
           </h2>
-          <p className="mx-auto mt-4 max-w-3xl text-base text-zinc-600 sm:text-lg dark:text-zinc-400">
+          <p className="mx-auto mt-4 max-w-3xl text-base text-muted-foreground sm:text-lg">
             From first prototype to production release, every piece is built to
             reduce decision fatigue and improve delivery speed.
           </p>
@@ -130,24 +130,24 @@ export function KeyFeatures() {
               <div className="relative flex h-full flex-col justify-between gap-8">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="inline-flex items-center rounded-full bg-white/70 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-zinc-600 dark:bg-zinc-950/60 dark:text-zinc-300">
+                    <span className="inline-flex items-center rounded-full bg-background/70 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
                       {feature.pill}
                     </span>
-                    <div className="inline-flex rounded-xl border border-zinc-200/70 bg-white/40 p-2 text-zinc-700 backdrop-blur-sm dark:border-zinc-700/60 dark:bg-zinc-950/45 dark:text-zinc-200">
+                    <div className="inline-flex rounded-xl border border-border/70 bg-background/40 p-2 text-muted-foreground backdrop-blur-sm">
                       <feature.icon className="h-5 w-5 stroke-[1.75]" />
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
+                    <h3 className="text-xl font-semibold tracking-tight text-foreground">
                       {feature.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                       {feature.description}
                     </p>
                   </div>
                 </div>
-                <div className="h-px w-full bg-linear-to-r from-zinc-300/80 to-transparent dark:from-zinc-700/70" />
-                <div className="text-xs font-medium text-zinc-500 dark:text-zinc-400">
+                <div className="h-px w-full bg-linear-to-r from-border/80 to-transparent" />
+                <div className="text-xs font-medium text-muted-foreground">
                   Built for high-velocity product teams
                 </div>
               </div>

@@ -71,7 +71,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ```bash
 ├── app/              # Next.js App Router (Pages & Layouts)
 ├── components/       # Custom UI components
-│   ├── bilalUi/      # Bilal UI specific components
 │   ├── landing/      # Landing page sections
 │   ├── ui/           # Base UI primitives (Radix-based)
 │   └── icons/        # Custom icons set

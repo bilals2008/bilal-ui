@@ -39,7 +39,7 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-zinc-900 dark:text-zinc-100">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-foreground">
             Craft with{" "}
             <span className="bg-clip-text text-transparent bg-linear-to-r from-rose-500 via-fuchsia-500 to-purple-500 dark:from-rose-400 dark:via-fuchsia-400 dark:to-purple-400">
               precision
@@ -51,7 +51,7 @@ export function HeroSection() {
             </span>
             .
           </h1>
-          <p className="mt-6 text-base md:text-xl text-zinc-700 dark:text-zinc-300 max-w-lg">
+          <p className="mt-6 text-base md:text-xl text-muted-foreground max-w-lg">
             A curated collection of{" "}
             <span className="font-semibold">100+ premium UI components</span>{" "}
             crafted with{" "}
@@ -72,7 +72,7 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex flex-col justify-start w-full"
         >
-          <span className="text-sm text-zinc-500 dark:text-zinc-300 pb-3 text-start flex items-center gap-2">
+          <span className="text-sm text-muted-foreground pb-3 text-start flex items-center gap-2">
             <TailwindCSS className="w-4 h-4" />
             <span className="flex items-center gap-1.5">
               Now updated for Tailwind CSS 4.0!
@@ -102,18 +102,18 @@ export function HeroSection() {
         >
           {/* Card component */}
           <div className="w-full flex flex-col items-center justify-center ">
-            <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
+            <span className="text-sm text-muted-foreground block text-center mb-2">
               {"<Card/>"}
             </span>
             {/* <Card08 href="/docs/components/card" /> */}
-            <div className="w-full h-48 rounded-xl border border-dashed border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-400">
+            <div className="w-full h-48 rounded-xl border border-dashed border-border flex items-center justify-center text-muted-foreground">
               Card Preview
             </div>
           </div>
 
           {/* Action Search Bar */}
           <div className="w-full max-w-150 bg-transparent">
-            <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
+            <span className="text-sm text-muted-foreground block text-center mb-2">
               Components
             </span>
             {/* <ActionSearchBar
@@ -121,7 +121,7 @@ export function HeroSection() {
                             defaultOpen={true}
                         /> */}
             {/* <Card02 /> */}
-            <div className="w-full h-48 rounded-xl border border-dashed border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-400">
+            <div className="w-full h-48 rounded-xl border border-dashed border-border flex items-center justify-center text-muted-foreground">
               Search Preview
             </div>
           </div>
@@ -134,13 +134,13 @@ export function HeroSection() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="w-full"
         >
-          <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
+          <span className="text-sm text-muted-foreground block text-center mb-2">
             AI Chat
           </span>
           {/* <AIInput_04 /> */}
-          <div className="w-full h-48 rounded-xl border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
+          <div className="w-full h-48 rounded-xl border border-border flex items-center justify-center">
             {/* <AIInput_04 /> */}
-            <span className="text-zinc-400">AI Input Preview</span>
+            <span className="text-muted-foreground">AI Input Preview</span>
           </div>
         </motion.div>
 
@@ -153,29 +153,29 @@ export function HeroSection() {
         >
           {/* Left side - Buttons */}
           <div className="w-full">
-            <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
+            <span className="text-sm text-muted-foreground block text-center mb-2">
               Buttons
             </span>
-            <div className="w-full h-48 rounded-xl  border border-zinc-200 dark:border-zinc-800 flex flex-col items-center justify-center gap-3">
+            <div className="w-full h-48 rounded-xl  border border-border flex flex-col items-center justify-center gap-3">
               <Link href="/docs/components/button">
                 {/* <Btn14 label="Bring me" className=" w-42 py-5" /> */}
-                <span className="text-zinc-400">Button 1</span>
+                <span className="text-muted-foreground">Button 1</span>
               </Link>
               <Link href="/docs/components/button">
                 {/* <Btn03 className=" w-42 py-5" /> */}
-                <span className="text-zinc-400">Button 2</span>
+                <span className="text-muted-foreground">Button 2</span>
               </Link>
             </div>
           </div>
 
           {/* Right side - Input */}
           <div className="w-full">
-            <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
+            <span className="text-sm text-muted-foreground block text-center mb-2">
               Input
             </span>
             <Link href="/docs/components/input">
               {/* <Input09 /> */}
-              <div className="w-full h-48 rounded-xl border border-dashed border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-400">
+              <div className="w-full h-48 rounded-xl border border-dashed border-border flex items-center justify-center text-muted-foreground">
                 Input Preview
               </div>
             </Link>

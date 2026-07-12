@@ -44,17 +44,16 @@ export default function Input_04({
                 <div
                     className={cn(
                         "flex items-center rounded-lg border",
-                        "border-zinc-200 dark:border-zinc-800",
-                        "bg-white dark:bg-black/5",
-                        isFocused && "ring-2 ring-zinc-300 dark:ring-zinc-700"
+                        "border-border",
+                        "bg-background",
+                        isFocused && "ring-2 ring-ring"
                     )}
                 >
                     <button
                         type="button"
                         onClick={decrementValue}
-                        className="px-3 py-2 hover:bg-zinc-100 
-                        dark:hover:bg-zinc-800
-                        text-zinc-500 dark:text-zinc-400 transition-colors"
+                        className="px-3 py-2 hover:bg-muted 
+                        text-muted-foreground transition-colors"
                         aria-label="Decrement button"
                     >
                         -
@@ -71,28 +70,27 @@ export default function Input_04({
                         className="w-full text-center border-none bg-transparent focus:outline-hidden 
                         [-moz-appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none 
                         [&::-webkit-inner-spin-button]:appearance-none
-                        text-zinc-900 dark:text-zinc-100"
+                        text-foreground"
                     />
                     <button
                         type="button"
                         onClick={incrementValue}
-                        className="px-3 py-2 hover:bg-zinc-100 
-                        dark:hover:bg-zinc-800
-                        text-zinc-500 dark:text-zinc-400 transition-colors"
+                        className="px-3 py-2 hover:bg-muted 
+                        text-muted-foreground transition-colors"
                         aria-label="Increment button"
                     >
                         +
                     </button>
                 </div>
 
-                <div className="mt-2 h-1.5 rounded-full bg-zinc-100 dark:bg-zinc-800 overflow-hidden">
+                <div className="mt-2 h-1.5 rounded-full bg-muted overflow-hidden">
                     <div
-                        className="h-full bg-zinc-300 dark:bg-zinc-600 transition-all duration-200"
+                        className="h-full bg-primary transition-all duration-200"
                         style={{ width: `${percentage}%` }}
                     />
                 </div>
 
-                <div className="mt-1 flex justify-between text-xs text-zinc-400 dark:text-zinc-500">
+                <div className="mt-1 flex justify-between text-xs text-muted-foreground">
                     <span>{min}</span>
                     <span>{max}</span>
                 </div>

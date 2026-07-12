@@ -36,8 +36,8 @@ export function NewsletterSection() {
       </div>
 
       <div className="mx-auto max-w-5xl">
-        <Card className="group relative overflow-hidden rounded-3xl border-dashed border-zinc-300/70 bg-white/75 p-6 shadow-[0_30px_80px_-60px_rgba(24,24,27,0.55)] backdrop-blur-sm transition-colors duration-300 hover:border-zinc-400/80 dark:border-zinc-700/70 dark:bg-zinc-950/70 dark:hover:border-zinc-600/80 md:p-8">
-          <div className="pointer-events-none absolute inset-0 bg-linear-to-r from-zinc-50/70 via-transparent to-zinc-100/45 dark:from-zinc-900/35 dark:via-transparent dark:to-zinc-900/20" />
+        <Card className="group relative overflow-hidden rounded-3xl border-dashed border-border/70 bg-background/75 p-6 shadow-[0_30px_80px_-60px_rgba(24,24,27,0.55)] backdrop-blur-sm transition-colors duration-300 hover:border-border/80 md:p-8">
+          <div className="pointer-events-none absolute inset-0 bg-linear-to-r from-muted/70 via-transparent to-muted/45" />
 
           <div className="relative z-10 flex flex-col items-stretch gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex-1 space-y-4 text-center lg:text-left">
@@ -50,14 +50,14 @@ export function NewsletterSection() {
                 <Sparkles className="h-3.5 w-3.5" />
                 Stay Updated
               </Badge>
-              <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 md:text-4xl">
+              <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
                 Join the{" "}
                 <span className="bg-linear-to-r from-rose-500 via-fuchsia-500 to-purple-500 bg-clip-text text-transparent dark:from-rose-400 dark:via-fuchsia-400 dark:to-purple-400">
                   Bilal UI
                 </span>{" "}
                 inner circle
               </h2>
-              <CardDescription className="max-w-md text-sm text-zinc-600 dark:text-zinc-400 md:text-base">
+              <CardDescription className="max-w-md text-sm text-muted-foreground md:text-base">
                 Get early access to new components and exclusive design
                 resources.
               </CardDescription>
@@ -99,8 +99,8 @@ export function NewsletterSection() {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-2">
-                  <InputGroup className="h-12 rounded-2xl border-zinc-200/90 bg-zinc-50/80 dark:border-zinc-700 dark:bg-zinc-900/80">
-                    <InputGroupAddon className="text-zinc-400">
+                  <InputGroup className="h-12 rounded-2xl border-border/90 bg-muted/80">
+                    <InputGroupAddon className="text-muted-foreground">
                       <Mail className="h-4 w-4" />
                     </InputGroupAddon>
                     <InputGroupInput
@@ -132,7 +132,7 @@ export function NewsletterSection() {
                       </Button>
                     </InputGroupAddon>
                   </InputGroup>
-                  <p className="px-1 text-center text-[11px] text-zinc-500 dark:text-zinc-500 lg:text-left">
+                  <p className="px-1 text-center text-[11px] text-muted-foreground lg:text-left">
                     No spam, just quality updates. Unsubscribe anytime with one
                     click.
                   </p>

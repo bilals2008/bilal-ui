@@ -8,6 +8,7 @@ import { ModeToggle } from "../mode-toggle";
 import { Badge } from "../ui/badge";
 import { useState } from "react";
 import { CommandMenu } from "../command-menu";
+import { GradientText } from "@/components/ui/gradient-text";
 
 const NavLinks = [
   {
@@ -32,7 +33,7 @@ const getLinkClass = (isActive: boolean) => {
     return `${baseClass} text-green-600 dark:text-green-400 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gradient-to-r after:from-green-500 after:to-green-400 dark:after:from-green-400 dark:after:to-green-300`;
   }
 
-  return `${baseClass} text-zinc-600 hover:text-green-600 dark:text-zinc-400 dark:hover:text-green-400 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gradient-to-r after:from-green-500 after:to-green-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-500 after:origin-left dark:after:from-green-400 dark:after:to-green-300`;
+  return `${baseClass} text-muted-foreground hover:text-green-600 dark:hover:text-green-400 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gradient-to-r after:from-green-500 after:to-green-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-500 after:origin-left dark:after:from-green-400 dark:after:to-green-300`;
 };
 
 export function Header() {
@@ -51,11 +52,11 @@ export function Header() {
             <div
               className={`
                 flex items-center justify-between
-                bg-white/80 dark:bg-zinc-900/80
+                bg-background/80
                 shadow-lg shadow-zinc-800/5
                 backdrop-blur-md
                 border-x border-b 
-                border-zinc-200 dark:border-zinc-800
+                border-border
                 w-full sm:min-w-200 sm:max-w-300
                 rounded-b-[28px]
                 px-4
@@ -77,11 +78,9 @@ export function Header() {
                       height={24}
                       className="w-6 h-6 object-cover rounded-md scale-110"
                     />
-                    <span className="font-bold bg-clip-text text-transparent bg-linear-to-r from-rose-500 via-fuchsia-500 to-purple-500">
-                      Bilal UI
-                    </span>
+                    <GradientText className="font-bold">Bilal UI</GradientText>
                   </Link>
-                  <span className="text-zinc-300 dark:text-zinc-700 hidden sm:block">
+                  <span className="text-border hidden sm:block">
                     |
                   </span>
 
@@ -117,7 +116,7 @@ export function Header() {
                 </div>
 
                 <div className="hidden sm:flex items-center gap-3">
-                  <span className="text-zinc-300 dark:text-zinc-700">|</span>
+                  <span className="text-border">|</span>
                   <CommandMenu />
                   <IconButton
                     href="https://github.com/bilals2008/bilal-ui"
@@ -140,13 +139,13 @@ export function Header() {
                   <ModeToggle />
                   <button
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    className="p-2 rounded hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:focus:ring-zinc-600"
+                    className="p-2 rounded hover:bg-muted transition-colors focus:outline-none focus:ring-2 focus:ring-ring"
                     aria-label="Toggle menu"
                   >
                     {mobileMenuOpen ? (
-                      <X className="w-5 h-5 text-zinc-600 dark:text-zinc-400" />
+                      <X className="w-5 h-5 text-muted-foreground" />
                     ) : (
-                      <Menu className="w-5 h-5 text-zinc-600 dark:text-zinc-400" />
+                      <Menu className="w-5 h-5 text-muted-foreground" />
                     )}
                   </button>
                 </div>
@@ -154,7 +153,7 @@ export function Header() {
 
               {/* Mobile Menu Dropdown */}
               {mobileMenuOpen && (
-                <div className="absolute top-full left-4 right-4 mt-2 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md border border-zinc-200 dark:border-zinc-800 rounded-lg sm:hidden animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute top-full left-4 right-4 mt-2 bg-background/80 backdrop-blur-md border border-border rounded-lg sm:hidden animate-in fade-in slide-in-from-top-2 duration-200">
                   <div className="flex flex-col gap-2 p-3">
                     {NavLinks.map((link) => {
                       const isActive = isLinkActive(link.href);
@@ -208,11 +207,11 @@ function IconButton({ href, icon: Icon, title, external }: IconButtonProps) {
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
-      className="p-2 rounded hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:focus:ring-zinc-600"
+      className="p-2 rounded hover:bg-muted transition-colors focus:outline-none focus:ring-2 focus:ring-ring"
       title={title}
       aria-label={title}
     >
-      <Icon className="w-5 h-5 text-zinc-600 dark:text-zinc-400 transition-colors" />
+      <Icon className="w-5 h-5 text-muted-foreground transition-colors" />
     </Link>
   );
 }

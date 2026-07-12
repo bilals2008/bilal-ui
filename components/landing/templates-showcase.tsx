@@ -46,18 +46,18 @@ export function TemplatesShowcaseSection() {
       <div className="max-w-7xl mx-auto space-y-12">
         <div className="flex flex-col items-center justify-center text-center gap-4">
           <div className="space-y-3">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">
               Built with{" "}
               <span className="bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-rose-500">
                 Bilal UI
               </span>
             </h2>
-            <p className="text-zinc-500 dark:text-zinc-400 max-w-2xl text-sm md:text-base mx-auto">
+            <p className="text-muted-foreground max-w-2xl text-sm md:text-base mx-auto">
               Discover high-quality templates and interfaces built using our
               components.
             </p>
           </div>
-          <button className="inline-flex items-center gap-2 text-sm font-semibold text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors group">
+          <button className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors group">
             View all templates
             <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
           </button>
@@ -71,7 +71,7 @@ export function TemplatesShowcaseSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group relative flex flex-col p-5 rounded-2xl bg-zinc-50/50 dark:bg-zinc-900/10 border-2 border-dashed border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all overflow-hidden"
+              className="group relative flex flex-col p-5 rounded-2xl bg-muted/50 border-2 border-dashed border-border hover:border-border/80 transition-all overflow-hidden"
             >
               {/* Card Header */}
               <div className="flex items-center justify-between mb-4">
@@ -95,23 +95,23 @@ export function TemplatesShowcaseSection() {
               </div>
 
               {/* Placeholder "Image" Area */}
-              <div className="relative aspect-video rounded-xl bg-zinc-200/50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 mb-4 flex items-center justify-center overflow-hidden">
+              <div className="relative aspect-video rounded-xl bg-muted/50 border border-border mb-4 flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 bg-linear-to-br from-purple-500/5 to-rose-500/5" />
-                <div className="grid grid-cols-3 gap-2 w-full px-4 text-zinc-400 dark:text-zinc-600">
+                <div className="grid grid-cols-3 gap-2 w-full px-4 text-muted-foreground/60">
                   <div className="h-2 rounded-full bg-current opacity-20 w-full animate-pulse" />
                   <div className="h-2 rounded-full bg-current opacity-20 w-2/3 animate-pulse" />
                   <div className="h-2 rounded-full bg-current opacity-20 w-full animate-pulse" />
                 </div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-10 rounded-full bg-white dark:bg-zinc-900 shadow-2xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all scale-75 group-hover:scale-100 border border-zinc-200 dark:border-zinc-800">
-                  <ExternalLink className="size-4.5 text-zinc-900 dark:text-zinc-100" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-10 rounded-full bg-background shadow-2xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all scale-75 group-hover:scale-100 border border-border">
+                  <ExternalLink className="size-4.5 text-foreground" />
                 </div>
               </div>
 
               <div className="space-y-2 mt-2">
-                <h3 className="font-bold text-lg text-zinc-900 dark:text-zinc-100 group-hover:text-purple-500 transition-colors">
+                <h3 className="font-bold text-lg text-foreground group-hover:text-purple-500 transition-colors">
                   {template.title}
                 </h3>
-                <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed line-clamp-2">
+                <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
                   {template.description}
                 </p>
               </div>

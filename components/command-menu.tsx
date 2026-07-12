@@ -111,7 +111,7 @@ export function CommandMenu() {
                 )
               }
             >
-              <Github className="mr-2 h-4 w-4 text-zinc-900 dark:text-zinc-100" />
+              <Github className="mr-2 h-4 w-4 text-foreground" />
               <span>GitHub</span>
             </CommandItem>
           </CommandGroup>

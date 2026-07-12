@@ -33,8 +33,8 @@ const typeConfig = {
   },
   internal: {
     icon: Settings,
-    color: "text-zinc-500",
-    bg: "bg-zinc-500/10",
+    color: "text-muted-foreground",
+    bg: "bg-muted/10",
     label: "Internal",
     variant: "secondary" as const,
   },
@@ -88,10 +88,10 @@ export default function ChangelogPage() {
               ? `Release notes - ${formatVersion(latestVersion)}`
               : "Release notes"}
           </Badge>
-          <h1 className="mb-5 text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-5xl">
+          <h1 className="mb-5 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
             Changelog
           </h1>
-          <p className="mx-auto max-w-2xl text-lg text-zinc-600 dark:text-zinc-400">
+          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
             Stay up to date with the latest features, improvements, and fixes in
             Bilal UI. We&apos;re constantly evolving to provide the best design
             experience.
@@ -100,10 +100,10 @@ export default function ChangelogPage() {
 
         {/* Timeline */}
         <div className="relative">
-          <div className="absolute left-3 top-0 bottom-0 w-px bg-zinc-200 dark:bg-zinc-800 sm:hidden" />
+          <div className="absolute left-3 top-0 bottom-0 w-px bg-border sm:hidden" />
 
           {/* Vertical Line */}
-          <div className="absolute left-1/2 top-0 bottom-0 hidden w-px -translate-x-1/2 bg-zinc-200 dark:bg-zinc-800 sm:block" />
+          <div className="absolute left-1/2 top-0 bottom-0 hidden w-px -translate-x-1/2 bg-border sm:block" />
 
           <div className="space-y-12 sm:space-y-20">
             {changelogData.map((entry, index) => {
@@ -125,14 +125,14 @@ export default function ChangelogPage() {
                   )}
                 >
                   {/* Timeline Node */}
-                  <div className="absolute left-3 top-1 z-10 flex h-6 w-6 -translate-x-1/2 items-center justify-center rounded-full border-2 border-emerald-500 bg-white shadow-[0_0_0_4px_rgba(16,185,129,0.16)] dark:bg-black sm:left-1/2">
+                  <div className="absolute left-3 top-1 z-10 flex h-6 w-6 -translate-x-1/2 items-center justify-center rounded-full border-2 border-emerald-500 bg-background shadow-[0_0_0_4px_rgba(16,185,129,0.16)] sm:left-1/2">
                     <div className="h-2.5 w-2.5 rounded-full bg-emerald-500" />
                   </div>
 
                   {/* Content Card */}
                   <article
                     className={cn(
-                      "w-full rounded-2xl border border-zinc-200/80 bg-white/90 p-5 shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-zinc-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900/70 dark:hover:border-zinc-700 sm:w-[46%] sm:p-7",
+                      "w-full rounded-2xl border border-border/80 bg-background/90 p-5 shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-border hover:shadow-md sm:w-[46%] sm:p-7",
                       index % 2 === 0 ? "sm:ms-8" : "sm:me-8",
                     )}
                   >
@@ -140,15 +140,15 @@ export default function ChangelogPage() {
                       <Badge variant="version" appearance="light" size="md">
                         {formatVersion(entry.version)}
                       </Badge>
-                      <span className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
+                      <span className="text-sm font-medium text-muted-foreground">
                         {entry.date}
                       </span>
                     </div>
 
-                    <h3 className="mb-2 text-xl font-bold text-zinc-900 dark:text-zinc-100">
+                    <h3 className="mb-2 text-xl font-bold text-foreground">
                       {entry.title}
                     </h3>
-                    <p className="mb-5 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                    <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
                       {entry.description}
                     </p>
 
@@ -175,7 +175,7 @@ export default function ChangelogPage() {
                               >
                                 {config.label}
                               </Badge>
-                              <p className="text-sm text-zinc-700 dark:text-zinc-300">
+                              <p className="text-sm text-muted-foreground">
                                 {change.content}
                               </p>
                             </div>
@@ -194,7 +194,7 @@ export default function ChangelogPage() {
                         : "items-start ps-8 text-left",
                     )}
                   >
-                    <span className="text-2xl font-semibold tracking-tight text-zinc-300 dark:text-zinc-700">
+                    <span className="text-2xl font-semibold tracking-tight text-muted-foreground">
                       {releaseDate.year}
                     </span>
                     <span className="text-sm font-medium text-emerald-500/70">

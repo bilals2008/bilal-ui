@@ -29,16 +29,16 @@ const AnnouncementBadge = () => {
       role="status"
       aria-label="Bilal UI development status"
     >
-      <div className="group relative inline-flex items-center gap-2 sm:gap-3 overflow-hidden rounded-full border border-zinc-200/80 bg-white/75 px-3 sm:px-4 py-1.5 sm:py-2 backdrop-blur-md transition-all hover:border-zinc-300 hover:shadow-[0_10px_40px_-20px_rgba(14,165,233,0.65)] dark:border-zinc-800/80 dark:bg-zinc-900/50 dark:hover:border-zinc-700">
+      <div className="group relative inline-flex items-center gap-2 sm:gap-3 overflow-hidden rounded-full border border-border/80 bg-background/75 px-3 sm:px-4 py-1.5 sm:py-2 backdrop-blur-md transition-all hover:border-border hover:shadow-[0_10px_40px_-20px_rgba(14,165,233,0.65)]">
         <div className="relative flex items-center gap-1.5 sm:gap-2">
           <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
             <span className="relative inline-flex h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-sky-500 shadow-[0_0_10px_rgba(14,165,233,0.55)]"></span>
           </span>
-          <span className="text-xs sm:text-sm font-medium text-zinc-700 dark:text-zinc-200 whitespace-nowrap">
+          <span className="text-xs sm:text-sm font-medium text-muted-foreground whitespace-nowrap">
             New component drops are <span className="font-bold text-sky-600 dark:text-sky-400">shipping weekly</span>
           </span>
-          <Rocket className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-zinc-400 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          <Rocket className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
         </div>
       </div>
     </motion.div>
@@ -156,7 +156,7 @@ export function HeroSection() {
             transition={{ duration: 0.6 }}
             className="flex flex-col items-center"
           >
-            <h1 className="text-4xl font-bold leading-[1.05] tracking-tight text-zinc-900 sm:text-5xl lg:text-7xl dark:text-zinc-100">
+            <h1 className="text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-7xl">
               Ship polished interfaces
               <br />
               faster with{" "}
@@ -167,7 +167,7 @@ export function HeroSection() {
                 <AnimatedUnderline />
               </span>
             </h1>
-            <p className="mx-auto mt-6 max-w-3xl text-base text-zinc-700 md:text-xl dark:text-zinc-300">
+            <p className="mx-auto mt-6 max-w-3xl text-base text-muted-foreground md:text-xl">
               Build from launch-ready blocks instead of blank files. Bilal UI
               gives you fast, accessible React and Next.js components engineered
               for real products.
@@ -176,7 +176,7 @@ export function HeroSection() {
               {heroHighlights.map((item) => (
                 <span
                   key={item}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-zinc-200/90 bg-white/80 px-3 py-1 text-xs font-medium text-zinc-700 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/70 dark:text-zinc-200"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-border/90 bg-background/80 px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm"
                 >
                   <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
                   {item}
@@ -191,7 +191,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex w-full flex-col items-center"
           >
-            <span className="flex items-center justify-center gap-2 pb-4 text-center text-sm text-zinc-600 dark:text-zinc-300">
+            <span className="flex items-center justify-center gap-2 pb-4 text-center text-sm text-muted-foreground">
               <TailwindCSS className="h-4 w-4" />
               <span className="flex items-center gap-1.5">
                 Crafted for Tailwind CSS 4 and shadcn/ui
@@ -205,7 +205,7 @@ export function HeroSection() {
               <BrowseComponentsButton />
               <BrowseBlocksButton />
             </div>
-            <span className="mt-4 flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400">
+            <span className="mt-4 flex items-center gap-1 text-xs text-muted-foreground">
               <ArrowRight className="h-3.5 w-3.5" />
               Copy, paste, and ship without lock-in.
             </span>

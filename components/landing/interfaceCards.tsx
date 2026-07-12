@@ -11,11 +11,11 @@ function Header() {
           Build beautiful interfaces
         </span>
       </h2>
-      <p className="mt-6 text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-2xl">
+      <p className="mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl">
         A collection of UI components that you can copy and paste into your
         apps.
       </p>
-      <p className="mt-2 text-base text-zinc-500 dark:text-zinc-400">
+      <p className="mt-2 text-base text-muted-foreground">
         Accessible. Open Source.
       </p>
     </div>
@@ -40,8 +40,8 @@ export function BuildInterfacesCard({ className }: BuildInterfacesCardProps) {
           <Link
             href="/docs"
             className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg 
-                            bg-linear-to-r from-zinc-900 to-zinc-800 dark:from-zinc-100 dark:to-zinc-200
-                            text-white dark:text-zinc-900 
+                            bg-linear-to-r from-primary to-primary/80
+                            text-primary-foreground 
                             hover:scale-105 active:scale-95
                             transition-all duration-200 ease-in-out"
           >
@@ -54,8 +54,8 @@ export function BuildInterfacesCard({ className }: BuildInterfacesCardProps) {
             href="#"
             target="_blank"
             className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg
-                            border border-zinc-200 dark:border-zinc-800
-                            hover:bg-zinc-100 dark:hover:bg-zinc-800/50
+                            border border-border
+                            hover:bg-muted
                             hover:scale-105 active:scale-95
                             transition-all duration-200"
           >

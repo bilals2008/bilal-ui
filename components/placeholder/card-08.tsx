@@ -27,13 +27,13 @@ export default function Card08({
       <div
         className={cn(
           "relative overflow-hidden rounded-2xl",
-          "bg-white/80 dark:bg-zinc-900/80",
+          "bg-card/80",
           "backdrop-blur-xl",
-          "border border-zinc-200/50 dark:border-zinc-800/50",
+          "border border-border/50",
           "shadow-xs",
           "transition-all duration-300",
           "hover:shadow-md",
-          "hover:border-zinc-300/50 dark:hover:border-zinc-700/50",
+          "hover:border-border/50",
         )}
       >
         <div className="relative h-80 overflow-hidden">
@@ -49,7 +49,7 @@ export default function Card08({
         <div
           className={cn(
             "absolute inset-0",
-            "bg-linear-to-t from-black/90 via-black/40 to-transparent",
+            "bg-linear-to-t from-foreground/90 via-foreground/40 to-transparent",
           )}
         />
 
@@ -57,11 +57,10 @@ export default function Card08({
           <span
             className={cn(
               "px-2.5 py-1 rounded-full text-xs font-medium",
-              "bg-white/90 text-zinc-800",
-              "dark:bg-zinc-900/90 dark:text-zinc-200",
+              "bg-background/90 text-foreground",
               "backdrop-blur-md",
               "shadow-xs",
-              "border border-white/20 dark:border-zinc-800/50",
+              "border border-border/20",
             )}
           >
             {badge.text}
@@ -71,23 +70,23 @@ export default function Card08({
         <div className="absolute bottom-0 left-0 right-0 p-5">
           <div className="flex items-center justify-between gap-3">
             <div className="space-y-1.5">
-              <h3 className="text-lg font-semibold text-white dark:text-zinc-100 leading-snug">
+              <h3 className="text-lg font-semibold text-primary-foreground leading-snug">
                 {title}
               </h3>
-              <p className="text-sm text-zinc-200 dark:text-zinc-300 line-clamp-2">
+              <p className="text-sm text-primary-foreground/80 line-clamp-2">
                 {subtitle}
               </p>
             </div>
             <div
               className={cn(
                 "p-2 rounded-full",
-                "bg-white/10 dark:bg-zinc-800/50",
+                "bg-primary-foreground/10",
                 "backdrop-blur-md",
-                "group-hover:bg-white/20 dark:group-hover:bg-zinc-700/50",
+                "group-hover:bg-primary-foreground/20",
                 "transition-colors duration-300 group",
               )}
             >
-              <ArrowUpRight className="w-4 h-4 text-white group-hover:-rotate-12 transition-transform duration-300" />
+              <ArrowUpRight className="w-4 h-4 text-primary-foreground group-hover:-rotate-12 transition-transform duration-300" />
             </div>
           </div>
         </div>

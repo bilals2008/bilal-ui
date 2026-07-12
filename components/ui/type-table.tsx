@@ -60,7 +60,7 @@ export function TypeTable({ type }: { type: Record<string, ObjectType> }) {
     <div className="my-6 hidden w-full overflow-auto md:block">
       <table className="border-border relative w-full border-separate border-spacing-0 overflow-x-auto rounded-lg border text-sm">
         <thead>
-          <tr className="bg-zinc-100/50 dark:bg-zinc-900/50">
+            <tr className="bg-muted/50">
             <th className="border-border text-foreground border-r border-b px-4 py-3 text-left font-semibold first:rounded-tl-lg last:rounded-tr-lg last:border-r-0">
               Prop
             </th>

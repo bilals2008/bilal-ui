@@ -60,7 +60,7 @@ export default function Features() {
                             fontWeight:
                                 hoveredItem === "TailwindCSS" ? 500 : 400,
                         }}
-                        className="text-xs text-center mt-1 whitespace-nowrap text-black dark:text-white"
+                        className="text-xs text-center mt-1 whitespace-nowrap text-foreground"
                     >
                         TailwindCSS
                     </motion.span>
@@ -93,7 +93,7 @@ export default function Features() {
                             scale: hoveredItem === "Motion" ? 1.1 : 1,
                             fontWeight: hoveredItem === "Motion" ? 500 : 400,
                         }}
-                        className="text-xs text-center mt-1 whitespace-nowrap text-black dark:text-white"
+                        className="text-xs text-center mt-1 whitespace-nowrap text-foreground"
                     >
                         Motion
                     </motion.span>
@@ -109,13 +109,13 @@ export default function Features() {
                         ease: [0.23, 1, 0.32, 1],
                     }}
                     className={cn(
-                        "text-black dark:text-white flex flex-col items-center gap-2 relative"
+                        "text-foreground flex flex-col items-center gap-2 relative"
                     )}
                     onMouseEnter={() => handleMouseEnter("Shadcn UI")}
                     onMouseLeave={handleMouseLeave}
                 >
                     <ShadcnIcon
-                        className="w-8 h-8 text-black dark:text-white"
+                        className="w-8 h-8 text-foreground"
                         aria-label="Shadcn/ui"
                     />
                     <motion.span
@@ -139,7 +139,7 @@ export default function Features() {
                         ease: [0.23, 1, 0.32, 1],
                     }}
                     className={cn(
-                        "text-black dark:text-white flex flex-col items-center gap-2 relative col-span-1 col-start-1 md:col-auto"
+                        "text-foreground flex flex-col items-center gap-2 relative col-span-1 col-start-1 md:col-auto"
                     )}
                     onMouseEnter={() => handleMouseEnter("Next.js")}
                     onMouseLeave={handleMouseLeave}
@@ -165,7 +165,7 @@ export default function Features() {
                         ease: [0.23, 1, 0.32, 1],
                     }}
                     className={cn(
-                        "text-black dark:text-white flex flex-col items-center gap-2 relative col-span-1 col-start-3 md:col-auto"
+                        "text-foreground flex flex-col items-center gap-2 relative col-span-1 col-start-3 md:col-auto"
                     )}
                     onMouseEnter={() => handleMouseEnter("React")}
                     onMouseLeave={handleMouseLeave}

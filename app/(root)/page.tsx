@@ -13,7 +13,7 @@ import { TemplatesShowcaseSection } from "@/components/landing/templates-showcas
 // import EventToast from "@/components/event-toast";
 export default function Home() {
   return (
-    <main className="bg-white dark:bg-black/5 overflow-x-hidden">
+    <main className="bg-background overflow-x-hidden">
       <HeroSection />
       <ComponentShowcaseCard className="mb-1" />
       <InteractivePreview />

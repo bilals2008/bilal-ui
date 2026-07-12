@@ -33,18 +33,18 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-16 px-4 bg-zinc-50/50 dark:bg-black/50 border-y-2
-    border-dashed border-zinc-200/50 dark:border-zinc-800/50">
+    <section className="py-16 px-4 bg-muted/50 border-y-2
+    border-dashed border-border/50">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12 space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-sm font-medium">
             <HelpCircle className="w-4 h-4" />
             <span>Got questions?</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
             Frequently Asked Questions
           </h2>
-          <p className="text-zinc-600 dark:text-zinc-400">
+          <p className="text-muted-foreground">
             Everything you need to know about the library.
           </p>
         </div>
@@ -58,8 +58,8 @@ export function FAQSection() {
                 className={cn(
                   "group relative overflow-hidden rounded-lg transition-all duration-300",
                   isOpen
-                    ? "bg-white dark:bg-zinc-900 shadow-xs"
-                    : "hover:bg-zinc-100/50 dark:hover:bg-zinc-800/50",
+                    ? "bg-background shadow-xs"
+                    : "hover:bg-muted/50",
                 )}
               >
                 {/* Indicator Line */}
@@ -79,7 +79,7 @@ export function FAQSection() {
                       "font-medium transition-colors duration-200",
                       isOpen
                         ? "text-purple-600 dark:text-purple-400"
-                        : "text-zinc-900 dark:text-zinc-100",
+                        : "text-foreground",
                     )}
                   >
                     {faq.question}
@@ -89,7 +89,7 @@ export function FAQSection() {
                       "inline-flex h-7 w-7 items-center justify-center rounded-full border transition-colors duration-300",
                       isOpen
                         ? "border-purple-400/60 bg-purple-50 text-purple-600 dark:border-purple-700 dark:bg-purple-900/30 dark:text-purple-400"
-                        : "border-zinc-200 text-zinc-500 group-hover:border-zinc-300 group-hover:text-zinc-700 dark:border-zinc-700 dark:text-zinc-400 dark:group-hover:border-zinc-600 dark:group-hover:text-zinc-200",
+                        : "border-border text-muted-foreground group-hover:border-border group-hover:text-foreground",
                     )}
                     aria-hidden="true"
                   >
@@ -104,7 +104,7 @@ export function FAQSection() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
-                      <div className="px-4 sm:px-6 pb-6 pt-0 text-zinc-600 dark:text-zinc-400 leading-relaxed pl-6 sm:pl-8 border-l border-zinc-100 dark:border-zinc-800 ml-0">
+                      <div className="px-4 sm:px-6 pb-6 pt-0 text-muted-foreground leading-relaxed pl-6 sm:pl-8 border-l border-border ml-0">
                         {faq.answer}
                       </div>
                     </motion.div>

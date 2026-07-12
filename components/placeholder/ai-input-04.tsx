@@ -29,7 +29,7 @@ export default function AIInput_04() {
                             id="ai-input-04"
                             value={value}
                             placeholder="Search the web..."
-                            className="w-full rounded-xl rounded-b-none px-4 py-3 bg-black/5 dark:bg-white/5 border-none dark:text-white placeholder:text-black/70 dark:placeholder:text-white/70 resize-none focus-visible:ring-0 leading-[1.2]"
+                            className="w-full rounded-xl rounded-b-none px-4 py-3 bg-muted border-none text-foreground placeholder:text-muted-foreground resize-none focus-visible:ring-0 leading-[1.2]"
                             ref={textareaRef}
                             onKeyDown={(e) => {
                                 if (e.key === "Enter" && !e.shiftKey) {
@@ -44,11 +44,11 @@ export default function AIInput_04() {
                         />
                     </div>
 
-                    <div className="h-12 bg-black/5 dark:bg-white/5 rounded-b-xl">
+                    <div className="h-12 bg-muted rounded-b-xl">
                         <div className="absolute left-3 bottom-3 flex items-center gap-2">
-                            <label className="cursor-pointer rounded-lg p-2 bg-black/5 dark:bg-white/5">
+                            <label className="cursor-pointer rounded-lg p-2 bg-muted">
                                 <input type="file" className="hidden" />
-                                <Paperclip className="w-4 h-4 text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white transition-colors" />
+                                <Paperclip className="w-4 h-4 text-muted-foreground hover:text-foreground transition-colors" />
                             </label>
                             <button
                                 type="button"
@@ -59,7 +59,7 @@ export default function AIInput_04() {
                                     "rounded-full transition-all flex items-center gap-2 px-1.5 py-1 border h-8 cursor-pointer",
                                     showSearch
                                         ? "bg-sky-500/15 border-sky-400 text-sky-500"
-                                        : "bg-black/5 dark:bg-white/5 border-transparent text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white "
+                                        : "bg-muted border-transparent text-muted-foreground hover:text-foreground"
                                 )}
                             >
                                 <div className="w-4 h-4 flex items-center justify-center shrink-0">
@@ -119,7 +119,7 @@ export default function AIInput_04() {
                                     "rounded-lg p-2 transition-colors",
                                     value
                                         ? "bg-sky-500/15 text-sky-500"
-                                        : "bg-black/5 dark:bg-white/5 text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white cursor-pointer"
+                                        : "bg-muted text-muted-foreground hover:text-foreground cursor-pointer"
                                 )}
                             >
                                 <Send className="w-4 h-4" />
