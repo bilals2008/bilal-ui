@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gradient-text",
+  "title": "Gradient Text",
+  "description": "Reusable brand gradient text component (rose to fuchsia to purple).",
+  "files": [
+    {
+      "path": "registry/ui/gradient-text.tsx",
+      "content": "import * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\n\ninterface GradientTextProps extends React.ComponentProps<\"span\"> {\n  /** Use the brand gradient (rose → fuchsia → purple). */\n  variant?: \"brand\" | \"brand-reverse\" | \"brand-dark-only\";\n}\n\nconst brandGradient =\n  \"bg-linear-to-r from-rose-500 via-fuchsia-500 to-purple-500 \" +\n  \"dark:from-rose-400 dark:via-fuchsia-400 dark:to-purple-400\";\n\nconst brandReverseGradient =\n  \"bg-linear-to-r from-purple-500 via-fuchsia-500 to-rose-500 \" +\n  \"dark:from-purple-400 dark:via-fuchsia-400 dark:to-rose-400\";\n\nexport function GradientText({\n  variant = \"brand\",\n  className,\n  children,\n  ...props\n}: GradientTextProps) {\n  const gradient =\n    variant === \"brand-reverse\" ? brandReverseGradient : brandGradient;\n\n  return (\n    <span\n      className={cn(\n        \"bg-clip-text text-transparent\",\n        gradient,\n        className,\n      )}\n      {...props}\n    >\n      {children}\n    </span>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,32 @@
+{
+  "items": [
+    {
+      "name": "header",
+      "type": "registry:ui",
+      "title": "Header",
+      "description": "Site header with navigation, mobile menu, and command palette.",
+      "files": [
+        {
+          "path": "Header.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": ["lucide-react", "next"],
+      "registryDependencies": ["@bilal-ui/utils", "@bilal-ui/badge", "@bilal-ui/gradient-text"]
+    },
+    {
+      "name": "footer",
+      "type": "registry:ui",
+      "title": "Footer",
+      "description": "Site footer with links and copyright.",
+      "files": [
+        {
+          "path": "Footer.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": ["lucide-react", "motion", "next"],
+      "registryDependencies": ["@bilal-ui/utils"]
+    }
+  ]
+}

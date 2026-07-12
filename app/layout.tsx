@@ -1,6 +1,6 @@
 // File: app/layout.tsx
 import type { Metadata } from "next";
-import { Geist_Mono, Poppins } from "next/font/google";
+import { Geist_Mono, Poppins, Public_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -25,9 +25,15 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://bilal-ui.vercel.app"),
 };
 
+import { TooltipProvider } from "@/components/ui/tooltip";
+
 import { ViewTransitions } from "next-view-transitions";
 
 import { Toaster } from "@/components/ui/sonner";
+import { cn } from "@/lib/utils";
+
+const publicSans = Public_Sans({subsets:['latin'],variable:'--font-sans'});
+
 
 export default function RootLayout({
   children,
@@ -36,7 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <ViewTransitions>
-      <html lang="en" suppressHydrationWarning>
+      <html lang="en" suppressHydrationWarning className={cn("font-sans", publicSans.variable)}>
         <body
           className={`${geistMono.variable} ${inter.variable} antialiased`}
         >
@@ -46,8 +52,10 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
-            <Toaster />
+            <TooltipProvider>
+              {children}
+              <Toaster />
+            </TooltipProvider>
           </ThemeProvider>
         </body>
       </html>

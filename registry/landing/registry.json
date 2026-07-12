@@ -1,0 +1,170 @@
+{
+  "items": [
+    {
+      "name": "component-showcase-card",
+      "type": "registry:block",
+      "title": "Component Showcase Card",
+      "description": "Grid showcase of UI components with live previews.",
+      "files": [
+        {
+          "path": "component-showcase-card.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "registryDependencies": ["@bilal-ui/utils", "@bilal-ui/gradient-text"]
+    },
+    {
+      "name": "cta-section",
+      "type": "registry:block",
+      "title": "CTA Section",
+      "description": "Call-to-action section with buttons.",
+      "files": [
+        {
+          "path": "cta-section.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["@bilal-ui/utils"]
+    },
+    {
+      "name": "faq-section",
+      "type": "registry:block",
+      "title": "FAQ Section",
+      "description": "Frequently asked questions section with accordion.",
+      "files": [
+        {
+          "path": "faq-section.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": ["@bilal-ui/utils"]
+    },
+    {
+      "name": "feature-block",
+      "type": "registry:block",
+      "title": "Feature Block",
+      "description": "Feature grid block with icons.",
+      "files": [
+        {
+          "path": "feature-block.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": ["motion"],
+      "registryDependencies": ["@bilal-ui/utils"]
+    },
+    {
+      "name": "hero",
+      "type": "registry:block",
+      "title": "Hero Section",
+      "description": "Main hero section with grid layout and preview cards.",
+      "files": [
+        {
+          "path": "hero.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": ["@bilal-ui/utils"]
+    },
+    {
+      "name": "interactive-preview",
+      "type": "registry:block",
+      "title": "Interactive Preview",
+      "description": "Interactive code/component preview section.",
+      "files": [
+        {
+          "path": "interactive-preview.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": ["@bilal-ui/utils"]
+    },
+    {
+      "name": "interface-cards",
+      "type": "registry:block",
+      "title": "Interface Cards",
+      "description": "Cards showing different interface types.",
+      "files": [
+        {
+          "path": "interfaceCards.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["@bilal-ui/utils"]
+    },
+    {
+      "name": "key-features",
+      "type": "registry:block",
+      "title": "Key Features",
+      "description": "Key features section with animated cards.",
+      "files": [
+        {
+          "path": "key-features.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": ["@bilal-ui/utils"]
+    },
+    {
+      "name": "newsletter",
+      "type": "registry:block",
+      "title": "Newsletter",
+      "description": "Newsletter subscription section.",
+      "files": [
+        {
+          "path": "newsletter.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": ["@bilal-ui/utils", "input-group", "button"]
+    },
+    {
+      "name": "pro-coming-soon",
+      "type": "registry:block",
+      "title": "Pro Coming Soon",
+      "description": "Pro version announcement section.",
+      "files": [
+        {
+          "path": "pro-coming-soon.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["@bilal-ui/utils"]
+    },
+    {
+      "name": "technology-badges",
+      "type": "registry:block",
+      "title": "Technology Badges",
+      "description": "Technology stack badges section.",
+      "files": [
+        {
+          "path": "technology-badges.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": ["lucide-react"]
+    },
+    {
+      "name": "templates-showcase",
+      "type": "registry:block",
+      "title": "Templates Showcase",
+      "description": "Templates showcase section with animated cards.",
+      "files": [
+        {
+          "path": "templates-showcase.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": ["@bilal-ui/utils", "@bilal-ui/badge"]
+    }
+  ]
+}

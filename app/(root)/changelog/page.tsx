@@ -15,21 +15,21 @@ const typeConfig = {
     color: "text-blue-500",
     bg: "bg-blue-500/10",
     label: "Feature",
-    variant: "info" as const,
+    variant: "secondary" as const,
   },
   improvement: {
     icon: Zap,
     color: "text-amber-500",
     bg: "bg-amber-500/10",
     label: "Improvement",
-    variant: "updated" as const,
+    variant: "secondary" as const,
   },
   fix: {
     icon: Bug,
     color: "text-rose-500",
     bg: "bg-rose-500/10",
     label: "Fix",
-    variant: "fix" as const,
+    variant: "destructive" as const,
   },
   internal: {
     icon: Settings,
@@ -79,9 +79,7 @@ export default function ChangelogPage() {
           className="mb-14 text-center sm:mb-16"
         >
           <Badge
-            variant="updated"
-            appearance="outline"
-            size="sm"
+            variant="outline"
             className="mb-5 uppercase tracking-wide"
           >
             {latestVersion

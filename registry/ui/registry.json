@@ -1,0 +1,153 @@
+{
+  "items": [
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "Utils",
+      "description": "Utility functions including cn() for className merging.",
+      "files": [
+        {
+          "path": "utils.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "dependencies": ["clsx", "tailwind-merge"]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Badge with 20+ custom status variants (new, soon, updated, lab, featured, etc.)",
+      "files": [
+        {
+          "path": "badge.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["utils"]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "title": "Spinner",
+      "description": "Loading spinner using Hugeicons.",
+      "files": [
+        {
+          "path": "spinner.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "registryDependencies": ["utils"]
+    },
+    {
+      "name": "gradient-text",
+      "type": "registry:ui",
+      "title": "Gradient Text",
+      "description": "Reusable brand gradient text component (rose to fuchsia to purple).",
+      "files": [
+        {
+          "path": "gradient-text.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "code-block",
+      "type": "registry:ui",
+      "title": "Code Block",
+      "description": "Syntax-highlighted code block using Shiki.",
+      "files": [
+        {
+          "path": "code-block.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": ["shiki"],
+      "registryDependencies": ["utils"]
+    },
+    {
+      "name": "browse-blocks",
+      "type": "registry:ui",
+      "title": "Browse Blocks",
+      "description": "Button to browse all available blocks.",
+      "files": [
+        {
+          "path": "browse-blocks.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": ["utils"]
+    },
+    {
+      "name": "browse-components-button",
+      "type": "registry:ui",
+      "title": "Browse Components Button",
+      "description": "Button to browse all available components.",
+      "files": [
+        {
+          "path": "browse-components-button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": ["utils"]
+    },
+    {
+      "name": "type-table",
+      "type": "registry:ui",
+      "title": "Type Table",
+      "description": "Table for displaying TypeScript type information.",
+      "files": [
+        {
+          "path": "type-table.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": ["class-variance-authority", "lucide-react"],
+      "registryDependencies": ["utils"]
+    },
+    {
+      "name": "grid-pattern",
+      "type": "registry:ui",
+      "title": "Grid Pattern",
+      "description": "Decorative grid background pattern.",
+      "files": [
+        {
+          "path": "grid-pattern.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "callout",
+      "type": "registry:ui",
+      "title": "Callout",
+      "description": "Callout component for info, warning, error, success, tip, and more.",
+      "files": [
+        {
+          "path": "callout.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": ["class-variance-authority", "lucide-react"],
+      "registryDependencies": ["utils"]
+    },
+    {
+      "name": "empty",
+      "type": "registry:ui",
+      "title": "Empty",
+      "description": "Empty state component.",
+      "files": [
+        {
+          "path": "empty.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["utils"]
+    }
+  ]
+}

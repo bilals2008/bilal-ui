@@ -1,14 +1,9 @@
 "use client"
 
-import {
-  CircleCheckIcon,
-  InfoIcon,
-  Loader2Icon,
-  OctagonXIcon,
-  TriangleAlertIcon,
-} from "lucide-react"
 import { useTheme } from "next-themes"
 import { Toaster as Sonner, type ToasterProps } from "sonner"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { CheckmarkCircle02Icon, InformationCircleIcon, Alert02Icon, MultiplicationSignCircleIcon, Loading03Icon } from "@hugeicons/core-free-icons"
 
 const Toaster = ({ ...props }: ToasterProps) => {
   const { theme = "system" } = useTheme()
@@ -18,22 +13,21 @@ const Toaster = ({ ...props }: ToasterProps) => {
       theme={theme as ToasterProps["theme"]}
       className="toaster group"
       icons={{
-        success: <CircleCheckIcon className="size-4 text-emerald-500" />,
-        info: <InfoIcon className="size-4 text-blue-500" />,
-        warning: <TriangleAlertIcon className="size-4 text-amber-500" />,
-        error: <OctagonXIcon className="size-4 text-red-500" />,
-        loading: <Loader2Icon className="size-4 animate-spin" />,
-      }}
-      toastOptions={{
-        classNames: {
-          success:
-            "!bg-emerald-50 !border-emerald-200 !text-emerald-900 dark:!bg-emerald-950/60 dark:!border-emerald-800 dark:!text-emerald-100",
-          error:
-            "!bg-red-50 !border-red-200 !text-red-900 dark:!bg-red-950/60 dark:!border-red-800 dark:!text-red-100",
-          warning:
-            "!bg-amber-50 !border-amber-200 !text-amber-900 dark:!bg-amber-950/60 dark:!border-amber-800 dark:!text-amber-100",
-          info: "!bg-blue-50 !border-blue-200 !text-blue-900 dark:!bg-blue-950/60 dark:!border-blue-800 dark:!text-blue-100",
-        },
+        success: (
+          <HugeiconsIcon icon={CheckmarkCircle02Icon} strokeWidth={2} className="size-4" />
+        ),
+        info: (
+          <HugeiconsIcon icon={InformationCircleIcon} strokeWidth={2} className="size-4" />
+        ),
+        warning: (
+          <HugeiconsIcon icon={Alert02Icon} strokeWidth={2} className="size-4" />
+        ),
+        error: (
+          <HugeiconsIcon icon={MultiplicationSignCircleIcon} strokeWidth={2} className="size-4" />
+        ),
+        loading: (
+          <HugeiconsIcon icon={Loading03Icon} strokeWidth={2} className="size-4 animate-spin" />
+        ),
       }}
       style={
         {
@@ -43,6 +37,11 @@ const Toaster = ({ ...props }: ToasterProps) => {
           "--border-radius": "var(--radius)",
         } as React.CSSProperties
       }
+      toastOptions={{
+        classNames: {
+          toast: "cn-toast",
+        },
+      }}
       {...props}
     />
   )

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "footer",
+  "title": "Footer",
+  "description": "Site footer with links and copyright.",
+  "dependencies": [
+    "lucide-react",
+    "motion",
+    "next"
+  ],
+  "registryDependencies": [
+    "@bilal-ui/utils"
+  ],
+  "files": [
+    {
+      "path": "registry/layout/Footer.tsx",
+      "content": "// File: components/footer/Footer.tsx\r\n\"use client\";\r\n\r\nimport Link from \"next/link\";\r\nimport { Github, Twitter } from \"lucide-react\";\r\nimport { motion } from \"motion/react\";\r\n\r\nexport function Footer() {\r\n  return (\r\n    <footer className=\"border-t-2 border-dashed border-border/50 bg-background\">\r\n      <div className=\"mx-auto max-w-7xl px-6 py-4 md:py-6 lg:px-8\">\r\n        <div className=\"flex flex-col md:flex-row justify-between items-center gap-6\">\r\n          <div className=\"flex flex-col md:flex-row items-center gap-4 md:gap-6\">\r\n            <p className=\"text-sm text-muted-foreground font-medium\">\r\n              &copy; {new Date().getFullYear()} Bilal UI. All rights reserved.\r\n            </p>\r\n            <div className=\"flex items-center gap-4\">\r\n              <Link\r\n                href=\"https://github.com/bilals2008\"\r\n                className=\"text-muted-foreground hover:text-foreground transition-colors\"\r\n                target=\"_blank\"\r\n                rel=\"noopener noreferrer\"\r\n              >\r\n                <span className=\"sr-only\">GitHub</span>\r\n                <Github className=\"h-4 w-4\" />\r\n              </Link>\r\n              <Link\r\n                href=\"https://x.com/MBH7555\"\r\n                target=\"_blank\"\r\n                rel=\"noopener noreferrer\"\r\n                className=\"text-muted-foreground hover:text-foreground transition-colors\"\r\n              >\r\n                <span className=\"sr-only\">Twitter</span>\r\n                <Twitter className=\"h-4 w-4\" />\r\n              </Link>\r\n            </div>\r\n          </div>\r\n\r\n          <motion.p\r\n            initial={{ opacity: 0 }}\r\n            whileInView={{ opacity: 1 }}\r\n            className=\"text-sm text-muted-foreground flex items-center gap-1.5 font-medium group cursor-default\"\r\n          >\r\n            Crafted with{\" \"}\r\n            <motion.span\r\n              animate={{\r\n                scale: [1, 1.25, 1],\r\n              }}\r\n              transition={{\r\n                duration: 1.5,\r\n                repeat: Infinity,\r\n                ease: \"easeInOut\",\r\n              }}\r\n              className=\"text-red-500 inline-block drop-shadow-[0_0_8px_rgba(239,68,68,0.4)]\"\r\n            >\r\n              ❤️\r\n            </motion.span>{\" \"}\r\n            by{\" \"}\r\n            <span className=\"font-bold bg-clip-text text-transparent bg-linear-to-r from-rose-500 via-fuchsia-500 to-purple-500 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.4)]\">\r\n              Bilal\r\n            </span>\r\n            .\r\n          </motion.p>\r\n        </div>\r\n      </div>\r\n    </footer>\r\n  );\r\n}\r\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

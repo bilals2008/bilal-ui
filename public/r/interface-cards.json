@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "interface-cards",
+  "title": "Interface Cards",
+  "description": "Cards showing different interface types.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "@bilal-ui/utils"
+  ],
+  "files": [
+    {
+      "path": "registry/landing/interfaceCards.tsx",
+      "content": "// File: components/landing/interfaceCards.tsx\r\nimport Link from \"next/link\";\r\nimport { ArrowRight, Github, Zap } from \"lucide-react\";\r\nimport AIInput_04 from \"../placeholder/ai-input-04\";\r\n\r\nfunction Header() {\r\n  return (\r\n    <div className=\"flex flex-col items-center text-center\">\r\n      <h2 className=\"text-4xl sm:text-5xl font-bold tracking-tight\">\r\n        <span className=\"bg-clip-text text-transparent bg-linear-to-r from-amber-500 to-pink-500 dark:from-amber-400 dark:to-pink-400\">\r\n          Build beautiful interfaces\r\n        </span>\r\n      </h2>\r\n      <p className=\"mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl\">\r\n        A collection of UI components that you can copy and paste into your\r\n        apps.\r\n      </p>\r\n      <p className=\"mt-2 text-base text-muted-foreground\">\r\n        Accessible. Open Source.\r\n      </p>\r\n    </div>\r\n  );\r\n}\r\n\r\ninterface BuildInterfacesCardProps {\r\n  className: string;\r\n}\r\n\r\nexport function BuildInterfacesCard({ className }: BuildInterfacesCardProps) {\r\n  return (\r\n    <div className={className}>\r\n      <div className=\"h-full flex flex-col justify-between items-center\">\r\n        <Header />\r\n        <div className=\"w-full flex flex-col items-center\">\r\n         \r\n          <AIInput_04 />\r\n        </div>\r\n\r\n        <div className=\"flex flex-wrap gap-4 mt-8 justify-center\">\r\n          <Link\r\n            href=\"/docs\"\r\n            className=\"group inline-flex items-center gap-2 px-6 py-3 rounded-lg \r\n                            bg-linear-to-r from-primary to-primary/80\r\n                            text-primary-foreground \r\n                            hover:scale-105 active:scale-95\r\n                            transition-all duration-200 ease-in-out\"\r\n          >\r\n            <Zap className=\"w-4 h-4 group-hover:rotate-12 transition-transform\" />\r\n            <span className=\"font-medium\">Explore Components</span>\r\n            <ArrowRight className=\"w-4 h-4 group-hover:translate-x-1 transition-transform\" />\r\n          </Link>\r\n\r\n          <Link\r\n            href=\"#\"\r\n            target=\"_blank\"\r\n            className=\"group inline-flex items-center gap-2 px-6 py-3 rounded-lg\r\n                            border border-border\r\n                            hover:bg-muted\r\n                            hover:scale-105 active:scale-95\r\n                            transition-all duration-200\"\r\n          >\r\n            <Github className=\"w-4 h-4 group-hover:scale-110 transition-transform\" />\r\n            <span className=\"font-medium\">View on GitHub</span>\r\n            <ArrowRight className=\"w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all\" />\r\n          </Link>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block"
+}

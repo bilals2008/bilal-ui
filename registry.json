@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "bilal-ui",
+  "homepage": "https://bilal-ui.vercel.app",
+  "include": [
+    "registry/ui/registry.json",
+    "registry/landing/registry.json",
+    "registry/hero/registry.json",
+    "registry/placeholder/registry.json",
+    "registry/icons/registry.json",
+    "registry/layout/registry.json"
+  ]
+}

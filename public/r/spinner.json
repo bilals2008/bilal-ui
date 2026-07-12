@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spinner",
+  "title": "Spinner",
+  "description": "Loading spinner using Hugeicons.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/spinner.tsx",
+      "content": "import { cn } from \"@/lib/utils\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\nimport { Loading03Icon } from \"@hugeicons/core-free-icons\"\n\nfunction Spinner({ className, strokeWidth, ...props }: React.ComponentProps<\"svg\">) {\n  return (\n    <HugeiconsIcon icon={Loading03Icon} data-slot=\"spinner\" role=\"status\" aria-label=\"Loading\" className={cn(\"size-4 animate-spin\", className)} {...props} strokeWidth={2} />\n  )\n}\n\nexport { Spinner }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

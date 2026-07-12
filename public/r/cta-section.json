@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cta-section",
+  "title": "CTA Section",
+  "description": "Call-to-action section with buttons.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "@bilal-ui/utils"
+  ],
+  "files": [
+    {
+      "path": "registry/landing/cta-section.tsx",
+      "content": "// File: components/landing/cta-section.tsx\r\n\"use client\";\r\n\r\nimport { ArrowRight, Sparkles } from \"lucide-react\";\r\nimport Link from \"next/link\";\r\n\r\nexport function CTASection() {\r\n  return (\r\n    <section className=\"py-12 px-4 relative overflow-hidden\">\r\n      <div className=\"absolute inset-0 bg-linear-to-b from-transparent to-muted/50 pointer-events-none\" />\r\n\r\n      <div className=\"max-w-4xl mx-auto relative z-10 text-center space-y-8\">\r\n        <div className=\"inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-sm font-medium\">\r\n          <Sparkles className=\"w-4 h-4\" />\r\n          <span>Ready to start building?</span>\r\n        </div>\r\n\r\n        <h2 className=\"text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-foreground\">\r\n          Build your next idea with{\" \"}\r\n          <span className=\"bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-pink-500 dark:from-purple-400 dark:to-pink-400\">\r\n            Bilal UI\r\n          </span>\r\n        </h2>\r\n\r\n        <p className=\"text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed\">\r\n          Join thousands of developers building beautiful applications faster\r\n          than ever. Accessible, customizable, and open source.\r\n        </p>\r\n\r\n        <div className=\"flex flex-col sm:flex-row items-center justify-center gap-4 pt-8\">\r\n          <Link\r\n            href=\"/docs/components/button\"\r\n            className=\"group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full bg-primary px-8 font-medium text-primary-foreground transition-all duration-300 hover:w-44 hover:bg-primary/80 active:scale-95\"\r\n          >\r\n            <div className=\"absolute inset-0 flex items-center justify-center transform-[skew(-12deg)_translateX(-100%)] group-hover:duration-1000 group-hover:transform-[skew(-12deg)_translateX(100%)]\">\r\n              <div className=\"relative h-full w-8 bg-background/20\" />\r\n            </div>\r\n            <span className=\"flex items-center gap-2\">\r\n              Get Started\r\n              <ArrowRight className=\"w-4 h-4 transition-transform -1\" />\r\n            </span>\r\n          </Link>\r\n\r\n          <Link\r\n            href=\"https://github.com/bilals2008/bilal-ui\"\r\n            target=\"_blank\"\r\n            className=\"group inline-flex h-12 items-center justify-center rounded-full border border-border bg-transparent px-8 font-medium text-foreground transition-all duration-300 hover:bg-muted active:scale-95\"\r\n          >\r\n            <span className=\"flex items-center gap-2\">\r\n              View on GitHub\r\n              <ArrowRight className=\"w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300\" />\r\n            </span>\r\n          </Link>\r\n        </div>\r\n      </div>\r\n    </section>\r\n  );\r\n}\r\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block"
+}

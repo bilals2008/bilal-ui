@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-block",
+  "title": "Code Block",
+  "description": "Syntax-highlighted code block using Shiki.",
+  "dependencies": [
+    "shiki"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/code-block.tsx",
+      "content": "// File: components/ui/code-block.tsx\r\nimport * as React from \"react\";\r\nimport { codeToTokens, type ThemedToken } from \"shiki\";\r\n\r\ninterface CodeBlockProps {\r\n  code: string;\r\n  language?: string;\r\n  theme?: string;\r\n}\r\n\r\nexport function CodeBlock({\r\n  code,\r\n  language = \"tsx\",\r\n  theme = \"vitesse-dark\",\r\n}: CodeBlockProps) {\r\n  const [tokens, setTokens] = React.useState<ThemedToken[][]>([]);\r\n  const [loading, setLoading] = React.useState(true);\r\n  const [hasError, setHasError] = React.useState(false);\r\n  const safeCode = code || \"\";\r\n\r\n  React.useEffect(() => {\r\n    let disposed = false;\r\n\r\n    async function highlight() {\r\n      if (!disposed) {\r\n        setLoading(true);\r\n        setHasError(false);\r\n      }\r\n\r\n      try {\r\n        const result = await codeToTokens(safeCode, {\r\n          lang: language as any,\r\n          theme: theme as any,\r\n        });\r\n        if (!disposed) {\r\n          setTokens(result.tokens);\r\n        }\r\n      } catch (error) {\r\n        console.error(\"Shiki highlight error:\", error);\r\n        if (!disposed) {\r\n          setHasError(true);\r\n          setTokens([]);\r\n        }\r\n      } finally {\r\n        if (!disposed) {\r\n          setLoading(false);\r\n        }\r\n      }\r\n    }\r\n\r\n    highlight();\r\n    return () => {\r\n      disposed = true;\r\n    };\r\n  }, [safeCode, language, theme]);\r\n\r\n  if (loading) {\r\n    return (\r\n      <div className=\"flex flex-col gap-2 p-5\" aria-busy=\"true\" aria-live=\"polite\">\r\n        <div className=\"h-4 w-3/4 animate-pulse rounded bg-muted/60\" />\r\n        <div className=\"h-4 w-1/2 animate-pulse rounded bg-muted/60\" />\r\n        <div className=\"h-4 w-2/3 animate-pulse rounded bg-muted/60\" />\r\n      </div>\r\n    );\r\n  }\r\n\r\n  if (hasError || tokens.length === 0) {\r\n    return (\r\n      <pre className=\"p-5 font-mono text-[13px] leading-6 text-foreground\">\r\n        <code>{safeCode}</code>\r\n      </pre>\r\n    );\r\n  }\r\n\r\n  return (\r\n    <div className=\"relative overflow-x-auto\">\r\n      <pre className=\"p-5 font-mono text-[13px] leading-6 antialiased tabular-nums\">\r\n        {tokens.map((line, lineIndex) => (\r\n          <div key={lineIndex} className=\"grid grid-cols-[2.5rem_1fr] items-start\">\r\n            <span className=\"select-none pr-3 text-right text-[11px] text-muted-foreground tabular-nums\">\r\n              {lineIndex + 1}\r\n            </span>\r\n            <span className=\"whitespace-pre\">\r\n              {line.length > 0 ? (\r\n                line.map((token, tokenIndex) => (\r\n                  <span key={tokenIndex} style={{ color: token.color }}>\r\n                    {token.content}\r\n                  </span>\r\n                ))\r\n              ) : (\r\n                <span>{\"\\n\"}</span>\r\n              )}\r\n            </span>\r\n          </div>\r\n        ))}\r\n      </pre>\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

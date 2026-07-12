@@ -1,0 +1,56 @@
+{
+  "items": [
+    {
+      "name": "icons",
+      "type": "registry:lib",
+      "title": "Custom Icons",
+      "description": "Custom SVG icon components for React, Next.js, Tailwind CSS, Shadcn, Motion, and more.",
+      "files": [
+        {
+          "path": "arrow-right-broken.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "arrow25.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "compass.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "conffeti.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "motion.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "nextjs.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "react.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "shadcn.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "tailwindcss.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "v0.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "x-icon.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "items": [
+    {
+      "name": "ai-input-04",
+      "type": "registry:component",
+      "title": "AI Input 04",
+      "description": "AI chat input component with attachments.",
+      "files": [
+        {
+          "path": "ai-input-04.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": ["@bilal-ui/utils"]
+    },
+    {
+      "name": "alert-03",
+      "type": "registry:component",
+      "title": "Alert 03",
+      "description": "Alert notification component.",
+      "files": [
+        {
+          "path": "alert-03.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": ["@bilal-ui/utils"]
+    },
+    {
+      "name": "btn-03",
+      "type": "registry:component",
+      "title": "Button 03",
+      "description": "Styled button component.",
+      "files": [
+        {
+          "path": "btn-03.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": ["@bilal-ui/utils"]
+    },
+    {
+      "name": "btn-14",
+      "type": "registry:component",
+      "title": "Button 14",
+      "description": "Button with icon variant.",
+      "files": [
+        {
+          "path": "btn-14.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": ["@bilal-ui/utils"]
+    },
+    {
+      "name": "card-08",
+      "type": "registry:component",
+      "title": "Card 08",
+      "description": "Media card component with overlay.",
+      "files": [
+        {
+          "path": "card-08.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": ["@bilal-ui/utils"]
+    },
+    {
+      "name": "input-04",
+      "type": "registry:component",
+      "title": "Input 04",
+      "description": "Styled input component with progress.",
+      "files": [
+        {
+          "path": "input-04.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": ["@bilal-ui/utils"]
+    }
+  ]
+}

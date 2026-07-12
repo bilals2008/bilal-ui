@@ -1,0 +1,599 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "bilal-ui",
+  "homepage": "https://bilal-ui.vercel.app",
+  "items": [
+    {
+      "name": "utils",
+      "title": "Utils",
+      "description": "Utility functions including cn() for className merging.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/utils.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "type": "registry:lib"
+    },
+    {
+      "name": "badge",
+      "title": "Badge",
+      "description": "Badge with 20+ custom status variants (new, soon, updated, lab, featured, etc.)",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "spinner",
+      "title": "Spinner",
+      "description": "Loading spinner using Hugeicons.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/spinner.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "gradient-text",
+      "title": "Gradient Text",
+      "description": "Reusable brand gradient text component (rose to fuchsia to purple).",
+      "files": [
+        {
+          "path": "registry/ui/gradient-text.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "code-block",
+      "title": "Code Block",
+      "description": "Syntax-highlighted code block using Shiki.",
+      "dependencies": [
+        "shiki"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/code-block.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "browse-blocks",
+      "title": "Browse Blocks",
+      "description": "Button to browse all available blocks.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/browse-blocks.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "browse-components-button",
+      "title": "Browse Components Button",
+      "description": "Button to browse all available components.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/browse-components-button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "type-table",
+      "title": "Type Table",
+      "description": "Table for displaying TypeScript type information.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/type-table.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "grid-pattern",
+      "title": "Grid Pattern",
+      "description": "Decorative grid background pattern.",
+      "files": [
+        {
+          "path": "registry/ui/grid-pattern.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "callout",
+      "title": "Callout",
+      "description": "Callout component for info, warning, error, success, tip, and more.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/callout.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "empty",
+      "title": "Empty",
+      "description": "Empty state component.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/empty.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "component-showcase-card",
+      "title": "Component Showcase Card",
+      "description": "Grid showcase of UI components with live previews.",
+      "registryDependencies": [
+        "@bilal-ui/utils",
+        "@bilal-ui/gradient-text"
+      ],
+      "files": [
+        {
+          "path": "registry/landing/component-showcase-card.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "cta-section",
+      "title": "CTA Section",
+      "description": "Call-to-action section with buttons.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@bilal-ui/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/landing/cta-section.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "faq-section",
+      "title": "FAQ Section",
+      "description": "Frequently asked questions section with accordion.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@bilal-ui/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/landing/faq-section.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "feature-block",
+      "title": "Feature Block",
+      "description": "Feature grid block with icons.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@bilal-ui/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/landing/feature-block.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "hero",
+      "title": "Hero Section",
+      "description": "Main hero section with grid layout and preview cards.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@bilal-ui/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/landing/hero.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "interactive-preview",
+      "title": "Interactive Preview",
+      "description": "Interactive code/component preview section.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@bilal-ui/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/landing/interactive-preview.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "interface-cards",
+      "title": "Interface Cards",
+      "description": "Cards showing different interface types.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@bilal-ui/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/landing/interfaceCards.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "key-features",
+      "title": "Key Features",
+      "description": "Key features section with animated cards.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@bilal-ui/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/landing/key-features.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "newsletter",
+      "title": "Newsletter",
+      "description": "Newsletter subscription section.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@bilal-ui/utils",
+        "input-group",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/landing/newsletter.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "pro-coming-soon",
+      "title": "Pro Coming Soon",
+      "description": "Pro version announcement section.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@bilal-ui/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/landing/pro-coming-soon.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "technology-badges",
+      "title": "Technology Badges",
+      "description": "Technology stack badges section.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/landing/technology-badges.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "templates-showcase",
+      "title": "Templates Showcase",
+      "description": "Templates showcase section with animated cards.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@bilal-ui/utils",
+        "@bilal-ui/badge"
+      ],
+      "files": [
+        {
+          "path": "registry/landing/templates-showcase.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "ai-input-04",
+      "title": "AI Input 04",
+      "description": "AI chat input component with attachments.",
+      "registryDependencies": [
+        "@bilal-ui/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/placeholder/ai-input-04.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "alert-03",
+      "title": "Alert 03",
+      "description": "Alert notification component.",
+      "registryDependencies": [
+        "@bilal-ui/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/placeholder/alert-03.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "btn-03",
+      "title": "Button 03",
+      "description": "Styled button component.",
+      "registryDependencies": [
+        "@bilal-ui/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/placeholder/btn-03.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "btn-14",
+      "title": "Button 14",
+      "description": "Button with icon variant.",
+      "registryDependencies": [
+        "@bilal-ui/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/placeholder/btn-14.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "card-08",
+      "title": "Card 08",
+      "description": "Media card component with overlay.",
+      "registryDependencies": [
+        "@bilal-ui/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/placeholder/card-08.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "input-04",
+      "title": "Input 04",
+      "description": "Styled input component with progress.",
+      "registryDependencies": [
+        "@bilal-ui/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/placeholder/input-04.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "icons",
+      "title": "Custom Icons",
+      "description": "Custom SVG icon components for React, Next.js, Tailwind CSS, Shadcn, Motion, and more.",
+      "files": [
+        {
+          "path": "registry/icons/arrow-right-broken.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/icons/arrow25.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/icons/compass.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/icons/conffeti.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/icons/motion.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/icons/nextjs.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/icons/react.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/icons/shadcn.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/icons/tailwindcss.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/icons/v0.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/icons/x-icon.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:lib"
+    },
+    {
+      "name": "header",
+      "title": "Header",
+      "description": "Site header with navigation, mobile menu, and command palette.",
+      "dependencies": [
+        "lucide-react",
+        "next"
+      ],
+      "registryDependencies": [
+        "@bilal-ui/utils",
+        "@bilal-ui/badge",
+        "@bilal-ui/gradient-text"
+      ],
+      "files": [
+        {
+          "path": "registry/layout/Header.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "footer",
+      "title": "Footer",
+      "description": "Site footer with links and copyright.",
+      "dependencies": [
+        "lucide-react",
+        "motion",
+        "next"
+      ],
+      "registryDependencies": [
+        "@bilal-ui/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/layout/Footer.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    }
+  ]
+}
