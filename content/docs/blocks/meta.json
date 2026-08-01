@@ -1,5 +1,11 @@
 {
   "pages": [
-    "introduction"
+    "introduction",
+    "hero",
+    "features",
+    "cta",
+    "dashboard",
+    "pricing",
+    "testimonials"
   ]
 }

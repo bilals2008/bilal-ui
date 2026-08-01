@@ -1,7 +1,8 @@
-// File: app/registry/[name]/route.ts
 import { NextResponse } from "next/server"
 import fs from "fs/promises"
+import fsSync from "fs"
 import path from "path"
+import { PRO_COMPONENTS } from "@/config/pro"
 
 const COMPONENTS_DIR_NAME = "bilalUi"
 const EXCLUDED_FROM_INDEX = new Set([
@@ -12,22 +13,93 @@ const EXCLUDED_FROM_INDEX = new Set([
   "TestDemo.tsx",
 ])
 
-// Helper to extract component data from a file
+function getComponentGroupFromPath(filePath: string): string | null {
+  const parts = filePath.replace(/\\/g, "/").split("/");
+  const bilalUiIndex = parts.indexOf("bilalUi");
+  if (bilalUiIndex === -1 || bilalUiIndex + 1 >= parts.length) return null;
+  const group = parts[bilalUiIndex + 1];
+  if (group === "demo" || group === "pricing" || group === "pro") return null;
+  return group;
+}
+
+function isProFile(filePath: string): boolean {
+  const group = getComponentGroupFromPath(filePath);
+  if (!group) return false;
+
+  const config = PRO_COMPONENTS[group];
+  if (!config) return false;
+
+  const filename = path.basename(filePath, path.extname(filePath));
+  const groupDir = path.dirname(filePath);
+  const groupDirname = path.basename(groupDir);
+
+  if (groupDirname !== group) return false;
+
+  try {
+    const allFiles = fsSync.readdirSync(groupDir)
+      .filter(f => f.endsWith(".tsx"))
+      .sort();
+    const index = allFiles.indexOf(`${filename}.tsx`);
+    if (index === -1) return false;
+    return index >= config.freeCount;
+  } catch {
+    return false;
+  }
+}
+
+const PRO_PLACEHOLDER_CONTENT = `"use client";
+
+import { Crown, LockKeyhole, Sparkles } from "lucide-react";
+import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+
+interface ProPlaceholderProps {
+  children?: React.ReactNode;
+}
+
+export function ProPlaceholder({ children }: ProPlaceholderProps) {
+  return (
+    <div className="flex flex-col items-center justify-center gap-4 rounded-xl border border-zinc-200 bg-white px-6 py-12 text-center dark:border-zinc-800 dark:bg-zinc-950">
+      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-100 dark:bg-violet-900/30">
+        <LockKeyhole className="h-6 w-6 text-violet-600 dark:text-violet-400" />
+      </div>
+      <div className="space-y-1">
+        <Badge variant="pro" appearance="outline">
+          <Crown className="h-3 w-3" />
+          Pro Component
+        </Badge>
+        <p className="text-sm text-zinc-500 dark:text-zinc-400">
+          Purchase the Lifetime plan ($15) to unlock this component.
+        </p>
+      </div>
+      <Button asChild>
+        <Link href="/pricing">
+          <Sparkles className="h-3.5 w-3.5" />
+          Unlock with Pro
+        </Link>
+      </Button>
+    </div>
+  );
+}
+`;
+
 async function getComponentData(filePath: string, componentsDir: string) {
   const content = await fs.readFile(filePath, "utf-8")
   const filename = path.basename(filePath, path.extname(filePath))
-  
-  // Extract dependencies
+
+  const isPro = isProFile(filePath);
+  const resolvedContent = isPro ? PRO_PLACEHOLDER_CONTENT : content;
+
   const dependencies = new Set<string>()
   const registryDependencies = new Set<string>()
-  
-  // Regex for imports
+
   const importRegex = /import\s+(?:[\w\s{},*]+)\s+from\s+['"]([^'"]+)['"]/g
   let match
-  
-  while ((match = importRegex.exec(content)) !== null) {
+
+  while ((match = importRegex.exec(resolvedContent)) !== null) {
     const importPath = match[1]
-    
+
     if (importPath.startsWith("@/components/ui/") || importPath.startsWith(`@/components/${COMPONENTS_DIR_NAME}/`)) {
         const depName = path.basename(importPath, path.extname(importPath))
         registryDependencies.add(depName)
@@ -46,18 +118,17 @@ async function getComponentData(filePath: string, componentsDir: string) {
     files: [
       {
         path: relativePath,
-        content: content,
+        content: resolvedContent,
         type: "registry:component"
       }
     ]
   }
 }
 
-// Recursively find all component files
 async function getAllComponentFiles(dir: string, fileList: string[] = []) {
   try {
       const entries = await fs.readdir(dir, { withFileTypes: true })
-      
+
       for (const entry of entries) {
         const fullPath = path.join(dir, entry.name)
         if (entry.isDirectory()) {
@@ -82,7 +153,7 @@ async function findComponentFiles(
 ): Promise<string[]> {
   try {
       const entries = await fs.readdir(dir, { withFileTypes: true })
-      
+
       for (const entry of entries) {
         if (entry.isDirectory()) {
           await findComponentFiles(path.join(dir, entry.name), filename, matches)
@@ -115,13 +186,11 @@ export async function GET(
   { params }: { params: Promise<{ name: string }> }
 ) {
   const { name } = await params
-  
-  // Basic validation & Sanitization
+
   if (!name || !name.endsWith(".json")) {
     return new NextResponse("Invalid request", { status: 400 })
   }
 
-  // Sanitize input to prevent path traversal
   const safeName = path.basename(name)
   if (safeName !== name) {
       return new NextResponse("Invalid request path", { status: 400 })
@@ -130,12 +199,10 @@ export async function GET(
   const componentsDir = path.join(process.cwd(), "components", COMPONENTS_DIR_NAME)
   const componentName = safeName.replace(".json", "")
 
-  // Validate component name format (alphanumeric + hyphens only)
   if (!/^[a-zA-Z0-9-]+$/.test(componentName) && componentName !== "index" && componentName !== "registry") {
        return new NextResponse("Invalid component name", { status: 400 })
   }
 
-  // Handle Index / Registry request
   if (componentName === "index" || componentName === "registry") {
     try {
       const allFiles = await getAllComponentFiles(componentsDir)
@@ -147,7 +214,6 @@ export async function GET(
     }
   }
 
-  // Handle Individual Component request
   const matches = await findComponentFiles(componentsDir, `${componentName}.tsx`)
   const filePath = selectBestMatch(matches, componentName.endsWith("-demo"))
 

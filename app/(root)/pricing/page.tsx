@@ -6,6 +6,9 @@ import {
   PricingFAQ,
   PricingCTA,
 } from "@/components/bilalUi/pricing";
+import { isLemonConfigured } from "@/config/lemon";
+
+const lemonReady = isLemonConfigured();
 
 const plans = [
   {
@@ -44,7 +47,9 @@ const plans = [
     cta: "Get Lifetime Access",
     href: "#",
     popular: true,
+    badge: "Coming Soon",
     comingSoon: true,
+    checkout: false,
   },
 ];
 
@@ -130,7 +135,7 @@ export default function PricingPage() {
       <section className="px-4 pb-20">
         <div className="mx-auto max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           {plans.map((plan) => (
-            <PricingCard key={plan.name} {...plan} />
+            <PricingCard key={plan.name} {...plan} checkout={plan.checkout} />
           ))}
         </div>
       </section>
@@ -148,7 +153,7 @@ export default function PricingPage() {
 
       <PricingCTA
         description="Join the community and get lifetime access to every block, template, and premium component for just $15."
-        primaryCta={{ label: "Get Lifetime Access — $15", href: "#" }}
+        primaryCta={{ label: "Get Lifetime Access — $15", href: lemonReady ? "/api/lemon/checkout" : "#" }}
         secondaryCta={{ label: "Browse Free Components", href: "/docs/components/button" }}
       />
     </main>
